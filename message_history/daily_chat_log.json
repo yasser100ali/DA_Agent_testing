@@ -46,6 +46,116 @@
                                 }
                             ]
                         }
+                    ],
+                    "05_28_2025_Wednesday": [
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "which team is responsible for ai and ai agents?"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "The team responsible for AI and AI agents at Kaiser is the **Data Science Team**.\n\nKey contacts you should reach out to:\n\n### Team:\n- **Data Science Team**\n    - Mission: Specializes in making hospitals more efficient by running simulations and building advanced AI applications, including AI agents for tasks like data analysis, reporting, and general assistance.\n\n### Relevant People:\n- **Liam Smith** (Head of Team)\n    - Contact: smith_liam@company.org\n    - Reason: Oversees all operations in the data science team; responsible for directing the future of data science and AI organization-wide. Good for overall strategy or high-level questions.\n\n- **Olivia Jones** (Lead Data Scientist)\n    - Contact: jones_olivia@company.org\n    - Reason: Leads project development, especially of AI agent applications. Ideal for understanding ongoing AI projects and collaborations.\n\n- **Noah Williams** (Senior Data Scientist)\n    - Contact: williams_noah@company.org\n    - Reason: Builds various AI agents, such as those for converting natural language into SQL queries. Excellent resource for hands-on AI agent development.\n\n- **Emma Brown** (Senior Data Scientist)\n    - Contact: brown_emma@company.org\n    - Reason: Bridges simulation platforms to users via agentic applications. If your interest is in connecting simulations and AI agents, Emma is the go-to.\n\n- **Oliver Davis** (AI Engineer)\n    - Contact: davis_oliver@company.org\n    - Reason: Built the data analyst agent and the foundational agents framework. If you want to understand or build new AI agents, Oliver has deep technical expertise.\n\n### Why These Contacts\nThe Data Science Team is explicitly responsible for all AI and AI agents within Kaiser. The above team members are directly involved with both strategic and technical aspects of AI agent development and deployment. Reaching out to them will connect you with the core knowledge and leadership for all AI-driven initiatives in the organization.\n\nLet me know if you want to be connected directly, or if you have a specific use case so I can point you to the most relevant person!"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "which team is responsible for ai and ai agents?"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "The team responsible for AI and AI agents at Kaiser is the **Data Science Team**.\n\nKey contacts you should reach out to:\n\n### Team:\n- **Data Science Team**\n    - Mission: Specializes in making hospitals more efficient by running simulations and building advanced AI applications, including AI agents for tasks like data analysis, reporting, and general assistance.\n\n### Relevant People:\n- **Liam Smith** (Head of Team)\n    - Contact: smith_liam@company.org\n    - Reason: Oversees all operations in the data science team; responsible for directing the future of data science and AI organization-wide. Good for overall strategy or high-level questions.\n\n- **Olivia Jones** (Lead Data Scientist)\n    - Contact: jones_olivia@company.org\n    - Reason: Leads project development, especially of AI agent applications. Ideal for understanding ongoing AI projects and collaborations.\n\n- **Noah Williams** (Senior Data Scientist)\n    - Contact: williams_noah@company.org\n    - Reason: Builds various AI agents, such as those for converting natural language into SQL queries. Excellent resource for hands-on AI agent development.\n\n- **Emma Brown** (Senior Data Scientist)\n    - Contact: brown_emma@company.org\n    - Reason: Bridges simulation platforms to users via agentic applications. If your interest is in connecting simulations and AI agents, Emma is the go-to.\n\n- **Oliver Davis** (AI Engineer)\n    - Contact: davis_oliver@company.org\n    - Reason: Built the data analyst agent and the foundational agents framework. If you want to understand or build new AI agents, Oliver has deep technical expertise.\n\n### Why These Contacts\nThe Data Science Team is explicitly responsible for all AI and AI agents within Kaiser. The above team members are directly involved with both strategic and technical aspects of AI agent development and deployment. Reaching out to them will connect you with the core knowledge and leadership for all AI-driven initiatives in the organization.\n\nLet me know if you want to be connected directly, or if you have a specific use case so I can point you to the most relevant person!"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "what was yesterday's ocnversation about? summarize briefly"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Yesterday's conversation (05_27_2025_Tuesday) was about basketball analytics and a database query:\n\n- The user asked for reports on the best indicators of high scoring in basketball (finding Usage Percentage (USG Pct) as the top indicator) and on the most important features for determining impactful players (Points (PTS) was most important, followed by USG Pct).\n- There were questions about correlation between usage and points, and the assistant provided correlation values.\n- The user requested a list of employees from an SQL database, and the assistant returned a table of employees and their details.\n\nIn summary: The discussion yesterday focused on basketball analytics (key metrics for scoring and player impact), feature importance analysis, and retrieving a company employee list from a database."
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "which team is responsible for ai and ai agents?"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "The team responsible for AI and AI agents at Kaiser is the **Data Science Team**.\n\nKey contacts you should reach out to:\n\n### Team:\n- **Data Science Team**\n    - Mission: Specializes in making hospitals more efficient by running simulations and building advanced AI applications, including AI agents for tasks like data analysis, reporting, and general assistance.\n\n### Relevant People:\n- **Liam Smith** (Head of Team)\n    - Contact: smith_liam@company.org\n    - Reason: Oversees all operations in the data science team; responsible for directing the future of data science and AI organization-wide. Good for overall strategy or high-level questions.\n\n- **Olivia Jones** (Lead Data Scientist)\n    - Contact: jones_olivia@company.org\n    - Reason: Leads project development, especially of AI agent applications. Ideal for understanding ongoing AI projects and collaborations.\n\n- **Noah Williams** (Senior Data Scientist)\n    - Contact: williams_noah@company.org\n    - Reason: Builds various AI agents, such as those for converting natural language into SQL queries. Excellent resource for hands-on AI agent development.\n\n- **Emma Brown** (Senior Data Scientist)\n    - Contact: brown_emma@company.org\n    - Reason: Bridges simulation platforms to users via agentic applications. If your interest is in connecting simulations and AI agents, Emma is the go-to.\n\n- **Oliver Davis** (AI Engineer)\n    - Contact: davis_oliver@company.org\n    - Reason: Built the data analyst agent and the foundational agents framework. If you want to understand or build new AI agents, Oliver has deep technical expertise.\n\n### Why These Contacts\nThe Data Science Team is explicitly responsible for all AI and AI agents within Kaiser. The above team members are directly involved with both strategic and technical aspects of AI agent development and deployment. Reaching out to them will connect you with the core knowledge and leadership for all AI-driven initiatives in the organization.\n\nLet me know if you want to be connected directly, or if you have a specific use case so I can point you to the most relevant person!"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "what was yesterday's ocnversation about? summarize briefly"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Yesterday's conversation (05_27_2025_Tuesday) was about basketball analytics and a database query:\n\n- The user asked for reports on the best indicators of high scoring in basketball (finding Usage Percentage (USG Pct) as the top indicator) and on the most important features for determining impactful players (Points (PTS) was most important, followed by USG Pct).\n- There were questions about correlation between usage and points, and the assistant provided correlation values.\n- The user requested a list of employees from an SQL database, and the assistant returned a table of employees and their details.\n\nIn summary: The discussion yesterday focused on basketball analytics (key metrics for scoring and player impact), feature importance analysis, and retrieving a company employee list from a database."
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "from yesterday's conversation, what was the correlation between usage pct and pts?"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "From yesterday's conversation (05_27_2025_Tuesday), the correlation between Usage Percentage (USG Pct) and Points (PTS) was reported as:\n\nUSG_PCT vs PTS: 0.803311\n\nThis indicates a very strong positive relationship between usage percentage and points scored."
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "which team is responsible for ai and ai agents?"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "The team responsible for AI and AI agents at Kaiser is the **Data Science Team**.\n\nKey contacts you should reach out to:\n\n### Team:\n- **Data Science Team**\n    - Mission: Specializes in making hospitals more efficient by running simulations and building advanced AI applications, including AI agents for tasks like data analysis, reporting, and general assistance.\n\n### Relevant People:\n- **Liam Smith** (Head of Team)\n    - Contact: smith_liam@company.org\n    - Reason: Oversees all operations in the data science team; responsible for directing the future of data science and AI organization-wide. Good for overall strategy or high-level questions.\n\n- **Olivia Jones** (Lead Data Scientist)\n    - Contact: jones_olivia@company.org\n    - Reason: Leads project development, especially of AI agent applications. Ideal for understanding ongoing AI projects and collaborations.\n\n- **Noah Williams** (Senior Data Scientist)\n    - Contact: williams_noah@company.org\n    - Reason: Builds various AI agents, such as those for converting natural language into SQL queries. Excellent resource for hands-on AI agent development.\n\n- **Emma Brown** (Senior Data Scientist)\n    - Contact: brown_emma@company.org\n    - Reason: Bridges simulation platforms to users via agentic applications. If your interest is in connecting simulations and AI agents, Emma is the go-to.\n\n- **Oliver Davis** (AI Engineer)\n    - Contact: davis_oliver@company.org\n    - Reason: Built the data analyst agent and the foundational agents framework. If you want to understand or build new AI agents, Oliver has deep technical expertise.\n\n### Why These Contacts\nThe Data Science Team is explicitly responsible for all AI and AI agents within Kaiser. The above team members are directly involved with both strategic and technical aspects of AI agent development and deployment. Reaching out to them will connect you with the core knowledge and leadership for all AI-driven initiatives in the organization.\n\nLet me know if you want to be connected directly, or if you have a specific use case so I can point you to the most relevant person!"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "what was yesterday's ocnversation about? summarize briefly"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Yesterday's conversation (05_27_2025_Tuesday) was about basketball analytics and a database query:\n\n- The user asked for reports on the best indicators of high scoring in basketball (finding Usage Percentage (USG Pct) as the top indicator) and on the most important features for determining impactful players (Points (PTS) was most important, followed by USG Pct).\n- There were questions about correlation between usage and points, and the assistant provided correlation values.\n- The user requested a list of employees from an SQL database, and the assistant returned a table of employees and their details.\n\nIn summary: The discussion yesterday focused on basketball analytics (key metrics for scoring and player impact), feature importance analysis, and retrieving a company employee list from a database."
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "from yesterday's conversation, what was the correlation between usage pct and pts?"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "From yesterday's conversation (05_27_2025_Tuesday), the correlation between Usage Percentage (USG Pct) and Points (PTS) was reported as:\n\nUSG_PCT vs PTS: 0.803311\n\nThis indicates a very strong positive relationship between usage percentage and points scored."
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "from yesterday's conversation, what were the most important factors for determining high scoring"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "From yesterday's conversation (Tuesday, May 27th), the most important factors for determining high scoring in basketball were:\n\n1. **Usage Percentage (USG Pct):**\n   - Identified as the single strongest indicator of high scoring. \n   - Highest correlation with points scored (correlation = 0.803).\n   - Dominated feature importance and had a large, significant regression coefficient.\n\n2. **True Shooting Percentage (TS Pct):**\n   - Moderate but meaningful correlation with points (correlation = 0.28).\n   - Second highest in predictive importance.\n\n3. **Assists (AST) and Rebounds (REB):**\n   - Both had positive, statistically significant contributions.\n   - AST correlation with points was 0.28, with smaller but significant feature importance.\n\n**Summary of key evidence from yesterday:**  \nUsage Percentage (USG Pct) is by far the best predictor of high scoring, supported to a lesser extent by True Shooting Percentage, Assists, and Rebounds. Other features contributed much less or had negative effects. \n\nIf you want a detailed table or further breakdown, let me know!"
+                                }
+                            ]
+                        }
                     ]
                 }
             }

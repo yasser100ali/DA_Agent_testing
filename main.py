@@ -402,12 +402,6 @@ def _populate_message_history_object():
     
     st.session_state.message_history = processed_message_history
 
-def get_current_time_components():
-    now = datetime.datetime.now()
-    month_name = now.strftime("%m")
-    week_number = now.isocalendar()[1]
-    date_day_key = now.strftime("%m_%d_%Y_%A")
-    return month_name, week_number, date_day_key
 
 def load_daily_log(filepath=DAILY_LOG_FILEPATH):
     """Loads the daily log from a JSON file. Returns empty dict if file not found or invalid JSON."""
@@ -446,7 +440,7 @@ def update_and_log_daily_history():
         # st.sidebar.warning("No message history in current session to log.")
         return
 
-    month_name, week_number, date_day_key = get_current_time_components()
+    month_name, week_number, date_day_key = utils.get_current_time_components()
     daily_log_data = load_daily_log()
 
     month_entry = daily_log_data.setdefault(month_name, {})

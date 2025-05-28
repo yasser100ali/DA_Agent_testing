@@ -5,7 +5,7 @@ import time
 
 
 class Agent:
-    def __init__(self, user_input, local_var):
+    def __init__(self, user_input, local_var=None):
         self.user_input = user_input
         self.local_var = local_var
 
@@ -17,12 +17,12 @@ class Agent:
             
         return effective_user_input 
         
-    def json_agent(self, job, model, user_input=None, is_visible=False): 
+    def json_agent(self, system_prompt, model=None, user_input=None, is_visible=False): 
         # job here is the specific work that the agent will be specified to do 
         # you also have to specify the case where the orchestrator asks the user for clarification
 
             
-        system_prompt = """
+        general_system_prompt = """
 
         You are to output your response in markdown json.
 
@@ -33,10 +33,10 @@ class Agent:
         }
         ```
         """
-        system_prompt += job
+        general_system_prompt += system_prompt 
         
         real_input = self._user_input(user_input)
-        response = utils.get_response(system_prompt, real_input, model)
+        response = utils.get_response(general_system_prompt, real_input, model)
         
         output = utils.display_stream(response, visible=is_visible)
 
@@ -44,8 +44,8 @@ class Agent:
         
         return json
         
-    def coder(self, job, model, user_input=None, max_tries=3, hide_code=False):
-        system_prompt = """
+    def coder(self, system_prompt, model=None, user_input=None, max_tries=3, hide_code=False):
+        general_system_prompt = """
         You are a coder agent. 
 
         Output your code in the following format: 
@@ -56,10 +56,10 @@ class Agent:
             return ... (return the main variable that contains the information or item you need)
         ```
         """
-        system_prompt += job
+        general_system_prompt += system_prompt
 
         real_input = self._user_input(user_input)
-        return self._generate_and_execute_code(system_prompt, max_tries, model, real_input, hide_code)
+        return self._generate_and_execute_code(general_system_prompt, max_tries, model, real_input, hide_code)
 
     def _generate_and_execute_code(self, system_prompt, remaining_tries, model, user_input, hide_code):
         response = utils.get_response(system_prompt, user_input, model)
@@ -113,7 +113,7 @@ class Agent:
         else:
             return result, code
         
-    def reporter(self, job, model, user_input=None):
+    def reporter(self, job, model=None, user_input=None):
         system_prompt = """
         You are part of a multi-agent data analyst system.
         Your job is to take the outputs of the previous agents (usually a coder agent which produces some output) and delegate the findings to user based on the user input. 
@@ -127,7 +127,7 @@ class Agent:
 
         return output
         
-    def chat(self, system_prompt, model):
+    def chat(self, system_prompt, model=None):
         response = utils.get_response(system_prompt, self.user_input, model)
         content = utils.display_stream(response)
 

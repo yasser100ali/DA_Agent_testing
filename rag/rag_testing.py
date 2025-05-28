@@ -6,7 +6,6 @@ import time
 import utils 
 import streamlit as st
 
-st.text_area('hi')
 
 # Function to load documents from a file
 def load_documents(file_path):

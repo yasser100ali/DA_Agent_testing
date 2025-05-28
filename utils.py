@@ -13,8 +13,9 @@ import pandas as pd
 import uuid
 import numpy as np
 import time
-import difflib
+import datetime
 #import ollama
+
 
 is_local_hosting=False
 
@@ -535,117 +536,6 @@ def convert_features_list_to_array(features_list):
     result_array = list(collected_words_set)
     return result_array
 
-# def auto_correct_code_by_list(code_string: str, correct_words_list: list, similarity_cutoff: float = 0.8) -> str:
-#     """
-#     Auto-corrects words in a code string based on a list of correct words.
-#     It handles exact case-insensitive matches, close matches (fuzzy matching),
-#     and attempts to correct parts of compound words (e.g., underscore_separated).
-
-#     Args:
-#         code_string: The input string containing the code.
-#         correct_words_list: A list of correctly spelled words/phrases.
-#                             The function will try to correct tokens in code_string
-#                             to match entries in this list.
-#         similarity_cutoff: A float between 0 and 1 for difflib.get_close_matches.
-#                            Higher values mean stricter matching.
-#                            (Default is 0.8, which is quite strict).
-
-#     Returns:
-#         The code string with auto-corrections applied.
-#     """
-
-#     # Prepare lookups for efficient checking
-#     lower_to_canonical_map = {word.lower(): word for word in correct_words_list}
-#     correct_words_lowercase_set = set(lower_to_canonical_map.keys())
-
-#     def get_corrected_token(token_str):
-#         """Applies correction logic to a single token."""
-#         # 1. Check for case-insensitive exact match
-#         if token_str.lower() in correct_words_lowercase_set:
-#             # Return with canonical casing from the correct_words_list
-#             return lower_to_canonical_map[token_str.lower()]
-
-#         # 2. If not an exact match, try fuzzy matching for the whole token
-#         close_matches = difflib.get_close_matches(token_str, correct_words_list, n=1, cutoff=similarity_cutoff)
-#         if close_matches:
-#             return close_matches[0]
-
-#         # 3. If no close match for the whole token, and it contains underscores (common in identifiers/constants),
-#         #    try correcting individual parts. This helps with e.g. "SOME_FRENSO_VALUE" -> "SOME_FRESNO_VALUE"
-#         #    if "FRESNO" is in correct_words_list but "SOME_FRENSO_VALUE" is not.
-#         #    It also handles filenames where one part might be misspelled.
-#         if "_" in token_str or "." in token_str: # Also consider '.' for filenames
-#             # Determine separator: prefer underscore if both exist, otherwise pick one that exists
-#             separator = None
-#             if "_" in token_str and "." in token_str: # Heuristic for filenames like "NAME_V1.CSV"
-#                 # If a known correct word matches the whole token, it would have been caught by close_matches already.
-#                 # Here we are trying to fix parts of something not in the list as a whole.
-#                 # For "PREDICTION_0221.CSV", if "." used first: "PREDICTION_0221", "CSV"
-#                 # If "_" used first: "PREDICTION", "0221.CSV" -> this seems better if "0221.CSV" is not a correct word itself.
-#                 # Let's try splitting by underscore first for compound identifiers.
-#                 if "_" in token_str:
-#                     separator = "_"
-#                 else:
-#                     separator = "."
-
-#             elif "_" in token_str:
-#                 separator = "_"
-#             elif "." in token_str:
-#                 separator = "."
-
-#             if separator:
-#                 parts = token_str.split(separator)
-#                 corrected_parts = []
-#                 made_change_in_parts = False
-#                 for i, part_str in enumerate(parts):
-#                     if not part_str and i < len(parts) -1 : # Handle empty string from "A__B" -> "A", "", "B" but not trailing empty from "A." -> "A", ""
-#                         corrected_parts.append("")
-#                         continue
-                    
-#                     corrected_part_val = part_str # Default to original part
-#                     # Try to correct the part
-#                     if part_str.lower() in correct_words_lowercase_set:
-#                         corrected_part_val = lower_to_canonical_map[part_str.lower()]
-#                     else:
-#                         part_close_matches = difflib.get_close_matches(part_str, correct_words_list, n=1, cutoff=similarity_cutoff)
-#                         if part_close_matches:
-#                             corrected_part_val = part_close_matches[0]
-                    
-#                     if corrected_part_val != part_str:
-#                         made_change_in_parts = True
-#                     corrected_parts.append(corrected_part_val)
-                
-#                 if made_change_in_parts:
-#                     return separator.join(corrected_parts)
-        
-#         # If no correction applied, return the original token
-#         return token_str
-
-#     # Regex to find "tokens" in the code.
-#     # This pattern will find sequences of alphanumeric characters, underscores, and dots.
-#     # This should be broad enough to catch identifiers, numbers, and filename-like structures
-#     # that might contain the misspellings.
-#     token_pattern = re.compile(r"([a-zA-Z0-9_.]+)")
-    
-#     last_end_index = 0
-#     result_parts = []
-#     for match in token_pattern.finditer(code_string):
-#         start_index, end_index = match.span()
-#         original_token = match.group(1)
-
-#         # Add the part of the string before the current token
-#         result_parts.append(code_string[last_end_index:start_index])
-        
-#         # Get the corrected version of the token
-#         corrected_token = get_corrected_token(original_token)
-#         result_parts.append(corrected_token)
-        
-#         last_end_index = end_index
-    
-#     # Add any remaining part of the string after the last token
-#     result_parts.append(code_string[last_end_index:])
-    
-#     return "".join(result_parts)
 
 def auto_correct_code_by_list(
     code_string: str,
@@ -783,6 +673,7 @@ def auto_correct_code_by_list(
         return "".join(result_parts)
     
 def is_subset_dictionary(subset_dict, main_dict):
+
     """
     Checks if the first dictionary (subset_dict) is a subset of the second dictionary (main_dict),
     considering nested structures for file and sheet/column organization.
@@ -851,3 +742,11 @@ def is_subset_dictionary(subset_dict, main_dict):
             return False
             
     return True
+
+
+def get_current_time_components():
+    now = datetime.datetime.now()
+    month_name = now.strftime("%m")
+    week_number = now.isocalendar()[1]
+    date_day_key = now.strftime("%m_%d_%Y_%A")
+    return month_name, week_number, date_day_key

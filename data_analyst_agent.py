@@ -3,6 +3,7 @@ from agent_deepinsights import DeepInsightsAgent
 from agent_chat import ChatAgent
 from agent_secretary import SecretaryAI
 from agent_sql_react_testing import sqlAgentReAct
+from agent_memory import MemoryAgent
 #from agent_sql import sqlAgent
 from agents import Agent
 import utils
@@ -17,7 +18,8 @@ class DataAnalystAgent:
             'deepinsights': DeepInsightsAgent,
             'chat': ChatAgent,
             'secretary': SecretaryAI,
-            'sql': sqlAgentReAct
+            'sql': sqlAgentReAct,
+            'memory': MemoryAgent
         }
         
         self.model = "hf.co/bartowski/Qwen2.5-Coder-32B-Instruct-GGUF:Q8_0"
@@ -51,6 +53,9 @@ class DataAnalystAgent:
                 5. "sql" 
                     - when there is a request to pull data from a database. 
                     - When asked to go through a database
+                6. "memory"
+                    - when the user is asking you to recall a previous text-chain or a previous conversation. 
+                    - Whenever asked to look into the past about something that may be from a previous conversation
 
                 give your answer in the following format 
                 example when "base" is the chosen agent. 
@@ -78,10 +83,12 @@ class DataAnalystAgent:
                     - for when the user may need to be connected to someone within the organization
                     - might ask "What can you tell me about team "X" (team name here) or person "Y", what do they do? 
                     - might say "I am having a problem with (problem here), who do you know that could help me with this task?"  
-                5. "sql" 
+                3. "sql" 
                     - when there is a request to pull data from a database. 
                     - When asked to go through a database
-
+                4. "memory"
+                    - when the user is asking you to recall a previous text-chain or a previous conversation. 
+                    - Whenever asked to look into the past about something that may be from a previous conversation
                 give your answer in the following format 
                 ```json
                 {
@@ -123,4 +130,6 @@ class DataAnalystAgent:
             # subagent.sql_agent(self.user_input) # for react style
             subagent.main()
 
-    
+        elif subagent_name == 'memory': 
+            subagent = self.agents[subagent_name](self.user_input)
+            subagent.main()
