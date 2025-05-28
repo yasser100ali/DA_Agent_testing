@@ -1,0 +1,126 @@
+from agent_base import BaseAgent
+from agent_deepinsights import DeepInsightsAgent
+from agent_chat import ChatAgent
+from agent_secretary import SecretaryAI
+from agent_sql_react_testing import sqlAgentReAct
+#from agent_sql import sqlAgent
+from agents import Agent
+import utils
+import streamlit as st
+
+class DataAnalystAgent:
+    def __init__(self, user_input, local_var):
+        self.user_input = user_input
+        self.local_var = local_var
+        self.agents = {
+            'base': BaseAgent,
+            'deepinsights': DeepInsightsAgent,
+            'chat': ChatAgent,
+            'secretary': SecretaryAI,
+            'sql': sqlAgentReAct
+        }
+        
+        self.model = "hf.co/bartowski/Qwen2.5-Coder-32B-Instruct-GGUF:Q8_0"
+
+    def operator(self):
+        if len(st.session_state.dataframes_dict) > 0:
+            system_prompt = """
+                Your task is to read the user prompt and assign it to the appropriate agent. 
+
+                You have 5 agents: "base", "deepinsights", "chat", "secretary", and "sql"
+
+                1. "base"
+                    - for straightforward and simple data analysis tasks, typically singular in approach
+                    - example prompts could be 
+                        - 'Give a scatter plot of (features here)'
+                        - 'Return the following table ...'
+                        - often times will ask for a simple thing (visualization table etc) 
+                        - if a prompt could be answered in a single script, then this is the go to. 
+                2. "deepinsights"
+                    - this is when the user asks for a report. If a prompt requires multiple steps and a report at the end, then go here. 
+                    - most of the time the user will ask for a report or something along these lines. 
+                3. "chat"
+                    - when none of the agents are required and the prompt from the user requires more of a general chat response. 
+                    - often this will ask general frequently asked questions like 'what can you do', or 'how do you work', or 'what are some general tips for...' or 'hi who are you', etc. 
+                4. "secretary"
+                    - for when a question is asked regarding sending emails, reading email, scheduling event on calendar or reading calendar
+                    - for when the user asks who they could get help from within the organization
+                    - for when the user may need to be connected to someone within the organization
+                    - might ask "What can you tell me about team "X" (team name here) or person "Y", what do they do? 
+                    - might say "I am having a problem with (problem here), who do you know that could help me with this task?"  
+                5. "sql" 
+                    - when there is a request to pull data from a database. 
+                    - When asked to go through a database
+
+                give your answer in the following format 
+                example when "base" is the chosen agent. 
+                ```json
+                {
+                    "agent": "base"
+                }
+                ```
+
+               
+            """
+            
+        else: 
+            system_prompt = """
+                Your task is to read the user prompt and assign it to the appropriate agent. 
+
+                You have 3 agents: "chat", "secretary", and "sql"
+
+                1. "chat"
+                    - when none of the agents are required and the prompt from the user requires more of a general chat response. 
+                    - often this will ask general frequently asked questions like 'what can you do', or 'how do you work', or 'what are some general tips for...' or 'hi who are you', etc. 
+                2. "secretary"
+                    - for when a question is asked regarding sending emails, reading email, scheduling event on calendar or reading calendar
+                    - for when the user asks who they could get help from within the organization
+                    - for when the user may need to be connected to someone within the organization
+                    - might ask "What can you tell me about team "X" (team name here) or person "Y", what do they do? 
+                    - might say "I am having a problem with (problem here), who do you know that could help me with this task?"  
+                5. "sql" 
+                    - when there is a request to pull data from a database. 
+                    - When asked to go through a database
+
+                give your answer in the following format 
+                ```json
+                {
+                    "agent": "secretary"
+                }
+                ```
+            """
+        subagent = Agent(self.user_input, self.local_var).json_agent(system_prompt, self.model)['agent']
+
+        return subagent  
+    
+    def main(self):
+        
+        subagent_name = self.operator()
+        
+        if subagent_name != 'chat':
+            st.write(utils.typewriter_effect(f'This task has been assigned to: **{subagent_name} agent**.'))
+
+        if subagent_name == 'base':
+            with st.expander('Base Agent. Code & Work.', expanded=True):
+                subagent = self.agents[subagent_name](self.user_input, self.local_var)
+                result = subagent.main()
+            utils.show_output(result)
+
+        elif subagent_name == 'deepinsights':
+            subagent = self.agents[subagent_name](self.user_input, self.local_var)
+            subagent.main()
+
+        elif subagent_name == 'chat': 
+            subagent = self.agents[subagent_name](self.user_input, self.local_var)
+            subagent.main()
+        
+        elif subagent_name == 'secretary':
+            subagent = self.agents[subagent_name](self.user_input)
+            subagent.main()
+
+        elif subagent_name == 'sql': 
+            subagent = self.agents[subagent_name](self.user_input)
+            # subagent.sql_agent(self.user_input) # for react style
+            subagent.main()
+
+    
