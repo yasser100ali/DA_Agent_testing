@@ -130,4 +130,8 @@ class DataAnalystAgent:
             }
 
         subagent = self.agents[subagent_name](**params)
+<<<<<<< HEAD
         subagent.main()
+=======
+        subagent.main()
+>>>>>>> 781eea61796a3db211d9b7004b474b47f46de96d

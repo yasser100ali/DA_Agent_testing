@@ -851,6 +851,110 @@
                                     "content": "EmployeeId  LastName FirstName                Title  ReportsTo            BirthDate             HireDate           Address        City State Country PostalCode              Phone                Fax                     Email\n0           2   Edwards     Nancy        Sales Manager          1  1958-12-08 00:00:00  2002-05-01 00:00:00      825 8 Ave SW     Calgary    AB  Canada    T2P 2T3  +1 (403) 262-3443  +1 (403) 262-3322     nancy@chinookcorp.com\n1           3   Peacock      Jane  Sales Support Agent          2  1973-08-29 00:00:00  2002-04-01 00:00:00     1111 6 Ave SW     Calgary    AB  Canada    T2P 5M5  +1 (403) 262-3443  +1 (403) 262-6712      jane@chinookcorp.com\n2           4      Park  Margaret  Sales Support Agent          2  1947-09-19 00:00:00  2003-05-03 00:00:00  683 10 Street SW     Calgary    AB  Canada    T2P 5G3  +1 (403) 263-4423  +1 (403) 263-4289  margaret@chinookcorp.com\n3           8  Callahan     Laura             IT Staff          6  1968-01-09 00:00:00  2004-03-04 00:00:00       923 7 ST NW  Lethbridge    AB  Canada    T1H 1Y8  +1 (403) 467-3351  +1 (403) 467-8772     laura@chinookcorp.com"
                                 }
                             ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "get the tables in sql"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Column Name      Data Type\n0       TrackId        INTEGER\n1          Name  NVARCHAR(200)\n2       AlbumId        INTEGER\n3   MediaTypeId        INTEGER\n4       GenreId        INTEGER\n5      Composer  NVARCHAR(220)\n6  Milliseconds        INTEGER\n7         Bytes        INTEGER\n8     UnitPrice  NUMERIC(10,2)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "get the tables in sql"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Column Name      Data Type\n0       TrackId        INTEGER\n1          Name  NVARCHAR(200)\n2       AlbumId        INTEGER\n3   MediaTypeId        INTEGER\n4       GenreId        INTEGER\n5      Composer  NVARCHAR(220)\n6  Milliseconds        INTEGER\n7         Bytes        INTEGER\n8     UnitPrice  NUMERIC(10,2)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "get the list of tables from sql"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Column Names\n0          InvoiceId\n1         CustomerId\n2        InvoiceDate\n3     BillingAddress\n4        BillingCity\n5       BillingState\n6     BillingCountry\n7  BillingPostalCode\n8              Total"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "get the tables in sql"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Column Name      Data Type\n0       TrackId        INTEGER\n1          Name  NVARCHAR(200)\n2       AlbumId        INTEGER\n3   MediaTypeId        INTEGER\n4       GenreId        INTEGER\n5      Composer  NVARCHAR(220)\n6  Milliseconds        INTEGER\n7         Bytes        INTEGER\n8     UnitPrice  NUMERIC(10,2)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "get the list of tables from sql"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Column Names\n0          InvoiceId\n1         CustomerId\n2        InvoiceDate\n3     BillingAddress\n4        BillingCity\n5       BillingState\n6     BillingCountry\n7  BillingPostalCode\n8              Total"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "this is very simple, get the list of tables from sql db"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: RemoteProtocolError\nMessage: peer closed connection without sending complete message body (incomplete chunked read)\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "get the tables in sql"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Column Name      Data Type\n0       TrackId        INTEGER\n1          Name  NVARCHAR(200)\n2       AlbumId        INTEGER\n3   MediaTypeId        INTEGER\n4       GenreId        INTEGER\n5      Composer  NVARCHAR(220)\n6  Milliseconds        INTEGER\n7         Bytes        INTEGER\n8     UnitPrice  NUMERIC(10,2)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "get the list of tables from sql"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Column Names\n0          InvoiceId\n1         CustomerId\n2        InvoiceDate\n3     BillingAddress\n4        BillingCity\n5       BillingState\n6     BillingCountry\n7  BillingPostalCode\n8              Total"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "this is very simple, get the list of tables from sql db"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: RemoteProtocolError\nMessage: peer closed connection without sending complete message body (incomplete chunked read)\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "this is very simple, get the list of tables from sql db"
+                                }
+                            ]
                         }
                     ]
                 }
