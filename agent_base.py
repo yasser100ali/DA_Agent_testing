@@ -3,6 +3,8 @@ from agents import Agent
 from agent_filter_data import filter_data
 import streamlit as st
 import time
+
+
 class BaseAgent:
     def __init__(self, user_input, local_var):
         self.user_input = user_input
@@ -237,6 +239,7 @@ class BaseAgent:
             job = system_prompts[sub_agent]
 
             result, code = agent.coder(job, self.model)        
+            utils.show_output(result)
 
             utils.assistant_message("code", code)
             utils.assistant_message("result", [result])
@@ -249,6 +252,8 @@ class BaseAgent:
             
             
     def main(self):
-        result = self.base()
+        with st.expander('Base Agent. Code & Work.', expanded=True):
+            result = self.base()
+            
 
         return result

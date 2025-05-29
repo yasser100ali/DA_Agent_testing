@@ -3,9 +3,8 @@ from agents import Agent
 
 
 class ChatAgent:
-    def __init__(self, user_input, local_var):
+    def __init__(self, user_input):
         self.user_input = user_input
-        self.local_var = local_var
 
     def chat(self):
         system_prompt = """
@@ -46,7 +45,7 @@ class ChatAgent:
             Answer any other general questions about the application's function or design based on the information above. Be helpful and informative. If a question is about performing data analysis *itself* rather than about *you*, explain that the user should ask the main data analysis agent directly in the primary chat interface.
         """
 
-        agent = Agent(self.user_input, self.local_var)
+        agent = Agent(self.user_input)
         chat = agent.chat(system_prompt, "dummy model")
         utils.assistant_message('chat', chat)
         return chat
