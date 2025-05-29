@@ -43400,3 +43400,881 @@ File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 218, 
 File: <string>, Line: 130, in main
   
 Error: unsupported operand type(s) for +: 'float' and 'Rectangle'
+2025-05-28 17:19:28,271 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 17, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:19:28,271 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 17, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:19:28,271 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 17, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:19:28,271 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 17, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:19:28,271 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 17, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:19:42,897 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 13, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:19:42,897 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 13, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:19:42,897 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 13, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:19:42,897 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 13, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:19:42,897 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 13, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:19:42,897 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 13, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:20:03,358 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 20, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1824, in apply
+  result = self._python_apply_general(f, self._selected_obj)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1885, in _python_apply_general
+  values, mutated = self._grouper.apply_groupwise(f, data, self.axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\ops.py, Line: 919, in apply_groupwise
+  res = f(group)
+File: <string>, Line: 20, in <lambda>
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:20:03,358 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 20, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1824, in apply
+  result = self._python_apply_general(f, self._selected_obj)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1885, in _python_apply_general
+  values, mutated = self._grouper.apply_groupwise(f, data, self.axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\ops.py, Line: 919, in apply_groupwise
+  res = f(group)
+File: <string>, Line: 20, in <lambda>
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:20:03,358 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 20, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1824, in apply
+  result = self._python_apply_general(f, self._selected_obj)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1885, in _python_apply_general
+  values, mutated = self._grouper.apply_groupwise(f, data, self.axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\ops.py, Line: 919, in apply_groupwise
+  res = f(group)
+File: <string>, Line: 20, in <lambda>
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:20:03,358 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 20, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1824, in apply
+  result = self._python_apply_general(f, self._selected_obj)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1885, in _python_apply_general
+  values, mutated = self._grouper.apply_groupwise(f, data, self.axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\ops.py, Line: 919, in apply_groupwise
+  res = f(group)
+File: <string>, Line: 20, in <lambda>
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:20:03,358 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 20, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1824, in apply
+  result = self._python_apply_general(f, self._selected_obj)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1885, in _python_apply_general
+  values, mutated = self._grouper.apply_groupwise(f, data, self.axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\ops.py, Line: 919, in apply_groupwise
+  res = f(group)
+File: <string>, Line: 20, in <lambda>
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:20:03,358 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 20, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1824, in apply
+  result = self._python_apply_general(f, self._selected_obj)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1885, in _python_apply_general
+  values, mutated = self._grouper.apply_groupwise(f, data, self.axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\ops.py, Line: 919, in apply_groupwise
+  res = f(group)
+File: <string>, Line: 20, in <lambda>
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:20:03,358 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 20, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1824, in apply
+  result = self._python_apply_general(f, self._selected_obj)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1885, in _python_apply_general
+  values, mutated = self._grouper.apply_groupwise(f, data, self.axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\ops.py, Line: 919, in apply_groupwise
+  res = f(group)
+File: <string>, Line: 20, in <lambda>
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:20:03,358 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 20, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1824, in apply
+  result = self._python_apply_general(f, self._selected_obj)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py, Line: 1885, in _python_apply_general
+  values, mutated = self._grouper.apply_groupwise(f, data, self.axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\ops.py, Line: 919, in apply_groupwise
+  res = f(group)
+File: <string>, Line: 20, in <lambda>
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py, Line: 4102, in __getitem__
+  indexer = self.columns.get_loc(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'UNITPRICE'
+2025-05-28 17:21:33,803 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 60, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_base.py, Line: 3543, in tick_params
+  self.xaxis.set_tick_params(**xkw)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 960, in set_tick_params
+  kwtrans = self._translate_tick_params(kwargs)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 1109, in _translate_tick_params
+  raise ValueError(
+Error: keyword ha is not recognized; valid keywords are ['size', 'width', 'color', 'tickdir', 'pad', 'labelsize', 'labelcolor', 'labelfontfamily', 'zorder', 'gridOn', 'tick1On', 'tick2On', 'label1On', 'label2On', 'length', 'direction', 'left', 'bottom', 'right', 'top', 'labelleft', 'labelbottom', 'labelright', 'labeltop', 'labelrotation', 'grid_agg_filter', 'grid_alpha', 'grid_animated', 'grid_antialiased', 'grid_clip_box', 'grid_clip_on', 'grid_clip_path', 'grid_color', 'grid_dash_capstyle', 'grid_dash_joinstyle', 'grid_dashes', 'grid_data', 'grid_drawstyle', 'grid_figure', 'grid_fillstyle', 'grid_gapcolor', 'grid_gid', 'grid_in_layout', 'grid_label', 'grid_linestyle', 'grid_linewidth', 'grid_marker', 'grid_markeredgecolor', 'grid_markeredgewidth', 'grid_markerfacecolor', 'grid_markerfacecoloralt', 'grid_markersize', 'grid_markevery', 'grid_mouseover', 'grid_path_effects', 'grid_picker', 'grid_pickradius', 'grid_rasterized', 'grid_sketch_params', 'grid_snap', 'grid_solid_capstyle', 'grid_solid_joinstyle', 'grid_transform', 'grid_url', 'grid_visible', 'grid_xdata', 'grid_ydata', 'grid_zorder', 'grid_aa', 'grid_c', 'grid_ds', 'grid_ls', 'grid_lw', 'grid_mec', 'grid_mew', 'grid_mfc', 'grid_mfcalt', 'grid_ms']
+2025-05-28 17:21:33,803 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 60, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_base.py, Line: 3543, in tick_params
+  self.xaxis.set_tick_params(**xkw)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 960, in set_tick_params
+  kwtrans = self._translate_tick_params(kwargs)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 1109, in _translate_tick_params
+  raise ValueError(
+Error: keyword ha is not recognized; valid keywords are ['size', 'width', 'color', 'tickdir', 'pad', 'labelsize', 'labelcolor', 'labelfontfamily', 'zorder', 'gridOn', 'tick1On', 'tick2On', 'label1On', 'label2On', 'length', 'direction', 'left', 'bottom', 'right', 'top', 'labelleft', 'labelbottom', 'labelright', 'labeltop', 'labelrotation', 'grid_agg_filter', 'grid_alpha', 'grid_animated', 'grid_antialiased', 'grid_clip_box', 'grid_clip_on', 'grid_clip_path', 'grid_color', 'grid_dash_capstyle', 'grid_dash_joinstyle', 'grid_dashes', 'grid_data', 'grid_drawstyle', 'grid_figure', 'grid_fillstyle', 'grid_gapcolor', 'grid_gid', 'grid_in_layout', 'grid_label', 'grid_linestyle', 'grid_linewidth', 'grid_marker', 'grid_markeredgecolor', 'grid_markeredgewidth', 'grid_markerfacecolor', 'grid_markerfacecoloralt', 'grid_markersize', 'grid_markevery', 'grid_mouseover', 'grid_path_effects', 'grid_picker', 'grid_pickradius', 'grid_rasterized', 'grid_sketch_params', 'grid_snap', 'grid_solid_capstyle', 'grid_solid_joinstyle', 'grid_transform', 'grid_url', 'grid_visible', 'grid_xdata', 'grid_ydata', 'grid_zorder', 'grid_aa', 'grid_c', 'grid_ds', 'grid_ls', 'grid_lw', 'grid_mec', 'grid_mew', 'grid_mfc', 'grid_mfcalt', 'grid_ms']
+2025-05-28 17:21:33,803 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 60, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_base.py, Line: 3543, in tick_params
+  self.xaxis.set_tick_params(**xkw)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 960, in set_tick_params
+  kwtrans = self._translate_tick_params(kwargs)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 1109, in _translate_tick_params
+  raise ValueError(
+Error: keyword ha is not recognized; valid keywords are ['size', 'width', 'color', 'tickdir', 'pad', 'labelsize', 'labelcolor', 'labelfontfamily', 'zorder', 'gridOn', 'tick1On', 'tick2On', 'label1On', 'label2On', 'length', 'direction', 'left', 'bottom', 'right', 'top', 'labelleft', 'labelbottom', 'labelright', 'labeltop', 'labelrotation', 'grid_agg_filter', 'grid_alpha', 'grid_animated', 'grid_antialiased', 'grid_clip_box', 'grid_clip_on', 'grid_clip_path', 'grid_color', 'grid_dash_capstyle', 'grid_dash_joinstyle', 'grid_dashes', 'grid_data', 'grid_drawstyle', 'grid_figure', 'grid_fillstyle', 'grid_gapcolor', 'grid_gid', 'grid_in_layout', 'grid_label', 'grid_linestyle', 'grid_linewidth', 'grid_marker', 'grid_markeredgecolor', 'grid_markeredgewidth', 'grid_markerfacecolor', 'grid_markerfacecoloralt', 'grid_markersize', 'grid_markevery', 'grid_mouseover', 'grid_path_effects', 'grid_picker', 'grid_pickradius', 'grid_rasterized', 'grid_sketch_params', 'grid_snap', 'grid_solid_capstyle', 'grid_solid_joinstyle', 'grid_transform', 'grid_url', 'grid_visible', 'grid_xdata', 'grid_ydata', 'grid_zorder', 'grid_aa', 'grid_c', 'grid_ds', 'grid_ls', 'grid_lw', 'grid_mec', 'grid_mew', 'grid_mfc', 'grid_mfcalt', 'grid_ms']
+2025-05-28 17:21:33,803 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 60, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_base.py, Line: 3543, in tick_params
+  self.xaxis.set_tick_params(**xkw)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 960, in set_tick_params
+  kwtrans = self._translate_tick_params(kwargs)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 1109, in _translate_tick_params
+  raise ValueError(
+Error: keyword ha is not recognized; valid keywords are ['size', 'width', 'color', 'tickdir', 'pad', 'labelsize', 'labelcolor', 'labelfontfamily', 'zorder', 'gridOn', 'tick1On', 'tick2On', 'label1On', 'label2On', 'length', 'direction', 'left', 'bottom', 'right', 'top', 'labelleft', 'labelbottom', 'labelright', 'labeltop', 'labelrotation', 'grid_agg_filter', 'grid_alpha', 'grid_animated', 'grid_antialiased', 'grid_clip_box', 'grid_clip_on', 'grid_clip_path', 'grid_color', 'grid_dash_capstyle', 'grid_dash_joinstyle', 'grid_dashes', 'grid_data', 'grid_drawstyle', 'grid_figure', 'grid_fillstyle', 'grid_gapcolor', 'grid_gid', 'grid_in_layout', 'grid_label', 'grid_linestyle', 'grid_linewidth', 'grid_marker', 'grid_markeredgecolor', 'grid_markeredgewidth', 'grid_markerfacecolor', 'grid_markerfacecoloralt', 'grid_markersize', 'grid_markevery', 'grid_mouseover', 'grid_path_effects', 'grid_picker', 'grid_pickradius', 'grid_rasterized', 'grid_sketch_params', 'grid_snap', 'grid_solid_capstyle', 'grid_solid_joinstyle', 'grid_transform', 'grid_url', 'grid_visible', 'grid_xdata', 'grid_ydata', 'grid_zorder', 'grid_aa', 'grid_c', 'grid_ds', 'grid_ls', 'grid_lw', 'grid_mec', 'grid_mew', 'grid_mfc', 'grid_mfcalt', 'grid_ms']
+2025-05-28 17:21:33,803 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 60, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_base.py, Line: 3543, in tick_params
+  self.xaxis.set_tick_params(**xkw)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 960, in set_tick_params
+  kwtrans = self._translate_tick_params(kwargs)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 1109, in _translate_tick_params
+  raise ValueError(
+Error: keyword ha is not recognized; valid keywords are ['size', 'width', 'color', 'tickdir', 'pad', 'labelsize', 'labelcolor', 'labelfontfamily', 'zorder', 'gridOn', 'tick1On', 'tick2On', 'label1On', 'label2On', 'length', 'direction', 'left', 'bottom', 'right', 'top', 'labelleft', 'labelbottom', 'labelright', 'labeltop', 'labelrotation', 'grid_agg_filter', 'grid_alpha', 'grid_animated', 'grid_antialiased', 'grid_clip_box', 'grid_clip_on', 'grid_clip_path', 'grid_color', 'grid_dash_capstyle', 'grid_dash_joinstyle', 'grid_dashes', 'grid_data', 'grid_drawstyle', 'grid_figure', 'grid_fillstyle', 'grid_gapcolor', 'grid_gid', 'grid_in_layout', 'grid_label', 'grid_linestyle', 'grid_linewidth', 'grid_marker', 'grid_markeredgecolor', 'grid_markeredgewidth', 'grid_markerfacecolor', 'grid_markerfacecoloralt', 'grid_markersize', 'grid_markevery', 'grid_mouseover', 'grid_path_effects', 'grid_picker', 'grid_pickradius', 'grid_rasterized', 'grid_sketch_params', 'grid_snap', 'grid_solid_capstyle', 'grid_solid_joinstyle', 'grid_transform', 'grid_url', 'grid_visible', 'grid_xdata', 'grid_ydata', 'grid_zorder', 'grid_aa', 'grid_c', 'grid_ds', 'grid_ls', 'grid_lw', 'grid_mec', 'grid_mew', 'grid_mfc', 'grid_mfcalt', 'grid_ms']
+2025-05-28 17:21:33,803 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 60, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_base.py, Line: 3543, in tick_params
+  self.xaxis.set_tick_params(**xkw)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 960, in set_tick_params
+  kwtrans = self._translate_tick_params(kwargs)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 1109, in _translate_tick_params
+  raise ValueError(
+Error: keyword ha is not recognized; valid keywords are ['size', 'width', 'color', 'tickdir', 'pad', 'labelsize', 'labelcolor', 'labelfontfamily', 'zorder', 'gridOn', 'tick1On', 'tick2On', 'label1On', 'label2On', 'length', 'direction', 'left', 'bottom', 'right', 'top', 'labelleft', 'labelbottom', 'labelright', 'labeltop', 'labelrotation', 'grid_agg_filter', 'grid_alpha', 'grid_animated', 'grid_antialiased', 'grid_clip_box', 'grid_clip_on', 'grid_clip_path', 'grid_color', 'grid_dash_capstyle', 'grid_dash_joinstyle', 'grid_dashes', 'grid_data', 'grid_drawstyle', 'grid_figure', 'grid_fillstyle', 'grid_gapcolor', 'grid_gid', 'grid_in_layout', 'grid_label', 'grid_linestyle', 'grid_linewidth', 'grid_marker', 'grid_markeredgecolor', 'grid_markeredgewidth', 'grid_markerfacecolor', 'grid_markerfacecoloralt', 'grid_markersize', 'grid_markevery', 'grid_mouseover', 'grid_path_effects', 'grid_picker', 'grid_pickradius', 'grid_rasterized', 'grid_sketch_params', 'grid_snap', 'grid_solid_capstyle', 'grid_solid_joinstyle', 'grid_transform', 'grid_url', 'grid_visible', 'grid_xdata', 'grid_ydata', 'grid_zorder', 'grid_aa', 'grid_c', 'grid_ds', 'grid_ls', 'grid_lw', 'grid_mec', 'grid_mew', 'grid_mfc', 'grid_mfcalt', 'grid_ms']
+2025-05-28 17:21:33,803 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 60, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_base.py, Line: 3543, in tick_params
+  self.xaxis.set_tick_params(**xkw)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 960, in set_tick_params
+  kwtrans = self._translate_tick_params(kwargs)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 1109, in _translate_tick_params
+  raise ValueError(
+Error: keyword ha is not recognized; valid keywords are ['size', 'width', 'color', 'tickdir', 'pad', 'labelsize', 'labelcolor', 'labelfontfamily', 'zorder', 'gridOn', 'tick1On', 'tick2On', 'label1On', 'label2On', 'length', 'direction', 'left', 'bottom', 'right', 'top', 'labelleft', 'labelbottom', 'labelright', 'labeltop', 'labelrotation', 'grid_agg_filter', 'grid_alpha', 'grid_animated', 'grid_antialiased', 'grid_clip_box', 'grid_clip_on', 'grid_clip_path', 'grid_color', 'grid_dash_capstyle', 'grid_dash_joinstyle', 'grid_dashes', 'grid_data', 'grid_drawstyle', 'grid_figure', 'grid_fillstyle', 'grid_gapcolor', 'grid_gid', 'grid_in_layout', 'grid_label', 'grid_linestyle', 'grid_linewidth', 'grid_marker', 'grid_markeredgecolor', 'grid_markeredgewidth', 'grid_markerfacecolor', 'grid_markerfacecoloralt', 'grid_markersize', 'grid_markevery', 'grid_mouseover', 'grid_path_effects', 'grid_picker', 'grid_pickradius', 'grid_rasterized', 'grid_sketch_params', 'grid_snap', 'grid_solid_capstyle', 'grid_solid_joinstyle', 'grid_transform', 'grid_url', 'grid_visible', 'grid_xdata', 'grid_ydata', 'grid_zorder', 'grid_aa', 'grid_c', 'grid_ds', 'grid_ls', 'grid_lw', 'grid_mec', 'grid_mew', 'grid_mfc', 'grid_mfcalt', 'grid_ms']
+2025-05-28 17:21:33,803 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 60, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_base.py, Line: 3543, in tick_params
+  self.xaxis.set_tick_params(**xkw)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 960, in set_tick_params
+  kwtrans = self._translate_tick_params(kwargs)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 1109, in _translate_tick_params
+  raise ValueError(
+Error: keyword ha is not recognized; valid keywords are ['size', 'width', 'color', 'tickdir', 'pad', 'labelsize', 'labelcolor', 'labelfontfamily', 'zorder', 'gridOn', 'tick1On', 'tick2On', 'label1On', 'label2On', 'length', 'direction', 'left', 'bottom', 'right', 'top', 'labelleft', 'labelbottom', 'labelright', 'labeltop', 'labelrotation', 'grid_agg_filter', 'grid_alpha', 'grid_animated', 'grid_antialiased', 'grid_clip_box', 'grid_clip_on', 'grid_clip_path', 'grid_color', 'grid_dash_capstyle', 'grid_dash_joinstyle', 'grid_dashes', 'grid_data', 'grid_drawstyle', 'grid_figure', 'grid_fillstyle', 'grid_gapcolor', 'grid_gid', 'grid_in_layout', 'grid_label', 'grid_linestyle', 'grid_linewidth', 'grid_marker', 'grid_markeredgecolor', 'grid_markeredgewidth', 'grid_markerfacecolor', 'grid_markerfacecoloralt', 'grid_markersize', 'grid_markevery', 'grid_mouseover', 'grid_path_effects', 'grid_picker', 'grid_pickradius', 'grid_rasterized', 'grid_sketch_params', 'grid_snap', 'grid_solid_capstyle', 'grid_solid_joinstyle', 'grid_transform', 'grid_url', 'grid_visible', 'grid_xdata', 'grid_ydata', 'grid_zorder', 'grid_aa', 'grid_c', 'grid_ds', 'grid_ls', 'grid_lw', 'grid_mec', 'grid_mew', 'grid_mfc', 'grid_mfcalt', 'grid_ms']
+2025-05-28 17:21:33,803 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 60, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_base.py, Line: 3543, in tick_params
+  self.xaxis.set_tick_params(**xkw)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 960, in set_tick_params
+  kwtrans = self._translate_tick_params(kwargs)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 1109, in _translate_tick_params
+  raise ValueError(
+Error: keyword ha is not recognized; valid keywords are ['size', 'width', 'color', 'tickdir', 'pad', 'labelsize', 'labelcolor', 'labelfontfamily', 'zorder', 'gridOn', 'tick1On', 'tick2On', 'label1On', 'label2On', 'length', 'direction', 'left', 'bottom', 'right', 'top', 'labelleft', 'labelbottom', 'labelright', 'labeltop', 'labelrotation', 'grid_agg_filter', 'grid_alpha', 'grid_animated', 'grid_antialiased', 'grid_clip_box', 'grid_clip_on', 'grid_clip_path', 'grid_color', 'grid_dash_capstyle', 'grid_dash_joinstyle', 'grid_dashes', 'grid_data', 'grid_drawstyle', 'grid_figure', 'grid_fillstyle', 'grid_gapcolor', 'grid_gid', 'grid_in_layout', 'grid_label', 'grid_linestyle', 'grid_linewidth', 'grid_marker', 'grid_markeredgecolor', 'grid_markeredgewidth', 'grid_markerfacecolor', 'grid_markerfacecoloralt', 'grid_markersize', 'grid_markevery', 'grid_mouseover', 'grid_path_effects', 'grid_picker', 'grid_pickradius', 'grid_rasterized', 'grid_sketch_params', 'grid_snap', 'grid_solid_capstyle', 'grid_solid_joinstyle', 'grid_transform', 'grid_url', 'grid_visible', 'grid_xdata', 'grid_ydata', 'grid_zorder', 'grid_aa', 'grid_c', 'grid_ds', 'grid_ls', 'grid_lw', 'grid_mec', 'grid_mew', 'grid_mfc', 'grid_mfcalt', 'grid_ms']
+2025-05-28 17:21:33,803 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 60, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_base.py, Line: 3543, in tick_params
+  self.xaxis.set_tick_params(**xkw)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 960, in set_tick_params
+  kwtrans = self._translate_tick_params(kwargs)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 1109, in _translate_tick_params
+  raise ValueError(
+Error: keyword ha is not recognized; valid keywords are ['size', 'width', 'color', 'tickdir', 'pad', 'labelsize', 'labelcolor', 'labelfontfamily', 'zorder', 'gridOn', 'tick1On', 'tick2On', 'label1On', 'label2On', 'length', 'direction', 'left', 'bottom', 'right', 'top', 'labelleft', 'labelbottom', 'labelright', 'labeltop', 'labelrotation', 'grid_agg_filter', 'grid_alpha', 'grid_animated', 'grid_antialiased', 'grid_clip_box', 'grid_clip_on', 'grid_clip_path', 'grid_color', 'grid_dash_capstyle', 'grid_dash_joinstyle', 'grid_dashes', 'grid_data', 'grid_drawstyle', 'grid_figure', 'grid_fillstyle', 'grid_gapcolor', 'grid_gid', 'grid_in_layout', 'grid_label', 'grid_linestyle', 'grid_linewidth', 'grid_marker', 'grid_markeredgecolor', 'grid_markeredgewidth', 'grid_markerfacecolor', 'grid_markerfacecoloralt', 'grid_markersize', 'grid_markevery', 'grid_mouseover', 'grid_path_effects', 'grid_picker', 'grid_pickradius', 'grid_rasterized', 'grid_sketch_params', 'grid_snap', 'grid_solid_capstyle', 'grid_solid_joinstyle', 'grid_transform', 'grid_url', 'grid_visible', 'grid_xdata', 'grid_ydata', 'grid_zorder', 'grid_aa', 'grid_c', 'grid_ds', 'grid_ls', 'grid_lw', 'grid_mec', 'grid_mew', 'grid_mfc', 'grid_mfcalt', 'grid_ms']
+2025-05-28 17:21:33,803 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 60, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_base.py, Line: 3543, in tick_params
+  self.xaxis.set_tick_params(**xkw)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 960, in set_tick_params
+  kwtrans = self._translate_tick_params(kwargs)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axis.py, Line: 1109, in _translate_tick_params
+  raise ValueError(
+Error: keyword ha is not recognized; valid keywords are ['size', 'width', 'color', 'tickdir', 'pad', 'labelsize', 'labelcolor', 'labelfontfamily', 'zorder', 'gridOn', 'tick1On', 'tick2On', 'label1On', 'label2On', 'length', 'direction', 'left', 'bottom', 'right', 'top', 'labelleft', 'labelbottom', 'labelright', 'labeltop', 'labelrotation', 'grid_agg_filter', 'grid_alpha', 'grid_animated', 'grid_antialiased', 'grid_clip_box', 'grid_clip_on', 'grid_clip_path', 'grid_color', 'grid_dash_capstyle', 'grid_dash_joinstyle', 'grid_dashes', 'grid_data', 'grid_drawstyle', 'grid_figure', 'grid_fillstyle', 'grid_gapcolor', 'grid_gid', 'grid_in_layout', 'grid_label', 'grid_linestyle', 'grid_linewidth', 'grid_marker', 'grid_markeredgecolor', 'grid_markeredgewidth', 'grid_markerfacecolor', 'grid_markerfacecoloralt', 'grid_markersize', 'grid_markevery', 'grid_mouseover', 'grid_path_effects', 'grid_picker', 'grid_pickradius', 'grid_rasterized', 'grid_sketch_params', 'grid_snap', 'grid_solid_capstyle', 'grid_solid_joinstyle', 'grid_transform', 'grid_url', 'grid_visible', 'grid_xdata', 'grid_ydata', 'grid_zorder', 'grid_aa', 'grid_c', 'grid_ds', 'grid_ls', 'grid_lw', 'grid_mec', 'grid_mew', 'grid_mfc', 'grid_mfcalt', 'grid_ms']
+2025-05-28 17:22:09,900 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 97, in main
+  
+Error: name 'np' is not defined
+2025-05-28 17:22:09,900 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 97, in main
+  
+Error: name 'np' is not defined
+2025-05-28 17:22:09,900 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 97, in main
+  
+Error: name 'np' is not defined
+2025-05-28 17:22:09,900 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 97, in main
+  
+Error: name 'np' is not defined
+2025-05-28 17:22:09,900 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 97, in main
+  
+Error: name 'np' is not defined
+2025-05-28 17:22:09,900 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 97, in main
+  
+Error: name 'np' is not defined
+2025-05-28 17:22:09,900 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 97, in main
+  
+Error: name 'np' is not defined
+2025-05-28 17:22:09,900 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 97, in main
+  
+Error: name 'np' is not defined
+2025-05-28 17:22:09,900 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 97, in main
+  
+Error: name 'np' is not defined
+2025-05-28 17:22:09,900 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 97, in main
+  
+Error: name 'np' is not defined
+2025-05-28 17:22:09,900 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 97, in main
+  
+Error: name 'np' is not defined
+2025-05-28 17:22:09,900 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 97, in main
+  
+Error: name 'np' is not defined
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 17:24:41,145 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 29, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1121, in __getitem__
+  return self._get_value(key)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\series.py, Line: 1237, in _get_value
+  loc = self.index.get_loc(label)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
+  raise KeyError(key) from err
+Error: 'NAME'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
+2025-05-28 19:23:31,245 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
+  return object.__getattribute__(self, name)
+Error: 'DataFrame' object has no attribute 'append'
