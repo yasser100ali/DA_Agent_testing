@@ -115,36 +115,19 @@ class DataAnalystAgent:
         
         subagent_name = self.operator()
         
-        if subagent_name != 'chat':
-            st.write(utils.typewriter_effect(f'This task has been assigned to: **{subagent_name}** agent.'))
+        # if subagent_name != 'chat':
+        #     st.write(utils.typewriter_effect(f'This task has been assigned to: **{subagent_name}** agent.'))
 
-        if subagent_name == 'base':
-            with st.expander('Base Agent. Code & Work.', expanded=True):
-                subagent = self.agents[subagent_name](self.user_input, self.local_var)
-                result = subagent.main()
-            utils.show_output(result)
-
-        elif subagent_name == 'deepinsights':
-            subagent = self.agents[subagent_name](self.user_input, self.local_var)
-            subagent.main()
-
-        elif subagent_name == 'chat': 
-            subagent = self.agents[subagent_name](self.user_input, self.local_var)
-            subagent.main()
+        if subagent_name in ["chat", "deepinsights"]: 
+            params = {
+                "user_input": self.user_input,
+                "local_var": self.local_var
+            }
         
-        elif subagent_name == 'secretary':
-            subagent = self.agents[subagent_name](self.user_input)
-            subagent.main()
+        else:
+            params = {
+                "user_input": self.user_input
+            }
 
-        elif subagent_name == 'sql': 
-            subagent = self.agents[subagent_name](self.user_input)
-            # subagent.sql_agent(self.user_input) # for react style
-            subagent.main()
-
-        elif subagent_name == 'memory': 
-            subagent = self.agents[subagent_name](self.user_input)
-            subagent.main()
-        
-        elif subagent_name == "pull_table":
-            subagent = self.agents[subagent_name](self.user_input)
-            subagent.main()
+        subagent = self.agents[subagent_name](**params)
+        subagent.main()

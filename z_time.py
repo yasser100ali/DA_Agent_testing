@@ -63,9 +63,8 @@ def sum_time_ranges(time_ranges_string):
     return f"{hours} hours and {minutes} minutes"
 
 time_data = """
-8:40am - 1:00pm
-1:30pm - 5:20pm
-6:18pm - 9:06pm
+8:38am - 11:56am
+12:30pm - 7:56pm
 """
 
 result = sum_time_ranges(time_data)
