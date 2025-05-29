@@ -4,7 +4,7 @@ from agent_chat import ChatAgent
 from agent_secretary import SecretaryAI
 from agent_sql_react_testing import sqlAgentReAct
 from agent_memory import MemoryAgent
-#from agent_sql import sqlAgent
+from agent_sql import sqlAgent 
 from agents import Agent
 import utils
 import streamlit as st
@@ -19,7 +19,8 @@ class DataAnalystAgent:
             'chat': ChatAgent,
             'secretary': SecretaryAI,
             'sql': sqlAgentReAct,
-            'memory': MemoryAgent
+            'memory': MemoryAgent,
+            'pull_table': sqlAgent
         }
         
         self.model = "hf.co/bartowski/Qwen2.5-Coder-32B-Instruct-GGUF:Q8_0"
@@ -51,11 +52,15 @@ class DataAnalystAgent:
                     - might ask "What can you tell me about team "X" (team name here) or person "Y", what do they do? 
                     - might say "I am having a problem with (problem here), who do you know that could help me with this task?"  
                 5. "sql" 
-                    - when there is a request to pull data from a database. 
+                    - when there is a request to get data from a database using sql
                     - When asked to go through a database
+                    - When asked to simply look through a database
                 6. "memory"
                     - when the user is asking you to recall a previous text-chain or a previous conversation. 
                     - Whenever asked to look into the past about something that may be from a previous conversation
+                7. "pull_table"
+                    - when asked to actually "pull" the table from a database. 
+                    - Here the user wants the table from the database to be imported into their files. This is similar to 5 "sql" except here the user is asking for the table to be imported or pulled. 
 
                 give your answer in the following format 
                 example when "base" is the chosen agent. 
@@ -89,6 +94,12 @@ class DataAnalystAgent:
                 4. "memory"
                     - when the user is asking you to recall a previous text-chain or a previous conversation. 
                     - Whenever asked to look into the past about something that may be from a previous conversation
+
+                5. "pull_table"
+                    - when asked to actually "pull" the table from a database. 
+                    - Here the user wants the table from the database to be imported into their files. This is similar to 5 "sql" except here the user is asking for the table to be imported or pulled. 
+                    
+
                 give your answer in the following format 
                 ```json
                 {
@@ -105,7 +116,7 @@ class DataAnalystAgent:
         subagent_name = self.operator()
         
         if subagent_name != 'chat':
-            st.write(utils.typewriter_effect(f'This task has been assigned to: **{subagent_name} agent**.'))
+            st.write(utils.typewriter_effect(f'This task has been assigned to: **{subagent_name}** agent.'))
 
         if subagent_name == 'base':
             with st.expander('Base Agent. Code & Work.', expanded=True):
@@ -131,5 +142,9 @@ class DataAnalystAgent:
             subagent.main()
 
         elif subagent_name == 'memory': 
+            subagent = self.agents[subagent_name](self.user_input)
+            subagent.main()
+        
+        elif subagent_name == "pull_table":
             subagent = self.agents[subagent_name](self.user_input)
             subagent.main()
