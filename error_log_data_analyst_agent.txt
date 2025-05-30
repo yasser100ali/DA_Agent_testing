@@ -49290,3 +49290,1247 @@ File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages
 File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 3812, in get_loc
   raise KeyError(key) from err
 Error: 'UNITPRICE'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 14:37:13,809 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 9, in main
+  
+Error: 'ALBUMS_SALES.XLSX'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
+2025-05-30 15:02:38,494 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 65, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\matplotlib\axes\_axes.py, Line: 2907, in bar_label
+  bars = container.patches
+Error: 'list' object has no attribute 'patches'
