@@ -344,7 +344,12 @@ def assistant_message(item_type, item):
         st.session_state['messages'][prompt_id].append(message)
         
     else:
-        st.session_state['messages'][prompt_id][1]['content'][item_type] = item
+        if st.session_state["messages"][prompt_id]["content"][item_type] is None:
+            st.session_state['messages'][prompt_id][1]['content'][item_type] = item
+        else:
+            item_type = item_type + str(uuid.uuid4())
+            st.session_state["messages"][prompt_id][1]['content'][item_type] = item
+
     
     
 

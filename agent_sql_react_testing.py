@@ -40,8 +40,6 @@ class sqlAgentReAct:
         reason_job = """
         Your job is to direct the act portion of the ReAct (you are Reason) to solve the user's request.
         Your act agent will use sqlite3 within python, so direct your plan and directions according to that. 
-
-        
         """
 
         act_job = f"""

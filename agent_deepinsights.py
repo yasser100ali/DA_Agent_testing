@@ -86,9 +86,9 @@ class DeepInsightsAgent:
 
             You will be given the general user input and the specific task. The goal is the user_input but write your code mainly to the task with your orientation to the user_input. 
 
-            Your outputs will be given to a seperate agent, so try to keep the outputs on the shorter side with dense information. If you have a long list, then only get the most relevant data (up to 10 or 20 rows or so.)
-
-            
+            Focus on getting a thorough amount of evidence to answer the original user_prompt: {self.user_input}
+            Don't get too much frivelous data, get a decent amount of valuable data that will later be used to build a report. Your whole job is to gather evidence that will later produce a report. 
+            This will later be fed to a seperate agent that will build the report so your outputs DENSE. 
             """
             
             system_prompts = {
@@ -341,10 +341,10 @@ class DeepInsightsAgent:
         
         utils.assistant_message('deepinsights', problem_work)
         
-        return report
+        return report, problem_work
         
 
     def main(self):
         report = self.deepinsights()
-        return report 
+        return report
     

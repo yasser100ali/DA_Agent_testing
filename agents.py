@@ -231,7 +231,6 @@ class ReAct:
         * **Focus:** Perform only the action specified. Do not attempt to reason or plan beyond the given directions.
 
         Here is your general task and job: {act_job}
-
         """
 
         act_input = f"Iteration_{iteration}\t\tHere are the directions given to you from the Reason agent. Follow accordingly."
@@ -240,18 +239,15 @@ class ReAct:
         if problem_type == 'python_code':
             result, code = Agent(act_input, {}).coder(system_prompt, "", act_input)
 
-            st.write(result)
-
             self.conversation_thread[iteration]["act_work"] = code
             self.conversation_thread[iteration]["act_output"] = result 
 
-            act_output = result
-        
-        return act_output
+            return result, code
 
     def react_loop(self, reason_job, act_job, max_iterations=10):
         current_iteration = 0
         act_output = None
+        act_code = None
 
         with st.expander("IPS Algorithm"):
             while current_iteration <= max_iterations:
@@ -266,13 +262,31 @@ class ReAct:
                 
                 reason_output = self.reason(reason_job, act_output, iteration=current_iteration)
 
+
                 finished = reason_output['finished']
                 if finished is True:
+                    
+                    final_act_job = f"""
+                    You are an Act agent and you have completed your task!
+                    Here is the original user prompt that triggered this: {self.user_input}
+
+                    Here is the code that produced the final output:
+                    {act_code}
+
+                    Your job is to alter the code to that it returns as a pandas dataframe but keeps the same output. 
+                    
+                    Very simple, keep the same code but the output type should be a pandas dataframe. Keep the essential data, remove anything that is not related to the user's prompt, no notes nor comments, just the data please as a pandas dataframe. 
+
+                    Keep t
+                    """
+                    act_output, act_code = self.act(final_act_job, str(reason_output), iteration=current_iteration)
+                
                     break
 
-                act_output = self.act(act_job, str(reason_output), iteration=current_iteration)
-
-                current_iteration += 1
+                else:
+                    act_output, act_code = self.act(act_job, str(reason_output), iteration=current_iteration)
+                    current_iteration += 1
+                    st.write(act_output)
 
         st.write("**Answer**")
         st.write(act_output)

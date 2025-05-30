@@ -260,14 +260,15 @@ def display_chat_history():
                                         for iteration, iteration_items in item_data.items():
                                             st.write(f"**Iteration {iteration}**")
                                             st.write(iteration_items.get("reason_output")) # Use .get for safer access
+                                            st.code(iteration_items.get("act_work"), language="python")
+
                                             if iteration_items.get("reason_output", {}).get("finished") is False:
-                                                st.code(iteration_items.get("act_work"), language="python")
                                                 st.write(iteration_items.get("act_output"))
                                     
                                     # Determine and display the "Answer" part
                                     iteration_keys = list(item_data.keys())
                                     if len(iteration_keys) >= 2:
-                                        key_for_answer = iteration_keys[-2]
+                                        key_for_answer = iteration_keys[-1]
                                         react_answer_for_display = item_data.get(key_for_answer, {}).get("act_output")
                                     elif len(iteration_keys) == 1: # Fallback for display if only one iteration
                                         key_for_answer = iteration_keys[0]
@@ -357,17 +358,17 @@ def _populate_message_history_object():
                     for item_type, item_data in content.items():
                         # This logic should mirror exactly what display_chat_history
                         # considers for its simplified history string parts.
-                        if item_type == 'result' and item_data is not None:
+                        if item_type.startswith('result') and item_data is not None:
                             if isinstance(item_data, pd.DataFrame):
                                 history_parts_for_this_message.append(item_data.to_string())
                             else:
                                 history_parts_for_this_message.append(str(item_data))
-                        elif item_type == 'deepinsights':
+                        elif item_type.startswith('deepinsights'):
                             if isinstance(item_data, dict):
                                 report_content = item_data.get('report')
                                 if report_content is not None:
                                     history_parts_for_this_message.append(str(report_content))
-                        elif item_type == "react_thread":
+                        elif item_type.startswith("react_thread"):
                             if isinstance(item_data, dict):
                                 iteration_keys = list(item_data.keys())
                                 key_for_history = None
@@ -672,7 +673,7 @@ def convert_data_for_json(data):
 def main_app():
     st.set_page_config(layout="wide")
     st.title('Data Analyst Agent')
-    st.write('May 22 - 26.')
+    st.write('May 26 - June 1.')
     # --- 1. ESSENTIAL: Initialize session state if it doesn't exist ---
     if 'dataframes_dict' not in st.session_state:
         st.session_state.dataframes_dict = {}
