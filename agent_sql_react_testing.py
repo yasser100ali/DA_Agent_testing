@@ -40,6 +40,8 @@ class sqlAgentReAct:
         reason_job = """
         Your job is to direct the act portion of the ReAct (you are Reason) to solve the user's request.
         Your act agent will use sqlite3 within python, so direct your plan and directions according to that. 
+
+        
         """
 
         act_job = f"""
@@ -48,8 +50,7 @@ class sqlAgentReAct:
         You are part of a ReAct loop and will follow directions according to Reason's dictates.
         when connecting to the database, the path is {DATABASE_FILE}
 
-        Return your findings as a table, even if in the table you simply make a comment. 
-        If the user is asking about the scheme of a Database, then return the list of tables or features etc as a column in a pandas table. 
+        Return your output as a JSON where you write the important details of various aspects of what you found. 
 
         Here's what an output code could look like: 
         """
@@ -202,13 +203,19 @@ class sqlAgentReAct:
                 rock_tracks_df = pd.read_sql_query(query, conn)
 
                 if not rock_tracks_df.empty:
-                    print("\n--- Rock Tracks DataFrame ---")
-                    print(rock_tracks_df)
+                    print("\\n--- Rock Tracks Found, Converting to JSON ---")
+                    # Convert the DataFrame to a JSON string. 
+                    # orient='records' creates a list of objects, ideal for JSON.
+                    # indent=4 makes the JSON output human-readable.
+                    json_output = rock_tracks_df.to_json(orient="records", indent=4)
+                    print(json_output)
                 else:
-                    print("\nNo tracks found for the 'Rock' genre with the given query.")
+                    print("\\nNo tracks found for the 'Rock' genre with the given query.")
+                    # Return an empty JSON object as a string if no data is found
+                    json_output = json.dumps([]) 
 
-                # Example of how you might return the DataFrame if this function was called by another
-                return rock_tracks_df
+                # Return the result as a JSON string
+                return json_output
 
             except sqlite3.Error as e:
                 print(f"SQLite error: {e}")
@@ -226,7 +233,8 @@ class sqlAgentReAct:
         """
 
         react_agent = ReAct(self.user_input)
-        react_agent.react_loop(reason_job, act_job, max_iterations=20)
+        final_output = react_agent.react_loop(reason_job, act_job, max_iterations=20)
+        return final_output
         
     def main(self):
-        self.sql_agent()
+        return self.sql_agent()

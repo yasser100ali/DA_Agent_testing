@@ -4,6 +4,7 @@ import streamlit as st
 import pandas as pd
 import time
 from agent_filter_data import filter_data
+import json
 
 # testing pdf 
 #from pdf_generator import generate_pdf_reportlab
@@ -22,7 +23,8 @@ class DeepInsightsAgent:
                 a. data_processing_agent
 
             **WRITE 'data_processing_agent' EVERY TIME**
-                    
+            When creating the plan, know that the subagent "data_processing_agent" has numpy, pandas and sklearn at their disposal so plan accordingly. 
+
             Follow this format: 
 
             Input: 
@@ -42,13 +44,13 @@ class DeepInsightsAgent:
                 },
                 "3": {
                     "tool": "data_processing_agent",
-                    "task": "Using the most correlated features of avg wait from ED, create scatter plots of the top 3 features. Then create various charts that explain avg wait from ED.
+                    "task": "Using the last output of most impactful features, verify it is statistically significant using statsmodels"
                 }
                 
             }
             ```
 
-            Generally keep the tasks short and do up to 3 or 4. But if it is a more broad question, then do more steps. 
+            Generally keep the tasks short and do around 3 or 4. But if it is a more broad question, then do more steps. 
 
             * If possible have one task where you use statsmodels to generate and test a hypothesis relevant to user prompt. 
             Also use sklearn if you are trying to find most impactful features (which you often will need to understand true relationships between the columns in the data.)
@@ -62,9 +64,9 @@ class DeepInsightsAgent:
             2. You are given 'dataframes_dict' which contains all the files, pages (pages only applies to non-csv excel files), and feature names. To get access to a particular page, you would type 'dataframes_dict['excelsheetname.xlsx']['page'] or if it is a csv dataframes_dict['file.csv']
             3. Define a `main` function that encapsulates the task. The `main` function should:
             - Perform the requested task.
-            - Return the result
+            - Return the result as a JSON
             4. Ensure the code is syntactically correct and ready to execute. Use markdown in your formatting: ```python import ... def main(): ... ```
-            5. Use pandas, plotly, numpy or sklearn. Do not use libraries outside of these. 
+            5. Use pandas, numpy or sklearn. Do not use libraries outside of these. 
 
             Correct spelling according to this list: {filtered_features}
 
@@ -74,18 +76,19 @@ class DeepInsightsAgent:
 
             You will be given the general user input and the specific task. The goal is the user_input but write your code mainly to the task with your orientation to the user_input. 
 
+            Your outputs will be given to a seperate agent, so try to keep the outputs on the shorter side with dense information. 
             """
             
             system_prompts = {
                 'data_processing_agent': standard + """
                     You are data_processing_agent.
                     
-                    Your job is to use pandas for data analysis and manipulation, plotly for creating visualizations, and sklearn for machine learning problems, according to the user request.
+                    Your job is to use pandas for data analysis and manipulation, and sklearn for machine learning problems, according to the user request.
                     Use pandas to get relevant information, perform calculations, or prepare data.
-                    Use plotly to create graphs when requested.
-                    Return your results either as a pandas DataFrame (for data analysis/manipulation tasks) or as a plotly figure object (for visualization tasks).
+                    If you have a pandas dataframe, make sure to return it as a JSON.
                     DO NOT return multiple items seperately, return as a list. So if you return to objects (a, b) return as [a, b]. 
-                    Example 1: Data Analysis returning a DataFrame
+
+                    Example 1: Data Analysis returning outputs as a JSON
                     input_prompt:
                     "From the pmpm average values page, give a table of Month and total PMPMs. Then in the same table take the Member months from 2025 forecast and multiply it by Total PMPMs from pmpm_average_values page to get me a new column 'Total Revenue' that is the product of these two."
                 
@@ -118,51 +121,12 @@ class DeepInsightsAgent:
                         combined_df['Member Months'] = pd.to_numeric(combined_df['Member Months'], errors='coerce')
                         combined_df['Total Revenue'] = combined_df['Total PMPMs'] * combined_df['Member Months']
                 
-                        return combined_df
+                        # important to return as a JSON
+                        return combined_df.to_json()
                     ```
                 
-                    Example 2: Data Visualization returning a Plotly figure
-                    input_prompt:
-                    "create a bar graph of predicted mean grouped by the categories in line of business"
-                
-                    output:
-                    ```python
-                    import pandas as pd
-                    import plotly.express as px
-                
-                    def main():
-                        # Retrieve the dataframe from the provided dictionary
-                        df = dataframes_dict['membership_predictions_0221.csv'] # Assuming this file exists in the dict
-                
-                        # Ensure 'predicted_mean' is numeric
-                        df['predicted_mean'] = pd.to_numeric(df['predicted_mean'], errors='coerce')
-                
-                        # Group by LINE_OF_BUSINESS and calculate the mean of predicted_mean
-                        # Handle potential NaN values if necessary, e.g., by dropping rows or filling
-                        grouped_df = df.groupby('LINE_OF_BUSINESS')['predicted_mean'].mean().reset_index()
-                
-                        # Create the bar chart using Plotly Express
-                        output = px.bar(
-                            grouped_df,
-                            x='LINE_OF_BUSINESS',
-                            y='predicted_mean',
-                            title='Average Predicted Membership by Line of Business',
-                            labels={'predicted_mean': 'Average Predicted Mean', 'LINE_OF_BUSINESS': 'Line of Business'},
-                            text='predicted_mean'  # Display values on bars
-                        )
-                
-                        # Improve layout and formatting
-                        output.update_traces(texttemplate='%{text:.2f}', textposition='auto')
-                        output.update_layout(
-                            xaxis_tickangle=-45,  # Rotate x-axis labels for readability
-                            uniformtext_minsize=8,
-                            uniformtext_mode='hide'
-                        )
-                
-                        return output
-                    ```
 
-                    Example 3: 
+                    Example 2: 
                     input_prompt: 
                     "Identify the most correlated features with average wait time using pd.corr() and return the top 5 features."
 
@@ -186,23 +150,12 @@ class DeepInsightsAgent:
                             'Median': df['Avg wait from ED'].median()
                         }
                         stats_df = pd.DataFrame([stats])
-                    
-                        # Create a histogram of the wait times
-                        fig = px.histogram(
-                            df,
-                            x='Avg wait from ED',
-                            title='Distribution of Average Wait Time from ED',
-                            labels={'Avg wait from ED': 'Average Wait Time (minutes)'},
-                            nbins=30
-                        )
-                    
-                        # Improve layout and formatting
-                        fig.update_layout(xaxis_title='Average Wait Time (minutes)', yaxis_title='Frequency')
-                    
-                        return [stats_df, fig] # notice how I return a list. 
+                        
+                        # important to return as a json since this will be received by a seperate LLM. 
+                        return stats_df.to_json()
                     ```
         
-                    Once again you have 3 libraries to work with: 1. pandas 2. sklearn or 3. plotly. Use according to your discretion. 
+                    Once again you have 3 libraries to work with: 1. pandas 2. sklearn. Use according to your discretion. 
 
                 """
             }
@@ -211,12 +164,12 @@ class DeepInsightsAgent:
 
         agent = Agent(self.user_input, self.local_var)
         with st.expander('Thinking of plan...'):
-            json = agent.json_agent(orchestrator_job, self.model)
+            json_plan = agent.json_agent(orchestrator_job, self.model)
 
 
         plan = []
         st.write(utils.typewriter_effect('**Here is the plan that I have crafted.**'))
-        for i, step in enumerate(json.values()):
+        for i, step in enumerate(json_plan.values()):
             task = step["task"]
             st.write(utils.typewriter_effect(f"Step {i + 1}"))
             st.write(utils.typewriter_effect(f"**{task}**"))
@@ -250,27 +203,51 @@ class DeepInsightsAgent:
         st.session_state['features_list_json'] = input_features_list_json
         
         problem_code = []
-        with st.expander('Task Execution and Evidence Gathering', expanded=True):    
-            for step in json.values():
-    
+        previous_output = []
+
+        with st.expander('Task Execution and Evidence Gathering', expanded=False):    
+            for step_number, step in enumerate(json.values(), start=1):
+                
                 tool = step["tool"]
                 task = step["task"]
-                
                 if tool not in ['data_processing_agent']: 
                     tool = 'data_processing_agent'
                     
+                # new
+                real_input = f"""
+                Here is the whole plan: {str(json_plan)}  
+                You are step {step_number}
+                Specific Task (focus on this task only): {task}
+                """
 
-                real_input = f"User Input: {self.user_input}   Specific Task: {task}"
-                
+                # new
+                if len(previous_output) > 0:
+                    real_input += f"Here are the previous outputs:"
+                    for number, output in enumerate(previous_output, start=1):
+                        real_input += f"Output_{number}"
+                        real_input += str(output)
+                        real_input += "\n\n"
+
                 system_prompt = get_prompt(tool, input_features_list)
         
                 result, code = agent.coder(system_prompt, self.model, real_input)
+                previous_output.append(result)
+
+                # new
+                if isinstance(result, pd.DataFrame):
+                    result = result.to_json()
+
+                if isinstance(result, dict):
+                    st.write('true0')
+                    df_to_display = pd.DataFrame.from_dict(result)
+                    utils.show_output(pd.read_json(df_to_display))
+                
 
                 execution = (code, result)
                 plan_execution.append(execution)
                 problem_code.append(code)
-                
-                utils.show_output(result)
+
+               
                 results.append(result)
             
         report_results = utils.filter_figures(results)
@@ -360,10 +337,10 @@ class DeepInsightsAgent:
         
         utils.assistant_message('deepinsights', problem_work)
         
-        return results
+        return report
         
 
     def main(self):
-        results = self.deepinsights()
-        
-     
+        report = self.deepinsights()
+        return report 
+    

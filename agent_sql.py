@@ -253,7 +253,7 @@ class sqlAgent:
         chat_response = Agent(user_input, {}).chat(system_prompt, "")
         utils.assistant_message('chat', chat_response)
 
-        #time.sleep(30)
+        return chat_response
     
     def main(self):
-        self.get_table_name()
+        return self.get_table_name()

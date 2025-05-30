@@ -30,7 +30,7 @@ class DataAnalystAgent:
             system_prompt = """
                 Your task is to read the user prompt and assign it to the appropriate agent. 
 
-                You have 5 agents: "base", "deepinsights", "chat", "secretary", and "sql"
+                You have 7 agents: "base", "deepinsights", "chat", "secretary", "memory", "sql", and "pull 
 
                 1. "base"
                     - for straightforward and simple data analysis tasks, typically singular in approach
@@ -77,7 +77,7 @@ class DataAnalystAgent:
             system_prompt = """
                 Your task is to read the user prompt and assign it to the appropriate agent. 
 
-                You have 3 agents: "chat", "secretary", and "sql"
+                You have 5 agents: "chat", "secretary", and "sql", "memory", and "pull_table"
 
                 1. "chat"
                     - when none of the agents are required and the prompt from the user requires more of a general chat response. 
@@ -94,7 +94,6 @@ class DataAnalystAgent:
                 4. "memory"
                     - when the user is asking you to recall a previous text-chain or a previous conversation. 
                     - Whenever asked to look into the past about something that may be from a previous conversation
-
                 5. "pull_table"
                     - when asked to actually "pull" the table from a database. 
                     - Here the user wants the table from the database to be imported into their files. This is similar to 5 "sql" except here the user is asking for the table to be imported or pulled. 
@@ -130,8 +129,4 @@ class DataAnalystAgent:
             }
 
         subagent = self.agents[subagent_name](**params)
-<<<<<<< HEAD
         subagent.main()
-=======
-        subagent.main()
->>>>>>> 781eea61796a3db211d9b7004b474b47f46de96d

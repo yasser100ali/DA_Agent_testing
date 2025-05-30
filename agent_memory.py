@@ -47,6 +47,8 @@ class MemoryAgent:
         response = Agent(user_prompt).chat(system_prompt)
         utils.assistant_message('chat', response)
 
+        return response
+
     def main(self):
-        self.recall()
+        return self.recall()
 

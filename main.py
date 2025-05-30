@@ -671,8 +671,7 @@ def convert_data_for_json(data):
 def main_app():
     st.set_page_config(layout="wide")
     st.title('Data Analyst Agent')
-    st.write('Version 10. May 19 - 25.')
-    st.write('This week will be adding the following: \n1. SQL Agent \n2. Google Slides Agent \n3. Integrating with Simulator \n4. Flesh out Connector AI \n5. Iterative Reasoning and Execution')
+    st.write('May 22 - 26.')
     # --- 1. ESSENTIAL: Initialize session state if it doesn't exist ---
     if 'dataframes_dict' not in st.session_state:
         st.session_state.dataframes_dict = {}
