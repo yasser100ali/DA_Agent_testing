@@ -2,7 +2,8 @@ import pandas as pd
 import streamlit as st
 import os
 import plotly.graph_objects as go
-from data_analyst_agent import DataAnalystAgent
+# new
+from data_analyst_agent_new import DataAnalystAgent
 from agent_chat import ChatAgent # for general chatting when datasets are not yet uploaded. 
 import utils
 import json

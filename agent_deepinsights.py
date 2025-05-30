@@ -2,12 +2,10 @@ import utils
 from agents import Agent
 import streamlit as st
 import pandas as pd
-import time
 from agent_filter_data import filter_data
 import json
+import io
 
-# testing pdf 
-#from pdf_generator import generate_pdf_reportlab
 
 class DeepInsightsAgent:
     def __init__(self, user_input, local_var):
@@ -19,32 +17,41 @@ class DeepInsightsAgent:
 
     def deepinsights(self):
         orchestrator_job = """
-            Take the user prompt and break it down to a series of tasks and assign each task to the following tool:
+            Take the user prompt and break it down into a series of tasks and assign each task to the following tool:
                 a. data_processing_agent
 
             **WRITE 'data_processing_agent' EVERY TIME**
-            When creating the plan, know that the subagent "data_processing_agent" has numpy, pandas and sklearn at their disposal so plan accordingly. 
+            When creating the plan, know that the subagent "data_processing_agent" has numpy, pandas and sklearn at their disposal so plan accordingly.
+
+            --- Brevity and Output Operator ---
+            **Your primary goal is to create a plan that results in CONCISE outputs.** Each task you create should instruct the `data_processing_agent` to return only the most essential, summarized, or aggregated information. Do not create tasks that ask the agent to return raw or unfiltered tables.
+
+            - GOOD TASK: "Find the top 5 most correlated features with 'Avg Wait Time' and return only those 5 features and their correlation scores."
+            - GOOD TASK: "Calculate the total revenue and average monthly revenue and return only these two numbers."
+            - BAD TASK: "Show me the table of PMPM values and Member months."
+            - BAD TASK: "Get all the player statistics."
+            ------------------------------------
 
             Follow this format: 
 
             Input: 
-            "How could I reduce avg wait from ED?"
-    
+            "How could I reduce avg wait from ED? Write a report on this"
+        
             Output: 
             I will outline a step by step plan to find out how I could best reduce the feature avg wait from ED.
             ```json
             {
                 "1": {
                     "tool": "data_processing_agent",
-                    "task": "Find the features that are most correlated with the feature avg wait from ED. Use pd.corr() for this. Get the distribution of Avg wait from ED (the min value, mean max, etc)."
+                    "task": "Find the top 10 features that are most correlated with the feature 'avg wait from ED'. Use pd.corr() for this and return only the feature names and their correlation scores."
                 },
                 "2": {
                     "tool": "data_processing_agent",
-                    "task": "from the sklearn library use randomforest to get the most impactful features. Return the scores"
+                    "task": "From the sklearn library, use a RandomForestRegressor to get the most impactful features on 'avg wait from ED'. Return a list of the top 5 features and their importance scores."
                 },
                 "3": {
                     "tool": "data_processing_agent",
-                    "task": "Using the last output of most impactful features, verify it is statistically significant using statsmodels"
+                    "task": "Using the list of most impactful features, generate a hypothesis on whether their combined effect is statistically significant. Use a regression model from statsmodels to test this and return the p-values and R-squared value."
                 }
                 
             }
@@ -54,7 +61,10 @@ class DeepInsightsAgent:
 
             * If possible have one task where you use statsmodels to generate and test a hypothesis relevant to user prompt. 
             Also use sklearn if you are trying to find most impactful features (which you often will need to understand true relationships between the columns in the data.)
+
+            If the user asks to "generate a report" of some kind, simply gather evidence that you think may help write the report for the user. Do not have a step to actually write a report; that is handled by a separate agent. Your job is simply to direct a plan that would gather the evidence, not tell the next agent to write a report. 
         """
+
         def get_prompt(agent, filtered_features):
             standard =  f"""
 
@@ -76,7 +86,9 @@ class DeepInsightsAgent:
 
             You will be given the general user input and the specific task. The goal is the user_input but write your code mainly to the task with your orientation to the user_input. 
 
-            Your outputs will be given to a seperate agent, so try to keep the outputs on the shorter side with dense information. 
+            Your outputs will be given to a seperate agent, so try to keep the outputs on the shorter side with dense information. If you have a long list, then only get the most relevant data (up to 10 or 20 rows or so.)
+
+            
             """
             
             system_prompts = {
@@ -87,75 +99,70 @@ class DeepInsightsAgent:
                     Use pandas to get relevant information, perform calculations, or prepare data.
                     If you have a pandas dataframe, make sure to return it as a JSON.
                     DO NOT return multiple items seperately, return as a list. So if you return to objects (a, b) return as [a, b]. 
+                    Example 1: Data Analysis returning a concise JSON summary
+                            input_prompt:
+                            "From the pmpm average values page, give a table of Month and total PMPMs. Then in the same table take the Member months from 2025 forecast and multiply it by Total PMPMs from pmpm_average_values page to get me a new column 'Total Revenue' that is the product of these two."
+                            
+                            output:
+                            ```python
+                            import pandas as pd
+                            import json
 
-                    Example 1: Data Analysis returning outputs as a JSON
-                    input_prompt:
-                    "From the pmpm average values page, give a table of Month and total PMPMs. Then in the same table take the Member months from 2025 forecast and multiply it by Total PMPMs from pmpm_average_values page to get me a new column 'Total Revenue' that is the product of these two."
-                
-                    output:
-                    ```python
-                    import pandas as pd
-                
-                    def main():
-                        # Load the dataframes
-                        pmpm_df = dataframes_dict['pmpm_and_2025_forecast.xlsx']['pmpm_average_values']
-                        forecast_df = dataframes_dict['pmpm_and_2025_forecast.xlsx']['2025_forecast']
-                
-                        # Select required columns from each dataframe
-                        # Assuming 'Month' in pmpm_df corresponds row-wise to the forecast_df
-                        pmpm_table = pmpm_df[['Month', 'Total PMPMs']].head(len(forecast_df)) # Ensure lengths match if needed
-                
-                        # Get the member months
-                        forecast_member_months = forecast_df[['Member Months']]
-                
-                        # Reset index if needed for clean concatenation/joining, or join on a common key if available
-                        pmpm_table = pmpm_table.reset_index(drop=True)
-                        forecast_member_months = forecast_member_months.reset_index(drop=True)
-                
-                        # Combine them into a new dataframe
-                        combined_df = pd.concat([pmpm_table, forecast_member_months], axis=1)
-                
-                        # Calculate total revenue as the product of Total PMPMs and Member Months
-                        # Ensure columns are numeric
-                        combined_df['Total PMPMs'] = pd.to_numeric(combined_df['Total PMPMs'], errors='coerce')
-                        combined_df['Member Months'] = pd.to_numeric(combined_df['Member Months'], errors='coerce')
-                        combined_df['Total Revenue'] = combined_df['Total PMPMs'] * combined_df['Member Months']
-                
-                        # important to return as a JSON
-                        return combined_df.to_json()
-                    ```
-                
+                            def main():
+                                # Load the dataframes
+                                pmpm_df = dataframes_dict['pmpm_and_2025_forecast.xlsx']['pmpm_average_values']
+                                forecast_df = dataframes_dict['pmpm_and_2025_forecast.xlsx']['2025_forecast']
+                                
+                                # Perform the calculation as requested
+                                combined_df = pmpm_df[['Month', 'Total PMPMs']].copy()
+                                combined_df['Member Months'] = forecast_df['Member Months']
+                                combined_df['Total PMPMs'] = pd.to_numeric(combined_df['Total PMPMs'], errors='coerce')
+                                combined_df['Member Months'] = pd.to_numeric(combined_df['Member Months'], errors='coerce')
+                                combined_df['Total Revenue'] = combined_df['Total PMPMs'] * combined_df['Member Months']
 
-                    Example 2: 
-                    input_prompt: 
-                    "Identify the most correlated features with average wait time using pd.corr() and return the top 5 features."
+                                # Instead of returning the whole table, create a concise summary.
+                                summary = {
+                                    'total_revenue_all_months': combined_df['Total Revenue'].sum(),
+                                    'average_monthly_revenue': combined_df['Total Revenue'].mean(),
+                                    'highest_revenue_month': combined_df.loc[combined_df['Total Revenue'].idxmax()].to_dict(),
+                                    'note': "Successfully calculated Total Revenue. Provided are key summary statistics."
+                                }
+                                
+                                # Return the small summary dictionary as a JSON string. This is very token-efficient.
+                                return json.dumps(summary, indent=4)
+                            ```
+                            
 
-                    output: 
-                    ```python
-                    import pandas as pd
-                    import plotly.express as px
-                    
-                    def main():
-                        # Load the relevant dataframe
-                        df = dataframes_dict['tabular_data.xlsx']['tabular_data']
-                    
-                        # Ensure 'Avg wait from ED' is numeric
-                        df['Avg wait from ED'] = pd.to_numeric(df['Avg wait from ED'], errors='coerce')
-                    
-                        # Calculate statistics for Avg wait from ED
-                        stats = {
-                            'Min': df['Avg wait from ED'].min(),
-                            'Max': df['Avg wait from ED'].max(),
-                            'Mean': df['Avg wait from ED'].mean(),
-                            'Median': df['Avg wait from ED'].median()
-                        }
-                        stats_df = pd.DataFrame([stats])
-                        
-                        # important to return as a json since this will be received by a seperate LLM. 
-                        return stats_df.to_json()
-                    ```
-        
-                    Once again you have 3 libraries to work with: 1. pandas 2. sklearn. Use according to your discretion. 
+                            Example 2: Returning a small, targeted slice of data
+                            input_prompt: 
+                            "Identify the most correlated features with average wait time using pd.corr() and return the top 5 features."
+
+                            output: 
+                            ```python
+                            import pandas as pd
+                            
+                            def main():
+                                # Load the relevant dataframe
+                                df = dataframes_dict['tabular_data.xlsx']['tabular_data']
+                                
+                                # Create a list of numeric columns for correlation calculation
+                                numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
+                                
+                                # Calculate the correlation matrix for numeric columns only
+                                corr_matrix = df[numeric_cols].corr()
+                                
+                                # Get the correlations with the target variable 'Avg wait from ED'
+                                # Drop the self-correlation (it will be 1.0)
+                                wait_time_corr = corr_matrix['Avg wait from ED'].drop('Avg wait from ED')
+                                
+                                # Get the top 5 most correlated features by absolute value
+                                top_5_features = wait_time_corr.abs().nlargest(5)
+                                
+                                # The result is a small pandas Series. Returning this as JSON is concise and dense.
+                                return top_5_features.to_json()
+                            ```
+
+                            Once again you have 3 libraries to work with: 1. pandas 2. sklearn. Use according to your discretion. 
 
                 """
             }
@@ -206,7 +213,7 @@ class DeepInsightsAgent:
         previous_output = []
 
         with st.expander('Task Execution and Evidence Gathering', expanded=False):    
-            for step_number, step in enumerate(json.values(), start=1):
+            for step_number, step in enumerate(json_plan.values(), start=1):
                 
                 tool = step["tool"]
                 task = step["task"]
@@ -221,27 +228,24 @@ class DeepInsightsAgent:
                 """
 
                 # new
-                if len(previous_output) > 0:
-                    real_input += f"Here are the previous outputs:"
-                    for number, output in enumerate(previous_output, start=1):
-                        real_input += f"Output_{number}"
-                        real_input += str(output)
-                        real_input += "\n\n"
+                #if len(previous_output) > 0:
+                    #real_input += f"Here are the previous outputs:"
+                    # for number, output in enumerate(previous_output, start=1):
+                    #     real_input += f"Output_{number}"
+                    #     real_input += str(output)
+                    #     real_input += "\n\n"
 
                 system_prompt = get_prompt(tool, input_features_list)
         
                 result, code = agent.coder(system_prompt, self.model, real_input)
+
                 previous_output.append(result)
 
                 # new
                 if isinstance(result, pd.DataFrame):
                     result = result.to_json()
 
-                if isinstance(result, dict):
-                    st.write('true0')
-                    df_to_display = pd.DataFrame.from_dict(result)
-                    utils.show_output(pd.read_json(df_to_display))
-                
+                st.code(result, language="json")
 
                 execution = (code, result)
                 plan_execution.append(execution)
@@ -293,9 +297,9 @@ class DeepInsightsAgent:
             Here is the report itself: {report}
             
             When writing your code you will get your data from a dictionary already give to you 'dataframes_dict', spell exactly as shown: {features_list}
-            
-            Here is all the code that went into finding the outcomes found in the report: {code}
-            
+
+            Here is the data used to get the report: {str(previous_output)}
+
             When writing the code follow the same format as above, ```python 
             import matplotlib.pyplot as plt 
             import pandas as pd

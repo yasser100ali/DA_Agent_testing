@@ -12,11 +12,9 @@ def load_documents(file_path):
     with open(file_path, 'r') as f:
         return [line.strip() for line in f]
 
-a = time.time()
+
 # Load documents
 documents = load_documents('agents_doc.txt')
-b = time.time()
-st.write(f'Time taken to load documents: {round(b-a, 3)} seconds')
 
 # Initialize sentence transformer model
 embedding_model = SentenceTransformer('all-MiniLM-L6-v2')

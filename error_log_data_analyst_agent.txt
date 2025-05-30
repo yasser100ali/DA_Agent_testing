@@ -44278,3 +44278,1043 @@ File: <string>, Line: 31, in main
 File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py, Line: 6299, in __getattr__
   return object.__getattribute__(self, name)
 Error: 'DataFrame' object has no attribute 'append'
+2025-05-29 18:11:48,336 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 45, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1191, in __getitem__
+  return self._getitem_axis(maybe_callable, axis=axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1420, in _getitem_axis
+  return self._getitem_iterable(key, axis=axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1360, in _getitem_iterable
+  keyarr, indexer = self._get_listlike_indexer(key, axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1558, in _get_listlike_indexer
+  keyarr, indexer = ax._get_indexer_strict(key, axis_name)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 6200, in _get_indexer_strict
+  self._raise_if_missing(keyarr, indexer, axis_name)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 6249, in _raise_if_missing
+  raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+Error: "None of [Index(['LeBron James', 'Kevin Durant', 'Shaquille O'Neal', 'Stephen Curry',\n       'James Harden', 'Kobe Bryant'],\n      dtype='object', name='PLAYER_NAME')] are in the [index]"
+2025-05-29 18:11:48,336 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 45, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1191, in __getitem__
+  return self._getitem_axis(maybe_callable, axis=axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1420, in _getitem_axis
+  return self._getitem_iterable(key, axis=axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1360, in _getitem_iterable
+  keyarr, indexer = self._get_listlike_indexer(key, axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1558, in _get_listlike_indexer
+  keyarr, indexer = ax._get_indexer_strict(key, axis_name)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 6200, in _get_indexer_strict
+  self._raise_if_missing(keyarr, indexer, axis_name)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 6249, in _raise_if_missing
+  raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+Error: "None of [Index(['LeBron James', 'Kevin Durant', 'Shaquille O'Neal', 'Stephen Curry',\n       'James Harden', 'Kobe Bryant'],\n      dtype='object', name='PLAYER_NAME')] are in the [index]"
+2025-05-29 18:11:48,336 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 45, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1191, in __getitem__
+  return self._getitem_axis(maybe_callable, axis=axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1420, in _getitem_axis
+  return self._getitem_iterable(key, axis=axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1360, in _getitem_iterable
+  keyarr, indexer = self._get_listlike_indexer(key, axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1558, in _get_listlike_indexer
+  keyarr, indexer = ax._get_indexer_strict(key, axis_name)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 6200, in _get_indexer_strict
+  self._raise_if_missing(keyarr, indexer, axis_name)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 6249, in _raise_if_missing
+  raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+Error: "None of [Index(['LeBron James', 'Kevin Durant', 'Shaquille O'Neal', 'Stephen Curry',\n       'James Harden', 'Kobe Bryant'],\n      dtype='object', name='PLAYER_NAME')] are in the [index]"
+2025-05-29 18:11:48,336 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 45, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1191, in __getitem__
+  return self._getitem_axis(maybe_callable, axis=axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1420, in _getitem_axis
+  return self._getitem_iterable(key, axis=axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1360, in _getitem_iterable
+  keyarr, indexer = self._get_listlike_indexer(key, axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1558, in _get_listlike_indexer
+  keyarr, indexer = ax._get_indexer_strict(key, axis_name)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 6200, in _get_indexer_strict
+  self._raise_if_missing(keyarr, indexer, axis_name)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 6249, in _raise_if_missing
+  raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+Error: "None of [Index(['LeBron James', 'Kevin Durant', 'Shaquille O'Neal', 'Stephen Curry',\n       'James Harden', 'Kobe Bryant'],\n      dtype='object', name='PLAYER_NAME')] are in the [index]"
+2025-05-29 18:11:48,336 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 45, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1191, in __getitem__
+  return self._getitem_axis(maybe_callable, axis=axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1420, in _getitem_axis
+  return self._getitem_iterable(key, axis=axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1360, in _getitem_iterable
+  keyarr, indexer = self._get_listlike_indexer(key, axis)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py, Line: 1558, in _get_listlike_indexer
+  keyarr, indexer = ax._get_indexer_strict(key, axis_name)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 6200, in _get_indexer_strict
+  self._raise_if_missing(keyarr, indexer, axis_name)
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py, Line: 6249, in _raise_if_missing
+  raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+Error: "None of [Index(['LeBron James', 'Kevin Durant', 'Shaquille O'Neal', 'Stephen Curry',\n       'James Harden', 'Kobe Bryant'],\n      dtype='object', name='PLAYER_NAME')] are in the [index]"
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:20:56,170 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 31, in main
+  
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 68, in literal_eval
+  node_or_string = parse(node_or_string.lstrip(" \t"), mode='eval')
+File: C:\Users\O413882\AppData\Local\Programs\Python\Python313\Lib\ast.py, Line: 54, in parse
+  return compile(source, filename, mode, flags,
+Error: unexpected indent (<unknown>, line 2)
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:27,527 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 5, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:38,529 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_stats.xlsx'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:47,724 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_player_stats.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:51,677 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'
+2025-05-30 10:29:57,986 - Traceback:
+File: C:\Users\O413882\DA_Agent_5_27\DA_Agent_testing_5_27\utils.py, Line: 219, in execute_code
+  result = namespace['main']()
+File: <string>, Line: 6, in main
+  
+Error: 'nba_awards_and_titles.csv'

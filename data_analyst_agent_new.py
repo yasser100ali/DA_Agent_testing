@@ -111,10 +111,38 @@ class DataAnalystAgent:
 
         return agent_plan
     
-    def act(self):
+    def main(self):
         agent_plan = self.plan_and_reason()
 
         if len(agent_plan) == 1:
             agent_name = agent_plan["agent"]
 
-            if 
+            params = {"user_input": self.user_input}
+            if agent_name in ["base", "deepinsights"]:
+                params["local_var"] = self.local_var
+            
+            agent = self.agents[agent_name](**params)
+            agent.main()
+        
+        # this is the multi-agent stage
+        else: 
+            
+            # need to get to this still -> feed outputs of previous step into next input
+            previous_output = None
+
+            st.write(f"This task has been broken into {len(agent_plan)} steps")
+
+            for step_num, step in enumerate(agent_plan.values()):
+                agent_name = step["agent"]
+                task = step["instructions"]
+
+                st.subheader(f"\nStep {step_num+1}: {agent_name.capitalize()} Agent\n\n")
+
+                params = {"user_input": task}
+                if agent_name in ["base", "deepinsights"]:
+                    params["local_var"] = self.local_var
+
+                agent = self.agents[agent_name](**params)
+                agent.main()
+
+                st.write("\n")
