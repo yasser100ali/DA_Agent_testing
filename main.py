@@ -4,6 +4,7 @@ import os
 import plotly.graph_objects as go
 # new
 from data_analyst_agent_new import DataAnalystAgent
+from structure_data_agent import FixData
 from agent_chat import ChatAgent # for general chatting when datasets are not yet uploaded. 
 import utils
 import json
@@ -84,6 +85,12 @@ def upload_and_format_files():
                         if isinstance(df_sheet, pd.DataFrame):
                             # Standardize each sheet (DataFrame)
                             # The content of the DataFrame is standardized by utils.standardize_file
+
+                            is_structured = utils.is_dataframe_structured(df_sheet)
+                            if not is_structured:
+                                with st.spinner("Structuring Data, please wait..."):
+                                    df_sheet = FixData(df_sheet).structure_data()
+
                             capitalized_standardized_sheets[capitalized_sheet_name] = utils.standardize_file(df_sheet)
 
                             

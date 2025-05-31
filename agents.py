@@ -133,8 +133,10 @@ class Agent:
 
         return content
 
+
+
 class ReAct:
-    def __init__(self, user_input, functions_and_tools_dict=None, functions_and_tools_description=None): # gives the option for inputting function calling 
+    def __init__(self, user_input, functions_and_tools_dict=None, functions_and_tools_description=None, local_var=None): # gives the option for inputting function calling 
         self.user_input = user_input
         self.functions_and_tools_dict = functions_and_tools_dict
         self.functions_and_tools_description = functions_and_tools_description
@@ -145,7 +147,35 @@ class ReAct:
                 "act_output": None
             }
         }
+
+        self.local_var = local_var
     
+    def _get_history_for_prompt(self, current_iteration):
+        """
+        Prepares the conversation history for the prompt, trimming it if necessary.
+        If the current iteration is 4 or greater, it only includes the last 3
+        completed iterations to prevent exceeding token limits.
+        """
+        # If the conversation is short (less than 4 turns), return the full history.
+        if current_iteration < 4:
+            return str(self.conversation_thread)
+
+        # If the conversation is long, create a trimmed version for the prompt.
+        trimmed_history = {}
+        
+        # Define how many of the most recent iterations to keep for context.
+        window_size = 3
+        
+        # Determine the starting iteration for our sliding window.
+        start_iteration = max(1, current_iteration - window_size)
+
+        # Populate the trimmed history with the most recent turns.
+        for i in range(start_iteration, current_iteration):
+            if i in self.conversation_thread:
+                trimmed_history[i] = self.conversation_thread[i]
+
+        return str(trimmed_history)
+
     def reason(self, reason_job, act_output=None, iteration=0):
         system_prompt = """
         You are a specialized Reasoning Engine within a ReAct (Reason-Act) multi-agent system. Your core responsibility is to serve as the "brains" of the operation, meticulously planning the next step.
@@ -180,12 +210,16 @@ class ReAct:
         system_prompt += f"""Here is the overall job for your agent:  {reason_job}"""
 
         user_input = f"Iteration: {iteration}\n"
+        
         user_input += self.user_input
 
         if iteration > 0: 
-            user_input += f"Here is the conversation thread thus far: {self.conversation_thread}"
+            # Get the potentially trimmed history string for the prompt
+            history_for_prompt = self._get_history_for_prompt(iteration)
+            
+            user_input += f"Here is a summary of the most recent conversation turns: {history_for_prompt}"
             user_input += f"\nHere is the most recent Act output: {act_output}"
-        
+                
         # come back to this eventually want it to direct very complex workflows. it could call 
         if self.functions_and_tools_description is not None:
             user_input += f"Here are a list of tools and functions you have at your disposal {self.functions_and_tools_description}"
@@ -237,7 +271,7 @@ class ReAct:
         act_input += f"\n {reason_output}"
         
         if problem_type == 'python_code':
-            result, code = Agent(act_input, {}).coder(system_prompt, "", act_input)
+            result, code = Agent(act_input, self.local_var).coder(system_prompt, "", act_input)
 
             self.conversation_thread[iteration]["act_work"] = code
             self.conversation_thread[iteration]["act_output"] = result 
@@ -277,7 +311,6 @@ class ReAct:
                     
                     Very simple, keep the same code but the output type should be a pandas dataframe. Keep the essential data, remove anything that is not related to the user's prompt, no notes nor comments, just the data please as a pandas dataframe. 
 
-                    Keep t
                     """
                     act_output, act_code = self.act(final_act_job, str(reason_output), iteration=current_iteration)
                 
@@ -292,7 +325,7 @@ class ReAct:
         st.write(act_output)
 
         utils.assistant_message("react_thread", self.conversation_thread)
-
+        time.sleep(10)
         return act_output
 
 
