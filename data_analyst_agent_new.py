@@ -8,6 +8,7 @@ from agent_sql import sqlAgent
 from agents import Agent
 import utils
 import streamlit as st
+import time
 
 class DataAnalystAgent:
     def __init__(self, user_input, local_var):
@@ -80,31 +81,37 @@ class DataAnalystAgent:
             "agent": "deepinsights"
         }
         ```
+
+        Notice if it is a singular step plan, you only return the "agent", nothing else. 
         
+        If it is multiple steps, the first level you write the integer that indicates which step of the plan you are on then inside that you write agent and instructions. 
 
         Examples of multiple agent call will look like the following: 
 
+        
         user_input: "Pull tables relating to finacial numbers from the database, then write a report on the numbers from the last quarter, finally look up and see if I have anything on my calendar for the rest of the week.
         your output: 
 
         ```json
         {
-            1: {
+            "1": {
                 "agent": "pull_table",
                 "instructions": "Pull tables related to financial numbers from the database"   
             },
-            2: {
+            "2": {
                 "agent": "deepinsights",
                 "instructions": "Write a report on the financial numbers from the last quarter"
             },
-            3: {
+            "3": {
                 "agent": "secretary",
                 "instructions": "Check the calendar for the remainder of the week and return details to user"
             }
         }
         ```
 
-        Notice that in the first few examples, a single agent would suffice, whereas in the last example, the job needed the help of multiple agents. Bef
+        Notice that in the first few examples, a single agent would suffice, whereas in the last example, the job needed the help of multiple agents. 
+
+        Important to output in JSON format. 
         """
 
         agent_plan = Agent(self.user_input).json_agent(system_prompt)
@@ -131,6 +138,7 @@ class DataAnalystAgent:
             previous_output = None
 
             st.write(f"This task has been broken into {len(agent_plan)} steps")
+
 
             for step_num, step in enumerate(agent_plan.values()):
                 agent_name = step["agent"]

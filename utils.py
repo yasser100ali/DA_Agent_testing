@@ -330,26 +330,73 @@ def filter_figures(item):
             return item
 
 
-# ... (rest of your code) ...
 def assistant_message(item_type, item):
-    prompt_id = st.session_state['prompt_id']
+    prompt_id = st.session_state.get('prompt_id')
 
-    if len(st.session_state['messages'][prompt_id]) == 1:
-        message = {
-            'role': 'assistant', 
+    if prompt_id is None:
+        st.error("Error in assistant_message: prompt_id not found in session_state.")
+        # Potentially log this or handle more gracefully depending on application structure
+        return
+
+    # Ensure the messages list for the prompt_id exists
+    st.session_state.setdefault('messages', {}) # Ensure 'messages' key exists
+    st.session_state['messages'].setdefault(prompt_id, []) # Ensure prompt_id list exists
+
+    messages_for_prompt = st.session_state['messages'][prompt_id]
+
+    # Scenario 1: This is the first part of the assistant's response for this prompt.
+    # This typically means only the user's message exists so far.
+    if len(messages_for_prompt) == 0 or (len(messages_for_prompt) == 1 and messages_for_prompt[0]['role'] == 'user'):
+        new_assistant_message = {
+            'role': 'assistant',
             'content': {
                 item_type: item
             }
         }
-        st.session_state['messages'][prompt_id].append(message)
-        
-    else:
-        if st.session_state["messages"][prompt_id]["content"][item_type] is None:
-            st.session_state['messages'][prompt_id][1]['content'][item_type] = item
-        else:
-            item_type = item_type + str(uuid.uuid4())
-            st.session_state["messages"][prompt_id][1]['content'][item_type] = item
+        # If only user message exists, append. If no messages, this is the first.
+        if len(messages_for_prompt) == 1 :
+             messages_for_prompt.append(new_assistant_message)
+        else: # len is 0, very unusual but defensive. Add as the first message.
+            messages_for_prompt.append(new_assistant_message)
+            st.warning(f"Warning: Assistant message added for prompt_id {prompt_id} before any user message. This might indicate an issue in call order.")
 
+
+    # Scenario 2: An assistant message structure already exists (at index 1, after user message at index 0).
+    # Add the new item_type to its 'content' dictionary, or update if None, or add uniquely if already filled.
+    elif len(messages_for_prompt) > 1 and messages_for_prompt[1]['role'] == 'assistant':
+        assistant_message_obj = messages_for_prompt[1]
+
+        # Ensure 'content' key exists and is a dictionary
+        if not isinstance(assistant_message_obj.get('content'), dict):
+            st.warning(f"Warning: Assistant message 'content' for prompt_id {prompt_id} was not a dict. Re-initializing.")
+            assistant_message_obj['content'] = {}
+
+        assistant_content_dict = assistant_message_obj['content']
+
+        # Check if the item_type key already exists
+        if item_type not in assistant_content_dict:
+            # Key doesn't exist, so add it.
+            assistant_content_dict[item_type] = item
+        elif assistant_content_dict[item_type] is None:
+            # Key exists and its value is None, so update it.
+            assistant_content_dict[item_type] = item
+        else:
+            # Key exists and is already populated with a non-None value.
+            # Create a new unique key for this new item to avoid overwriting.
+            unique_item_type = f"{item_type}_{str(uuid.uuid4())[:8]}" # Using a shorter UUID for readability
+            assistant_content_dict[unique_item_type] = item
+    else:
+        # This state is unexpected (e.g., len > 1 but index 1 is not an assistant message, or len is 0 but previous block didn't catch)
+        st.error(f"Error in assistant_message: Unexpected message structure for prompt_id {prompt_id}. Length: {len(messages_for_prompt)}")
+        # Fallback: try to append as a new assistant message, but this indicates a potential logic flaw elsewhere.
+        # This might happen if the assumption about user message at index 0 and assistant at index 1 is violated.
+        fallback_message = {
+            'role': 'assistant',
+            'content': {
+                item_type: item
+            }
+        }
+        messages_for_prompt.append(fallback_message)
     
     
 
@@ -755,3 +802,57 @@ def get_current_time_components():
     week_number = now.isocalendar()[1]
     date_day_key = now.strftime("%m_%d_%Y_%A")
     return month_name, week_number, date_day_key
+
+
+def is_dataframe_structured(df, nan_threshold=0.6, header_nan_threshold=0.7, generic_col_threshold=0.5):
+    """
+    Determines if a DataFrame is structured based on heuristics.
+    Args:
+        df (pd.DataFrame): The DataFrame to check.
+        nan_threshold (float): If sparsity (NaN ratio) > this, considered unstructured.
+        header_nan_threshold (float): If first/second data rows' NaN ratio > this, considered unstructured.
+        generic_col_threshold (float): If ratio of 'Unnamed:' columns > this, considered unstructured.
+    Returns:
+        bool: True if structured, False otherwise.
+    """
+    if not isinstance(df, pd.DataFrame) or df.empty:
+        return False # Empty or non-DataFrame is considered not structured for this purpose
+
+    # 1. Check overall sparsity
+    total_cells = df.size
+    nan_cells = df.isnull().sum().sum()
+    sparsity = nan_cells / total_cells if total_cells > 0 else 0
+    if sparsity > nan_threshold:
+        # print(f"DEBUG: Unstructured by overall sparsity: {sparsity:.2f} > {nan_threshold}")
+        return False
+
+    # 2. Check for generic column names (e.g., "Unnamed: X")
+    if df.columns.empty:
+        # print("DEBUG: Unstructured by empty columns")
+        return False
+
+    unnamed_cols = sum(1 for col in df.columns if isinstance(col, str) and col.startswith("Unnamed:"))
+    if len(df.columns) > 0 and (unnamed_cols / len(df.columns)) > generic_col_threshold:
+        # If many columns are unnamed, check the first data row.
+        if not df.empty:
+            first_row_nan_ratio = df.iloc[0].isnull().sum() / len(df.columns) if len(df.columns) > 0 else 0
+            if first_row_nan_ratio > header_nan_threshold:
+                # print(f"DEBUG: Unstructured by generic columns ({unnamed_cols}/{len(df.columns)}) and sparse first row ({first_row_nan_ratio:.2f})")
+                return False
+
+    # 3. Check the first few data rows for sparsity
+    if not df.empty:
+        first_data_row_sparsity = df.iloc[0].isnull().sum() / len(df.columns) if len(df.columns) > 0 else 0
+        if first_data_row_sparsity > header_nan_threshold:
+            if len(df) > 1:
+                second_data_row_sparsity = df.iloc[1].isnull().sum() / len(df.columns) if len(df.columns) > 0 else 0
+                if second_data_row_sparsity > header_nan_threshold:
+                    # print(f"DEBUG: Unstructured by sparse first two data rows: R1({first_data_row_sparsity:.2f}), R2({second_data_row_sparsity:.2f})")
+                    return False
+            else: # Only one row and it's very sparse
+                # print(f"DEBUG: Unstructured by single sparse data row: R1({first_data_row_sparsity:.2f})")
+                return False
+    
+    # print("DEBUG: Classified as Structured")
+    return True
+

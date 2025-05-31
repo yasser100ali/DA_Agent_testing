@@ -79,6 +79,9 @@ class BaseAgent:
             It is also very important to note that **ALL FEATURES AND CATEGORIES ARE CAPTILIZED**. So capitalize the user's features and categories. 
             """
             
+
+            st.write(standard)
+            time.sleep(15)
             system_prompts = {
                 'visualization': standard + """                    
                 You are visualization_agent.

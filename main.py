@@ -84,7 +84,9 @@ def upload_and_format_files():
                         if isinstance(df_sheet, pd.DataFrame):
                             # Standardize each sheet (DataFrame)
                             # The content of the DataFrame is standardized by utils.standardize_file
-                            capitalized_standardized_sheets[capitalized_sheet_name] = utils.standardize_file(df_sheet) # Pass the DataFrame
+                            capitalized_standardized_sheets[capitalized_sheet_name] = utils.standardize_file(df_sheet)
+
+                            
                         else:
                             # Handle cases where a sheet might not load correctly
                             capitalized_standardized_sheets[capitalized_sheet_name] = df_sheet # Keep as is or log warning
@@ -193,7 +195,7 @@ def display_chat_history():
 
                             # --- Result Block ---
                             # Comment: "# add this to message_history IF the type is a pandas dataframe. AND if it is a pandas dataframe then input it as a str"
-                            elif item_type == 'result' and item_data is not None:
+                            elif item_type.startswith('result') and item_data is not None:
                                 utils.show_output(item_data) # Display
                                 if isinstance(item_data, pd.DataFrame):
                                     history_parts_for_this_message.append(item_data.to_string())
@@ -204,7 +206,7 @@ def display_chat_history():
 
                             # --- DeepInsights Block ---
                             # Comment: "# for deepinsights only add to message_history if it is the report"
-                            elif item_type == 'deepinsights':
+                            elif item_type.startswith('deepinsights'):
                                 if isinstance(item_data, dict): # item_data for deepinsights should be a dict
                                     for subitem_name, subitem_content in item_data.items(): # Renamed 'subitem' to 'subitem_content'
                                         # Display logic for deepinsights parts
@@ -253,7 +255,7 @@ def display_chat_history():
                             # --- React Thread Block ---
                             # Comment: "# for react_thread only add to message_history IF it is the key iteration item"
                             # Comment: "# add only this part to message_history -> convert to str first. key_iteration = list(item_data.keys())[-2]"
-                            elif item_type == "react_thread":
+                            elif item_type.startswith("react_thread"):
                                 react_answer_for_display = None # To store what's shown under "**Answer**"
                                 if isinstance(item_data, dict): # item_data for react_thread is a dict of iterations
                                     with st.expander("IPS Algorithm", expanded=False):
@@ -685,7 +687,7 @@ def main_app():
     if 'prompt_id' not in st.session_state:
         st.session_state.prompt_id = 0
 
-    if 'message_histor' not in st.session_state:
+    if 'message_history' not in st.session_state:
         st.session_state.message_history = {}
 
     # --- 2. ESSENTIAL: Corrected Sidebar Logic ---
@@ -707,7 +709,7 @@ def main_app():
                         st.write(item)
                     elif isinstance(item, dict): 
                         for sheet_name, sheet in sorted(list(item.items())):
-                            st.write(f"Sheet: {name}") # sheet_name_display is already capitalized
+                            st.write(f"Sheet: {sheet_name}") # sheet_name_display is already capitalized
                             st.write(sheet)
                     else:
                         st.write(f"- {name} (Unknown type)")
