@@ -134,9 +134,8 @@ class Agent:
         return content
 
 
-
 class ReAct:
-    def __init__(self, user_input, functions_and_tools_dict=None, functions_and_tools_description=None, local_var=None): # gives the option for inputting function calling 
+    def __init__(self, user_input, functions_and_tools_dict=None, functions_and_tools_description=None, local_var={}): # gives the option for inputting function calling 
         self.user_input = user_input
         self.functions_and_tools_dict = functions_and_tools_dict
         self.functions_and_tools_description = functions_and_tools_description
@@ -325,7 +324,6 @@ class ReAct:
         st.write(act_output)
 
         utils.assistant_message("react_thread", self.conversation_thread)
-        time.sleep(10)
         return act_output
 
 

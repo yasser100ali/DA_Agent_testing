@@ -14,7 +14,6 @@ class sqlAgentReAct:
     def __init__(self, user_input):
         self.user_input = user_input 
 
-
     # still need to integrate this, thought jury is still out whether I actually need to 
     def orchestrator(self):
         system_prompt = """You are an orchestrator agent. Your job is to figure out if the given user prompt could be solved in a single step using one 
@@ -232,7 +231,8 @@ class sqlAgentReAct:
         """
 
         react_agent = ReAct(self.user_input)
-        final_output = react_agent.react_loop(reason_job, act_job, max_iterations=20)
+
+        final_output = react_agent.react_loop(reason_job, act_job, max_iterations=5)
         return final_output
         
     def main(self):
