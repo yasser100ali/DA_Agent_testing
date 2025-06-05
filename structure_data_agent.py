@@ -1,50 +1,63 @@
-import utils
-from agents import ReAct
+from agents import Agent
+import pandas as pd
+import time
 
-class FixData:
-    def __init__(self, df):
-        self.df = {"df": df}
+def name_unnamed_features(df):
+    feature_names = list(df.columns)
+    unnamed_features = {}
 
-    def structure_data(self):
-        reason_job = """
-        You are an ReAct Style AI Agent with a very important task. 
-        Your job is to take unstructured data and structure it. 
+    for index, feature in enumerate(feature_names):
+        if "UNNAMED" in feature.upper():
+            unnamed_features[feature.upper()] = {
+                "feature_name": feature.upper(),
+                "index": index,
+                "column_contents": df[feature_names[index]] 
+            }
 
-        By unstructured I mean that the columns are not neatly at the top and the features may not even be placed vertically as columns but as rows. 
-
-        Structure the data so that it is in a clean format similar to how a data sheet would look like when pulled from SQL (all the features are the top row, the data is cleanly organized and placed properly). 
-        
-        Start by looking over the file, try to see as much of the file as you can (usually not that large so you could) and gradually get more specific on the various key metrics and features.
-
-        Your final output output should be the original unstructured data with all the same information organized so that all the main features are at the top. 
-
-        If there is a data column or time variable anywhere and is structured horizontally change this so that it becomes the first feature in the first column. 
-
-        You have a total of 8 iterations to solve your problem. Make sure to wrap up by iteration 8. 
-
-        Make sure you don't have duplicate dolumn names otherwise it will not pass and make sure there are no unnamed columns. Format it according to your best judgment. 
-
-        """
-
-        act_job = f"""
-        You are a python agent, specifically specializing in learning the structure of a given dataframe and structuring it by following a Reason agent instructions. 
-
-        You are part of a ReAct loop and will follow directions according to Reason's dictates.
-        when connecting to the database, the path is 
-
-        Return your output as a JSON where you write the important details of various aspects of what you found. 
-
-        1. Write complete self-contained code that includes all necessary imports
-        2. You are given file 'df', and it is already a pandas dataframe, simply call it in your main() function. 
-
-        Make sure you don't have duplicate dolumn names otherwise it will not pass and make sure there are no unnamed columns. Format it according to your best judgment. 
-
-        """
-
-        
-        react_agent = ReAct("", local_var=self.df)
-        final_output = react_agent.react_loop(reason_job, act_job, max_iterations=8)
-
-        return final_output
-
+    system_prompt = """
+    You are a feature naming agent. Your job is to take a list of features that are currently unnamed, 
+    look over their contents (provided as a string sample) and give a new name. 
+    The new name MUST be a single word or words connected by underscores, ALL CAPITALIZED.
     
+    You are given a function "update_column_name(df, column_index, new_name)" which you MUST use.
+    'df' is already available in your execution scope.
+
+    Your output MUST be a Python script defining a single function main() that calls 
+    update_column_name for each feature you rename and then returns the modified df.
+
+    Example of your output if you decide to rename column at index 14 to "MONTH" and column at index 18 to "EMPLOYEES":
+    ```python
+    def main():
+        # Renaming feature at index 14 to "MONTH"
+        update_column_name(df=df, column_index=14, new_name="MONTH")
+        # Renaming feature at index 18 to "EMPLOYEES"
+        update_column_name(df=df, column_index=18, new_name="EMPLOYEES")
+        return df
+    ```
+    Only provide the Python code block. Do not add any other explanations.
+    """
+
+
+    def update_column_name(df, column_index, new_name):
+        current_columns = list(df.columns)
+        current_columns[column_index] = new_name
+        df.columns = current_columns
+        
+
+    local_var = {
+        "df": df, 
+        "update_column_name": update_column_name
+    }
+
+    user_input = f"""
+    Here are the list of features to update. Look over the contents and come up with an appropriate and simple name in all caps. 
+
+    {unnamed_features}
+    """
+
+    agent = Agent(user_input, local_var)
+    
+    updated_df, code = agent.coder(system_prompt, hide_code=True)
+
+    return updated_df
+

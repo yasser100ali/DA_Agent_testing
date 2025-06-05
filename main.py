@@ -2,9 +2,8 @@ import pandas as pd
 import streamlit as st
 import os
 import plotly.graph_objects as go
-# new
 from data_analyst_agent_new import DataAnalystAgent
-from structure_data_agent import FixData
+from structure_data_agent import name_unnamed_features
 from agent_chat import ChatAgent # for general chatting when datasets are not yet uploaded. 
 import utils
 import json
@@ -14,11 +13,162 @@ from secretary_ai_functions import send_email
 import traceback 
 import warnings
 import copy
+import math
+import openpyxl 
+import re
+
+
 
 # Define the path for the instructions file
 INSTRUCTIONS_FILE = "user_instructions.txt"
 FEEDBACK_FILE = "feedback.txt" 
 DAILY_LOG_FILEPATH = "message_history/daily_chat_log.json"
+
+
+
+def _make_column_names_unique(column_names):
+    name_counts = {}
+    new_columns = []
+    for col in column_names:
+        if col is None:
+            col_str = "Unnamed"
+        elif not isinstance(col, str):
+            col_str = str(col).strip() # Good: handles non-strings, strips whitespace
+        else:
+            col_str = col.strip()      # Good: handles strings, strips whitespace
+
+        if not col_str: 
+            col_str = "Unnamed"        # Good: handles empty strings after stripping
+        
+        # Current logic:
+        if col_str not in name_counts:
+            name_counts[col_str] = 1
+            new_columns.append(col_str) 
+        else:
+            name_counts[col_str] += 1
+            new_columns.append(f"{col_str}_{name_counts[col_str]}")
+    return new_columns
+
+
+def _process_dataframe(df):
+    """
+    A helper function to apply a standard set of cleaning and transposing rules.
+    This version also removes columns that are duplicates by content.
+    """
+    # 1. Remove rows and columns that are completely empty
+    cleaned_df = df.dropna(how='all', axis=0).dropna(how='all', axis=1)
+
+    # 2. Remove rows that are more than 40% empty
+    if cleaned_df.empty:
+        return cleaned_df
+        
+    min_non_empty_values = math.ceil(len(cleaned_df.columns) * 0.6)
+    cleaned_df = cleaned_df.dropna(thresh=min_non_empty_values, axis=0)
+    
+    if cleaned_df.empty:
+        return cleaned_df
+
+    # 3. Set the first column as the index to prepare for transposing
+    feature_col_name = cleaned_df.columns[0]
+    feature_col_series = cleaned_df[feature_col_name].fillna('Unnamed Feature') # Ensure index has no NaNs
+    indexed_df = cleaned_df.set_index(feature_col_series)
+    if feature_col_name in indexed_df.columns: # Drop the original column if it wasn't the only one
+         indexed_df = indexed_df.drop(columns=feature_col_name)
+    
+    # 4. Transpose the DataFrame
+    transposed_df = indexed_df.T
+
+    # 5. Make column names unique (handling name collisions)
+    if not transposed_df.empty:
+        transposed_df.columns = _make_column_names_unique(list(transposed_df.columns))
+    
+    # --- NEW STEP 6: Remove columns that are duplicates by content ---
+    if not transposed_df.empty:
+        columns_to_keep = []
+        seen_column_signatures = set()
+
+        for col_name in transposed_df.columns:
+            current_series = transposed_df[col_name]
+            # Create a signature: convert to string, replace 'nan', make tuple
+            # This makes NaNs comparable for uniqueness
+            series_signature = tuple(current_series.astype(str).str.replace('nan', '_NaN_Placeholder_').values)
+            
+            if series_signature not in seen_column_signatures:
+                columns_to_keep.append(col_name)
+                seen_column_signatures.add(series_signature)
+            # Else, this column's content is a duplicate of one already kept, so we skip it.
+        
+        transposed_df = transposed_df[columns_to_keep]
+
+    return transposed_df
+
+def get_final_data_views(file_source, sheet_name=None): # Changed 'filepath' to 'file_source'
+    """
+    Analyzes an Excel sheet from a file path or file-like object.
+    Returns two cleaned, transposed DataFrames: values_only and hybrid.
+    """
+    file_content_bytes = None
+    try:
+        if isinstance(file_source, str): # If it's a filepath string
+            wb_formulas = openpyxl.load_workbook(file_source, data_only=False)
+            wb_values = openpyxl.load_workbook(file_source, data_only=True)
+        else: # Assume it's a file-like object (e.g., from Streamlit uploader)
+            file_source.seek(0)
+            file_content_bytes = file_source.read()
+            # Use io.BytesIO for multiple reads by openpyxl from the byte stream
+            wb_formulas = openpyxl.load_workbook(io.BytesIO(file_content_bytes), data_only=False)
+            wb_values = openpyxl.load_workbook(io.BytesIO(file_content_bytes), data_only=True)
+
+        # Determine the sheet to use
+        active_sheet_title = wb_formulas.active.title
+        if sheet_name and sheet_name in wb_formulas.sheetnames:
+            sheet_formulas = wb_formulas[sheet_name]
+            sheet_values = wb_values[sheet_name]
+        elif sheet_name: # sheet_name provided but not found
+            st.error(f"Sheet '{sheet_name}' not found. Using active sheet '{active_sheet_title}' instead.")
+            sheet_formulas = wb_formulas.active
+            sheet_values = wb_values.active
+        else: # No sheet_name provided, use active
+            sheet_formulas = wb_formulas.active
+            sheet_values = wb_values.active
+            # st.info(f"No specific sheet name provided. Processing active sheet: '{sheet_formulas.title}'")
+            
+    except FileNotFoundError: # Only for string filepaths
+        st.error(f"Error: The file '{file_source}' was not found.")
+        return None, None
+    except Exception as e:
+        st.error(f"Error loading workbook: {e}")
+        return None, None
+
+    values_data = []
+    hybrid_data = []
+    for r_idx, row_cells in enumerate(sheet_formulas.iter_rows()):
+        values_row = []
+        hybrid_row = []
+        for c_idx, cell_formulas in enumerate(row_cells):
+            value = sheet_values.cell(row=r_idx + 1, column=c_idx + 1).value
+            values_row.append(value)
+            hybrid_content = None
+            if cell_formulas.data_type == 'f':
+                formula_string = cell_formulas.value
+                if '!' not in formula_string and '[' not in formula_string:
+                    hybrid_content = formula_string
+                else:
+                    hybrid_content = value
+            else:
+                hybrid_content = cell_formulas.value
+            hybrid_row.append(hybrid_content)
+        values_data.append(values_row)
+        hybrid_data.append(hybrid_row)
+        
+    df_values_raw = pd.DataFrame(values_data)
+    df_hybrid_raw = pd.DataFrame(hybrid_data)
+
+    final_values_df = _process_dataframe(df_values_raw.copy())
+    final_hybrid_df = _process_dataframe(df_hybrid_raw.copy())
+
+    return final_values_df, final_hybrid_df
+
 
 
 def load_data(uploaded_file_obj):
@@ -27,13 +177,13 @@ def load_data(uploaded_file_obj):
     Returns a pandas DataFrame for CSVs or a dictionary of DataFrames for Excel files.
     """
     try:
-        # Ensure the file pointer is at the beginning
         uploaded_file_obj.seek(0)
         file_name = uploaded_file_obj.name.lower()
         if file_name.endswith('.csv'):
             return pd.read_csv(uploaded_file_obj)
         elif file_name.endswith(('.xls', '.xlsx', '.xlsm', '.xlsb')):
-            return pd.read_excel(uploaded_file_obj, sheet_name=None)
+            # Pass the file object directly, openpyxl (used by read_excel) can handle it
+            return pd.read_excel(uploaded_file_obj, sheet_name=None, engine='openpyxl')
         else:
             st.error(f"Unsupported file type: {uploaded_file_obj.name}")
             return None
@@ -44,88 +194,86 @@ def load_data(uploaded_file_obj):
 
 def upload_and_format_files():
     """
-    Handles file uploads, standardizes data, capitalizes file and sheet names, and displays previews.
+    Handles file uploads, standardizes data, capitalizes file and sheet names, 
+    and processes unstructured sheets.
     """
     uploaded_files = st.file_uploader(
         'Upload Data Files',
         type=['csv', 'xlsx', 'xls', 'xlsm', 'xlsb'],
         accept_multiple_files=True,
-        key="file_uploader_capitalized" # Changed key to avoid conflicts if run side-by-side
+        key="file_uploader_capitalized_integrated"
     )
 
-    dataframes_dict = {} # Store final, standardized data keyed by CAPITALIZED original filename
+    dataframes_dict = {} 
     if uploaded_files:
-        for uploaded_file in uploaded_files:
+        for uploaded_file_obj in uploaded_files: # Changed variable name for clarity
+            capitalized_file_name = "" # Initialize
+            original_file_name = uploaded_file_obj.name
             try:
-                # Reset file pointer just in case
-                uploaded_file.seek(0)
-
-                # --- Capitalize the file name ---
-                original_file_name = uploaded_file.name
+                uploaded_file_obj.seek(0)
                 base_name, extension = os.path.splitext(original_file_name)
-                # Capitalize the base file name, preserve extension case
                 capitalized_file_name = base_name.upper() + extension.upper()
 
-                loaded_data = load_data(uploaded_file) # Ensure load_data is defined
+                loaded_data = load_data(uploaded_file_obj) 
 
                 if loaded_data is None:
-                    # Error handled in load_data, just skip
                     continue
 
-                standardized_data_output = None # To store the result after standardization
+                standardized_data_output = None
 
-                # 2. Standardize the loaded data CONDITIONALLY
-                if isinstance(loaded_data, dict):
-                    # --- Case 1: Loaded data is a dictionary (Excel sheets) ---
+                if isinstance(loaded_data, dict): # Excel file with multiple sheets
                     capitalized_standardized_sheets = {}
-                    for original_sheet_name, df_sheet in loaded_data.items():
-                        # --- Capitalize the sheet name ---
+                    for original_sheet_name, df_sheet_original in loaded_data.items():
                         capitalized_sheet_name = original_sheet_name.upper()
+                        df_for_processing = df_sheet_original # Start with the original sheet
 
-                        if isinstance(df_sheet, pd.DataFrame):
-                            # Standardize each sheet (DataFrame)
-                            # The content of the DataFrame is standardized by utils.standardize_file
-
-                            is_structured = utils.is_dataframe_structured(df_sheet)
-                            if not is_structured:
-                                with st.spinner("Structuring Data, please wait..."):
-                                    df_sheet = FixData(df_sheet).structure_data()
-
-                            capitalized_standardized_sheets[capitalized_sheet_name] = utils.standardize_file(df_sheet)
-
+                        if isinstance(df_for_processing, pd.DataFrame):
+                            # Check if the original sheet is structured
+                            is_structured = utils.is_dataframe_structured(df_for_processing)
                             
+                            if not is_structured:
+                                with st.spinner(f"Processing unstructured sheet: {capitalized_sheet_name}..."):
+                                    # Pass the uploaded_file_obj (file-like object)
+                                    # and original_sheet_name
+                                    st.dataframe(df_for_processing)
+                                    uploaded_file_obj.seek(0) # Reset pointer for get_final_data_views
+                                    processed_values_df, processed_hybrid_df = get_final_data_views(
+                                        uploaded_file_obj, 
+                                        sheet_name=original_sheet_name
+                                    )   
+                                    if processed_values_df is not None and not processed_values_df.empty:
+                                        processed_values_df_pd = processed_values_df
+
+                                        df_for_processing = name_unnamed_features(processed_values_df_pd)
+
+                                        st.write(processed_hybrid_df)
+                                        # You might want to store or display processed_hybrid_df too
+                                        # e.g., st.expander("Show Hybrid Data").dataframe(processed_hybrid_df)
+                                    else:
+                                        st.warning(f"Could not structure sheet '{capitalized_sheet_name}'. Using original format.")
+                                        # df_for_processing remains df_sheet_original
+                            
+                            # Standardize the chosen DataFrame (either original or processed)
+                            capitalized_standardized_sheets[capitalized_sheet_name] = utils.standardize_file(df_for_processing)
                         else:
-                            # Handle cases where a sheet might not load correctly
-                            capitalized_standardized_sheets[capitalized_sheet_name] = df_sheet # Keep as is or log warning
+                            capitalized_standardized_sheets[capitalized_sheet_name] = df_for_processing
                             st.warning(f"Sheet '{capitalized_sheet_name}' in '{capitalized_file_name}' is not a DataFrame.")
-                    standardized_data_output = capitalized_standardized_sheets # Assign the dict of standardized sheets with capitalized keys
-
-                elif isinstance(loaded_data, pd.DataFrame):
-                    # --- Case 2: Loaded data is a single DataFrame (CSV) ---
-                    # The content of the DataFrame is standardized by utils.standardize_file
-                    standardized_data_output = utils.standardize_file(loaded_data) # Pass the DataFrame directly
-
+                    standardized_data_output = capitalized_standardized_sheets
+                
+                elif isinstance(loaded_data, pd.DataFrame): # CSV file
+                    # For CSV, you might also have a concept of "unstructured" 
+                    # but get_final_data_views is designed for Excel structure.
+                    # So, we'll assume CSVs are structured or handled by standardize_file.
+                    standardized_data_output = utils.standardize_file(loaded_data)
                 else:
                     st.warning(f"Unexpected data type after loading {capitalized_file_name}: {type(loaded_data)}")
-                    continue # Skip if loaded data is neither dict nor DataFrame
+                    continue
 
-                # 3. Store the standardized data (either dict or DataFrame) using the CAPITALIZED file name as the key
                 if standardized_data_output is not None:
                     dataframes_dict[capitalized_file_name] = standardized_data_output
-
-
             except Exception as e:
-                # Use capitalized_file_name if available, else original_file_name
-                file_name_for_error = 'unknown file'
-                if 'capitalized_file_name' in locals():
-                    file_name_for_error = capitalized_file_name
-                elif 'original_file_name' in locals():
-                    file_name_for_error = original_file_name
-                st.error(f"Failed to process file {file_name_for_error}: {e}")
-               
-
+                st.error(f"Failed to process file {capitalized_file_name or original_file_name}: {e}")
     return dataframes_dict
-
 
 def load_instructions(filepath=INSTRUCTIONS_FILE):
     """Loads instructions from the specified file."""

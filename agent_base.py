@@ -238,6 +238,8 @@ class BaseAgent:
             st.write(utils.typewriter_effect(f'Problem Type: **{sub_agent}**'))
             job = system_prompts[sub_agent]
 
+            print(job)
+
             result, code = agent.coder(job, self.model)        
             utils.show_output(result)
 
