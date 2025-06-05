@@ -16,7 +16,7 @@ import copy
 import math
 import openpyxl 
 import re
-
+import io
 
 
 # Define the path for the instructions file
@@ -102,61 +102,109 @@ def _process_dataframe(df):
 
     return transposed_df
 
-def get_final_data_views(file_source, sheet_name=None): # Changed 'filepath' to 'file_source'
+
+def convert_sum_to_addition(formula):
+    """Converts simple SUM formulas like '=SUM(A1,B2)' to '=A1+B2'."""
+    match = re.match(r'=SUM\(([^:]+)\)', formula, re.IGNORECASE)
+    if match and ',' in match.group(1):
+        args = [arg.strip() for arg in match.group(1).split(',')]
+        return '=' + '+'.join(args)
+    return formula
+
+
+def get_final_data_views(file_source, sheet_name=None):
     """
-    Analyzes an Excel sheet from a file path or file-like object.
-    Returns two cleaned, transposed DataFrames: values_only and hybrid.
+    Analyzes an Excel sheet and returns two cleaned DataFrames and 
+    a dictionary of human-readable VERTICAL equations using unique feature names.
     """
-    file_content_bytes = None
     try:
-        if isinstance(file_source, str): # If it's a filepath string
+        if isinstance(file_source, str):
             wb_formulas = openpyxl.load_workbook(file_source, data_only=False)
             wb_values = openpyxl.load_workbook(file_source, data_only=True)
-        else: # Assume it's a file-like object (e.g., from Streamlit uploader)
+        else:
             file_source.seek(0)
             file_content_bytes = file_source.read()
-            # Use io.BytesIO for multiple reads by openpyxl from the byte stream
             wb_formulas = openpyxl.load_workbook(io.BytesIO(file_content_bytes), data_only=False)
             wb_values = openpyxl.load_workbook(io.BytesIO(file_content_bytes), data_only=True)
-
-        # Determine the sheet to use
+        
         active_sheet_title = wb_formulas.active.title
         if sheet_name and sheet_name in wb_formulas.sheetnames:
-            sheet_formulas = wb_formulas[sheet_name]
-            sheet_values = wb_values[sheet_name]
-        elif sheet_name: # sheet_name provided but not found
-            st.error(f"Sheet '{sheet_name}' not found. Using active sheet '{active_sheet_title}' instead.")
-            sheet_formulas = wb_formulas.active
-            sheet_values = wb_values.active
-        else: # No sheet_name provided, use active
-            sheet_formulas = wb_formulas.active
-            sheet_values = wb_values.active
-            # st.info(f"No specific sheet name provided. Processing active sheet: '{sheet_formulas.title}'")
-            
-    except FileNotFoundError: # Only for string filepaths
-        st.error(f"Error: The file '{file_source}' was not found.")
-        return None, None
+            sheet_formulas = wb_formulas[sheet_name]; sheet_values = wb_values[sheet_name]
+        else:
+            sheet_formulas = wb_formulas.active; sheet_values = wb_values.active
     except Exception as e:
-        st.error(f"Error loading workbook: {e}")
-        return None, None
+        st.error(f"Error loading workbook: {e}"); return None, None, None
 
-    values_data = []
-    hybrid_data = []
-    for r_idx, row_cells in enumerate(sheet_formulas.iter_rows()):
-        values_row = []
-        hybrid_row = []
-        for c_idx, cell_formulas in enumerate(row_cells):
-            value = sheet_values.cell(row=r_idx + 1, column=c_idx + 1).value
+    # First, load all data into a raw dataframe to determine structure
+    initial_data = []
+    for row in sheet_values.iter_rows():
+        initial_data.append([cell.value for cell in row])
+    df_raw = pd.DataFrame(initial_data)
+
+    # --- 1. Pre-process to get unique names and their original row locations ---
+    # Apply the same cleaning steps used in _process_dataframe
+    temp_df = df_raw.dropna(how='all', axis=0).dropna(how='all', axis=1)
+    if not temp_df.empty:
+        min_non_empty = math.ceil(len(temp_df.columns) * 0.6)
+        temp_df = temp_df.dropna(thresh=min_non_empty, axis=0)
+
+    # Generate the unique, suffixed names from the first column of the cleaned data
+    feature_col_series = temp_df[temp_df.columns[0]].fillna('Unnamed Feature')
+    unique_names = _make_column_names_unique(list(feature_col_series))
+    
+    # Map the original Excel row index (from temp_df.index) to its new unique name
+    row_index_to_unique_name = dict(zip(temp_df.index, unique_names))
+
+    # --- 2. Build the detailed coordinate-to-UNIQUE-name map ---
+    coord_to_unique_name_map = {}
+    for row_idx, unique_name in row_index_to_unique_name.items():
+        # Map all potential cells in this original row to the unique name
+        for col_idx in range(sheet_formulas.max_column):
+            col_letter = openpyxl.utils.get_column_letter(col_idx + 1)
+            coord = f"{col_letter}{row_idx + 1}" # +1 because openpyxl rows are 1-based
+            coord_to_unique_name_map[coord] = unique_name
+
+    # --- 3. Build DataFrames and the FINAL Equations Dictionary using the smart map ---
+    values_data, hybrid_data, equations_dict = [], [], {}
+    for row in sheet_formulas.iter_rows():
+        values_row, hybrid_row = [], []
+        for cell in row:
+            value = sheet_values[cell.coordinate].value
             values_row.append(value)
-            hybrid_content = None
-            if cell_formulas.data_type == 'f':
-                formula_string = cell_formulas.value
+            hybrid_content = value
+            
+            if cell.data_type == 'f':
+                formula_string = cell.value
                 if '!' not in formula_string and '[' not in formula_string:
                     hybrid_content = formula_string
-                else:
-                    hybrid_content = value
-            else:
-                hybrid_content = cell_formulas.value
+                    
+                    is_horizontal, formula_row_num = True, cell.row
+                    referenced_rows = [int(r) for r in re.findall(r'[A-Z]+([0-9]+)', formula_string)]
+                    if not referenced_rows: is_horizontal = False
+                    else:
+                        for ref_row in referenced_rows:
+                            if ref_row != formula_row_num:
+                                is_horizontal = False; break
+                    
+                    if not is_horizontal:
+                        # KEY is the unique name of the cell holding the formula
+                        key = coord_to_unique_name_map.get(cell.coordinate)
+                        
+                        if key and key not in equations_dict:
+                            processed_formula = convert_sum_to_addition(formula_string)
+                            readable_formula = processed_formula.lstrip('=')
+                            
+                            cell_refs = re.findall(r'([A-Z]+[0-9]+)', readable_formula)
+                            for ref in sorted(list(set(cell_refs)), key=len, reverse=True):
+                                # Use the UNIQUE name from our new map
+                                mapped_name = coord_to_unique_name_map.get(ref, ref)
+                                readable_formula = re.sub(r'\b' + ref + r'\b', mapped_name, readable_formula)
+
+                            readable_formula = re.sub(r'([*\/+\-])', r' \1 ', readable_formula)
+                            readable_formula = re.sub(r'\s+', ' ', readable_formula).strip()
+                            
+                            equations_dict[key] = readable_formula
+
             hybrid_row.append(hybrid_content)
         values_data.append(values_row)
         hybrid_data.append(hybrid_row)
@@ -167,9 +215,7 @@ def get_final_data_views(file_source, sheet_name=None): # Changed 'filepath' to 
     final_values_df = _process_dataframe(df_values_raw.copy())
     final_hybrid_df = _process_dataframe(df_hybrid_raw.copy())
 
-    return final_values_df, final_hybrid_df
-
-
+    return final_values_df, final_hybrid_df, equations_dict
 
 def load_data(uploaded_file_obj):
     """
@@ -203,6 +249,8 @@ def upload_and_format_files():
         accept_multiple_files=True,
         key="file_uploader_capitalized_integrated"
     )
+    
+    is_structured = True 
 
     dataframes_dict = {} 
     if uploaded_files:
@@ -235,18 +283,20 @@ def upload_and_format_files():
                                 with st.spinner(f"Processing unstructured sheet: {capitalized_sheet_name}..."):
                                     # Pass the uploaded_file_obj (file-like object)
                                     # and original_sheet_name
-                                    st.dataframe(df_for_processing)
+                                    # st.dataframe(df_for_processing)
+
                                     uploaded_file_obj.seek(0) # Reset pointer for get_final_data_views
-                                    processed_values_df, processed_hybrid_df = get_final_data_views(
+                                    processed_values_df, processed_hybrid_df, equations_dict = get_final_data_views(
                                         uploaded_file_obj, 
                                         sheet_name=original_sheet_name
                                     )   
+
                                     if processed_values_df is not None and not processed_values_df.empty:
                                         processed_values_df_pd = processed_values_df
 
                                         df_for_processing = name_unnamed_features(processed_values_df_pd)
-
-                                        st.write(processed_hybrid_df)
+                                                                                
+                                        #st.write(processed_hybrid_df)
                                         # You might want to store or display processed_hybrid_df too
                                         # e.g., st.expander("Show Hybrid Data").dataframe(processed_hybrid_df)
                                     else:
@@ -273,7 +323,12 @@ def upload_and_format_files():
                     dataframes_dict[capitalized_file_name] = standardized_data_output
             except Exception as e:
                 st.error(f"Failed to process file {capitalized_file_name or original_file_name}: {e}")
-    return dataframes_dict
+    
+
+    if not is_structured:
+        return dataframes_dict, equations_dict
+    else:
+        return dataframes_dict, None
 
 def load_instructions(filepath=INSTRUCTIONS_FILE):
     """Loads instructions from the specified file."""
@@ -848,7 +903,7 @@ def main_app():
     # --- 2. ESSENTIAL: Corrected Sidebar Logic ---
     with st.sidebar:
         st.header("Data Upload / Management")
-        newly_uploaded_files_dict = upload_and_format_files()
+        newly_uploaded_files_dict, equations_dict = upload_and_format_files()
 
         # Corrected logic to MERGE uploaded files into st.session_state.dataframes_dict
         if newly_uploaded_files_dict:
@@ -887,7 +942,11 @@ def main_app():
     if user_input:
         with st.chat_message('user'):
             st.write(user_input)
-
+    
+        if equations_dict is not None:
+            user_input += f"\n\nHere are the list of equations, refer to this to calculate a given variable: {str(equations_dict)}"
+        
+        st.write(user_input)
         data_analyst_tab(st.session_state.dataframes_dict, user_input)
 
         _populate_message_history_object()
