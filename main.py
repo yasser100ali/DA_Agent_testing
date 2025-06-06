@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import os
 import plotly.graph_objects as go
-from data_analyst_agent_new import DataAnalystAgent
+from data_analyst_agent import DataAnalystAgent
 from structure_data_agent import name_unnamed_features
 from agent_chat import ChatAgent # for general chatting when datasets are not yet uploaded. 
 import utils
@@ -23,7 +23,6 @@ import io
 INSTRUCTIONS_FILE = "user_instructions.txt"
 FEEDBACK_FILE = "feedback.txt" 
 DAILY_LOG_FILEPATH = "message_history/daily_chat_log.json"
-
 
 
 def _make_column_names_unique(column_names):
@@ -217,6 +216,28 @@ def get_final_data_views(file_source, sheet_name=None):
 
     return final_values_df, final_hybrid_df, equations_dict
 
+def convert_to_float_if_numeric(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Goes column by column through a DataFrame and converts the
+    data type to float if the entire column is numeric.
+
+    Args:
+        df: The input pandas DataFrame.
+
+    Returns:
+        The DataFrame with numeric columns converted to float type.
+    """
+    for col in df.columns:
+        # Attempt to convert the column to a numeric type.
+        # 'errors=coerce' will turn any non-numeric values into NaN (Not a Number).
+        numeric_series = pd.to_numeric(df[col], errors='coerce')
+
+        # If the conversion doesn't result in all values being NaN,
+        # it means the column was numeric. Then we can change the type.
+        if not numeric_series.isnull().all():
+            df[col] = numeric_series.astype(float)
+    return df
+
 def load_data(uploaded_file_obj):
     """
     Loads data from an uploaded file.
@@ -241,7 +262,7 @@ def load_data(uploaded_file_obj):
 def upload_and_format_files():
     """
     Handles file uploads, standardizes data, capitalizes file and sheet names, 
-    and processes unstructured sheets.
+    and processes unstructured sheets using a cache to avoid re-computation.
     """
     uploaded_files = st.file_uploader(
         'Upload Data Files',
@@ -250,13 +271,17 @@ def upload_and_format_files():
         key="file_uploader_capitalized_integrated"
     )
     
-    is_structured = True 
+    dataframes_dict = {}
+    
+    # <<< MODIFIED >>> This will now collect equations from all processed files
+    all_equations = {}
 
-    dataframes_dict = {} 
+    is_structured = True
+
     if uploaded_files:
-        for uploaded_file_obj in uploaded_files: # Changed variable name for clarity
-            capitalized_file_name = "" # Initialize
+        for uploaded_file_obj in uploaded_files:
             original_file_name = uploaded_file_obj.name
+            capitalized_file_name = ""
             try:
                 uploaded_file_obj.seek(0)
                 base_name, extension = os.path.splitext(original_file_name)
@@ -269,51 +294,67 @@ def upload_and_format_files():
 
                 standardized_data_output = None
 
-                if isinstance(loaded_data, dict): # Excel file with multiple sheets
+                if isinstance(loaded_data, dict): # Excel file
                     capitalized_standardized_sheets = {}
                     for original_sheet_name, df_sheet_original in loaded_data.items():
                         capitalized_sheet_name = original_sheet_name.upper()
-                        df_for_processing = df_sheet_original # Start with the original sheet
+                        df_for_processing = df_sheet_original
 
                         if isinstance(df_for_processing, pd.DataFrame):
-                            # Check if the original sheet is structured
                             is_structured = utils.is_dataframe_structured(df_for_processing)
                             
                             if not is_structured:
-                                with st.spinner(f"Processing unstructured sheet: {capitalized_sheet_name}..."):
-                                    # Pass the uploaded_file_obj (file-like object)
-                                    # and original_sheet_name
-                                    # st.dataframe(df_for_processing)
+                                # <<< --- NEW CACHING LOGIC START --- >>>
+                                
+                                # Create a unique key for this specific sheet
+                                cache_key = f"{capitalized_file_name}/{capitalized_sheet_name}"
 
-                                    uploaded_file_obj.seek(0) # Reset pointer for get_final_data_views
-                                    processed_values_df, processed_hybrid_df, equations_dict = get_final_data_views(
-                                        uploaded_file_obj, 
-                                        sheet_name=original_sheet_name
-                                    )   
+                                # 1. CHECK THE CACHE FIRST
+                                if cache_key in st.session_state.processed_sheets_cache:
+                                    # If found, use the cached result and skip the slow processing
+                                    st.write(f"Loading '{capitalized_sheet_name}' from cache...") # Optional: for debugging
+                                    cached_data = st.session_state.processed_sheets_cache[cache_key]
+                                    df_for_processing = cached_data['dataframe']
+                                    equations_dict = cached_data['equations']
+                                    if equations_dict:
+                                        all_equations.update(equations_dict)
+
+                                else:
+                                    # 2. IF NOT IN CACHE, DO THE HEAVY LIFTING ONCE
+                                    with st.spinner(f"Performing one-time processing on sheet: {capitalized_sheet_name}..."):
+                                        uploaded_file_obj.seek(0)
+                                        processed_values_df, processed_hybrid_df, equations_dict = get_final_data_views(
+                                            uploaded_file_obj, 
+                                            sheet_name=original_sheet_name
+                                        ) 
 
                                     if processed_values_df is not None and not processed_values_df.empty:
-                                        processed_values_df_pd = processed_values_df
+                                        # Run your subsequent processing steps
+                                        df_for_processing = name_unnamed_features(processed_values_df)
+                                        df_for_processing = convert_to_float_if_numeric(df_for_processing)
 
-                                        df_for_processing = name_unnamed_features(processed_values_df_pd)
-                                                                                
-                                        #st.write(processed_hybrid_df)
-                                        # You might want to store or display processed_hybrid_df too
-                                        # e.g., st.expander("Show Hybrid Data").dataframe(processed_hybrid_df)
+                                        # 3. SAVE THE NEW RESULT TO THE CACHE
+                                        st.session_state.processed_sheets_cache[cache_key] = {
+                                            'dataframe': df_for_processing,
+                                            'equations': equations_dict
+                                        }
+                                        if equations_dict:
+                                            all_equations.update(equations_dict)
                                     else:
                                         st.warning(f"Could not structure sheet '{capitalized_sheet_name}'. Using original format.")
                                         # df_for_processing remains df_sheet_original
-                            
-                            # Standardize the chosen DataFrame (either original or processed)
+
+                                # <<< --- NEW CACHING LOGIC END --- >>>
+
+                            # Standardize the chosen DataFrame (either original, cached, or newly processed)
                             capitalized_standardized_sheets[capitalized_sheet_name] = utils.standardize_file(df_for_processing)
                         else:
                             capitalized_standardized_sheets[capitalized_sheet_name] = df_for_processing
                             st.warning(f"Sheet '{capitalized_sheet_name}' in '{capitalized_file_name}' is not a DataFrame.")
+                    
                     standardized_data_output = capitalized_standardized_sheets
                 
                 elif isinstance(loaded_data, pd.DataFrame): # CSV file
-                    # For CSV, you might also have a concept of "unstructured" 
-                    # but get_final_data_views is designed for Excel structure.
-                    # So, we'll assume CSVs are structured or handled by standardize_file.
                     standardized_data_output = utils.standardize_file(loaded_data)
                 else:
                     st.warning(f"Unexpected data type after loading {capitalized_file_name}: {type(loaded_data)}")
@@ -323,7 +364,6 @@ def upload_and_format_files():
                     dataframes_dict[capitalized_file_name] = standardized_data_output
             except Exception as e:
                 st.error(f"Failed to process file {capitalized_file_name or original_file_name}: {e}")
-    
 
     if not is_structured:
         return dataframes_dict, equations_dict
@@ -680,7 +720,7 @@ def update_and_log_daily_history():
     print(f"Chat history for {date_day_key} processed for logging.")
 
 
-def data_analyst_tab(dataframes_dict, user_input=None): # Accept user_input as argument
+def data_analyst_tab(dataframes_dict, user_input=None, equations_dict=None): # Accept user_input as argument
     """Encapsulates the Data Analyst chat functionality."""
 
 
@@ -719,7 +759,11 @@ def data_analyst_tab(dataframes_dict, user_input=None): # Accept user_input as a
                 with st.spinner("Thinking..."):
                     try:
                         user_instructions = load_instructions()
-                        user_input = f"User prompt: {user_input}      General user instructions (follow carefully **if** applicable. May not apply to you, this is a multi-agent system.): {user_instructions}"
+                        user_input = f"User prompt: {user_input}"
+                        if user_instructions is not None:
+                            user_input += f"\n\nGeneral user instructions (follow carefully **if** applicable. May not apply to you, this is a multi-agent system.): {user_instructions}"
+                        if equations_dict is not None:
+                            user_input += f"\n\nHere are the list of equations, follow accordingly to calculate various features and metrics: {equations_dict}"
 
                         agent = DataAnalystAgent(user_input, local_var)
                         # Assuming agent.main() adds results to session state via utils.assistant_message
@@ -886,11 +930,10 @@ def main_app():
     st.set_page_config(layout="wide")
     st.title('Data Analyst Agent')
     st.write('May 26 - June 1.')
-    # --- 1. ESSENTIAL: Initialize session state if it doesn't exist ---
+    
     if 'dataframes_dict' not in st.session_state:
         st.session_state.dataframes_dict = {}
-    # Initialize other session state variables if your other functions rely on them
-    # For example, if display_chat_history or data_analyst_tab use them:
+
     if 'messages' not in st.session_state:
         st.session_state.messages = {}
 
@@ -899,6 +942,9 @@ def main_app():
 
     if 'message_history' not in st.session_state:
         st.session_state.message_history = {}
+
+    if 'processed_sheets_cache' not in st.session_state:
+        st.session_state.processed_sheets_cache = {}
 
     # --- 2. ESSENTIAL: Corrected Sidebar Logic ---
     with st.sidebar:
@@ -942,12 +988,8 @@ def main_app():
     if user_input:
         with st.chat_message('user'):
             st.write(user_input)
-    
-        if equations_dict is not None:
-            user_input += f"\n\nHere are the list of equations, refer to this to calculate a given variable: {str(equations_dict)}"
         
-        st.write(user_input)
-        data_analyst_tab(st.session_state.dataframes_dict, user_input)
+        data_analyst_tab(st.session_state.dataframes_dict, user_input, equations_dict=equations_dict)
 
         _populate_message_history_object()
         update_and_log_daily_history()

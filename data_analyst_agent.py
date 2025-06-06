@@ -117,7 +117,7 @@ class DataAnalystAgent:
         # if subagent_name != 'chat':
         #     st.write(utils.typewriter_effect(f'This task has been assigned to: **{subagent_name}** agent.'))
 
-        if subagent_name in ["chat", "deepinsights"]: 
+        if subagent_name in ["base", "deepinsights"]: 
             params = {
                 "user_input": self.user_input,
                 "local_var": self.local_var

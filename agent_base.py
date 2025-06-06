@@ -3,7 +3,7 @@ from agents import Agent
 from agent_filter_data import filter_data
 import streamlit as st
 import time
-
+import pandas as pd
 
 class BaseAgent:
     def __init__(self, user_input, local_var):
@@ -240,13 +240,31 @@ class BaseAgent:
 
             print(job)
 
-            result, code = agent.coder(job, self.model)        
-            utils.show_output(result)
+            result, code = agent.coder(job)        
+            #utils.show_output(result)
+            
+            written_output = None
+
+            if isinstance(result, pd.DataFrame):
+                system_prompt = """
+                You are a reporter agent. Look over the output of the previous coder agent and answer the user prompt based on the output. Be concise and efficient.
+                """
+                
+                user_input = self.user_input
+                user_input += f"\n\nHere is the answer gathered by coder agent: {str(result)}"
+
+
+                written_output = Agent(user_input).chat(system_prompt=system_prompt)
+
+               
 
             utils.assistant_message("code", code)
             utils.assistant_message("result", [result])
 
-            return result        
+            if written_output is not None:
+                utils.assistant_message("chat", written_output)
+
+            return result, written_output      
         
         else:
             st.write('Trying again')
@@ -255,7 +273,7 @@ class BaseAgent:
             
     def main(self):
         with st.expander('Base Agent. Code & Work.', expanded=True):
-            result = self.base()
-            
+            result, written_output = self.base()
+        
 
         return result
