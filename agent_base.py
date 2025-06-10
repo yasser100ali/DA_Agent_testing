@@ -238,33 +238,12 @@ class BaseAgent:
             st.write(utils.typewriter_effect(f'Problem Type: **{sub_agent}**'))
             job = system_prompts[sub_agent]
 
-            print(job)
-
             result, code = agent.coder(job)        
-            #utils.show_output(result)
-            
-            written_output = None
-
-            if isinstance(result, pd.DataFrame):
-                system_prompt = """
-                You are a reporter agent. Look over the output of the previous coder agent and answer the user prompt based on the output. Be concise and efficient.
-                """
-                
-                user_input = self.user_input
-                user_input += f"\n\nHere is the answer gathered by coder agent: {str(result)}"
-
-
-                written_output = Agent(user_input).chat(system_prompt=system_prompt)
-
-               
 
             utils.assistant_message("code", code)
             utils.assistant_message("result", [result])
 
-            if written_output is not None:
-                utils.assistant_message("chat", written_output)
-
-            return result, written_output      
+            return result      
         
         else:
             st.write('Trying again')
@@ -272,8 +251,25 @@ class BaseAgent:
             
             
     def main(self):
-        with st.expander('Base Agent. Code & Work.', expanded=True):
-            result, written_output = self.base()
-        
+        with st.expander('Base Agent. Code & Work.', expanded=False):
+            result = self.base()
+
+        written_output = None
+
+        if isinstance(result, pd.DataFrame):
+
+            st.dataframe(result)
+            
+            system_prompt = """
+            You are a reporter agent. Look over the output of the previous coder agent and answer the user prompt based on the output. Be concise and efficient.
+            """
+            
+            user_input = self.user_input
+            user_input += f"\n\nHere is the answer gathered by coder agent: {str(result)}"
+
+
+            written_output = Agent(user_input).chat(system_prompt=system_prompt, display_stream=True)
+
+            utils.assistant_message("chat", written_output)
 
         return result

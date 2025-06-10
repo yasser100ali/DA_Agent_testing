@@ -127,9 +127,9 @@ class Agent:
 
         return output
         
-    def chat(self, system_prompt, model=None):
+    def chat(self, system_prompt, model=None, display_stream=True):
         response = utils.get_response(system_prompt, self.user_input, model)
-        content = utils.display_stream(response)
+        content = utils.display_stream(response, visible=display_stream)
 
         return content
 

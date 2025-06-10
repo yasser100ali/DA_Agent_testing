@@ -1,5 +1,1 @@
-ADC = Cost Per Day (No SPSP) / SSF Patient Day
-Cost Per Day (No SPSP) = SSF DOE (No SPSP) / SSF Patient Days 
-Total DOE = SSF Patient Days + SSF Doe (No SPSP)
-
-ED Admits - Includes Obs Admission = ED AD Rate (Key Input) * ED Visits (Key Input) 
+Include Date in all the end findings. 
