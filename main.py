@@ -956,6 +956,47 @@ def main_app():
             for key, new_data_item in newly_uploaded_files_dict.items():
                 st.session_state.dataframes_dict[key] = new_data_item
 
+        print(st.session_state.dataframes_dict)
+
+
+        def make_serializable(obj):
+            """
+            Recursively traverses a data structure and converts any
+            pandas DataFrame objects into a serializable dictionary.
+            """
+            if isinstance(obj, pd.DataFrame):
+                # If the object is a DataFrame, convert it
+                return obj.to_dict(orient='split')
+            
+            if isinstance(obj, dict):
+                # If it's a dictionary, recursively process each value
+                return {key: make_serializable(value) for key, value in obj.items()}
+            
+            if isinstance(obj, list):
+                # If it's a list, recursively process each item
+                return [make_serializable(item) for item in obj]
+            
+            # If it's any other type (string, int, etc.), return it as is
+            return obj
+        
+        try:
+            # 1. Take your original dictionary, which may have nested DataFrames
+            original_data = st.session_state.dataframes_dict
+
+            # 2. Process it with the recursive function to make it fully serializable
+            serializable_dict = make_serializable(original_data)
+
+            # 3. Now, dump the fully cleaned dictionary to the file
+            filepath = "message_history/file_details.json"
+            with open(filepath, "w", encoding="utf-8") as f:
+                json.dump(serializable_dict, f, indent=4)
+                
+            print("Successfully saved data to JSON.")
+
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+
         # Display all available data sources (from SQL and all uploads)
         st.subheader("Available Data Sources:")
         if st.session_state.dataframes_dict:
