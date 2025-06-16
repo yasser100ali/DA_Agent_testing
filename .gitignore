@@ -1,0 +1,10 @@
+# Python virtual environment
+my_env/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+testing_data

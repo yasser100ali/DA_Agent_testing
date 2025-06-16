@@ -1,0 +1,159 @@
+{
+  "TEAMS": {
+    "DATA_SCIENCE_TEAM": {
+      "MISSION": "The Data Science Team specializes in making hospitals more efficient by running simulations to find potential bottlenecks and building cutting edge AI applications (like this one!). Current AI projects include using LLMs to create AI agents that do useful and complex work such as data analysis, reporting and general assisting.",
+      "TEAM_MEMBERS": {
+        "SMITH_LIAM": {
+          "ROLE": "HEAD OF TEAM",
+          "DUTIES": "As head of the team, this position holder oversees all operations in the data science team. Their job is to keep the team on track, properly direct operations for future directions involving data science and AI at Kaiser.",
+          "CONTACT": "smith_liam@company.org"
+        },
+        "JONES_OLIVIA": {
+          "ROLE": "Lead Data Scientist",
+          "DUTIES": "Product-oriented Data Scientist with a demonstrated history of experimentation within Kaiser Permanente. Skilled in data wrangling, exploratory data analysis, data visualization, ETL, machine learning. Lead data scientist, oversees many project devlopments, including the various AI Agent applications",
+          "CONTACT": "jones_olivia@company.org"
+        },
+        "WILLIAMS_NOAH": {
+          "ROLE": "SENIOR DATA SCIENTIST",
+          "DUTIES": "Building various AI agents, including text to sql which converts natural language into SQL queries to make SQL writing faster and more accessible.",
+          "CONTACT": "williams_noah@company.org"
+        },
+        "BROWN_EMMA": {
+          "ROLE": "SENIOR DATA SCIENTIST",
+          "DUTIES": "Part of both simulations and agents team. Responsible for bridging the simulations application to users by building agentic applications.",
+          "CONTACT": "brown_emma@company.org"
+        },
+        "DAVIS_OLIVER": {
+          "ROLE": "AI ENGINEER",
+          "DUTIES": "Built data analyst agent and expanding rapidly. Created agents framework from scratch, understands agentic systems very well. If you want to build agents, this is your guy.",
+          "CONTACT": "davis_oliver@company.org"
+        }
+      }
+    },
+    "FINANCE_TEAM": {
+      "MISSION": "The Finance Team is dedicated to ensuring the fiscal health and sustainability of Kaiser by meticulously managing financial resources, optimizing spending, and ensuring efficient allocation of funds to support patient care and hospital operations. We oversee budgeting, financial planning, reporting, and compliance to drive financial excellence.",
+      "TEAM_MEMBERS": {
+        "MILLER_AVA": {
+          "ROLE": "HEAD OF TEAM",
+          "DUTIES": "As Head of Finance, this position holder provides strategic financial leadership and oversight for all financial operations at Kaiser. They are responsible for financial planning, budget development and control, financial reporting, and ensuring the effective allocation of resources to meet organizational goals.",
+          "CONTACT": "miller_ava@company.org"
+        },
+        "WILSON_ELIJAH": {
+          "ROLE": "Financial Analyst",
+          "DUTIES": "This role focuses on analyzing financial data, preparing comprehensive financial reports, and assisting in the budget development process. They play a key role in identifying spending trends, evaluating investment opportunities, and supporting resource allocation decisions to optimize hospital efficiency.",
+          "CONTACT": "wilson_elijah@company.org"
+        },
+        "MOORE_CHARLOTTE": {
+          "ROLE": "Financial Analyst",
+          "DUTIES": "This role is responsible for tracking and analyzing departmental spending, performing variance analysis against budgets, and assisting in the proper allocation of financial resources across various hospital units. They also support financial forecasting and modeling efforts.",
+          "CONTACT": "moore_charlotte@company.org"
+        },
+        "TAYLOR_WILLIAM": {
+          "ROLE": "Senior Financial Planner",
+          "DUTIES": "This role leads long-term financial planning initiatives, develops sophisticated financial models, and assesses the financial viability of new projects and services. They work closely with department heads to align financial strategies with Kaiser's operational objectives.",
+          "CONTACT": "taylor_william@company.org"
+        },
+        "ANDERSON_SOPHIA": {
+          "ROLE": "Budget Manager",
+          "DUTIES": "This role oversees the entire budgeting lifecycle, from preparation and consolidation to monitoring and reporting. They ensure that departmental budgets are aligned with strategic priorities and provide guidance on budget management and expenditure control.",
+          "CONTACT": "anderson_sophia@company.org"
+        },
+        "THOMAS_JAMES": {
+          "ROLE": "Revenue Cycle Analyst",
+          "DUTIES": "This role specializes in analyzing and optimizing the hospital's revenue cycle processes. Their duties include tracking patient billing and collections, identifying areas for revenue enhancement, and ensuring compliance with payer regulations to maximize financial performance.",
+          "CONTACT": "thomas_james@company.org"
+        },
+        "JACKSON_AMELIA": {
+          "ROLE": "Financial Systems Administrator",
+          "DUTIES": "This role is responsible for the maintenance and improvement of financial software and systems. They ensure data integrity, provide technical support to the finance team, and assist in the implementation of new financial technologies to streamline operations.",
+          "CONTACT": "jackson_amelia@company.org"
+        }
+      }
+    },
+    "IT_TEAM": {
+      "MISSION": "The IT Team is responsible for managing and maintaining the organization's technology infrastructure, providing technical support, ensuring cybersecurity, and implementing new technological solutions to support all departments and operations.",
+      "TEAM_MEMBERS": {
+        "WHITE_BENJAMIN": {
+          "ROLE": "HEAD OF IT",
+          "DUTIES": "Oversees all IT operations, strategy, cybersecurity, and technology deployment across the organization.",
+          "CONTACT": "white_benjamin@company.org"
+        },
+        "HARRIS_ISABELLA": {
+          "ROLE": "Senior Network Engineer",
+          "DUTIES": "Manages and maintains network infrastructure, ensuring reliability, performance, and security of data communication.",
+          "CONTACT": "harris_isabella@company.org"
+        },
+        "MARTIN_LUCAS": {
+          "ROLE": "Systems Administrator",
+          "DUTIES": "Responsible for the installation, configuration, and maintenance of server systems and enterprise applications.",
+          "CONTACT": "martin_lucas@company.org"
+        },
+        "THOMPSON_MIA": {
+          "ROLE": "IT Helpdesk Manager",
+          "DUTIES": "Manages the IT support team, ensuring timely resolution of technical issues for employees.",
+          "CONTACT": "thompson_mia@company.org"
+        },
+        "GARCIA_HENRY": {
+          "ROLE": "Cybersecurity Analyst",
+          "DUTIES": "Monitors for security threats, implements security measures, and responds to incidents to protect organizational data.",
+          "CONTACT": "garcia_henry@company.org"
+        }
+      }
+    },
+    "SAN_LEANDRO_HOSPITAL_OPERATIONS": {
+      "MISSION": "The San Leandro Hospital Operations team is dedicated to delivering exceptional patient care by managing clinical services, patient support systems, and ensuring the smooth functioning of the San Leandro medical center.",
+      "KEY_CONTACTS_AND_DEPARTMENTS": {
+        "DR_MARTINEZ_EVELYN": {
+          "ROLE": "Hospital Administrator - San Leandro",
+          "DUTIES": "Oversees all administrative and operational aspects of the San Leandro facility, ensures regulatory compliance, and manages budget and resources.",
+          "CONTACT": "martinez_evelyn@company.org"
+        },
+        "DR_ROBINSON_ALEXANDER": {
+          "ROLE": "Chief of Medicine - San Leandro",
+          "DUTIES": "Leads the medical staff, oversees clinical quality and patient safety, and guides medical practices within the hospital.",
+          "CONTACT": "robinson_alexander@company.org"
+        },
+        "CLARK_HARPER": {
+          "ROLE": "Director of Nursing - San Leandro",
+          "DUTIES": "Manages all nursing staff, patient care standards, and nursing operations throughout the San Leandro facility.",
+          "CONTACT": "clark_harper@company.org"
+        },
+        "RODRIGUEZ_DANIEL": {
+          "ROLE": "Emergency Department Lead - San Leandro",
+          "DUTIES": "Manages the operations, staffing, and patient flow within the San Leandro Emergency Department.",
+          "CONTACT": "rodriguez_daniel@company.org"
+        },
+        "LEWIS_CHLOE": {
+          "ROLE": "Staffing Office Coordinator - San Leandro",
+          "DUTIES": "Manages nurse and clinical staff scheduling, addresses staffing shortages, and ensures adequate coverage across departments.",
+          "CONTACT": "lewis_chloe@company.org"
+        }
+      }
+    },
+    "DATA_ANALYST_TEAM": {
+      "MISSION": "The Data Analyst Team empowers data-driven decision-making across the organization by collecting, analyzing, and interpreting complex datasets. They develop reports, dashboards, and provide actionable insights to various departments, focusing on operational efficiency and business intelligence.",
+      "TEAM_MEMBERS": {
+        "WALKER_SAMUEL": {
+          "ROLE": "Data Analysis Manager",
+          "DUTIES": "Leads the Data Analyst Team, defines analytical methodologies, and ensures the delivery of accurate and relevant insights to stakeholders.",
+          "CONTACT": "walker_samuel@company.org"
+        },
+        "ALLEN_GRACE": {
+          "ROLE": "Senior Business Analyst",
+          "DUTIES": "Works with specific departments to understand their data needs, conducts in-depth analysis, and translates findings into business actions.",
+          "CONTACT": "allen_grace@company.org"
+        },
+        "KING_JOSEPH": {
+          "ROLE": "Data Visualization Specialist",
+          "DUTIES": "Designs and develops interactive dashboards and reports to communicate complex data stories effectively.",
+          "CONTACT": "king_joseph@company.org"
+        },
+        "YOUNG_VICTORIA": {
+          "ROLE": "Junior Data Analyst",
+          "DUTIES": "Supports data collection, cleaning, preliminary analysis, and assists in report generation.",
+          "CONTACT": "young_victoria@company.org"
+        }
+      }
+    }
+  }
+}

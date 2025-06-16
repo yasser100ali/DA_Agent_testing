@@ -1,0 +1,15 @@
+streamlit
+pandas
+plotly
+google-auth
+google-auth-oauthlib
+google-api-python-client
+openai
+openpyxl
+matplotlib
+scikit-learn
+statsmodels
+numpy
+watchdog
+seaborn
+openpyxl
