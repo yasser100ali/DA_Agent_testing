@@ -895,8 +895,8 @@ def sync_file_metadata_from_session():
         file_level_meta = {
             # Note: Since we don't have the raw file, we hash the DataFrame content.
             # This is still very effective for detecting data changes.
-            "content_hash": pd.util.hash_pandas_object(sheets_to_process[next(iter(sheets_to_process))], index=True).sum(),
-            "estimated_size_bytes": sum(df.memory_usage(deep=True).sum() for df in sheets_to_process.values()),
+            "content_hash": int(pd.util.hash_pandas_object(sheets_to_process[next(iter(sheets_to_process))], index=True).sum()),
+            "estimated_size_bytes": int(sum(df.memory_usage(deep=True).sum() for df in sheets_to_process.values())),
             "last_updated_timestamp": datetime.now(timezone.utc).isoformat(),
             "sheets": {}
         }

@@ -955,6 +955,8 @@ def main_app():
             for key, new_data_item in newly_uploaded_files_dict.items():
                 st.session_state.dataframes_dict[key] = new_data_item
 
+        # 
+        utils.sync_file_metadata_from_session()
 
         # Display all available data sources (from SQL and all uploads)
         st.subheader("Available Data Sources:")
