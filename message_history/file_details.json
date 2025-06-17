@@ -2021,5 +2021,638 @@
                 }
             }
         }
+    },
+    "2025_NCAL_DOE_EXPENSE_FORECAST_MODEL.XLSX": {
+        "content_hash": 16274766541041240850,
+        "estimated_size_bytes": 4828,
+        "last_updated_timestamp": "2025-06-17T18:29:18.486321+00:00",
+        "sheets": {
+            "2025_BUDGET": {
+                "row_count": 12,
+                "column_count": 10,
+                "duplicate_row_count": 0,
+                "dataframe_summary": "",
+                "columns": {
+                    "DATE": {
+                        "type": "object",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 12,
+                        "is_potential_id": true,
+                        "description": "",
+                        "categories": [
+                            "2025-01-01",
+                            "2025-02-01",
+                            "2025-03-01",
+                            "2025-04-01",
+                            "2025-05-01",
+                            "2025-06-01",
+                            "2025-07-01",
+                            "2025-08-01",
+                            "2025-09-01",
+                            "2025-10-01",
+                            "2025-11-01",
+                            "2025-12-01"
+                        ]
+                    },
+                    "CALENDAR_DAYS": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 3,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 30.416666666666668,
+                            "std": 0.90033663737852,
+                            "min": 28.0,
+                            "25%": 30.0,
+                            "50%": 31.0,
+                            "75%": 31.0,
+                            "max": 31.0
+                        }
+                    },
+                    "SSF_PATIENT_DAYS": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 10,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 2398.3333333333335,
+                            "std": 169.58952226068115,
+                            "min": 2100.0,
+                            "25%": 2275.0,
+                            "50%": 2420.0,
+                            "75%": 2505.0,
+                            "max": 2680.0
+                        }
+                    },
+                    "SSF_DOE(NO_SPSP)": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 12,
+                        "is_potential_id": true,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 13311000.0,
+                            "std": 680606.1469548503,
+                            "min": 12250000.0,
+                            "25%": 12855000.0,
+                            "50%": 13202500.0,
+                            "75%": 13850000.0,
+                            "max": 14357000.0
+                        }
+                    },
+                    "SSF(SPSP)": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 12,
+                        "is_potential_id": true,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 1102500.0,
+                            "std": 60207.97289396148,
+                            "min": 1035000.0,
+                            "25%": 1062500.0,
+                            "50%": 1087500.0,
+                            "75%": 1126250.0,
+                            "max": 1250000.0
+                        }
+                    },
+                    "TOTAL_DOE": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 12,
+                        "is_potential_id": true,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 14413500.0,
+                            "std": 705139.3801615008,
+                            "min": 13380000.0,
+                            "25%": 13901250.0,
+                            "50%": 14320000.0,
+                            "75%": 14943750.0,
+                            "max": 15607000.0
+                        }
+                    },
+                    "COST_PER_DAY": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 12,
+                        "is_potential_id": true,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 5316.916666666667,
+                            "std": 453.3205685591465,
+                            "min": 4500.0,
+                            "25%": 5117.25,
+                            "50%": 5345.0,
+                            "75%": 5530.0,
+                            "max": 6140.0
+                        }
+                    },
+                    "ADC": {
+                        "type": "float64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 10,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 78.84856630824373,
+                            "std": 5.057001642066668,
+                            "min": 70.96774193548387,
+                            "25%": 76.25,
+                            "50%": 78.70967741935485,
+                            "75%": 81.83333333333333,
+                            "max": 86.45161290322581
+                        }
+                    },
+                    "FTE": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 10,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 565.5,
+                            "std": 38.213514981910876,
+                            "min": 530.0,
+                            "25%": 540.75,
+                            "50%": 545.0,
+                            "75%": 592.5,
+                            "max": 657.0
+                        }
+                    },
+                    "FTE/ADC": {
+                        "type": "float64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 12,
+                        "is_potential_id": true,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 7.2155221168648245,
+                            "std": 0.8456575073873639,
+                            "min": 6.246268656716418,
+                            "25%": 6.518880952380952,
+                            "50%": 6.935597826086957,
+                            "75%": 7.900596590909091,
+                            "max": 8.48625
+                        }
+                    }
+                }
+            },
+            "2025_FORECAST": {
+                "row_count": 10,
+                "column_count": 19,
+                "duplicate_row_count": 0,
+                "dataframe_summary": "",
+                "columns": {
+                    "DATE": {
+                        "type": "object",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 10,
+                        "is_potential_id": true,
+                        "description": "",
+                        "categories": [
+                            "2025-03-01",
+                            "2025-04-01",
+                            "2025-05-01",
+                            "2025-06-01",
+                            "2025-07-01",
+                            "2025-08-01",
+                            "2025-09-01",
+                            "2025-10-01",
+                            "2025-11-01",
+                            "2025-12-01"
+                        ]
+                    },
+                    "CALENDAR_DAYS": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 2,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 30.6,
+                            "std": 0.5163977794943222,
+                            "min": 30.0,
+                            "25%": 30.0,
+                            "50%": 31.0,
+                            "75%": 31.0,
+                            "max": 31.0
+                        }
+                    },
+                    "ED_VISITS": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 9,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 4680.0,
+                            "std": 210.09257218875894,
+                            "min": 4400.0,
+                            "25%": 4531.25,
+                            "50%": 4600.0,
+                            "75%": 4868.75,
+                            "max": 5000.0
+                        }
+                    },
+                    "ED_AD_RATE": {
+                        "type": "float64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 1,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 0.14199999999999996,
+                            "std": 2.925694557147251e-17,
+                            "min": 0.142,
+                            "25%": 0.142,
+                            "50%": 0.142,
+                            "75%": 0.142,
+                            "max": 0.142
+                        }
+                    },
+                    "ED_ADMITS": {
+                        "type": "float64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 9,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 664.56,
+                            "std": 29.833145250803774,
+                            "min": 624.8,
+                            "25%": 643.4375,
+                            "50%": 653.1999999999999,
+                            "75%": 691.3625,
+                            "max": 709.9999999999999
+                        }
+                    },
+                    "OR_CASE": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 10,
+                        "is_potential_id": true,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 548.0,
+                            "std": 37.43141876967945,
+                            "min": 495.0,
+                            "25%": 515.0,
+                            "50%": 555.0,
+                            "75%": 577.5,
+                            "max": 600.0
+                        }
+                    },
+                    "OR_ADMIT_RATE": {
+                        "type": "float64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 1,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 0.06499999999999999,
+                            "std": 1.4628472785736255e-17,
+                            "min": 0.065,
+                            "25%": 0.065,
+                            "50%": 0.065,
+                            "75%": 0.065,
+                            "max": 0.065
+                        }
+                    },
+                    "OR_ADMITS": {
+                        "type": "float64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 10,
+                        "is_potential_id": true,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 35.62,
+                            "std": 2.433042220029164,
+                            "min": 32.175000000000004,
+                            "25%": 33.475,
+                            "50%": 36.075,
+                            "75%": 37.5375,
+                            "max": 39.0
+                        }
+                    },
+                    "TRANSFER_ADMITS": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 1,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 16.0,
+                            "std": 0.0,
+                            "min": 16.0,
+                            "25%": 16.0,
+                            "50%": 16.0,
+                            "75%": 16.0,
+                            "max": 16.0
+                        }
+                    },
+                    "MONTHLY_PROVIDER_ADMISSION": {
+                        "type": "float64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 10,
+                        "is_potential_id": true,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 716.18,
+                            "std": 30.21693279897511,
+                            "min": 673.9499999999999,
+                            "25%": 694.78125,
+                            "50%": 703.6499999999999,
+                            "75%": 746.0374999999999,
+                            "max": 761.7499999999999
+                        }
+                    },
+                    "DAILY_PROVIDER_DC_ADMISSION": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 5,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 15.1,
+                            "std": 2.2335820757001272,
+                            "min": 13.0,
+                            "25%": 14.0,
+                            "50%": 14.5,
+                            "75%": 15.0,
+                            "max": 21.0
+                        }
+                    },
+                    "TOTAL_MONTHLY_PROVIDER_DC": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 7,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 462.4,
+                            "std": 71.85819368728941,
+                            "min": 390.0,
+                            "25%": 434.0,
+                            "50%": 442.0,
+                            "75%": 461.25,
+                            "max": 651.0
+                        }
+                    },
+                    "DAILY_OBS_DC_ASSUMPTION": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 2,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 3.6,
+                            "std": 0.5163977794943223,
+                            "min": 3.0,
+                            "25%": 3.0,
+                            "50%": 4.0,
+                            "75%": 4.0,
+                            "max": 4.0
+                        }
+                    },
+                    "TOTAL_MONTLY_OBS_DC": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 4,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 110.1,
+                            "std": 15.47363348839998,
+                            "min": 90.0,
+                            "25%": 93.0,
+                            "50%": 120.0,
+                            "75%": 123.0,
+                            "max": 124.0
+                        }
+                    },
+                    "TOTAL_MONTLYH_PATEIENT_DAYS_PROJECTION": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 8,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 2538.0,
+                            "std": 116.40923980127656,
+                            "min": 2350.0,
+                            "25%": 2462.5,
+                            "50%": 2540.0,
+                            "75%": 2637.5,
+                            "max": 2700.0
+                        }
+                    },
+                    "TOTAL_MONTLY_ADC_PROJECTION": {
+                        "type": "float64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 9,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 82.96774193548387,
+                            "std": 4.176265584138802,
+                            "min": 75.80645161290323,
+                            "25%": 80.16129032258064,
+                            "50%": 83.27956989247312,
+                            "75%": 85.48387096774194,
+                            "max": 90.0
+                        }
+                    },
+                    "TOTAL_LOS": {
+                        "type": "float64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 9,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 5.090000000000001,
+                            "std": 0.5021066730398144,
+                            "min": 4.3,
+                            "25%": 4.75,
+                            "50%": 5.15,
+                            "75%": 5.425,
+                            "max": 5.9
+                        }
+                    },
+                    "BUDGET_LOS": {
+                        "type": "float64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 1,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 3.7999999999999994,
+                            "std": 4.681111291435602e-16,
+                            "min": 3.8,
+                            "25%": 3.8,
+                            "50%": 3.8,
+                            "75%": 3.8,
+                            "max": 3.8
+                        }
+                    },
+                    "LOS_VARIANCE": {
+                        "type": "float64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 9,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 1.2900000000000005,
+                            "std": 0.5021066730398145,
+                            "min": 0.5,
+                            "25%": 0.9500000000000004,
+                            "50%": 1.35,
+                            "75%": 1.6250000000000002,
+                            "max": 2.1000000000000005
+                        }
+                    }
+                }
+            },
+            "EXPENSE_ASSUMPTIONS": {
+                "row_count": 10,
+                "column_count": 4,
+                "duplicate_row_count": 0,
+                "dataframe_summary": "",
+                "columns": {
+                    "DATE": {
+                        "type": "object",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 10,
+                        "is_potential_id": true,
+                        "description": "",
+                        "categories": [
+                            "2025-03-01",
+                            "2025-04-01",
+                            "2025-05-01",
+                            "2025-06-01",
+                            "2025-07-01",
+                            "2025-08-01",
+                            "2025-09-01",
+                            "2025-10-01",
+                            "2025-11-01",
+                            "2025-12-01"
+                        ]
+                    },
+                    "CALENDAR_DAYS": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 2,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 30.6,
+                            "std": 0.5163977794943222,
+                            "min": 30.0,
+                            "25%": 30.0,
+                            "50%": 31.0,
+                            "75%": 31.0,
+                            "max": 31.0
+                        }
+                    },
+                    "EXPENSE_ASSUMPTIONS": {
+                        "type": "int64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 10,
+                        "is_potential_id": true,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 5254.0,
+                            "std": 409.04224177406854,
+                            "min": 4500.0,
+                            "25%": 5132.5,
+                            "50%": 5345.0,
+                            "75%": 5480.0,
+                            "max": 5780.0
+                        }
+                    },
+                    "FTE/ADC": {
+                        "type": "float64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 10,
+                        "is_potential_id": true,
+                        "description": "",
+                        "statistics": {
+                            "count": 10.0,
+                            "mean": 7.071334873571123,
+                            "std": 0.8174868939905094,
+                            "min": 6.246268656716418,
+                            "25%": 6.516960317460318,
+                            "50%": 6.731659836065575,
+                            "75%": 7.599361413043478,
+                            "max": 8.454545454545455
+                        }
+                    }
+                }
+            }
+        }
     }
 }

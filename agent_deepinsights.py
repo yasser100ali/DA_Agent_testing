@@ -276,6 +276,8 @@ class DeepInsightsAgent:
 
         Also write out the features names in a clean way (so if you see 'AVG_WAIT_FROM_ED' write out 'Avg Wait from ED'. Do not retain the underscores (_) and capitalizations.) 
         But for these same key features, bolden them using markdown. 
+
+        Make it efficient, but explain things in paragraphs so that the user easily understands. Make it a professional report. 
         """
 
         report = agent.reporter(reporter_role, self.model, reporter_input)
