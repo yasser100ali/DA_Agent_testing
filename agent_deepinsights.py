@@ -174,20 +174,10 @@ class DeepInsightsAgent:
             json_plan = agent.json_agent(orchestrator_job, self.model)
 
 
-        #plan = []
-        
 
-        # st.write(utils.typewriter_effect('**Here is the plan that I have crafted.**'))
-        # for i, step in enumerate(json_plan.values()):
-        #     task = step["task"]
-        #     st.write(utils.typewriter_effect(f"Step {i + 1}"))
-        #     st.write(utils.typewriter_effect(f"**{task}**"))
-        #     plan.append(task)
-        
         results = []
 
         problem_work = {
-            #"plan": plan,
             "plan execution": None,
             "report": None, 
             "report_visual": None,

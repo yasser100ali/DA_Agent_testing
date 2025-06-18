@@ -209,12 +209,10 @@ def get_final_data_views(file_source, sheet_name=None):
         hybrid_data.append(hybrid_row)
         
     df_values_raw = pd.DataFrame(values_data)
-    df_hybrid_raw = pd.DataFrame(hybrid_data)
 
     final_values_df = _process_dataframe(df_values_raw.copy())
-    final_hybrid_df = _process_dataframe(df_hybrid_raw.copy())
 
-    return final_values_df, final_hybrid_df, equations_dict
+    return final_values_df, equations_dict
 
 def convert_to_float_if_numeric(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -323,7 +321,7 @@ def upload_and_format_files():
                                     # 2. IF NOT IN CACHE, DO THE HEAVY LIFTING ONCE
                                     with st.spinner(f"Performing one-time processing on sheet: {capitalized_sheet_name}..."):
                                         uploaded_file_obj.seek(0)
-                                        processed_values_df, processed_hybrid_df, equations_dict = get_final_data_views(
+                                        processed_values_df, equations_dict = get_final_data_views(
                                             uploaded_file_obj, 
                                             sheet_name=original_sheet_name
                                         ) 
