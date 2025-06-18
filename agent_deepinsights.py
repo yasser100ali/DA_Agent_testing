@@ -174,18 +174,20 @@ class DeepInsightsAgent:
             json_plan = agent.json_agent(orchestrator_job, self.model)
 
 
-        plan = []
-        st.write(utils.typewriter_effect('**Here is the plan that I have crafted.**'))
-        for i, step in enumerate(json_plan.values()):
-            task = step["task"]
-            st.write(utils.typewriter_effect(f"Step {i + 1}"))
-            st.write(utils.typewriter_effect(f"**{task}**"))
-            plan.append(task)
+        #plan = []
+        
+
+        # st.write(utils.typewriter_effect('**Here is the plan that I have crafted.**'))
+        # for i, step in enumerate(json_plan.values()):
+        #     task = step["task"]
+        #     st.write(utils.typewriter_effect(f"Step {i + 1}"))
+        #     st.write(utils.typewriter_effect(f"**{task}**"))
+        #     plan.append(task)
         
         results = []
 
         problem_work = {
-            "plan": plan,
+            #"plan": plan,
             "plan execution": None,
             "report": None, 
             "report_visual": None,
@@ -197,8 +199,7 @@ class DeepInsightsAgent:
         features_list = str(utils.convert_to_features_list(self.dataframes_dict))
         features_list_json = utils.extract_json(features_list)
         word_count = len(features_list.split())
-        st.write(word_count)
-
+        
         if word_count > 150:
             input_features_list = filter_data(real_input, features_list)
             input_features_list_json = utils.extract_json(input_features_list)

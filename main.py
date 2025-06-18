@@ -460,14 +460,14 @@ def display_chat_history():
                                 if isinstance(item_data, dict): # item_data for deepinsights should be a dict
                                     for subitem_name, subitem_content in item_data.items(): # Renamed 'subitem' to 'subitem_content'
                                         # Display logic for deepinsights parts
-                                        if subitem_name == 'plan':
-                                            st.write("This task has been assigned to **deepinsights agent.**")
-                                            st.write("**Here is the plan that I've crafted**")
-                                            if isinstance(subitem_content, list):
-                                                for i, subplan in enumerate(subitem_content, 1):
-                                                    st.write(f'Step {i}')
-                                                    st.write(subplan)
-                                        elif subitem_name == 'plan execution':
+                                        # if subitem_name == 'plan':
+                                        #     st.write("This task has been assigned to **deepinsights agent.**")
+                                        #     st.write("**Here is the plan that I've crafted**")
+                                        #     if isinstance(subitem_content, list):
+                                        #         for i, subplan in enumerate(subitem_content, 1):
+                                        #             st.write(f'Step {i}')
+                                        #             st.write(subplan)
+                                        if subitem_name == 'plan execution':
                                             with st.expander('Task Execution and Evidence Gathering'):
                                                 if isinstance(subitem_content, list):
                                                     for exec_detail in subitem_content: # Renamed 'i' loop var

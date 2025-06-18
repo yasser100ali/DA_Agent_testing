@@ -254,22 +254,6 @@ class BaseAgent:
         with st.expander('Base Agent. Code & Work.', expanded=False):
             result = self.base()
 
-        written_output = None
-
-        if isinstance(result, pd.DataFrame):
-
-            st.dataframe(result)
+        st.write(result)
             
-            system_prompt = """
-            You are a reporter agent. Look over the output of the previous coder agent and answer the user prompt based on the output. Be concise and efficient.
-            """
-            
-            user_input = self.user_input
-            user_input += f"\n\nHere is the answer gathered by coder agent: {str(result)}"
-
-
-            written_output = Agent(user_input).chat(system_prompt=system_prompt, display_stream=True)
-
-            utils.assistant_message("chat", written_output)
-
         return result

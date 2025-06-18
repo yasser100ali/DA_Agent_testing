@@ -2654,5 +2654,751 @@
                 }
             }
         }
+    },
+    "2025 1+11 REVENUE FORECAST_TECH_KP.XLSX": {
+        "content_hash": 3039453980866590955,
+        "estimated_size_bytes": 11226,
+        "last_updated_timestamp": "2025-06-17T23:12:19.267428+00:00",
+        "sheets": {
+            "2025 REVENUE FORECAST": {
+                "row_count": 40,
+                "column_count": 19,
+                "duplicate_row_count": 3,
+                "dataframe_summary": "",
+                "columns": {
+                    "PLAN_TYPE": {
+                        "type": "object",
+                        "missing_value_count": 8,
+                        "missing_value_percentage": 0.2,
+                        "unique_value_count": 7,
+                        "is_potential_id": false,
+                        "description": "",
+                        "categories": [
+                            "ACTUALS",
+                            "FORECAST",
+                            "BUDGET",
+                            "VARIANCE",
+                            "REFORECAST",
+                            "ACT/FCST",
+                            "1+11"
+                        ]
+                    },
+                    "MEMBER_MONTHS": {
+                        "type": "float64",
+                        "missing_value_count": 7,
+                        "missing_value_percentage": 0.175,
+                        "unique_value_count": 23,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 33.0,
+                            "mean": 15029917.363636363,
+                            "std": 20509941.28802761,
+                            "min": 0.0,
+                            "25%": 4580927.0,
+                            "50%": 4608531.0,
+                            "75%": 4618342.0,
+                            "max": 55109697.0
+                        }
+                    },
+                    "MEMBERSHIP_GROWTH": {
+                        "type": "float64",
+                        "missing_value_count": 7,
+                        "missing_value_percentage": 0.175,
+                        "unique_value_count": 23,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 33.0,
+                            "mean": 1265.4545454545455,
+                            "std": 28419.410618108916,
+                            "min": -49542.0,
+                            "25%": -5712.0,
+                            "50%": -3890.0,
+                            "75%": 4640.0,
+                            "max": 58253.0
+                        }
+                    },
+                    "MONTHLY_RETROS": {
+                        "type": "float64",
+                        "missing_value_count": 7,
+                        "missing_value_percentage": 0.175,
+                        "unique_value_count": 20,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 33.0,
+                            "mean": -2478.818181818182,
+                            "std": 6379.202876606849,
+                            "min": -14377.0,
+                            "25%": -9089.0,
+                            "50%": 0.0,
+                            "75%": 1239.0,
+                            "max": 5268.0
+                        }
+                    },
+                    "MEMBER_MONTHS_WITH_RETROS": {
+                        "type": "float64",
+                        "missing_value_count": 7,
+                        "missing_value_percentage": 0.175,
+                        "unique_value_count": 23,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 33.0,
+                            "mean": 15027438.545454545,
+                            "std": 20504849.950488225,
+                            "min": 0.0,
+                            "25%": 4574156.0,
+                            "50%": 4608881.0,
+                            "75%": 4619500.0,
+                            "max": 55100608.0
+                        }
+                    },
+                    "YTD_RETROS": {
+                        "type": "float64",
+                        "missing_value_count": 7,
+                        "missing_value_percentage": 0.175,
+                        "unique_value_count": 19,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 33.0,
+                            "mean": -2088.5454545454545,
+                            "std": 6865.280388897589,
+                            "min": -14377.0,
+                            "25%": -9089.0,
+                            "50%": 0.0,
+                            "75%": 2924.0,
+                            "max": 8293.0
+                        }
+                    },
+                    "YTD_MEMBER_MONTHS_(W/_RETROS)": {
+                        "type": "float64",
+                        "missing_value_count": 7,
+                        "missing_value_percentage": 0.175,
+                        "unique_value_count": 22,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 33.0,
+                            "mean": 24234167.424242426,
+                            "std": 20669751.955533702,
+                            "min": 0.0,
+                            "25%": 4618342.0,
+                            "50%": 18448386.0,
+                            "75%": 41244424.0,
+                            "max": 55100608.0
+                        }
+                    },
+                    "DUES": {
+                        "type": "float64",
+                        "missing_value_count": 7,
+                        "missing_value_percentage": 0.175,
+                        "unique_value_count": 24,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 33.0,
+                            "mean": 8532646555.420658,
+                            "std": 11611180943.464075,
+                            "min": 0.0,
+                            "25%": 2598366382.0716066,
+                            "50%": 2629609191.0,
+                            "75%": 2655765940.6400003,
+                            "max": 31286370703.235218
+                        }
+                    },
+                    "MEDICARE": {
+                        "type": "float64",
+                        "missing_value_count": 7,
+                        "missing_value_percentage": 0.175,
+                        "unique_value_count": 24,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 33.0,
+                            "mean": 3010671819.354144,
+                            "std": 4099757339.574201,
+                            "min": 0.0,
+                            "25%": 915029247.4000655,
+                            "50%": 920172363.8,
+                            "75%": 941991791.8,
+                            "max": 11039130004.335844
+                        }
+                    },
+                    "SUPPLEMENTAL": {
+                        "type": "float64",
+                        "missing_value_count": 7,
+                        "missing_value_percentage": 0.175,
+                        "unique_value_count": 24,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 33.0,
+                            "mean": 473190710.28648967,
+                            "std": 648571454.236449,
+                            "min": -8426598.150000602,
+                            "25%": 129898153.84999967,
+                            "50%": 145400858.8499994,
+                            "75%": 153827457.0,
+                            "max": 1735032604.43177
+                        }
+                    },
+                    "NON-MEMBER_&_INDUSTRIAL": {
+                        "type": "float64",
+                        "missing_value_count": 7,
+                        "missing_value_percentage": 0.175,
+                        "unique_value_count": 22,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 33.0,
+                            "mean": 187693723.5660606,
+                            "std": 265823710.93562278,
+                            "min": -0.10000002384185791,
+                            "25%": 31239353.0,
+                            "50%": 34859902.0,
+                            "75%": 231276856.0,
+                            "max": 688210320.0
+                        }
+                    },
+                    "OTHER": {
+                        "type": "float64",
+                        "missing_value_count": 7,
+                        "missing_value_percentage": 0.175,
+                        "unique_value_count": 24,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 33.0,
+                            "mean": 229490013.45090914,
+                            "std": 314885565.8673048,
+                            "min": -2662008.186386466,
+                            "25%": 66718814.0,
+                            "50%": 69805511.58,
+                            "75%": 74729555.58,
+                            "max": 841778369.0314002
+                        }
+                    },
+                    "TOTAL": {
+                        "type": "float64",
+                        "missing_value_count": 4,
+                        "missing_value_percentage": 0.1,
+                        "unique_value_count": 24,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 36.0,
+                            "mean": 11397551753.571741,
+                            "std": 16566348704.676172,
+                            "min": 0.0,
+                            "25%": 3753633699.3885627,
+                            "50%": 3803004173.6168847,
+                            "75%": 3893467363.557237,
+                            "max": 45590207014.32283
+                        }
+                    },
+                    "DUES_2": {
+                        "type": "float64",
+                        "missing_value_count": 13,
+                        "missing_value_percentage": 0.325,
+                        "unique_value_count": 24,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 27.0,
+                            "mean": 446.9717773112573,
+                            "std": 230.03770310601803,
+                            "min": 0.0,
+                            "25%": 420.95576656813614,
+                            "50%": 567.3970493662603,
+                            "75%": 569.8324861407084,
+                            "max": 629.7965755311608
+                        }
+                    },
+                    "MEDICARE_2": {
+                        "type": "float64",
+                        "missing_value_count": 13,
+                        "missing_value_percentage": 0.325,
+                        "unique_value_count": 24,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 27.0,
+                            "mean": 157.6772226291898,
+                            "std": 81.1607833906441,
+                            "min": -0.4440853515700809,
+                            "25%": 149.1983259632954,
+                            "50%": 200.28574223415555,
+                            "75%": 201.15865998418172,
+                            "max": 222.5019762364931
+                        }
+                    },
+                    "SUPPLEMENTAL_2": {
+                        "type": "float64",
+                        "missing_value_count": 15,
+                        "missing_value_percentage": 0.375,
+                        "unique_value_count": 23,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 25.0,
+                            "mean": 25.36711188745055,
+                            "std": 12.62495599990311,
+                            "min": -2.060721309998531,
+                            "25%": 28.151392462644623,
+                            "50%": 31.483345938867107,
+                            "75%": 31.91726037584377,
+                            "max": 35.3922651879384
+                        }
+                    },
+                    "NON-MEMBER_&_INDUSTRIAL_2": {
+                        "type": "float64",
+                        "missing_value_count": 12,
+                        "missing_value_percentage": 0.3,
+                        "unique_value_count": 26,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 28.0,
+                            "mean": 9.197426092497503,
+                            "std": 144.66540906446684,
+                            "min": -524.191516656536,
+                            "25%": 3.59345742922259,
+                            "50%": 7.5380740200024,
+                            "75%": 12.34764039206674,
+                            "max": 536.6815842744832
+                        }
+                    },
+                    "OTHER_2": {
+                        "type": "float64",
+                        "missing_value_count": 12,
+                        "missing_value_percentage": 0.3,
+                        "unique_value_count": 26,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 28.0,
+                            "mean": 11.534910890904792,
+                            "std": 50.61588301207887,
+                            "min": -176.9115054851936,
+                            "25%": 7.260278448736589,
+                            "50%": 15.194078113594678,
+                            "75%": 15.421334777630932,
+                            "max": 192.18290471567033
+                        }
+                    },
+                    "TOTAL_2": {
+                        "type": "float64",
+                        "missing_value_count": 12,
+                        "missing_value_percentage": 0.3,
+                        "unique_value_count": 26,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 28.0,
+                            "mean": 628.6119218508973,
+                            "std": 347.2154661906697,
+                            "min": -0.7640235385075016,
+                            "25%": 412.2531971037998,
+                            "50%": 822.5238999965558,
+                            "75%": 829.0406133261429,
+                            "max": 919.4111558746181
+                        }
+                    }
+                }
+            },
+            "BUDGET REVENUE & MEMBERSHIP": {
+                "row_count": 14,
+                "column_count": 21,
+                "duplicate_row_count": 0,
+                "dataframe_summary": "",
+                "columns": {
+                    "DATE": {
+                        "type": "object",
+                        "missing_value_count": 2,
+                        "missing_value_percentage": 0.14285714285714285,
+                        "unique_value_count": 12,
+                        "is_potential_id": false,
+                        "description": "",
+                        "categories": [
+                            "2025-01-01",
+                            "2025-02-01",
+                            "2025-03-01",
+                            "2025-04-01",
+                            "2025-05-01",
+                            "2025-06-01",
+                            "2025-07-01",
+                            "2025-08-01",
+                            "2025-09-01",
+                            "2025-10-01",
+                            "2025-11-01",
+                            "2025-12-01"
+                        ]
+                    },
+                    "DUES_MEMBERS": {
+                        "type": "float64",
+                        "missing_value_count": 0,
+                        "missing_value_percentage": 0.0,
+                        "unique_value_count": 14,
+                        "is_potential_id": true,
+                        "description": "",
+                        "statistics": {
+                            "count": 14.0,
+                            "mean": 11520726.57142857,
+                            "std": 17895862.44713497,
+                            "min": 4455256.0,
+                            "25%": 4464074.0,
+                            "50%": 4487116.5,
+                            "75%": 4506082.5,
+                            "max": 53766427.0
+                        }
+                    },
+                    "MEMBERSHIP": {
+                        "type": "float64",
+                        "missing_value_count": 1,
+                        "missing_value_percentage": 0.07142857142857142,
+                        "unique_value_count": 13,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 13.0,
+                            "mean": 8416807.076923076,
+                            "std": 13909156.823411755,
+                            "min": 4535005.0,
+                            "25%": 4546956.0,
+                            "50%": 4560689.0,
+                            "75%": 4576435.0,
+                            "max": 54709246.0
+                        }
+                    },
+                    "MONTHLY_RETRO_ADJUSTMENTS": {
+                        "type": "float64",
+                        "missing_value_count": 1,
+                        "missing_value_percentage": 0.07142857142857142,
+                        "unique_value_count": 13,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 13.0,
+                            "mean": -1401.3846153846155,
+                            "std": 5021.316868087852,
+                            "min": -10051.0,
+                            "25%": -2865.0,
+                            "50%": 203.0,
+                            "75%": 2181.0,
+                            "max": 5268.0
+                        }
+                    },
+                    "MMS_W/_RETROS": {
+                        "type": "float64",
+                        "missing_value_count": 1,
+                        "missing_value_percentage": 0.07142857142857142,
+                        "unique_value_count": 13,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 13.0,
+                            "mean": 8415405.692307692,
+                            "std": 13906843.606874831,
+                            "min": 4533391.0,
+                            "25%": 4539405.0,
+                            "50%": 4563211.0,
+                            "75%": 4576774.0,
+                            "max": 54700137.0
+                        }
+                    },
+                    "YTD__RETRO_ADJUSTMENTS": {
+                        "type": "float64",
+                        "missing_value_count": 2,
+                        "missing_value_percentage": 0.14285714285714285,
+                        "unique_value_count": 11,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": -455.0833333333333,
+                            "std": 6563.781856913856,
+                            "min": -9109.0,
+                            "25%": -7812.5,
+                            "50%": 1587.5,
+                            "75%": 5317.75,
+                            "max": 8303.0
+                        }
+                    },
+                    "YTD_MEMBER_MONTHS_(W/_RETROS)": {
+                        "type": "float64",
+                        "missing_value_count": 1,
+                        "missing_value_percentage": 0.07142857142857142,
+                        "unique_value_count": 12,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 13.0,
+                            "mean": 31615472.384615384,
+                            "std": 17186113.60058954,
+                            "min": 4585832.0,
+                            "25%": 18318656.0,
+                            "50%": 32005450.0,
+                            "75%": 45627341.0,
+                            "max": 54700137.0
+                        }
+                    },
+                    "MONTHLY_GROWTH": {
+                        "type": "float64",
+                        "missing_value_count": 1,
+                        "missing_value_percentage": 0.07142857142857142,
+                        "unique_value_count": 13,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 13.0,
+                            "mean": -1390.1538461538462,
+                            "std": 13094.290465989072,
+                            "min": -9036.0,
+                            "25%": -6052.0,
+                            "50%": -4529.0,
+                            "75%": -3345.0,
+                            "max": 41791.0
+                        }
+                    },
+                    "DUES": {
+                        "type": "float64",
+                        "missing_value_count": 1,
+                        "missing_value_percentage": 0.07142857142857142,
+                        "unique_value_count": 13,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 13.0,
+                            "mean": 4761928139.023077,
+                            "std": 7869345543.602585,
+                            "min": 2518953096.0,
+                            "25%": 2571252893.0,
+                            "50%": 2578093099.0,
+                            "75%": 2581092980.65,
+                            "max": 30952532903.65
+                        }
+                    },
+                    "MEDICARE_(W/_FFS)": {
+                        "type": "float64",
+                        "missing_value_count": 1,
+                        "missing_value_percentage": 0.07142857142857142,
+                        "unique_value_count": 13,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 13.0,
+                            "mean": 1679938483.3600001,
+                            "std": 2776184791.1581984,
+                            "min": 897923062.0,
+                            "25%": 904706421.0,
+                            "50%": 912742100.0,
+                            "75%": 917845842.0,
+                            "max": 10919600141.84
+                        }
+                    },
+                    "SUPPLEMENTAL": {
+                        "type": "float64",
+                        "missing_value_count": 1,
+                        "missing_value_percentage": 0.07142857142857142,
+                        "unique_value_count": 13,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 13.0,
+                            "mean": 265100015.03076923,
+                            "std": 438118120.8159364,
+                            "min": 137511303.0,
+                            "25%": 139262679.0,
+                            "50%": 143504622.0,
+                            "75%": 147838517.0,
+                            "max": 1723150097.7
+                        }
+                    },
+                    "NON-MEMBER_&_INDUSTRIAL": {
+                        "type": "float64",
+                        "missing_value_count": 1,
+                        "missing_value_percentage": 0.07142857142857142,
+                        "unique_value_count": 13,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 13.0,
+                            "mean": 103242992.32307693,
+                            "std": 178872592.91682562,
+                            "min": 31239353.0,
+                            "25%": 34344516.0,
+                            "50%": 34628044.0,
+                            "75%": 56462646.1,
+                            "max": 671079450.1
+                        }
+                    },
+                    "OTHER": {
+                        "type": "float64",
+                        "missing_value_count": 1,
+                        "missing_value_percentage": 0.07142857142857142,
+                        "unique_value_count": 13,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 13.0,
+                            "mean": 129504364.46636926,
+                            "std": 214019635.0820948,
+                            "min": 66718813.75999182,
+                            "25%": 69322492.28502184,
+                            "50%": 69995508.62175027,
+                            "75%": 71179400.921154,
+                            "max": 841778369.0314002
+                        }
+                    },
+                    "TOTAL": {
+                        "type": "float64",
+                        "missing_value_count": 1,
+                        "missing_value_percentage": 0.07142857142857142,
+                        "unique_value_count": 13,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 13.0,
+                            "mean": 6939713994.203292,
+                            "std": 11468327985.7952,
+                            "min": 3693863429.921154,
+                            "25%": 3731997065.46499,
+                            "50%": 3740597298.90768,
+                            "75%": 3783592778.7599916,
+                            "max": 45108140962.3214
+                        }
+                    },
+                    "DUES_2": {
+                        "type": "float64",
+                        "missing_value_count": 2,
+                        "missing_value_percentage": 0.14285714285714285,
+                        "unique_value_count": 12,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 565.858226949105,
+                            "std": 5.774449695608115,
+                            "min": 550.3774265454226,
+                            "25%": 564.8269398093469,
+                            "50%": 565.8792853643774,
+                            "75%": 567.1599989200413,
+                            "max": 573.4203065005435
+                        }
+                    },
+                    "MEDICARE_(W/_FFS)_2": {
+                        "type": "float64",
+                        "missing_value_count": 2,
+                        "missing_value_percentage": 0.14285714285714285,
+                        "unique_value_count": 12,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 199.62293183710054,
+                            "std": 1.0837235160197913,
+                            "min": 197.80633409004042,
+                            "25%": 198.8616658649058,
+                            "50%": 199.74122531471028,
+                            "75%": 200.10806669025334,
+                            "max": 201.30423007210032
+                        }
+                    },
+                    "SUPPLEMENTAL_2": {
+                        "type": "float64",
+                        "missing_value_count": 2,
+                        "missing_value_percentage": 0.14285714285714285,
+                        "unique_value_count": 12,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 31.502915918055635,
+                            "std": 1.1711275258299492,
+                            "min": 30.101230984426355,
+                            "25%": 30.467242115466515,
+                            "50%": 31.559654014273583,
+                            "75%": 32.20912158105884,
+                            "max": 33.54406724886564
+                        }
+                    },
+                    "NON-MEMBER_&_INDUSTRIAL_2": {
+                        "type": "float64",
+                        "missing_value_count": 2,
+                        "missing_value_percentage": 0.14285714285714285,
+                        "unique_value_count": 12,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 12.282160534175139,
+                            "std": 12.344051599984523,
+                            "min": 6.809289728854309,
+                            "25%": 7.499385592327283,
+                            "50%": 7.582036247380968,
+                            "75%": 12.301432579454907,
+                            "max": 50.839721028406046
+                        }
+                    },
+                    "OTHER_2": {
+                        "type": "float64",
+                        "missing_value_count": 2,
+                        "missing_value_percentage": 0.14285714285714285,
+                        "unique_value_count": 12,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 15.390263037740796,
+                            "std": 0.4668672128747546,
+                            "min": 14.542802255131718,
+                            "25%": 15.18598168851834,
+                            "50%": 15.36417419170573,
+                            "75%": 15.501114972617367,
+                            "max": 16.542969356862194
+                        }
+                    },
+                    "AVERAGE_SALARY": {
+                        "type": "float64",
+                        "missing_value_count": 2,
+                        "missing_value_percentage": 0.14285714285714285,
+                        "unique_value_count": 12,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 12.0,
+                            "mean": 824.656498276177,
+                            "std": 13.501730784799317,
+                            "min": 807.0888861720404,
+                            "25%": 817.8991254850089,
+                            "50%": 821.8613026918645,
+                            "75%": 826.8126112741637,
+                            "max": 862.5282307406098
+                        }
+                    },
+                    "BUDGET_DUES_PMPM": {
+                        "type": "float64",
+                        "missing_value_count": 1,
+                        "missing_value_percentage": 0.07142857142857142,
+                        "unique_value_count": 13,
+                        "is_potential_id": false,
+                        "description": "",
+                        "statistics": {
+                            "count": 13.0,
+                            "mean": 575.6852201547933,
+                            "std": 5.626980198117835,
+                            "min": 559.8408804356305,
+                            "25%": 574.6498517357991,
+                            "50%": 575.736187484453,
+                            "75%": 576.324405554405,
+                            "max": 583.2808615296163
+                        }
+                    }
+                }
+            }
+        }
     }
 }
