@@ -17,7 +17,7 @@ import math
 import openpyxl 
 import re
 import io
-
+import numpy as np
 
 # Define the path for the instructions file
 INSTRUCTIONS_FILE = "user_instructions.txt"
@@ -111,108 +111,172 @@ def convert_sum_to_addition(formula):
     return formula
 
 
-def get_final_data_views(file_source, sheet_name=None):
-    """
-    Analyzes an Excel sheet and returns two cleaned DataFrames and 
-    a dictionary of human-readable VERTICAL equations using unique feature names.
-    """
-    try:
-        if isinstance(file_source, str):
-            wb_formulas = openpyxl.load_workbook(file_source, data_only=False)
-            wb_values = openpyxl.load_workbook(file_source, data_only=True)
-        else:
-            file_source.seek(0)
-            file_content_bytes = file_source.read()
-            wb_formulas = openpyxl.load_workbook(io.BytesIO(file_content_bytes), data_only=False)
-            wb_values = openpyxl.load_workbook(io.BytesIO(file_content_bytes), data_only=True)
+# def get_final_data_views(file_source, sheet_name=None):
+#     """
+#     Analyzes an Excel sheet and returns two cleaned DataFrames and 
+#     a dictionary of human-readable VERTICAL equations using unique feature names.
+#     """
+#     try:
+#         if isinstance(file_source, str):
+#             wb_formulas = openpyxl.load_workbook(file_source, data_only=False)
+#             wb_values = openpyxl.load_workbook(file_source, data_only=True)
+#         else:
+#             file_source.seek(0)
+#             file_content_bytes = file_source.read()
+#             wb_formulas = openpyxl.load_workbook(io.BytesIO(file_content_bytes), data_only=False)
+#             wb_values = openpyxl.load_workbook(io.BytesIO(file_content_bytes), data_only=True)
         
-        active_sheet_title = wb_formulas.active.title
-        if sheet_name and sheet_name in wb_formulas.sheetnames:
-            sheet_formulas = wb_formulas[sheet_name]; sheet_values = wb_values[sheet_name]
-        else:
-            sheet_formulas = wb_formulas.active; sheet_values = wb_values.active
-    except Exception as e:
-        st.error(f"Error loading workbook: {e}"); return None, None, None
+#         active_sheet_title = wb_formulas.active.title
+#         if sheet_name and sheet_name in wb_formulas.sheetnames:
+#             sheet_formulas = wb_formulas[sheet_name]; sheet_values = wb_values[sheet_name]
+#         else:
+#             sheet_formulas = wb_formulas.active; sheet_values = wb_values.active
+#     except Exception as e:
+#         st.error(f"Error loading workbook: {e}"); return None, None, None
 
-    # First, load all data into a raw dataframe to determine structure
-    initial_data = []
-    for row in sheet_values.iter_rows():
-        initial_data.append([cell.value for cell in row])
-    df_raw = pd.DataFrame(initial_data)
+#     # First, load all data into a raw dataframe to determine structure
+#     initial_data = []
+#     for row in sheet_values.iter_rows():
+#         initial_data.append([cell.value for cell in row])
+#     df_raw = pd.DataFrame(initial_data)
 
-    # --- 1. Pre-process to get unique names and their original row locations ---
-    # Apply the same cleaning steps used in _process_dataframe
-    temp_df = df_raw.dropna(how='all', axis=0).dropna(how='all', axis=1)
-    if not temp_df.empty:
-        min_non_empty = math.ceil(len(temp_df.columns) * 0.6)
-        temp_df = temp_df.dropna(thresh=min_non_empty, axis=0)
+#     # --- 1. Pre-process to get unique names and their original row locations ---
+#     # Apply the same cleaning steps used in _process_dataframe
+#     temp_df = df_raw.dropna(how='all', axis=0).dropna(how='all', axis=1)
+#     if not temp_df.empty:
+#         min_non_empty = math.ceil(len(temp_df.columns) * 0.6)
+#         temp_df = temp_df.dropna(thresh=min_non_empty, axis=0)
 
-    # Generate the unique, suffixed names from the first column of the cleaned data
-    feature_col_series = temp_df[temp_df.columns[0]].fillna('Unnamed Feature')
-    unique_names = _make_column_names_unique(list(feature_col_series))
+#     # Generate the unique, suffixed names from the first column of the cleaned data
+#     feature_col_series = temp_df[temp_df.columns[0]].fillna('Unnamed Feature')
+#     unique_names = _make_column_names_unique(list(feature_col_series))
     
-    # Map the original Excel row index (from temp_df.index) to its new unique name
-    row_index_to_unique_name = dict(zip(temp_df.index, unique_names))
+#     # Map the original Excel row index (from temp_df.index) to its new unique name
+#     row_index_to_unique_name = dict(zip(temp_df.index, unique_names))
 
-    # --- 2. Build the detailed coordinate-to-UNIQUE-name map ---
-    coord_to_unique_name_map = {}
-    for row_idx, unique_name in row_index_to_unique_name.items():
-        # Map all potential cells in this original row to the unique name
-        for col_idx in range(sheet_formulas.max_column):
-            col_letter = openpyxl.utils.get_column_letter(col_idx + 1)
-            coord = f"{col_letter}{row_idx + 1}" # +1 because openpyxl rows are 1-based
-            coord_to_unique_name_map[coord] = unique_name
+#     # --- 2. Build the detailed coordinate-to-UNIQUE-name map ---
+#     coord_to_unique_name_map = {}
+#     for row_idx, unique_name in row_index_to_unique_name.items():
+#         # Map all potential cells in this original row to the unique name
+#         for col_idx in range(sheet_formulas.max_column):
+#             col_letter = openpyxl.utils.get_column_letter(col_idx + 1)
+#             coord = f"{col_letter}{row_idx + 1}" # +1 because openpyxl rows are 1-based
+#             coord_to_unique_name_map[coord] = unique_name
 
-    # --- 3. Build DataFrames and the FINAL Equations Dictionary using the smart map ---
-    values_data, hybrid_data, equations_dict = [], [], {}
-    for row in sheet_formulas.iter_rows():
-        values_row, hybrid_row = [], []
-        for cell in row:
-            value = sheet_values[cell.coordinate].value
-            values_row.append(value)
-            hybrid_content = value
+#     # --- 3. Build DataFrames and the FINAL Equations Dictionary using the smart map ---
+#     values_data, hybrid_data, equations_dict = [], [], {}
+#     for row in sheet_formulas.iter_rows():
+#         values_row, hybrid_row = [], []
+#         for cell in row:
+#             value = sheet_values[cell.coordinate].value
+#             values_row.append(value)
+#             hybrid_content = value
             
-            if cell.data_type == 'f':
-                formula_string = cell.value
-                if '!' not in formula_string and '[' not in formula_string:
-                    hybrid_content = formula_string
+#             if cell.data_type == 'f':
+#                 formula_string = cell.value
+#                 if '!' not in formula_string and '[' not in formula_string:
+#                     hybrid_content = formula_string
                     
-                    is_horizontal, formula_row_num = True, cell.row
-                    referenced_rows = [int(r) for r in re.findall(r'[A-Z]+([0-9]+)', formula_string)]
-                    if not referenced_rows: is_horizontal = False
-                    else:
-                        for ref_row in referenced_rows:
-                            if ref_row != formula_row_num:
-                                is_horizontal = False; break
+#                     is_horizontal, formula_row_num = True, cell.row
+#                     referenced_rows = [int(r) for r in re.findall(r'[A-Z]+([0-9]+)', formula_string)]
+#                     if not referenced_rows: is_horizontal = False
+#                     else:
+#                         for ref_row in referenced_rows:
+#                             if ref_row != formula_row_num:
+#                                 is_horizontal = False; break
                     
-                    if not is_horizontal:
-                        # KEY is the unique name of the cell holding the formula
-                        key = coord_to_unique_name_map.get(cell.coordinate)
+#                     if not is_horizontal:
+#                         # KEY is the unique name of the cell holding the formula
+#                         key = coord_to_unique_name_map.get(cell.coordinate)
                         
-                        if key and key not in equations_dict:
-                            processed_formula = convert_sum_to_addition(formula_string)
-                            readable_formula = processed_formula.lstrip('=')
+#                         if key and key not in equations_dict:
+#                             processed_formula = convert_sum_to_addition(formula_string)
+#                             readable_formula = processed_formula.lstrip('=')
                             
-                            cell_refs = re.findall(r'([A-Z]+[0-9]+)', readable_formula)
-                            for ref in sorted(list(set(cell_refs)), key=len, reverse=True):
-                                # Use the UNIQUE name from our new map
-                                mapped_name = coord_to_unique_name_map.get(ref, ref)
-                                readable_formula = re.sub(r'\b' + ref + r'\b', mapped_name, readable_formula)
+#                             cell_refs = re.findall(r'([A-Z]+[0-9]+)', readable_formula)
+#                             for ref in sorted(list(set(cell_refs)), key=len, reverse=True):
+#                                 # Use the UNIQUE name from our new map
+#                                 mapped_name = coord_to_unique_name_map.get(ref, ref)
+#                                 readable_formula = re.sub(r'\b' + ref + r'\b', mapped_name, readable_formula)
 
-                            readable_formula = re.sub(r'([*\/+\-])', r' \1 ', readable_formula)
-                            readable_formula = re.sub(r'\s+', ' ', readable_formula).strip()
+#                             readable_formula = re.sub(r'([*\/+\-])', r' \1 ', readable_formula)
+#                             readable_formula = re.sub(r'\s+', ' ', readable_formula).strip()
                             
-                            equations_dict[key] = readable_formula
+#                             equations_dict[key] = readable_formula
 
-            hybrid_row.append(hybrid_content)
-        values_data.append(values_row)
-        hybrid_data.append(hybrid_row)
+#             hybrid_row.append(hybrid_content)
+#         values_data.append(values_row)
+#         hybrid_data.append(hybrid_row)
         
-    df_values_raw = pd.DataFrame(values_data)
+#     df_values_raw = pd.DataFrame(values_data)
 
-    final_values_df = _process_dataframe(df_values_raw.copy())
+#     final_values_df = _process_dataframe(df_values_raw.copy())
 
-    return final_values_df, equations_dict
+#     return final_values_df, equations_dict
+
+def prepare_sheet_for_llm(df_raw: pd.DataFrame) -> str:
+    """
+    Converts a raw DataFrame into a simplified text representation for an LLM.
+
+    This function annotates each cell with its coordinates (e.g., "Value (R1, C1)")
+    and condenses long rows of numbers to show only the first 2 and last 2 values.
+
+    Args:
+        df_raw (pd.DataFrame): The unprocessed DataFrame from the Excel sheet.
+
+    Returns:
+        str: A multi-line string representing the structured summary of the sheet.
+    """
+    # Create a new dataframe of the same size to store our formatted strings
+    # Using numpy array for faster assignment
+    formatted_array = np.full(df_raw.shape, "", dtype=object)
+
+    # Iterate through each row to process it
+    for r_idx, row in df_raw.iterrows():
+        # Find all numeric values in the row to decide if we need to condense
+        numeric_values = [v for v in row if isinstance(v, (int, float, np.number))]
+        
+        kept_numeric_values = set()
+        should_condense = len(numeric_values) > 4
+
+        if should_condense:
+            # If we need to condense, keep only the first 2 and last 2 numbers
+            kept_numeric_values.update(numeric_values[:2])
+            kept_numeric_values.update(numeric_values[-2:])
+        
+        ellipsis_placed = False
+        for c_idx, cell_value in enumerate(row):
+            # Skip empty cells
+            if pd.isna(cell_value):
+                continue
+            
+            # Get the 1-based coordinates for the label
+            coord_str = f"(R{r_idx + 1}, C{c_idx + 1})"
+            
+            # Format the cell content
+            if isinstance(cell_value, (int, float, np.number)):
+                if not should_condense or cell_value in kept_numeric_values:
+                    formatted_array[r_idx, c_idx] = f"{cell_value} {coord_str}"
+                elif not ellipsis_placed:
+                    formatted_array[r_idx, c_idx] = "..."
+                    ellipsis_placed = True
+            else:
+                # It's a string or other object
+                formatted_array[r_idx, c_idx] = f"{str(cell_value).strip()} {coord_str}"
+
+    # Convert the formatted array into a clean, aligned string output
+    output_lines = []
+    # Determine the maximum width needed for each column for nice alignment
+    col_widths = [max(len(str(val)) for val in col) for col in formatted_array.T]
+    
+    for row in formatted_array:
+        # Justify each cell's text to the determined width
+        aligned_cells = [str(cell).ljust(width) for cell, width in zip(row, col_widths)]
+        output_lines.append("  ".join(aligned_cells))
+        
+    return "\n".join(output_lines)
+
+
 
 def convert_to_float_if_numeric(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -302,6 +366,7 @@ def upload_and_format_files():
                             is_structured = utils.is_dataframe_structured(df_for_processing)
                             
                             if not is_structured:
+
                                 # <<< --- NEW CACHING LOGIC START --- >>>
                                 
                                 # Create a unique key for this specific sheet
@@ -309,6 +374,7 @@ def upload_and_format_files():
 
                                 # 1. CHECK THE CACHE FIRST
                                 if cache_key in st.session_state.processed_sheets_cache:
+
                                     # If found, use the cached result and skip the slow processing
                                     st.write(f"Loading '{capitalized_sheet_name}' from cache...") # Optional: for debugging
                                     cached_data = st.session_state.processed_sheets_cache[cache_key]
@@ -321,26 +387,31 @@ def upload_and_format_files():
                                     # 2. IF NOT IN CACHE, DO THE HEAVY LIFTING ONCE
                                     with st.spinner(f"Performing one-time processing on sheet: {capitalized_sheet_name}..."):
                                         uploaded_file_obj.seek(0)
-                                        processed_values_df, equations_dict = get_final_data_views(
-                                            uploaded_file_obj, 
-                                            sheet_name=original_sheet_name
-                                        ) 
+                                        # processed_values_df, equations_dict = get_final_data_views(
+                                        #     uploaded_file_obj, 
+                                        #     sheet_name=original_sheet_name
+                                        # ) 
+                                        st.write(prepare_sheet_for_llm(uploaded_file_obj))
 
-                                    if processed_values_df is not None and not processed_values_df.empty:
-                                        # Run your subsequent processing steps
-                                        df_for_processing = name_unnamed_features(processed_values_df)
-                                        df_for_processing = convert_to_float_if_numeric(df_for_processing)
+                                        time.sleep(15)
 
-                                        # 3. SAVE THE NEW RESULT TO THE CACHE
-                                        st.session_state.processed_sheets_cache[cache_key] = {
-                                            'dataframe': df_for_processing,
-                                            'equations': equations_dict
-                                        }
-                                        if equations_dict:
-                                            all_equations.update(equations_dict)
-                                    else:
-                                        st.warning(f"Could not structure sheet '{capitalized_sheet_name}'. Using original format.")
-                                        # df_for_processing remains df_sheet_original
+                                    # if processed_values_df is not None and not processed_values_df.empty:
+                                    #     # Run your subsequent processing steps
+
+                                    #     # this is also LLM so might want to combine this with other part of LLM to make this one shot 
+                                    #     # df_for_processing = name_unnamed_features(processed_values_df) 
+                                    #     df_for_processing = convert_to_float_if_numeric(df_for_processing)
+
+                                    #     # 3. SAVE THE NEW RESULT TO THE CACHE
+                                    #     st.session_state.processed_sheets_cache[cache_key] = {
+                                    #         'dataframe': df_for_processing,
+                                    #         'equations': equations_dict
+                                    #     }
+                                    #     if equations_dict:
+                                    #         all_equations.update(equations_dict)
+                                    # else:
+                                    #     st.warning(f"Could not structure sheet '{capitalized_sheet_name}'. Using original format.")
+                                    #     # df_for_processing remains df_sheet_original
 
                                 # <<< --- NEW CACHING LOGIC END --- >>>
 
