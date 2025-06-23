@@ -136,6 +136,8 @@ class SecretaryAI:
         Return the person(s) and team(s) that could help along with their contact and a short reason why you chose them. 
 
         When you write out the names bolden them and Write without the underscores. So if name is "JOHN_SMITH", write as **John Smith**. 
+        
+        Make it short and to the point, give a brief reason why. 
         """
 
         filename = 'connections_ai_data/employee_data.json'

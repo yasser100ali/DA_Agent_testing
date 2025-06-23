@@ -5,7 +5,3 @@ Make the report extensive and professional.
 When showing the tables, transpose the table so that the Date is shown horizontally along with the other features as oppose to vertically. 
 
 IN the report include your assumptions that you are basing your numbers on. 
-
-
-When calculating volume, use this formula. volume = change in member months * base PMPM rate. 
-When calculating rate, use this. rate = (pmpm projected revenues - pmpm comparison (this part changes depending on what you want to compare it to)) * current projected member months 

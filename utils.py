@@ -15,83 +15,52 @@ import numpy as np
 import time
 import os
 from datetime import datetime, timezone
-
+import base64
 
 is_local_hosting=False
 
-def get_response(system_prompt, user_prompt, model, show_stream=True, local_hosting=is_local_hosting):
-    # when running the models locally
-    if local_hosting:
-        print('\n\nHere is the system prompt.\n\n')
-        print(system_prompt)
-        print('\n\nHere is the user prompt.\n\n')
-        print(user_prompt)
-        messages = [
-            {'role': 'system', 'content': system_prompt},
-            {'role': 'user', 'content': user_prompt}
-        ]
-        
-        # model = "hf.co/unsloth/Qwen3-32B-GGUF:Q8_K_XL"
+# It's good practice to have helper functions for discrete tasks
+def encode_image_to_base64(image_path):
+    """Encodes an image file to a base64 string."""
+    with open(image_path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode('utf-8')
 
-        # response = ollama.chat(
-        #     model=model,
-        #     messages=messages,
-        #     stream=show_stream
-        # )
-    
-        # return response
-        
-    # when not running locally, either due to no root access or some other issue
-    else:
-        client = OpenAI(
-            api_key="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"
-        )
-    
-        response = client.chat.completions.create(
-            model="gpt-4.1",
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
-            stream=True  # Enable streaming
-        )
-    
-        return response
+def get_response(system_prompt, user_prompt, model="gpt-4.1"):
+    client = OpenAI(
+        api_key="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"
+    )
 
-def display_stream(response, visible=True, local_hosting=is_local_hosting):
-    if local_hosting:
+    response = client.chat.completions.create(
+        model=model,
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        stream=True  # Enable streaming
+    )
+
+    return response
+
+def display_stream(response, visible=True):
+
+    # Create a Streamlit container to hold the streaming content
+    content = ""
+    if visible is True:
+        container = st.empty()
         
-        content = ""
-        if visible is True:
-            content_container = st.empty()
-    
-        for token in response:
-            token_text = token.message.content
-            token_text = token_text.replace('$', '\$')
-            content += token_text
+    # Iterate through the streaming response
+    for chunk in response:
+        if chunk.choices[0].delta.content is not None:
+            # Append the new token to the full content
+            chunk = chunk.choices[0].delta.content
+            chunk = chunk.replace('$', '\$')
+            content += chunk
+
+            # Update the container with the current content
             if visible is True:
-                content_container.markdown(content)
+                container.write(content)
                 
-        return content
-    else:
-        # Create a Streamlit container to hold the streaming content
-        content = ""
-        if visible is True:
-            container = st.empty()
-         
-        # Iterate through the streaming response
-        for chunk in response:
-            if chunk.choices[0].delta.content is not None:
-                # Append the new token to the full content
-                chunk = chunk.choices[0].delta.content
-                chunk = chunk.replace('$', '\$')
-                content += chunk
-    
-                # Update the container with the current content
-                if visible is True:
-                    container.write(content)
-                    
-        return content
+    return content
         
 def typewriter_effect(text, delay = 0.027):
     words = text.split() 

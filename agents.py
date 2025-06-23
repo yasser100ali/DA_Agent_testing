@@ -36,7 +36,7 @@ class Agent:
         general_system_prompt += system_prompt 
         
         real_input = self._user_input(user_input)
-        response = utils.get_response(general_system_prompt, real_input, model)
+        response = utils.get_response(general_system_prompt, real_input)
         
         output = utils.display_stream(response, visible=is_visible)
 
@@ -62,7 +62,7 @@ class Agent:
         return self._generate_and_execute_code(general_system_prompt, max_tries, model, real_input, hide_code)
 
     def _generate_and_execute_code(self, system_prompt, remaining_tries, model, user_input, hide_code):
-        response = utils.get_response(system_prompt, user_input, model)
+        response = utils.get_response(system_prompt, user_input)
         if hide_code:
             output = utils.display_stream(response, visible=False)
         else:
@@ -122,13 +122,13 @@ class Agent:
         system_prompt += job
 
         real_input = self._user_input(user_input)
-        response = utils.get_response(system_prompt, real_input, model)
+        response = utils.get_response(system_prompt, real_input)
         output = utils.display_stream(response)
 
         return output
         
     def chat(self, system_prompt, model=None, display_stream=True):
-        response = utils.get_response(system_prompt, self.user_input, model)
+        response = utils.get_response(system_prompt, self.user_input)
         content = utils.display_stream(response, visible=display_stream)
 
         return content

@@ -56,7 +56,7 @@ def rag_query(query, k=1, model="deepseek-chat"):
 
     user_prompt = f"Question: {query}\n\nContext: {context}\n\nAnswer:"
     system_prompt = "You are a helpful assistant."
-    response = utils.get_response(system_prompt, user_prompt, model)
+    response = utils.get_response(system_prompt, user_prompt)
     full_response = utils.display_stream(response)
     return full_response
 
