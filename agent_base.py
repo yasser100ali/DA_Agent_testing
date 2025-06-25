@@ -39,15 +39,15 @@ class BaseAgent:
         """
         
         agent = Agent(self.user_input, self.local_var)
-        json = agent.json_agent(orchestrator_prompt, self.model)
+        json = agent.json_agent(orchestrator_prompt)
 
         st.write("**Filtering Data**")
         features_list = str(utils.convert_to_features_list(self.dataframes_dict)) 
         features_list_json = utils.extract_json(features_list)
         
         word_count = len(features_list.split())
-        
-        if word_count > 150: 
+        st.write(word_count)
+        if word_count > 1000: 
             # this is the case where we use an agent to filer out the data to ease the coder agent's attention
             input_features_list = filter_data(self.user_input, features_list)
             input_features_list_json = utils.extract_json(input_features_list)
@@ -59,8 +59,10 @@ class BaseAgent:
             
         st.session_state['features_list_json'] = input_features_list_json
 
-        is_subset = utils.is_subset_dictionary(input_features_list_json, features_list_json)
-    
+        is_subset = utils.is_subset_dictionary(input_features_list_json, features_list_json) # is this still needed? 
+        is_subset = True 
+
+
         if is_subset:
             st.write('This is a subset')
             

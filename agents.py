@@ -5,7 +5,7 @@ import time
 
 
 class Agent:
-    def __init__(self, user_input, local_var=None):
+    def __init__(self, user_input=None, local_var=None):
         self.user_input = user_input
         self.local_var = local_var
 

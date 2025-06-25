@@ -155,25 +155,47 @@ def extract_python(input_str):
 
     return matches[0]
 
-def convert_to_features_list(dataframes_dict):    
-    features_list = {}
-    for filename, item in dataframes_dict.items():
-        if isinstance(item, pd.DataFrame):
-            features_list[filename] = list(dataframes_dict[filename].columns)
+def convert_to_features_list(dataframes_dict: dict) -> dict:
+    """
+    Recursively traverses the dataframes_dict and creates a nested dictionary
+    representing the full schema of files, sheets, sections, and columns.
 
-        elif isinstance(item, dict):
-            features_list[filename] = {}
-            for pagename in dataframes_dict[filename]:
-                features_list[filename][pagename] = list(dataframes_dict[filename][pagename].columns)
-
-        else:
-            st.write(f"Warning: Entry '{filename}' is of an unexpected type ({type(item)}). Assigning empty dict.")
-            features_list[filename] = {} 
-
-    features_list_json = extract_json(str(features_list))
+    This function can handle:
+    1. Simple CSVs (file -> df)
+    2. Excel files with structured sheets (file -> sheet -> df)
+    3. Excel files with unstructured sheets that have been sectioned off
+       (file -> sheet -> section -> df)
+    """
+    features_schema = {}
     
-    return features_list_json
-
+    # Level 1: Iterate through files
+    for filename, file_content in dataframes_dict.items():
+        
+        # Case 1: The file is a simple CSV DataFrame
+        if isinstance(file_content, pd.DataFrame):
+            features_schema[filename] = list(file_content.columns)
+            
+        # Case 2: The file is an Excel file (a dictionary of sheets)
+        elif isinstance(file_content, dict):
+            features_schema[filename] = {}
+            
+            # Level 2: Iterate through sheets in the Excel file
+            for pagename, page_content in file_content.items():
+                
+                # Sub-case 2a: The sheet is a single structured DataFrame
+                if isinstance(page_content, pd.DataFrame):
+                    features_schema[filename][pagename] = list(page_content.columns)
+                
+                # Sub-case 2b: The sheet has been broken into sections (a dict of DataFrames)
+                elif isinstance(page_content, dict):
+                    features_schema[filename][pagename] = {}
+                    
+                    # Level 3: Iterate through sections in the sheet
+                    for section_name, section_df in page_content.items():
+                        if isinstance(section_df, pd.DataFrame):
+                            features_schema[filename][pagename][section_name] = list(section_df.columns)
+                            
+    return features_schema
 
 def execute_code(code, local_var): 
     logger = logging.getLogger('error_logger')

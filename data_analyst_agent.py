@@ -6,8 +6,9 @@ from agent_sql_react_testing import sqlAgentReAct
 #from agent_memory import MemoryAgent
 from agent_sql import sqlAgent 
 from agents import Agent
-import utils
 import streamlit as st
+import time 
+
 
 class DataAnalystAgent:
     def __init__(self, user_input, local_var):
@@ -23,10 +24,10 @@ class DataAnalystAgent:
             'pull_table': sqlAgent
         }
         
-        self.model = "hf.co/bartowski/Qwen2.5-Coder-32B-Instruct-GGUF:Q8_0"
-
     def operator(self):
+        
         if len(st.session_state.dataframes_dict) > 0:
+
             system_prompt = """
                 Your task is to read the user prompt and assign it to the appropriate agent. 
 
@@ -70,7 +71,7 @@ class DataAnalystAgent:
                 }
                 ```
 
-               
+                One thing to note is that if a user asks specifically for a given agent (like "use baseagent for..." or "use sqlagent for...") then make sure to use that agent!
             """
             
         else: 
@@ -105,8 +106,11 @@ class DataAnalystAgent:
                     "agent": "secretary"
                 }
                 ```
+
+                One thing to note is that if a user asks specifically for a given agent (like "use baseagent for..." or "use sqlagent for...") then make sure to use that agent!
             """
-        subagent = Agent(self.user_input, self.local_var).json_agent(system_prompt, self.model)['agent']
+
+        subagent = Agent(self.user_input, self.local_var).json_agent(system_prompt, is_visible=True)['agent']
 
         return subagent  
     
