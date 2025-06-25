@@ -13,7 +13,7 @@ import time
 from secretary_ai_functions import send_email
 import traceback 
 import copy
-from utils_for_main import create_compact_summary, get_sections_agent, slice_dataframe_by_sections, extract_equations_from_sheet, _make_column_names_unique, convert_to_float_if_numeric, load_data
+from utils_for_main import create_compact_summary, get_sections_agent, slice_dataframe_by_sections, extract_equations_from_sheet, convert_to_float_if_numeric, load_data
 
 # Define the path for the instructions file
 INSTRUCTIONS_FILE = "user_instructions.txt"
@@ -723,8 +723,14 @@ def main_app():
                         st.write(item)
                     elif isinstance(item, dict): 
                         for sheet_name, sheet in sorted(list(item.items())):
-                            st.write(f"Sheet: {sheet_name}") # sheet_name_display is already capitalized
-                            st.write(sheet)
+                            if isinstance(sheet, pd.DataFrame):
+                                st.write(f"Sheet: {sheet_name}") # sheet_name_display is already capitalized
+                                st.write(sheet)
+                            else:
+                                for section_name, section_df in sorted(list(sheet.items())):
+                                    st.write(f"Section: {section_name}")
+                                    st.write(section_df)
+                                    
                     else:
                         st.write(f"- {name} (Unknown type)")
         else:

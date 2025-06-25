@@ -286,6 +286,63 @@ def convert_to_float_if_numeric(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def orient_and_clean_section(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Intelligently orients and cleans a raw DataFrame section. It decides whether
+    to transpose the data and handles data rows with empty feature labels.
+    """
+    if df.empty:
+        return pd.DataFrame()
+
+    # Clean the initial slice by dropping fully empty rows and columns
+    df_cleaned = df.dropna(how='all', axis=0).dropna(how='all', axis=1)
+    if df_cleaned.empty or df_cleaned.shape[1] == 0:
+        st.write('hi')
+        return pd.DataFrame()
+
+    # --- Heuristic analysis to decide on transposition ---
+    # (This logic remains the same as it correctly identifies the orientation)
+    header_row_idx = df_cleaned.isnull().sum(axis=1).idxmin()
+    feature_col_idx = df_cleaned.columns[0]
+    potential_headers = df_cleaned.loc[header_row_idx]
+    potential_features = df_cleaned[feature_col_idx]
+    
+    should_transpose = False
+    numeric_headers = pd.to_numeric(potential_headers.dropna(), errors='coerce').notna()
+    if len(potential_headers.dropna()) > 0 and (numeric_headers.sum() / len(potential_headers.dropna())) > 0.5:
+        should_transpose = True
+    else:
+        time_keywords = {'jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'q1', 'q2', 'q3', 'q4'}
+        header_strings = [str(h).lower().strip() for h in potential_headers.dropna()]
+        if not any(h in time_keywords for h in header_strings):
+             if potential_features.nunique() < potential_headers.nunique():
+                 should_transpose = True
+
+    df_oriented = df_cleaned.T if should_transpose else df_cleaned
+
+    # --- Final Cleanup on the Correctly Oriented DataFrame ---
+    df_oriented.reset_index(drop=True, inplace=True)
+    df_oriented.columns = range(df_oriented.shape[1])
+
+    final_header_idx = df_oriented.isnull().sum(axis=1).idxmin()
+    header_values = df_oriented.iloc[final_header_idx]
+    df_oriented.columns = _make_column_names_unique(header_values)
+    
+    df_final = df_oriented.drop(final_header_idx).reset_index(drop=True)
+    
+    if not df_final.empty and df_final.shape[1] > 0:
+        final_index_col = df_final.columns[0]
+        
+        # --- THIS IS THE CRITICAL FIX ---
+        # The line below was aggressively dropping all data rows that didn't have
+        # a label in the first column. It has been REMOVED.
+        # df_final.dropna(subset=[final_index_col], inplace=True) # <-- REMOVED THIS LINE
+        
+        # Now, we simply set the first column as the index.
+        # Rows with empty labels will have a NaN index, which is correct.
+        df_final.set_index(final_index_col, inplace=True)
+
+    return df_final
 def get_sections_agent(compact_df):
     """
     The purpose of this function is to create an agent that can extract the section names from the compact dataframe function above
@@ -439,11 +496,20 @@ def slice_dataframe_by_sections(df_raw: pd.DataFrame, section_titles: list) -> d
                 # *** FIX APPLIED HERE ***
                 # First, assign the new headers from the identified row
                 new_headers = section_df.iloc[header_row_index]
+
                 # Then, immediately sanitize them to ensure they are unique
                 section_df.columns = _make_column_names_unique(new_headers)
                 
+                # converts columns to flaot
+                section_df = convert_to_float_if_numeric(section_df)
+
+                # transpose the dataframe if necessary
+                section_df = orient_and_clean_section(section_df)
+
                 # Finally, drop the old header row and reset the index
-                section_df = section_df.drop(header_row_index).reset_index(drop=True)
+                #section_df = section_df.drop(header_row_index).reset_index(drop=True)
+
+            
 
         # 6. Create a clean key and add the final DataFrame to our dictionary
         key_name = re.sub(r'[^A-Z0-9_]+', '', title.replace(' ', '_').upper())
