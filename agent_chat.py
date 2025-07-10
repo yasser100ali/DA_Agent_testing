@@ -46,7 +46,7 @@ class ChatAgent:
         """
 
         agent = Agent(self.user_input)
-        chat = agent.chat(system_prompt, "dummy model")
+        chat = agent.chat(system_prompt)
         utils.assistant_message('chat', chat)
         return chat
     

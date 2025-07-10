@@ -1,4 +1,3 @@
-
 import pandas as pd
 import streamlit as st
 import os
@@ -12,8 +11,13 @@ import datetime
 import time
 from secretary_ai_functions import send_email
 import traceback 
+import warnings
 import copy
-from utils_for_main import create_compact_summary, get_sections_agent, slice_dataframe_by_sections, extract_equations_from_sheet, convert_to_float_if_numeric, load_data
+import math
+import openpyxl 
+import re
+import io
+
 
 # Define the path for the instructions file
 INSTRUCTIONS_FILE = "user_instructions.txt"
@@ -21,6 +25,348 @@ FEEDBACK_FILE = "feedback.txt"
 DAILY_LOG_FILEPATH = "message_history/daily_chat_log.json"
 
 
+def _make_column_names_unique(column_names):
+    name_counts = {}
+    new_columns = []
+    for col in column_names:
+        if col is None:
+            col_str = "Unnamed"
+        elif not isinstance(col, str):
+            col_str = str(col).strip() # Good: handles non-strings, strips whitespace
+        else:
+            col_str = col.strip()      # Good: handles strings, strips whitespace
+
+        if not col_str: 
+            col_str = "Unnamed"        # Good: handles empty strings after stripping
+        
+        # Current logic:
+        if col_str not in name_counts:
+            name_counts[col_str] = 1
+            new_columns.append(col_str) 
+        else:
+            name_counts[col_str] += 1
+            new_columns.append(f"{col_str}_{name_counts[col_str]}")
+    return new_columns
+
+
+def _process_dataframe(df):
+    """
+    A helper function to apply a standard set of cleaning and transposing rules.
+    This version also removes columns that are duplicates by content.
+    """
+    # 1. Remove rows and columns that are completely empty
+    cleaned_df = df.dropna(how='all', axis=0).dropna(how='all', axis=1)
+
+    # 2. Remove rows that are more than 40% empty
+    if cleaned_df.empty:
+        return cleaned_df
+        
+    min_non_empty_values = math.ceil(len(cleaned_df.columns) * 0.6)
+    cleaned_df = cleaned_df.dropna(thresh=min_non_empty_values, axis=0)
+    
+    if cleaned_df.empty:
+        return cleaned_df
+
+    # 3. Set the first column as the index to prepare for transposing
+    feature_col_name = cleaned_df.columns[0]
+    feature_col_series = cleaned_df[feature_col_name].fillna('Unnamed Feature') # Ensure index has no NaNs
+    indexed_df = cleaned_df.set_index(feature_col_series)
+    if feature_col_name in indexed_df.columns: # Drop the original column if it wasn't the only one
+         indexed_df = indexed_df.drop(columns=feature_col_name)
+    
+    # 4. Transpose the DataFrame
+    transposed_df = indexed_df.T
+
+    # 5. Make column names unique (handling name collisions)
+    if not transposed_df.empty:
+        transposed_df.columns = _make_column_names_unique(list(transposed_df.columns))
+    
+    # --- NEW STEP 6: Remove columns that are duplicates by content ---
+    if not transposed_df.empty:
+        columns_to_keep = []
+        seen_column_signatures = set()
+
+        for col_name in transposed_df.columns:
+            current_series = transposed_df[col_name]
+            # Create a signature: convert to string, replace 'nan', make tuple
+            # This makes NaNs comparable for uniqueness
+            series_signature = tuple(current_series.astype(str).str.replace('nan', '_NaN_Placeholder_').values)
+            
+            if series_signature not in seen_column_signatures:
+                columns_to_keep.append(col_name)
+                seen_column_signatures.add(series_signature)
+            # Else, this column's content is a duplicate of one already kept, so we skip it.
+        
+        transposed_df = transposed_df[columns_to_keep]
+
+    return transposed_df
+
+
+def convert_sum_to_addition(formula):
+    """Converts simple SUM formulas like '=SUM(A1,B2)' to '=A1+B2'."""
+    match = re.match(r'=SUM\(([^:]+)\)', formula, re.IGNORECASE)
+    if match and ',' in match.group(1):
+        args = [arg.strip() for arg in match.group(1).split(',')]
+        return '=' + '+'.join(args)
+    return formula
+
+
+def get_final_data_views(file_source, sheet_name=None):
+    """
+    Analyzes an Excel sheet and returns two cleaned DataFrames and 
+    a dictionary of human-readable VERTICAL equations using unique feature names.
+    """
+    try:
+        if isinstance(file_source, str):
+            wb_formulas = openpyxl.load_workbook(file_source, data_only=False)
+            wb_values = openpyxl.load_workbook(file_source, data_only=True)
+        else:
+            file_source.seek(0)
+            file_content_bytes = file_source.read()
+            wb_formulas = openpyxl.load_workbook(io.BytesIO(file_content_bytes), data_only=False)
+            wb_values = openpyxl.load_workbook(io.BytesIO(file_content_bytes), data_only=True)
+        
+        active_sheet_title = wb_formulas.active.title
+        if sheet_name and sheet_name in wb_formulas.sheetnames:
+            sheet_formulas = wb_formulas[sheet_name]; sheet_values = wb_values[sheet_name]
+        else:
+            sheet_formulas = wb_formulas.active; sheet_values = wb_values.active
+    except Exception as e:
+        st.error(f"Error loading workbook: {e}"); return None, None, None
+
+    # First, load all data into a raw dataframe to determine structure
+    initial_data = []
+    for row in sheet_values.iter_rows():
+        initial_data.append([cell.value for cell in row])
+    df_raw = pd.DataFrame(initial_data)
+
+    # --- 1. Pre-process to get unique names and their original row locations ---
+    # Apply the same cleaning steps used in _process_dataframe
+    temp_df = df_raw.dropna(how='all', axis=0).dropna(how='all', axis=1)
+    if not temp_df.empty:
+        min_non_empty = math.ceil(len(temp_df.columns) * 0.6)
+        temp_df = temp_df.dropna(thresh=min_non_empty, axis=0)
+
+    # Generate the unique, suffixed names from the first column of the cleaned data
+    feature_col_series = temp_df[temp_df.columns[0]].fillna('Unnamed Feature')
+    unique_names = _make_column_names_unique(list(feature_col_series))
+    
+    # Map the original Excel row index (from temp_df.index) to its new unique name
+    row_index_to_unique_name = dict(zip(temp_df.index, unique_names))
+
+    # --- 2. Build the detailed coordinate-to-UNIQUE-name map ---
+    coord_to_unique_name_map = {}
+    for row_idx, unique_name in row_index_to_unique_name.items():
+        # Map all potential cells in this original row to the unique name
+        for col_idx in range(sheet_formulas.max_column):
+            col_letter = openpyxl.utils.get_column_letter(col_idx + 1)
+            coord = f"{col_letter}{row_idx + 1}" # +1 because openpyxl rows are 1-based
+            coord_to_unique_name_map[coord] = unique_name
+
+    # --- 3. Build DataFrames and the FINAL Equations Dictionary using the smart map ---
+    values_data, hybrid_data, equations_dict = [], [], {}
+    for row in sheet_formulas.iter_rows():
+        values_row, hybrid_row = [], []
+        for cell in row:
+            value = sheet_values[cell.coordinate].value
+            values_row.append(value)
+            hybrid_content = value
+            
+            if cell.data_type == 'f':
+                formula_string = cell.value
+                if '!' not in formula_string and '[' not in formula_string:
+                    hybrid_content = formula_string
+                    
+                    is_horizontal, formula_row_num = True, cell.row
+                    referenced_rows = [int(r) for r in re.findall(r'[A-Z]+([0-9]+)', formula_string)]
+                    if not referenced_rows: is_horizontal = False
+                    else:
+                        for ref_row in referenced_rows:
+                            if ref_row != formula_row_num:
+                                is_horizontal = False; break
+                    
+                    if not is_horizontal:
+                        # KEY is the unique name of the cell holding the formula
+                        key = coord_to_unique_name_map.get(cell.coordinate)
+                        
+                        if key and key not in equations_dict:
+                            processed_formula = convert_sum_to_addition(formula_string)
+                            readable_formula = processed_formula.lstrip('=')
+                            
+                            cell_refs = re.findall(r'([A-Z]+[0-9]+)', readable_formula)
+                            for ref in sorted(list(set(cell_refs)), key=len, reverse=True):
+                                # Use the UNIQUE name from our new map
+                                mapped_name = coord_to_unique_name_map.get(ref, ref)
+                                readable_formula = re.sub(r'\b' + ref + r'\b', mapped_name, readable_formula)
+
+                            readable_formula = re.sub(r'([*\/+\-])', r' \1 ', readable_formula)
+                            readable_formula = re.sub(r'\s+', ' ', readable_formula).strip()
+                            
+                            equations_dict[key] = readable_formula
+
+            hybrid_row.append(hybrid_content)
+        values_data.append(values_row)
+        hybrid_data.append(hybrid_row)
+        
+    df_values_raw = pd.DataFrame(values_data)
+
+    final_values_df = _process_dataframe(df_values_raw.copy())
+
+    return final_values_df, equations_dict
+
+def convert_to_float_if_numeric(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Goes column by column through a DataFrame and converts the
+    data type to float if the entire column is numeric.
+
+    Args:
+        df: The input pandas DataFrame.
+
+    Returns:
+        The DataFrame with numeric columns converted to float type.
+    """
+    for col in df.columns:
+        # Attempt to convert the column to a numeric type.
+        # 'errors=coerce' will turn any non-numeric values into NaN (Not a Number).
+        numeric_series = pd.to_numeric(df[col], errors='coerce')
+
+        # If the conversion doesn't result in all values being NaN,
+        # it means the column was numeric. Then we can change the type.
+        if not numeric_series.isnull().all():
+            df[col] = numeric_series.astype(float)
+    return df
+
+def load_data(uploaded_file_obj):
+    """
+    Loads data from an uploaded file.
+    Returns a pandas DataFrame for CSVs or a dictionary of DataFrames for Excel files.
+    """
+    try:
+        uploaded_file_obj.seek(0)
+        file_name = uploaded_file_obj.name.lower()
+        if file_name.endswith('.csv'):
+            return pd.read_csv(uploaded_file_obj)
+        elif file_name.endswith(('.xls', '.xlsx', '.xlsm', '.xlsb')):
+            # Pass the file object directly, openpyxl (used by read_excel) can handle it
+            return pd.read_excel(uploaded_file_obj, sheet_name=None, engine='openpyxl')
+        else:
+            st.error(f"Unsupported file type: {uploaded_file_obj.name}")
+            return None
+    except Exception as e:
+        st.error(f'Error reading file {uploaded_file_obj.name}: {e}')
+        return None
+
+
+def upload_and_format_files():
+    """
+    Handles file uploads, standardizes data, capitalizes file and sheet names, 
+    and processes unstructured sheets using a cache to avoid re-computation.
+    """
+    uploaded_files = st.file_uploader(
+        'Upload Data Files',
+        type=['csv', 'xlsx', 'xls', 'xlsm', 'xlsb', 'pdf'],
+        accept_multiple_files=True,
+        key="file_uploader_capitalized_integrated"
+    )
+    
+    dataframes_dict = {}
+    
+    # <<< MODIFIED >>> This will now collect equations from all processed files
+    all_equations = {}
+
+    is_structured = True
+
+    if uploaded_files:
+        for uploaded_file_obj in uploaded_files:
+            original_file_name = uploaded_file_obj.name
+            capitalized_file_name = ""
+            try:
+                uploaded_file_obj.seek(0)
+                base_name, extension = os.path.splitext(original_file_name)
+                capitalized_file_name = base_name.upper() + extension.upper()
+
+                loaded_data = load_data(uploaded_file_obj) 
+
+                if loaded_data is None:
+                    continue
+
+                standardized_data_output = None
+
+                if isinstance(loaded_data, dict): # Excel file
+                    capitalized_standardized_sheets = {}
+                    for original_sheet_name, df_sheet_original in loaded_data.items():
+                        capitalized_sheet_name = original_sheet_name.upper()
+                        df_for_processing = df_sheet_original
+
+                        if isinstance(df_for_processing, pd.DataFrame):
+                            is_structured = utils.is_dataframe_structured(df_for_processing)
+                            
+                            if not is_structured:
+                                # <<< --- NEW CACHING LOGIC START --- >>>
+                                
+                                # Create a unique key for this specific sheet
+                                cache_key = f"{capitalized_file_name}/{capitalized_sheet_name}"
+
+                                # 1. CHECK THE CACHE FIRST
+                                if cache_key in st.session_state.processed_sheets_cache:
+                                    # If found, use the cached result and skip the slow processing
+                                    st.write(f"Loading '{capitalized_sheet_name}' from cache...") # Optional: for debugging
+                                    cached_data = st.session_state.processed_sheets_cache[cache_key]
+                                    df_for_processing = cached_data['dataframe']
+                                    equations_dict = cached_data['equations']
+                                    if equations_dict:
+                                        all_equations.update(equations_dict)
+
+                                else:
+                                    # 2. IF NOT IN CACHE, DO THE HEAVY LIFTING ONCE
+                                    with st.spinner(f"Performing one-time processing on sheet: {capitalized_sheet_name}..."):
+                                        uploaded_file_obj.seek(0)
+                                        processed_values_df, equations_dict = get_final_data_views(
+                                            uploaded_file_obj, 
+                                            sheet_name=original_sheet_name
+                                        ) 
+
+                                    if processed_values_df is not None and not processed_values_df.empty:
+                                        # Run your subsequent processing steps
+                                        df_for_processing = name_unnamed_features(processed_values_df)
+                                        df_for_processing = convert_to_float_if_numeric(df_for_processing)
+
+                                        # 3. SAVE THE NEW RESULT TO THE CACHE
+                                        st.session_state.processed_sheets_cache[cache_key] = {
+                                            'dataframe': df_for_processing,
+                                            'equations': equations_dict
+                                        }
+                                        if equations_dict:
+                                            all_equations.update(equations_dict)
+                                    else:
+                                        st.warning(f"Could not structure sheet '{capitalized_sheet_name}'. Using original format.")
+                                        # df_for_processing remains df_sheet_original
+
+                                # <<< --- NEW CACHING LOGIC END --- >>>
+
+                            # Standardize the chosen DataFrame (either original, cached, or newly processed)
+                            capitalized_standardized_sheets[capitalized_sheet_name] = utils.standardize_file(df_for_processing)
+                        else:
+                            capitalized_standardized_sheets[capitalized_sheet_name] = df_for_processing
+                            st.warning(f"Sheet '{capitalized_sheet_name}' in '{capitalized_file_name}' is not a DataFrame.")
+                    
+                    standardized_data_output = capitalized_standardized_sheets
+                
+                elif isinstance(loaded_data, pd.DataFrame): # CSV file
+                    standardized_data_output = utils.standardize_file(loaded_data)
+                else:
+                    st.warning(f"Unexpected data type after loading {capitalized_file_name}: {type(loaded_data)}")
+                    continue
+
+                if standardized_data_output is not None:
+                    dataframes_dict[capitalized_file_name] = standardized_data_output
+            except Exception as e:
+                st.error(f"Failed to process file {capitalized_file_name or original_file_name}: {e}")
+
+    if not is_structured:
+        return dataframes_dict, equations_dict
+    else:
+        return dataframes_dict, None
 
 def load_instructions(filepath=INSTRUCTIONS_FILE):
     """Loads instructions from the specified file."""
@@ -43,110 +389,6 @@ def save_instructions(instructions, filepath=INSTRUCTIONS_FILE):
         st.error(f"Error saving instructions: {e}")
         return False
 
-
-def process_unstructured_sheet(df_raw, file_source, original_sheet_name):
-    """
-    Orchestrates the AI-powered pipeline to structure a single messy DataFrame.
-
-    Args:
-        df_raw (pd.DataFrame): The raw, unprocessed DataFrame for the sheet.
-        file_source (file-like object): The original file object for equation extraction.
-        original_sheet_name (str): The name of the sheet to process.
-
-    Returns:
-        A tuple containing (structured_data_dict, equations_dict).
-        structured_data_dict is a dictionary of {section_name: cleaned_df}.
-    """
-    print(f"--- Starting AI structuring process for sheet: {original_sheet_name} ---")
-    
-    # Step 1: Create the compact summary view for the AI
-    summary_df = create_compact_summary(df_raw)
-    
-    # Step 2: Call the AI agent to get the list of section titles
-    # In a real run, this makes an API call.
-    section_titles = get_sections_agent(summary_df)
-    
-    if not section_titles:
-        st.warning(f"AI could not identify sections for sheet '{original_sheet_name}'. Returning raw data.")
-        # Fallback: return the original df in the expected dict format and get equations
-        equations_dict = extract_equations_from_sheet(file_source, original_sheet_name)
-        return {original_sheet_name: df_raw}, equations_dict
-
-    # Step 3: Use the titles to slice the original raw DataFrame into clean sections
-    sectioned_off_tables_dict = slice_dataframe_by_sections(df_raw, section_titles)
-    
-    # Step 4: Extract equations from the sheet
-    equations_dict = extract_equations_from_sheet(file_source, original_sheet_name)
-    
-    print(f"--- Successfully structured sheet into {len(sectioned_off_tables_dict)} sections. ---")
-    
-    return sectioned_off_tables_dict, equations_dict
-
-
-def upload_and_format_files():
-    """
-    Handles file uploads and orchestrates data processing. Unstructured sheets
-    are delegated to a specialized AI-powered processing function.
-    """
-    uploaded_files = st.file_uploader(
-        'Upload Data Files',
-        type=['csv', 'xlsx', 'xls', 'xlsm', 'xlsb'],
-        accept_multiple_files=True,
-        key="file_uploader_refactored"
-    )
-    
-    final_data_structure = {}
-    all_equations = {}
-
-    if not uploaded_files:
-        # Return empty structures if no files are uploaded
-        return {}, {}
-
-    for uploaded_file_obj in uploaded_files:
-        original_file_name = uploaded_file_obj.name
-        base_name, extension = os.path.splitext(original_file_name)
-        capitalized_file_name = base_name.upper() + extension.upper()
-
-        try:
-            uploaded_file_obj.seek(0)
-            loaded_data = load_data(uploaded_file_obj)
-            if loaded_data is None:
-                continue
-
-            # --- Processing Logic ---
-            if isinstance(loaded_data, pd.DataFrame): # CSV file
-                # For CSVs, the structure is the file name mapping to the DataFrame
-                df_processed = utils.standardize_file(loaded_data) # Assuming standardization
-                final_data_structure[capitalized_file_name] = df_processed
-
-            elif isinstance(loaded_data, dict): # Excel file
-                final_data_structure[capitalized_file_name] = {}
-                for original_sheet_name, df_sheet_original in loaded_data.items():
-                    capitalized_sheet_name = original_sheet_name.upper()
-                    
-                    # Determine if the sheet is structured
-                    is_structured = utils.is_dataframe_structured(df_sheet_original)
-                    
-                    if is_structured:
-                        print(f"Processing structured sheet: {capitalized_sheet_name}")
-                        df_processed = utils.standardize_file(df_sheet_original)
-                        final_data_structure[capitalized_file_name][capitalized_sheet_name] = df_processed
-                    else:
-                        # --- DELEGATE UNSTRUCTURED PROCESSING ---
-                        # The cache logic would wrap this call
-                        structured_sections, equations = process_unstructured_sheet(
-                            df_sheet_original, uploaded_file_obj, original_sheet_name
-                        )
-                        
-                        # The output for this sheet is now a dictionary of DataFrames
-                        final_data_structure[capitalized_file_name][capitalized_sheet_name] = structured_sections
-                        if equations:
-                            all_equations.update(equations)
-
-        except Exception as e:
-            st.error(f"Failed to process file {original_file_name}: {e}")
-
-    return final_data_structure, all_equations
 
 
 def display_chat_history():
@@ -223,7 +465,7 @@ def display_chat_history():
                                         #         for i, subplan in enumerate(subitem_content, 1):
                                         #             st.write(f'Step {i}')
                                         #             st.write(subplan)
-                                        if subitem_name == 'plan execution':
+                                        if subitem_name == 'plan_findings':
                                             with st.expander('Task Execution and Evidence Gathering'):
                                                 if isinstance(subitem_content, list):
                                                     for exec_detail in subitem_content: # Renamed 'i' loop var
@@ -234,25 +476,26 @@ def display_chat_history():
                                             st.write(subitem_content)
                                             # History: "# only add this portion" (the report)
                                             history_parts_for_this_message.append(str(subitem_content))
-                                        elif subitem_name == 'report_visual':
-                                            st.write('\n')
-                                            if hasattr(subitem_content, 'savefig'): # Single Matplotlib figure
-                                                st.pyplot(subitem_content)
-                                            elif isinstance(subitem_content, list): # List of figures or other data
-                                                if not subitem_content:
-                                                    st.write("Item 'report_visual' is an empty list. Nothing to display.")
-                                                else:
-                                                    are_all_figures = all(hasattr(item, 'savefig') for item in subitem_content)
-                                                    if are_all_figures:
-                                                        st.write(f"Displaying {len(subitem_content)} Matplotlib figure(s) from a list.")
-                                                        for fig_object in subitem_content:
-                                                            st.pyplot(fig_object)
-                                                    else:
-                                                        st.write("Item 'report_visual' is a list, but not all its elements are Matplotlib figures.")
-                                                        st.write(subitem_content)
-                                            elif subitem_content is not None : # If not a figure or list, but not None
-                                                st.write("Item 'report_visual' content:")
-                                                st.write(subitem_content)
+                                        elif subitem_name == 'chart_for_report':
+                                            # st.write('\n')
+                                            # if hasattr(subitem_content, 'savefig'): # Single Matplotlib figure
+                                            #     st.plotly_chart(subitem_content)
+                                            # elif isinstance(subitem_content, list): # List of figures or other data
+                                            #     if not subitem_content:
+                                            #         st.write("Item 'report_visual' is an empty list. Nothing to display.")
+                                            #     else:
+                                            #         are_all_figures = all(hasattr(item, 'savefig') for item in subitem_content)
+                                            #         if are_all_figures:
+                                            #             st.write(f"Displaying {len(subitem_content)} Matplotlib figure(s) from a list.")
+                                            #             for fig_object in subitem_content:
+                                            #                 st.plotly_chart(fig_object)
+                                            #         else:
+                                            #             st.write("Item 'report_visual' is a list, but not all its elements are Matplotlib figures.")
+                                            #             st.write(subitem_content)
+                                            # elif subitem_content is not None : # If not a figure or list, but not None
+                                            #     st.write("Item 'report_visual' content:")
+                                            #     st.write(subitem_content)
+                                            utils.show_output(subitem_content)
                                         else: # Other subitems in deepinsights (not 'plan', 'plan execution', 'report', 'report_visual')
                                             st.write(subitem_content) # Display them
                                 else: # If item_data for 'deepinsights' is not a dict
@@ -512,7 +755,7 @@ def data_analyst_tab(dataframes_dict, user_input=None, equations_dict=None): # A
             # else:
             # Execute agent logic
             with st.chat_message("assistant"):
-                with st.spinner("Thinking..."):
+                with st.spinner("Thinking...", show_time=True):
                     try:
                         user_instructions = load_instructions()
                         user_input = f"User prompt: {user_input}"
@@ -723,14 +966,8 @@ def main_app():
                         st.write(item)
                     elif isinstance(item, dict): 
                         for sheet_name, sheet in sorted(list(item.items())):
-                            if isinstance(sheet, pd.DataFrame):
-                                st.write(f"Sheet: {sheet_name}") # sheet_name_display is already capitalized
-                                st.write(sheet)
-                            else:
-                                for section_name, section_df in sorted(list(sheet.items())):
-                                    st.write(f"Section: {section_name}")
-                                    st.write(section_df)
-                                    
+                            st.write(f"Sheet: {sheet_name}") # sheet_name_display is already capitalized
+                            st.write(sheet)
                     else:
                         st.write(f"- {name} (Unknown type)")
         else:
@@ -757,9 +994,10 @@ def main_app():
 
         _populate_message_history_object()
         update_and_log_daily_history()
-
+        
+      
         st.rerun()
-    
+        
 
 if __name__ == '__main__':
     main_app()

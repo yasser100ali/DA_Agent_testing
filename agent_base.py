@@ -1,17 +1,17 @@
 import utils
 from agents import Agent
-from agent_filter_data import filter_data
 import streamlit as st
-import time
 import pandas as pd
+import time 
+
 
 class BaseAgent:
-    def __init__(self, user_input, local_var):
+    def __init__(self, user_input, local_var={}):
         self.user_input = user_input
         self.local_var = local_var
         self.dataframes_dict = local_var['dataframes_dict']
-        self.model = "not_needed" # fix this 
-        
+        self.agent = Agent(user_input, local_var)
+
     def base(self):
         orchestrator_prompt = """
             You are an orchestrator agent. 
@@ -39,15 +39,15 @@ class BaseAgent:
         """
         
         agent = Agent(self.user_input, self.local_var)
-        json = agent.json_agent(orchestrator_prompt)
+        json = agent.json_agent(orchestrator_prompt, self.model)
 
         st.write("**Filtering Data**")
         features_list = str(utils.convert_to_features_list(self.dataframes_dict)) 
         features_list_json = utils.extract_json(features_list)
         
         word_count = len(features_list.split())
-        st.write(word_count)
-        if word_count > 1000: 
+        
+        if word_count > 150: 
             # this is the case where we use an agent to filer out the data to ease the coder agent's attention
             input_features_list = filter_data(self.user_input, features_list)
             input_features_list_json = utils.extract_json(input_features_list)
@@ -59,10 +59,8 @@ class BaseAgent:
             
         st.session_state['features_list_json'] = input_features_list_json
 
-        is_subset = utils.is_subset_dictionary(input_features_list_json, features_list_json) # is this still needed? 
-        is_subset = True 
-
-
+        is_subset = utils.is_subset_dictionary(input_features_list_json, features_list_json)
+    
         if is_subset:
             st.write('This is a subset')
             
@@ -132,130 +130,74 @@ class BaseAgent:
                 import pandas as pd
                 import plotly.express as px
 
-                def main():
-                    # Retrieve dataframes
-                    membership_df = dataframes_dict['membership_predictions_0221.csv']
-                    pmpm_df = dataframes_dict['pmpm_and_2025_forecast.xlsx']['pmpm_commercial_by_location']
+        def main():
+            # Load the relevant dataframe
+            df = dataframes_dict['tabular_data.xlsx']['tabular_data']
 
-                    # Filter membership data for Antioch and Manteca (Commercial line of business)
-                    filtered_membership = membership_df[
-                        (membership_df['MJR_AREA_NM'].isin(['ANTIOCH', 'MANTECA'])) & 
-                        (membership_df['LINE_OF_BUSINESS'] == 'COMMERCIAL')
-                    ]
+            # Find the top 5 payers by frequency
+            top_payers = df['Primary Payer'].value_counts().nlargest(5).index
+            df_top_payers = df[df['Primary Payer'].isin(top_payers)]
 
-                    # Get predicted mean values (assuming we want the mean prediction)
-                    predicted_means = filtered_membership.groupby('MJR_AREA_NM')['PREDICTED_MEAN'].mean()
-
-                    # Get PMPM values for Antioch and Manteca
-                    pmpm_data = pmpm_df[['DATE', 'ANTIOCH', 'MANTECA']]
-
-                    # Calculate revenue (PMPM * predicted_mean)
-                    revenue_data = pmpm_data.copy()
-                    revenue_data['ANTIOCH_REVENUE'] = revenue_data['ANTIOCH'] * predicted_means['ANTIOCH']
-                    revenue_data['MANTECA_REVENUE'] = revenue_data['MANTECA'] * predicted_means['MANTECA']
-
-                    # Melt the dataframe for plotting
-                    plot_data = revenue_data.melt(
-                        id_vars=['DATE'], 
-                        value_vars=['ANTIOCH_REVENUE', 'MANTECA_REVENUE'],
-                        var_name='LOCATION', 
-                        value_name='REVENUE'
-                    )
-
-                    # Clean up location names
-                    plot_data['LOCATION'] = plot_data['LOCATION'].str.replace('_REVENUE', '')
-
-                    # Create bar chart
-                    fig = px.bar(
-                        plot_data,
-                        x='DATE',
-                        y='REVENUE',
-                        color='LOCATION',
-                        barmode='group',
-                        title='Commercial Revenue for Antioch and Manteca Over the Year',
-                        labels={'DATE': 'Month', 'REVENUE': 'Revenue ($)', 'LOCATION': 'Location'},
-                        text='REVENUE'
-                    )
-
-                    # Format the plot
-                    fig.update_traces(texttemplate='$%{text:,.0f}', textposition='outside')
-                    fig.update_layout(
-                        xaxis_tickangle=-45,
-                        yaxis_tickprefix='$',
-                        yaxis_tickformat=',.0f',
-                        uniformtext_minsize=8,
-                        uniformtext_mode='hide'
-                    )
-
-                    return fig
-
-                ```
-                """,
-
-                'analysis': standard + """
-                You are data_analyst_agent
-                Your job is to use pandas to get statistics according to the user request.
-                Return your results in a pandas dataframe. 
-
-                Refrain from generating charts as that is not your responsibility, return the requested items as ONLY a pandas dataframe. 
-
-                example:
-                input_prompt:  
-                From the pmpm average values page, give a table of Month (metric="Month", page="pmpm_average_values", file="pmpm_and_2025_forecast.xlsx") and total PMPMs
-                (metric="Total PMPMs", page="pmpm_average_values", file="pmpm_and_2025_forecast.xlsx"). Then in the same table take the Member months from 2025 forecast (metric="Member 
-                Months", page="2025_forecast", file="pmpm_and_2025_forecast.xlsx") and multiply it by Total PMPMs from pmpm_average_values page (metric="Total PMPMs", page="pmpm_average_values", file="pmpm_and_2025_forecast.xlsx") to get me a new column 'Total Revenue' that is the product of these two.
-                
-                output: 
-                ```python
-                import pandas as pd
-                
-                def main():
-                    # Load the dataframes
-                    pmpm_df = dataframes_dict['pmpm_and_2025_forecast.xlsx']['pmpm_average_values']
-                    forecast_df = dataframes_dict['pmpm_and_2025_forecast.xlsx']['2025_forecast']
-                
-                    # Select required columns from each dataframe
-                    pmpm_table = pmpm_df[['Month', 'Total PMPMs']]
-                
-                    # Get the first 12 rows for member months (assuming data is chronological)
-                    forecast_member_months = forecast_df.head(12)[['Member Months']]
-                
-                    # Combine them into a new dataframe
-                    combined_df = pd.concat([pmpm_table, forecast_member_months], axis=1)
-                
-                    # Calculate total revenue as the product of Total PMPMs and Member Months
-                    combined_df['Total Revenue'] = combined_df['Total PMPMs'] * combined_df['Member Months']
-                
-                    return combined_df
-                ```
-
-                """,
-                
-                'machine_learning': standard + """
-
-                """
-            }
+            # Create an interactive bar chart with plotly
+            fig = px.bar(
+                df_top_payers,
+                x='Primary Payer',
+                y='Bed TAT',
+                title='Bed Turnaround Time for Top 5 Payers',
+                labels={'Bed TAT': 'Bed Turnaround Time (minutes)', 'Primary Payer': 'Primary Payer'}
+            )
             
-            sub_agent = json['agent']
-            st.write(utils.typewriter_effect(f'Problem Type: **{sub_agent}**'))
-            job = system_prompts[sub_agent]
+            # for figs do not convert to json, leave as fig. 
+            return fig
 
-            result, code = agent.coder(job)        
+        example 3: 
 
-            utils.assistant_message("code", code)
-            utils.assistant_message("result", [result])
+        input_prompt:
+        "Use a RandomForest model to find the top 5 most important features that influence 'Avg wait from ED'."            
+                
+        import pandas as pd
+        from sklearn.ensemble import RandomForestRegressor
+        import json
 
-            return result      
-        
-        else:
-            st.write('Trying again')
-            self.base()
+        def main():
+            # Load the dataframe
+            df = dataframes_dict['tabular_data.xlsx']['tabular_data']
+
+            # Prepare data for modeling
+            df_clean = df.dropna(subset=['Avg wait from ED'])
+            df_clean = df_clean.select_dtypes(include=['number']) # Use only numeric columns
+            
+            X = df_clean.drop(columns=['Avg wait from ED'])
+            y = df_clean['Avg wait from ED']
+
+            # Handle any remaining missing values in features
+            X = X.fillna(X.mean())
+
+            # Initialize and train the model
+            model = RandomForestRegressor(n_estimators=100, random_state=42)
+            model.fit(X, y)
+
+            # Get feature importances
+            importances = pd.Series(model.feature_importances_, index=X.columns)
+            top_5_features = importances.nlargest(5)
+
+            # Return the results as is. 
+            return top_5_features
+
+        """
+
+        result, code = self.agent.coder(system_prompt)      
+
+        utils.assistant_message("code", code)
+        utils.assistant_message("result", [result])
+
+        return result      
             
             
     def main(self):
-        with st.expander('Base Agent. Code & Work.', expanded=False):
+        with st.expander('Base Agent.', expanded=False):
             result = self.base()
 
         st.write(result)
-            
+
         return result

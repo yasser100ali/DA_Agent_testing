@@ -1,5 +1,5 @@
 from agent_base import BaseAgent
-from agent_deepinsights import DeepInsightsAgent
+from agent_async_deepinsights import DeepInsights
 from agent_chat import ChatAgent
 from agent_secretary import SecretaryAI
 from agent_sql_react_testing import sqlAgentReAct
@@ -7,16 +7,17 @@ from agent_sql_react_testing import sqlAgentReAct
 from agent_sql import sqlAgent 
 from agents import Agent
 import streamlit as st
-import time 
+import asyncio
+import inspect 
 
 
 class DataAnalystAgent:
-    def __init__(self, user_input, local_var):
+    def __init__(self, user_input, local_var={}):
         self.user_input = user_input
         self.local_var = local_var
         self.agents = {
             'base': BaseAgent,
-            'deepinsights': DeepInsightsAgent,
+            'deepinsights': DeepInsights,
             'chat': ChatAgent,
             'secretary': SecretaryAI,
             'sql': sqlAgentReAct,
@@ -24,6 +25,7 @@ class DataAnalystAgent:
             'pull_table': sqlAgent
         }
         
+
     def operator(self):
         
         if len(st.session_state.dataframes_dict) > 0:
@@ -109,8 +111,7 @@ class DataAnalystAgent:
 
                 One thing to note is that if a user asks specifically for a given agent (like "use baseagent for..." or "use sqlagent for...") then make sure to use that agent!
             """
-
-        subagent = Agent(self.user_input, self.local_var).json_agent(system_prompt, is_visible=True)['agent']
+        subagent = Agent(self.user_input, self.local_var).json_agent(system_prompt)['agent']
 
         return subagent  
     
@@ -118,9 +119,6 @@ class DataAnalystAgent:
         
         subagent_name = self.operator()
         
-        # if subagent_name != 'chat':
-        #     st.write(utils.typewriter_effect(f'This task has been assigned to: **{subagent_name}** agent.'))
-
         if subagent_name in ["base", "deepinsights"]: 
             params = {
                 "user_input": self.user_input,
@@ -133,4 +131,9 @@ class DataAnalystAgent:
             }
 
         subagent = self.agents[subagent_name](**params)
-        subagent.main()
+        
+        if inspect.iscoroutinefunction(subagent.main):
+            asyncio.run(subagent.main())
+            
+        else:
+            subagent.main()

@@ -19,27 +19,44 @@ import base64
 
 is_local_hosting=False
 
-# It's good practice to have helper functions for discrete tasks
-def encode_image_to_base64(image_path):
-    """Encodes an image file to a base64 string."""
-    with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode('utf-8')
+def get_response(system_prompt, user_prompt, model, show_stream=True, local_hosting=is_local_hosting):
+    # when running the models locally
+    if local_hosting:
+        print('\n\nHere is the system prompt.\n\n')
+        print(system_prompt)
+        print('\n\nHere is the user prompt.\n\n')
+        print(user_prompt)
+        messages = [
+            {'role': 'system', 'content': system_prompt},
+            {'role': 'user', 'content': user_prompt}
+        ]
+        
+        # model = "hf.co/unsloth/Qwen3-32B-GGUF:Q8_K_XL"
 
-def get_response(system_prompt, user_prompt, model="gpt-4.1"):
-    client = OpenAI(
-        api_key="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"
-    )
-
-    response = client.chat.completions.create(
-        model=model,
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt},
-        ],
-        stream=True  # Enable streaming
-    )
-
-    return response
+        # response = ollama.chat(
+        #     model=model,
+        #     messages=messages,
+        #     stream=show_stream
+        # )
+    
+        # return response
+        
+    # when not running locally, either due to no root access or some other issue
+    else:
+        client = OpenAI(
+            api_key="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"
+        )
+    
+        response = client.chat.completions.create(
+            model="gpt-4.1",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            stream=True  # Enable streaming
+        )
+    
+        return response
 
 def display_stream(response, visible=True):
 
@@ -221,7 +238,8 @@ def execute_code(code, local_var):
 
         # logging error
         logger.error(error_message)                    
-        st.write(error_message)
+        print('\n\nError Message\n\n')
+        print(error_message)
         result = error_message
         success = False
         
@@ -876,7 +894,6 @@ def sync_file_metadata_from_session():
             # If the file already has metadata, skip it.
             continue
 
-        print(f"⏳ New file '{filename}' found in session. Generating metadata...")
 
         # --- 4. Generate metadata for the new file ---
         # The data can be a single DataFrame (CSV) or a dict of DataFrames (Excel)
@@ -927,11 +944,11 @@ def sync_file_metadata_from_session():
 
         # Add the fully generated entry to our main dictionary
         file_details[filename] = file_level_meta
-        print(f"✅ Generated metadata for '{filename}'.")
+        
 
 
     # --- 5. Save the updated dictionary back to the JSON file ---
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(file_details, f, indent=4)
 
-    print("✔️ Metadata sync complete.")
+   

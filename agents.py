@@ -1,11 +1,12 @@
 import streamlit as st
 import pandas as pd
 import utils
+from openai import AsyncOpenAI
 import time 
 
 
 class Agent:
-    def __init__(self, user_input=None, local_var=None):
+    def __init__(self, user_input, local_var=None):
         self.user_input = user_input
         self.local_var = local_var
 
@@ -17,7 +18,7 @@ class Agent:
             
         return effective_user_input 
         
-    def json_agent(self, system_prompt, model=None, user_input=None, is_visible=False): 
+    def json_agent(self, system_prompt, user_input=None, is_visible=False): 
         # job here is the specific work that the agent will be specified to do 
         # you also have to specify the case where the orchestrator asks the user for clarification
 
@@ -44,7 +45,7 @@ class Agent:
         
         return json
         
-    def coder(self, system_prompt, model=None, user_input=None, max_tries=3, hide_code=False):
+    def coder(self, system_prompt, user_input=None, max_tries=3, hide_code=False):
         general_system_prompt = """
         You are a coder agent. 
 
@@ -59,10 +60,10 @@ class Agent:
         general_system_prompt += system_prompt
 
         real_input = self._user_input(user_input)
-        return self._generate_and_execute_code(general_system_prompt, max_tries, model, real_input, hide_code)
+        return self._generate_and_execute_code(general_system_prompt, max_tries, real_input, hide_code)
 
     def _generate_and_execute_code(self, system_prompt, remaining_tries, model, user_input, hide_code):
-        response = utils.get_response(system_prompt, user_input)
+        response = utils.get_response(system_prompt, user_input, model)
         if hide_code:
             output = utils.display_stream(response, visible=False)
         else:
@@ -87,11 +88,11 @@ class Agent:
                 else: # If features_array was populated but auto_correct_code_by_list failed (less likely if above try works)
                     code = utils.auto_correct_code_by_list(code, features_array, only_correct_quoted=True)
 
-
         result, success = utils.execute_code(code, self.local_var)
         
         if success:
             return result, code
+            
             
         elif remaining_tries > 1:
             system_prompt += """There is something that went wrong with this code. Using the 
@@ -108,12 +109,12 @@ class Agent:
             Often times, look at the intent and try to simplify and change the code to accomplish the task.  
             \n"""
             system_prompt += result
-            return self._generate_and_execute_code(system_prompt, remaining_tries - 1, model, user_input, hide_code)
+            return self._generate_and_execute_code(system_prompt, remaining_tries - 1, user_input, hide_code)
             
         else:
             return result, code
         
-    def reporter(self, job, model=None, user_input=None):
+    def reporter(self, job, user_input=None):
         system_prompt = """
         You are part of a multi-agent data analyst system.
         Your job is to take the outputs of the previous agents (usually a coder agent which produces some output) and delegate the findings to user based on the user input. 
@@ -128,10 +129,95 @@ class Agent:
         return output
         
     def chat(self, system_prompt, model=None, display_stream=True):
-        response = utils.get_response(system_prompt, self.user_input)
+        response = utils.get_response(system_prompt, self.user_input, model)
         content = utils.display_stream(response, visible=display_stream)
 
         return content
+
+
+
+class AsyncAgent:
+    def __init__(self, user_input=None, local_var={}):
+        self.user_input = user_input
+        self.local_var = local_var
+
+    async def get_response_async(self, system_prompt, user_prompt, model="gpt-4.1"):
+        api_key="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"
+
+        client = AsyncOpenAI(api_key=api_key)
+        response = await client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ]
+        )
+        return response.choices[0].message.content  
+
+    async def async_json_agent(self, system_prompt, user_input):
+        general_system_prompt = """
+        You are to output your response in markdown json.
+
+        example: 
+        ```json
+        {
+            
+        }
+        ```
+
+        """
+
+        general_system_prompt += system_prompt
+
+        llm_output = await self.get_response_async(general_system_prompt, user_prompt = user_input)
+        json_output = utils.extract_json(llm_output)
+
+        return json_output
+
+    async def coder_agent(self, system_prompt, user_input, max_tries=3):
+        general_system_prompt = """
+        You are a coder agent. 
+
+        Output your code in the following format: 
+        ```python
+        import ... (required libraries here)
+        def main(): 
+            ... (actual coding for the problem)
+            return ... (return the main variable that contains the information or item you need)
+        ```
+        """
+        general_system_prompt += system_prompt
+
+        return await self._generate_and_execute_code(general_system_prompt, user_input, remaining_tries=max_tries)
+    
+    async def _generate_and_execute_code(self, system_prompt, user_input, remaining_tries):
+        llm_output = await self.get_response_async(system_prompt, user_input)
+        code = utils.extract_python(llm_output)
+
+        result, success = utils.execute_code(code, self.local_var)
+
+        if success:
+            return result, code
+        
+        elif remaining_tries > 1:
+            system_prompt += """There is something that went wrong with this code. Using the 
+    error message below, fix the code and return it. 
+    
+            First point out what went wrong and how you could fix it. 
+            Common mistakes include, but are not limited to:
+            1. Trying to access a feature in a dataset that is not there. If that is the error, then look over the list of features, and make sure to only use what is there.
+            2. MAKE SURE TO CAPITALIZE THE FEATURE NAMES AND CATEGORIES!!!
+            3. Make sure to define the main function and have no parameters in it.
+                def main(): 
+                    (your code here). 
+            
+            Often times, look at the intent and try to simplify and change the code to accomplish the task.  
+            \n"""
+            system_prompt += result
+            return await self._generate_and_execute_code(system_prompt, user_input, remaining_tries - 1)
+
+        else:
+            return result, code 
 
 
 class ReAct:
