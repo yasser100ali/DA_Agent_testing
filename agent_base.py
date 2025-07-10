@@ -13,122 +13,89 @@ class BaseAgent:
         self.agent = Agent(user_input, local_var)
 
     def base(self):
-        orchestrator_prompt = """
-            You are an orchestrator agent. 
-
-            Take the user prompt and assign it to a subagent, "agent". Here are you subagents:
-                a. visualization
-                    = for when a prompt is asking to create some kind of visualization 
-                b. analysis
-                    - For when rather basic Exploratory Data Analysis is called for using pandas
-                c. machine_learning
-                    - when predictive modeling using scikit-learn libary may be used           
-                    
-            Follow this format: 
-             "Create a scatter chart of Avg wait from ED and assign to depart delay." 
-    
-            Output: 
-            Since the user is asking to create a visualization, this task will be delegated to the visulization_agent
-            ```json
-            {
-                "agent": "visualization",
-            }
-
-            Your only item here should be "agent". 
-            ```
-        """
-        
-        agent = Agent(self.user_input, self.local_var)
-        json = agent.json_agent(orchestrator_prompt, self.model)
-
-        st.write("**Filtering Data**")
         features_list = str(utils.convert_to_features_list(self.dataframes_dict)) 
         features_list_json = utils.extract_json(features_list)
+        st.session_state['features_list_json'] = features_list_json
+
+        system_prompt =  f"""
+
+        You are a coder agent. Keep the code mostly short and concise, use as few lines as possible to accomplish each task. 
         
-        word_count = len(features_list.split())
-        
-        if word_count > 150: 
-            # this is the case where we use an agent to filer out the data to ease the coder agent's attention
-            input_features_list = filter_data(self.user_input, features_list)
-            input_features_list_json = utils.extract_json(input_features_list)
-           
-        else:
-            # amount of information from data is sufficiently small that adding a pre-processing data filtration step is unneccessary 
-            input_features_list = features_list
-            input_features_list_json = features_list_json
-            
-        st.session_state['features_list_json'] = input_features_list_json
+        1. Write complete self-contained code that includes all necessary imports
+        2. You are given 'dataframes_dict' which contains all the files, pages (pages only applies to non-csv excel files), and feature names. To get access to a particular page, you would type 'dataframes_dict['excelsheetname.xlsx']['page'] or if it is a csv dataframes_dict['file.csv']
+        3. Define a `main` function that encapsulates the task. The `main` function should:
+        - Perform the requested task.
+        - Retrun result as a pandas dataframe or a plotly visual chart. 
+        4. Ensure the code is syntactically correct and ready to execute. Use markdown in your formatting: ```python import ... def main(): ... ```
+        5. Use pandas, numpy or sklearn. Do not use libraries outside of these. 
 
-        is_subset = utils.is_subset_dictionary(input_features_list_json, features_list_json)
-    
-        if is_subset:
-            st.write('This is a subset')
-            
-            standard =  f"""
-            1. Write complete self-contained code that includes all necessary imports
-            2. You are given 'dataframes_dict' which contains all the files, pages (pages only applies to non-csv excel files), and feature names. Make sure to spell according to the parenthesis input for these details. To get access to a particular page, you would type 'dataframes_dict['excelsheetname.xlsx']['page'] or if it is a csv dataframes_dict['file.csv']
-            3. Define a `main` function that encapsulates the task. The `main` function should:
-            - Perform the requested task.
-            - Return the result
-            4. Ensure the code is syntactically correct and ready to execute. Use markdown in your formatting: ```python import ... def main(): ... ```
+        Correct spelling according to this list: {features_list}
+
+        This list above, defines the **ONLY** valid files, sheets (for Excel), and columns/features you are permitted to access and use for this task. You **MUST** treat this as the definitive schema.
+        DO NOT TRY TO ACCESS ANY FILES, PAGES, OR FEATURES OUTSIDE THIS.
+        NEVER ASSUME ANYTHING THAT DOES NOT EXISTS IN THE LIST ABOVE. 
+
+        You will be given the general user input and the specific task. The goal is the user_input but write your code mainly to the task with your orientation to the user_input. 
+        Don't get too much frivelous data, get a decent amount of valuable data that will later be used to build a report. Your whole job is to gather evidence that will later produce a report. 
+        This will later be fed to a seperate agent that will build the report so your outputs DENSE. 
+        """
+
+        system_prompt += """
+        You are data_processing_agent.
+
+        Your job is to use pandas for data analysis and manipulation, plotly for creating interactive visualizations, and sklearn for machine learning problems. Your code output must always be in the format def main(): ... return result.
+
+        You have 3 libraries to work with:
+
+        pandas: Use for data manipulation, calculations, filtering, or when the user asks for a table. Return data as a pandas dataframe. 
+
+        plotly: Use when the user asks for any kind of chart or visual (e.g., "plot", "chart", "graph", "visualize"). Final line here should be "return fig" 
+
+        sklearn: Use for machine learning tasks like finding feature importance, making predictions, clustering, or classification.
+
+        DO NOT return multiple items separately; if you have multiple outputs, return them as a list (e.g., return [a, b]).
+
+        EXAMPLES. 
+
+        example 1:
+
+        input_prompt:
+        "From the pmpm average values page, give a table of Month and total PMPMs. Then in the same table take the Member months from 2025 forecast and multiply it by Total PMPMs from pmpm_average_values page to get me a new column 'Total Revenue' that is the product of these two."
+        import pandas as pd
+        import json
+
+        def main():
+            # Load the dataframes
+            pmpm_df = dataframes_dict['pmpm_and_2025_forecast.xlsx']['pmpm_average_values']
+            forecast_df = dataframes_dict['pmpm_and_2025_forecast.xlsx']['2025_forecast']
+
+            # Perform the calculation as requested
+            combined_df = pmpm_df[['Month', 'Total PMPMs']].copy()
+            combined_df['Member Months'] = forecast_df['Member Months']
+            combined_df['Total PMPMs'] = pd.to_numeric(combined_df['Total PMPMs'], errors='coerce')
+            combined_df['Member Months'] = pd.to_numeric(combined_df['Member Months'], errors='coerce')
+            combined_df['Total Revenue'] = combined_df['Total PMPMs'] * combined_df['Member Months']
+
+            # Instead of returning the whole table, create a concise summary.
+            summary = {
+                'total_revenue_all_months': combined_df['Total Revenue'].sum(),
+                'average_monthly_revenue': combined_df['Total Revenue'].mean(),
+                'highest_revenue_month': combined_df.loc[combined_df['Total Revenue'].idxmax()].to_dict(),
+                'note': "Successfully calculated Total Revenue. Provided are key summary statistics."
+            }
+
+            # convert to pandas dataframe
+            summary_df = pd.DataFrame.from_dict(summary, orient='index', columns=['Value'])
+
+            # Return the new DataFrame.
+            return summary_df
 
 
-            ### Whenver you get a feature, make sure you verify that feature is actually in the following list: {input_features_list}
-            **IF** attempting to merge dataframes, always inspect the key columns you intend to merge on (e.g., 'Date', 'Month'). Check their data types (dtype) and examine sample values to ensure they are compatible. The features_list provides column names but not their format or type.
-
-            It is also very important to note that **ALL FEATURES AND CATEGORIES ARE CAPTILIZED**. So capitalize the user's features and categories. 
-            """
-        
-            system_prompts = {
-                'visualization': standard + """                    
-                You are visualization_agent.
-                Your job is to create visualizations using **plotly** (ONLY plotly NOT matplotlib). 
-                Use pandas to get relevant information (if needed), and plotly to graph. 
-
-
-
-                example: 
-                input_prompt: 
-                "create a bar graph of predicted mean grouped by the categories in line of business"
-                output: 
-                ```python
-                import pandas as pd
-                import plotly.express as px
-                
-                def main():
-                    # Retrieve the dataframe from the provided dictionary
-                    df = dataframes_dict['membership_predictions_0221.csv']
-                
-                    # Group by LINE_OF_BUSINESS and calculate the mean of predicted_mean
-                    grouped_df = df.groupby('LINE_OF_BUSINESS')['predicted_mean'].mean().reset_index()
-                
-                    # Create the bar chart using Plotly Express
-                    output = px.bar(
-                        grouped_df,
-                        x='LINE_OF_BUSINESS',
-                        y='predicted_mean',
-                        title='Average Predicted Membership by Line of Business',
-                        labels={'predicted_mean': 'Average Predicted Mean', 'LINE_OF_BUSINESS': 'Line of Business'},
-                        text='predicted_mean'  # Display values on bars
-                    )
-                
-                    # Improve layout and formatting
-                    output.update_traces(texttemplate='%{text:.2f}', textposition='auto')
-                    output.update_layout(
-                        xaxis_tickangle=-45,  # Rotate x-axis labels for readability
-                        uniformtext_minsize=8,
-                        uniformtext_mode='hide'
-                    )
-                
-                    return output
-                ```
-                
-                input_prompt: 
-                "show revenue for Antioch and mantica commercial over the course of the year. Have this be a bar graph."
-                output: 
-                ```python
-                import pandas as pd
-                import plotly.express as px
+        example 2: 
+        input_prompt:
+        "Create an interactive bar chart showing the 'Bed TAT' for the top 5 'Primary Payers'."    
+        import pandas as pd
+        import plotly.express as px
 
         def main():
             # Load the relevant dataframe
