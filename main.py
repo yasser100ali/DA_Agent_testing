@@ -977,6 +977,34 @@ def main_app():
                         for sheet_name, sheet in sorted(list(item.items())):
                             st.write(f"Sheet: {sheet_name}") # sheet_name_display is already capitalized
                             st.write(sheet)
+                    elif isinstance(item, list) and all(isinstance(page, dict) and "page" in page for page in item):  # PDF output
+                        for page in sorted(item, key=lambda p: p["page"]):
+                            with st.expander(f"Page {page['page']}", expanded=False):
+                                # Display text
+                                st.subheader("Extracted Text:")
+                                if isinstance(page["text"], list):
+                                    for text_block in page["text"]:
+                                        if isinstance(text_block, dict) and "text" in text_block:
+                                            st.write(text_block["text"])
+                                        else:
+                                            st.write(text_block)  # Fallback
+                                else:
+                                    st.write(page["text"])
+
+                                # Display tables
+                                st.subheader("Extracted Tables:")
+                                for idx, table in enumerate(page.get("tables", []), start=1):
+                                    st.write(f"Table {idx}:")
+                                    cleaned_data = table.get("cleaned_table")
+                                    if cleaned_data and isinstance(cleaned_data, list):
+                                        try:
+                                            df_table = pd.DataFrame(cleaned_data)
+                                            st.write(df_table)
+                                        except Exception as e:
+                                            st.write("Could not display table as DataFrame:", str(e))
+                                            st.write(cleaned_data)  # Fallback to raw
+                                    else:
+                                        st.write(table.get("raw_data", "No table data"))
                     else:
                         st.write(f"- {name} (Unknown type)")
         else:
