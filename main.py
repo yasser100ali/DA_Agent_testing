@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from data_analyst_agent import DataAnalystAgent
 from structure_data_agent import name_unnamed_features
 from agent_chat import ChatAgent # for general chatting when datasets are not yet uploaded. 
+from pdf_replicator import replicate_pdf
 import utils
 import json
 import datetime
@@ -240,6 +241,7 @@ def load_data(uploaded_file_obj):
     """
     Loads data from an uploaded file.
     Returns a pandas DataFrame for CSVs or a dictionary of DataFrames for Excel files.
+    For PDFs, returns the output from replicate_pdf.
     """
     try:
         uploaded_file_obj.seek(0)
@@ -249,13 +251,15 @@ def load_data(uploaded_file_obj):
         elif file_name.endswith(('.xls', '.xlsx', '.xlsm', '.xlsb')):
             # Pass the file object directly, openpyxl (used by read_excel) can handle it
             return pd.read_excel(uploaded_file_obj, sheet_name=None, engine='openpyxl')
+        elif file_name.endswith('.pdf'):
+            uploaded_file_obj.seek(0)
+            return replicate_pdf(uploaded_file_obj)
         else:
             st.error(f"Unsupported file type: {uploaded_file_obj.name}")
             return None
     except Exception as e:
         st.error(f'Error reading file {uploaded_file_obj.name}: {e}')
         return None
-
 
 def upload_and_format_files():
     """
@@ -291,6 +295,11 @@ def upload_and_format_files():
                     continue
 
                 standardized_data_output = None
+
+                if isinstance(loaded_data, list):  # PDF output from replicate_pdf
+                    dataframes_dict[capitalized_file_name] = loaded_data
+                    is_structured = False
+                    continue
 
                 if isinstance(loaded_data, dict): # Excel file
                     capitalized_standardized_sheets = {}
@@ -364,7 +373,7 @@ def upload_and_format_files():
                 st.error(f"Failed to process file {capitalized_file_name or original_file_name}: {e}")
 
     if not is_structured:
-        return dataframes_dict, equations_dict
+        return dataframes_dict, all_equations
     else:
         return dataframes_dict, None
 

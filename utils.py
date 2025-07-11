@@ -16,6 +16,7 @@ import time
 import os
 from datetime import datetime, timezone
 import base64
+import hashlib
 
 is_local_hosting=False
 
@@ -865,8 +866,6 @@ def is_dataframe_structured(df, nan_threshold=0.6, header_nan_threshold=0.7, gen
     # print("DEBUG: Classified as Structured")
     return True
 
-
-
 def sync_file_metadata_from_session():
     """
     Loads 'file_details.json', compares it with st.session_state.dataframes_dict,
@@ -894,61 +893,83 @@ def sync_file_metadata_from_session():
             # If the file already has metadata, skip it.
             continue
 
-
         # --- 4. Generate metadata for the new file ---
-        # The data can be a single DataFrame (CSV) or a dict of DataFrames (Excel)
+        # Determine the type: Excel (dict of DFs), CSV (single DF), or PDF (list of dicts)
         is_excel = isinstance(data_in_session, dict)
-        sheets_to_process = data_in_session if is_excel else { "primary_sheet": data_in_session }
-
-        file_level_meta = {
-            # Note: Since we don't have the raw file, we hash the DataFrame content.
-            # This is still very effective for detecting data changes.
-            "content_hash": int(pd.util.hash_pandas_object(sheets_to_process[next(iter(sheets_to_process))], index=True).sum()),
-            "estimated_size_bytes": int(sum(df.memory_usage(deep=True).sum() for df in sheets_to_process.values())),
-            "last_updated_timestamp": datetime.now(timezone.utc).isoformat(),
-            "sheets": {}
-        }
-
-        for sheet_name, df in sheets_to_process.items():
-            # DataFrame/Sheet-Level Metadata
-            sheet_level_meta = {
-                "row_count": int(df.shape[0]),
-                "column_count": int(df.shape[1]),
-                "duplicate_row_count": int(df.duplicated().sum()),
-                "dataframe_summary": "",  # To be filled by an AI agent later
-                "columns": {}
+        is_pdf = isinstance(data_in_session, list) and all(isinstance(page, dict) and "page" in page for page in data_in_session)
+        
+        if is_pdf:
+            # Handle PDF-specific metadata
+            serialized = json.dumps(data_in_session, sort_keys=True)
+            content_hash = int(hashlib.sha256(serialized.encode()).hexdigest(), 16) % (2**64)
+            
+            file_level_meta = {
+                "content_hash": content_hash,
+                "estimated_size_bytes": len(serialized.encode()),  # Rough estimate via serialized size
+                "last_updated_timestamp": datetime.now(timezone.utc).isoformat(),
+                "pages": {}
             }
 
-            # Column-Level Metadata
-            for col_name in df.columns:
-                col = df[col_name]
-                col_meta = {
-                    "type": str(col.dtype),
-                    "missing_value_count": int(col.isnull().sum()),
-                    "missing_value_percentage": float(col.isnull().sum() / len(col) if len(col) > 0 else 0),
-                    "unique_value_count": int(col.nunique()),
-                    "is_potential_id": col.nunique() == len(col),
-                    "description": ""
+            for page_dict in data_in_session:
+                page_num = page_dict.get("page", "unknown")
+                page_meta = {
+                    "text_blocks_count": len(page_dict.get("text", [])),
+                    "tables_count": len(page_dict.get("tables", [])),
+                    "extracted_text_length": sum(len(block.get("text", "")) for block in page_dict.get("text", [])),
+                    "description": ""  # To be filled by AI later
+                }
+                file_level_meta["pages"][str(page_num)] = page_meta
+
+        else:
+            # Handle DataFrame-based files (CSV or Excel)
+            sheets_to_process = data_in_session if is_excel else { "primary_sheet": data_in_session }
+
+            file_level_meta = {
+                # Note: Since we don't have the raw file, we hash the DataFrame content.
+                # This is still very effective for detecting data changes.
+                "content_hash": int(pd.util.hash_pandas_object(sheets_to_process[next(iter(sheets_to_process))], index=True).sum()),
+                "estimated_size_bytes": int(sum(df.memory_usage(deep=True).sum() for df in sheets_to_process.values())),
+                "last_updated_timestamp": datetime.now(timezone.utc).isoformat(),
+                "sheets": {}
+            }
+
+            for sheet_name, df in sheets_to_process.items():
+                # DataFrame/Sheet-Level Metadata
+                sheet_level_meta = {
+                    "row_count": int(df.shape[0]),
+                    "column_count": int(df.shape[1]),
+                    "duplicate_row_count": int(df.duplicated().sum()),
+                    "dataframe_summary": "",  # To be filled by an AI agent later
+                    "columns": {}
                 }
 
-                if pd.api.types.is_numeric_dtype(col):
-                    stats = col.describe().to_dict()
-                    col_meta["statistics"] = {k: float(v) for k, v in stats.items()}
-                else:
-                    unique_cats = col.dropna().unique()
-                    col_meta["categories"] = unique_cats.tolist()[:100]
+                # Column-Level Metadata
+                for col_name in df.columns:
+                    col = df[col_name]
+                    col_meta = {
+                        "type": str(col.dtype),
+                        "missing_value_count": int(col.isnull().sum()),
+                        "missing_value_percentage": float(col.isnull().sum() / len(col) if len(col) > 0 else 0),
+                        "unique_value_count": int(col.nunique()),
+                        "is_potential_id": col.nunique() == len(col),
+                        "description": ""
+                    }
 
-                sheet_level_meta["columns"][str(col_name)] = col_meta
+                    if pd.api.types.is_numeric_dtype(col):
+                        stats = col.describe().to_dict()
+                        col_meta["statistics"] = {k: float(v) for k, v in stats.items()}
+                    else:
+                        unique_cats = col.dropna().unique()
+                        col_meta["categories"] = unique_cats.tolist()[:100]
 
-            file_level_meta["sheets"][sheet_name] = sheet_level_meta
+                    sheet_level_meta["columns"][str(col_name)] = col_meta
+
+                file_level_meta["sheets"][sheet_name] = sheet_level_meta
 
         # Add the fully generated entry to our main dictionary
         file_details[filename] = file_level_meta
         
 
-
     # --- 5. Save the updated dictionary back to the JSON file ---
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(file_details, f, indent=4)
-
-   
