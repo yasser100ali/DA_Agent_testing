@@ -1,5 +1,5 @@
 
-from agents import Agent, ReAct
+from agents.agents import Agent, ReAct
 import json
 import streamlit as st
 import sqlite3

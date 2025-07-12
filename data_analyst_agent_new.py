@@ -1,11 +1,11 @@
-from agent_base import BaseAgent
-from agent_deepinsights import DeepInsightsAgent
-from agent_chat import ChatAgent
-from agent_secretary import SecretaryAI
-from agent_sql_react_testing import sqlAgentReAct
-from agent_memory import MemoryAgent
-from agent_sql import sqlAgent 
-from agents import Agent
+from agents.agent_base import BaseAgent
+from agents.agent_deepinsights import DeepInsightsAgent
+from agents.agent_chat import ChatAgent
+from agents.agent_secretary import SecretaryAI
+from agents.agent_sql_react_testing import sqlAgentReAct
+from agents.agent_memory import MemoryAgent
+from agents.agent_sql import sqlAgent 
+from agents.agents import Agent
 import utils
 import streamlit as st
 import time

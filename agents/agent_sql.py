@@ -1,5 +1,5 @@
 import utils
-from agents import Agent
+from agents.agents import Agent
 import json
 import streamlit as st
 import sqlite3

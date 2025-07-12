@@ -10,7 +10,7 @@ def replicate_pdf(pdf_file):
     """
     doc = fitz.open(stream=pdf_file.read(), filetype="pdf")
     
-    results = []
+    results = {}
 
     def clean_table_data(raw_data):
         """
@@ -104,13 +104,11 @@ def replicate_pdf(pdf_file):
             for t in extracted_tables
         )]
         
-        # Append results for this page
-        results.append({
-            "page": i,
+        # Add to results dictionary with page number as key
+        results[i] = {
             "text": filtered_text if filtered_text else [{"text": "No non-table text extracted."}],
             "tables": extracted_tables
-        })
+        }
     
     doc.close()  # Clean up
     return results
-

@@ -1,5 +1,5 @@
 import utils
-from agents import AsyncAgent, Agent
+from agents.agents import AsyncAgent, Agent
 import streamlit as st
 import pandas as pd
 import asyncio

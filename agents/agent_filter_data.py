@@ -1,5 +1,5 @@
 # the task of this agent will be to take a features list and filter out the obviously irrelvant data
-from agents import Agent 
+from agents.agents import Agent 
 
 def filter_data(user_input, features_list):
     system_prompt =  """You are a Schema Filter Agent, part of an autonomous data analyst system.

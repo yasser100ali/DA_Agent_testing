@@ -1,4 +1,4 @@
-from agents import Agent
+from agents.agents import Agent
 import pandas as pd
 import time
 

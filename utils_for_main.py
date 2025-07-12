@@ -4,7 +4,7 @@ import os
 import pandas as pd
 import numpy as np
 import re 
-from agents import Agent
+from agents.agents import Agent
 import openpyxl
 import math
 import io

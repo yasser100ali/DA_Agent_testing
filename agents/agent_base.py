@@ -1,5 +1,5 @@
 import utils
-from agents import Agent
+from agents.agents import Agent
 import streamlit as st
 import pandas as pd
 import time 

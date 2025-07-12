@@ -1,6 +1,6 @@
 import utils
 from secretary_ai_functions import read_emails, send_email, list_upcoming_events, create_calendar_event
-from agents import Agent
+from agents.agents import Agent
 import json 
 import streamlit as st
 import time

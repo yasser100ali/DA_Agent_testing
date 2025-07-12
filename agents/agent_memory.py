@@ -1,5 +1,5 @@
 import utils 
-from agents import Agent, ReAct
+from agents.agents import Agent, ReAct
 import datetime
 import json
 import streamlit as st

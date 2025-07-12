@@ -1,8 +1,8 @@
 import utils
-from agents import Agent
+from agents.agents import Agent
 import streamlit as st
 import pandas as pd
-from agent_filter_data import filter_data
+from agents.agent_filter_data import filter_data
 import json
 import io
 

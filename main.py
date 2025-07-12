@@ -4,7 +4,7 @@ import os
 import plotly.graph_objects as go
 from data_analyst_agent import DataAnalystAgent
 from structure_data_agent import name_unnamed_features
-from agent_chat import ChatAgent # for general chatting when datasets are not yet uploaded. 
+from agents.agent_chat import ChatAgent # for general chatting when datasets are not yet uploaded. 
 from pdf_replicator import replicate_pdf
 import utils
 import json
@@ -296,12 +296,13 @@ def upload_and_format_files():
 
                 standardized_data_output = None
 
-                if isinstance(loaded_data, list):  # PDF output from replicate_pdf
+                # Updated check for PDF output (now a dict with integer keys for pages)
+                if isinstance(loaded_data, dict) and all(isinstance(key, int) for key in loaded_data.keys()):
                     dataframes_dict[capitalized_file_name] = loaded_data
                     is_structured = False
                     continue
 
-                if isinstance(loaded_data, dict): # Excel file
+                if isinstance(loaded_data, dict): # Excel file (assumes string keys for sheets)
                     capitalized_standardized_sheets = {}
                     for original_sheet_name, df_sheet_original in loaded_data.items():
                         capitalized_sheet_name = original_sheet_name.upper()
@@ -370,7 +371,10 @@ def upload_and_format_files():
                 if standardized_data_output is not None:
                     dataframes_dict[capitalized_file_name] = standardized_data_output
             except Exception as e:
-                st.error(f"Failed to process file {capitalized_file_name or original_file_name}: {e}")
+                error_trace = traceback.format_exc()
+                error_msg = f"Failed to process file {capitalized_file_name or original_file_name}: {e}\nTraceback:\n{error_trace}"
+                st.error(error_msg)
+                print(error_msg)
 
     if not is_structured:
         return dataframes_dict, all_equations
@@ -958,12 +962,13 @@ def main_app():
         st.header("Data Upload / Management")
         newly_uploaded_files_dict, equations_dict = upload_and_format_files()
 
+
         # Corrected logic to MERGE uploaded files into st.session_state.dataframes_dict
         if newly_uploaded_files_dict:
             for key, new_data_item in newly_uploaded_files_dict.items():
                 st.session_state.dataframes_dict[key] = new_data_item
 
-        # 
+    
         utils.sync_file_metadata_from_session()
 
         # Display all available data sources (from SQL and all uploads)
@@ -974,37 +979,40 @@ def main_app():
                     if isinstance(item, pd.DataFrame):
                         st.write(item)
                     elif isinstance(item, dict): 
-                        for sheet_name, sheet in sorted(list(item.items())):
-                            st.write(f"Sheet: {sheet_name}") # sheet_name_display is already capitalized
-                            st.write(sheet)
-                    elif isinstance(item, list) and all(isinstance(page, dict) and "page" in page for page in item):  # PDF output
-                        for page in sorted(item, key=lambda p: p["page"]):
-                            with st.expander(f"Page {page['page']}", expanded=False):
-                                # Display text
-                                st.subheader("Extracted Text:")
-                                if isinstance(page["text"], list):
-                                    for text_block in page["text"]:
-                                        if isinstance(text_block, dict) and "text" in text_block:
-                                            st.write(text_block["text"])
-                                        else:
-                                            st.write(text_block)  # Fallback
-                                else:
-                                    st.write(page["text"])
-
-                                # Display tables
-                                st.subheader("Extracted Tables:")
-                                for idx, table in enumerate(page.get("tables", []), start=1):
-                                    st.write(f"Table {idx}:")
-                                    cleaned_data = table.get("cleaned_table")
-                                    if cleaned_data and isinstance(cleaned_data, list):
-                                        try:
-                                            df_table = pd.DataFrame(cleaned_data)
-                                            st.write(df_table)
-                                        except Exception as e:
-                                            st.write("Could not display table as DataFrame:", str(e))
-                                            st.write(cleaned_data)  # Fallback to raw
+                        # Check if it's PDF dict (int keys) or Excel (str keys)
+                        if all(isinstance(key, int) for key in item.keys()):  # PDF output
+                            for page_num in sorted(item.keys()):
+                                page = item[page_num]
+                                with st.expander(f"Page {page_num}", expanded=False):
+                                    # Display text
+                                    st.subheader("Extracted Text:")
+                                    if isinstance(page["text"], list):
+                                        for text_block in page["text"]:
+                                            if isinstance(text_block, dict) and "text" in text_block:
+                                                st.write(text_block["text"])
+                                            else:
+                                                st.write(text_block)  # Fallback
                                     else:
-                                        st.write(table.get("raw_data", "No table data"))
+                                        st.write(page["text"])
+
+                                    # Display tables
+                                    st.subheader("Extracted Tables:")
+                                    for idx, table in enumerate(page.get("tables", []), start=1):
+                                        st.write(f"Table {idx}:")
+                                        cleaned_data = table.get("cleaned_table")
+                                        if cleaned_data and isinstance(cleaned_data, list):
+                                            try:
+                                                df_table = pd.DataFrame(cleaned_data)
+                                                st.write(df_table)
+                                            except Exception as e:
+                                                st.write("Could not display table as DataFrame:", str(e))
+                                                st.write(cleaned_data)  # Fallback to raw
+                                        else:
+                                            st.write(table.get("raw_data", "No table data"))
+                        else:  # Assume Excel or other dict with str keys
+                            for sheet_name, sheet in sorted(list(item.items())):
+                                st.write(f"Sheet: {sheet_name}") # sheet_name_display is already capitalized
+                                st.write(sheet)
                     else:
                         st.write(f"- {name} (Unknown type)")
         else:
