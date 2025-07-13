@@ -18,46 +18,23 @@ from datetime import datetime, timezone
 import base64
 import hashlib
 
-is_local_hosting=False
-
-def get_response(system_prompt, user_prompt, model, show_stream=True, local_hosting=is_local_hosting):
+def get_response(system_prompt, user_prompt, show_stream=True):
     # when running the models locally
-    if local_hosting:
-        print('\n\nHere is the system prompt.\n\n')
-        print(system_prompt)
-        print('\n\nHere is the user prompt.\n\n')
-        print(user_prompt)
-        messages = [
-            {'role': 'system', 'content': system_prompt},
-            {'role': 'user', 'content': user_prompt}
-        ]
-        
-        # model = "hf.co/unsloth/Qwen3-32B-GGUF:Q8_K_XL"
 
-        # response = ollama.chat(
-        #     model=model,
-        #     messages=messages,
-        #     stream=show_stream
-        # )
-    
-        # return response
-        
-    # when not running locally, either due to no root access or some other issue
-    else:
-        client = OpenAI(
-            api_key="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"
-        )
-    
-        response = client.chat.completions.create(
-            model="gpt-4.1",
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
-            stream=True  # Enable streaming
-        )
-    
-        return response
+    client = OpenAI(
+        api_key="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"
+    )
+
+    response = client.chat.completions.create(
+        model="gpt-4.1",
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        stream=show_stream  # Enable streaming
+    )
+
+    return response
 
 def display_stream(response, visible=True):
 

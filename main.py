@@ -2,11 +2,11 @@ import pandas as pd
 import streamlit as st
 import os
 import plotly.graph_objects as go
-from data_analyst_agent import DataAnalystAgent
+from agents.data_analyst_agent import DataAnalystAgent
 from structure_data_agent import name_unnamed_features
 from agents.agent_chat import ChatAgent # for general chatting when datasets are not yet uploaded. 
 from pdf_replicator import replicate_pdf
-import utils
+import utils.utils as utils
 import json
 import datetime
 import time
@@ -300,6 +300,8 @@ def upload_and_format_files():
                 if isinstance(loaded_data, dict) and all(isinstance(key, int) for key in loaded_data.keys()):
                     dataframes_dict[capitalized_file_name] = loaded_data
                     is_structured = False
+                    # placing the full pdf file in st.session_state
+                    st.session_state["pdf_file_objects"][capitalized_file_name] = uploaded_file_obj
                     continue
 
                 if isinstance(loaded_data, dict): # Excel file (assumes string keys for sheets)
@@ -520,7 +522,7 @@ def display_chat_history():
                             elif item_type.startswith("react_thread"):
                                 react_answer_for_display = None # To store what's shown under "**Answer**"
                                 if isinstance(item_data, dict): # item_data for react_thread is a dict of iterations
-                                    with st.expander("IPS Algorithm", expanded=False):
+                                    with st.expander("Solving Problem", expanded=False):
                                         for iteration, iteration_items in item_data.items():
                                             st.write(f"**Iteration {iteration}**")
                                             st.write(iteration_items.get("reason_output")) # Use .get for safer access
@@ -732,9 +734,8 @@ def update_and_log_daily_history():
     print(f"Chat history for {date_day_key} processed for logging.")
 
 
-def data_analyst_tab(dataframes_dict, user_input=None, equations_dict=None): # Accept user_input as argument
+def data_analyst_tab(dataframes_dict, user_input=None, equations_dict=None, pdf_file_obj=None): # Accept user_input as argument
     """Encapsulates the Data Analyst chat functionality."""
-
 
     # Initialize session state for messages if it doesn't exist
     if 'messages' not in st.session_state:
@@ -758,15 +759,9 @@ def data_analyst_tab(dataframes_dict, user_input=None, equations_dict=None): # A
 
             # Prepare local variables for the agent
             local_var = {'dataframes_dict': dataframes_dict}
+            if len(pdf_file_obj) > 0:
+                local_var["pdf_file_objects"] = pdf_file_obj
 
-            # if not dataframes_dict:
-            #     with st.chat_message('assistant'):
-            #         # general chatting llm prior to any dataset being uploaded 
-            #         agent = ChatAgent(user_input, None)
-            #         agent.main()
-
-            # else:
-            # Execute agent logic
             with st.chat_message("assistant"):
                 with st.spinner("Thinking...", show_time=True):
                     try:
@@ -957,6 +952,9 @@ def main_app():
     if 'processed_sheets_cache' not in st.session_state:
         st.session_state.processed_sheets_cache = {}
 
+    if 'pdf_file_objects' not in st.session_state:
+        st.session_state.pdf_file_objects = {}
+
     # --- 2. ESSENTIAL: Corrected Sidebar Logic ---
     with st.sidebar:
         st.header("Data Upload / Management")
@@ -972,6 +970,7 @@ def main_app():
         utils.sync_file_metadata_from_session()
 
         # Display all available data sources (from SQL and all uploads)
+        # probably turn this into a function and move it to utils_for_main.py for easier readability. This file is wayyyyy to long. 
         st.subheader("Available Data Sources:")
         if st.session_state.dataframes_dict:
             for name, item in sorted(list(st.session_state.dataframes_dict.items())):
@@ -1035,7 +1034,7 @@ def main_app():
         with st.chat_message('user'):
             st.write(user_input)
         
-        data_analyst_tab(st.session_state.dataframes_dict, user_input, equations_dict=equations_dict)
+        data_analyst_tab(st.session_state.dataframes_dict, user_input, equations_dict=equations_dict, pdf_file_obj=st.session_state.pdf_file_objects)
 
         _populate_message_history_object()
         update_and_log_daily_history()

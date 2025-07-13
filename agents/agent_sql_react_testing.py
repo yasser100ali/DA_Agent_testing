@@ -8,7 +8,6 @@ import time
 
 
 DATABASE_FILE = "testing_data/chinook.db"
-#DATABASE_FILE = "testing_data/nba.sqlite"
 
 class sqlAgentReAct:
     def __init__(self, user_input):
@@ -237,3 +236,4 @@ class sqlAgentReAct:
         
     def main(self):
         return self.sql_agent()
+    

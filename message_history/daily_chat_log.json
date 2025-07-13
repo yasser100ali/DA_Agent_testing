@@ -8790,6 +8790,266 @@
                                 }
                             ]
                         }
+                    ],
+                    "07_11_2025_Friday": [
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "go through sql and find employees that are born in second half of year"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: get_response() missing 1 required positional argument: 'model'\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "go through sql and find employees that are born in second half of year"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: get_response() missing 1 required positional argument: 'model'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "go through sql and find employees that are born in second half of year"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: _generate_and_execute_code() missing 1 required positional argument: 'hide_code'\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "go through sql and find employees that are born in second half of year"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: get_response() missing 1 required positional argument: 'model'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "go through sql and find employees that are born in second half of year"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: _generate_and_execute_code() missing 1 required positional argument: 'hide_code'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "go through sql and find employees that are born in second half of year"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "{'status': 'success', 'message': 'Successfully retrieved employees with BirthDate in the second half of the year. Result is transposed with all attributes shown horizontally per employee.', 'num_employees_found': 4, 'column_headers': ['EmployeeId', 'LastName', 'FirstName', 'Title', 'BirthDate', 'HireDate', 'Address', 'City', 'State', 'Country', 'PostalCode', 'Phone', 'Fax', 'Email'], 'raw_result': [{'EmployeeId': 2, 'LastName': 'Edwards', 'FirstName': 'Nancy', 'Title': 'Sales Manager', 'BirthDate': '1958-12-08 00:00:00', 'HireDate': '2002-05-01 00:00:00', 'Address': '825 8 Ave SW', 'City': 'Calgary', 'State': 'AB', 'Country': 'Canada', 'PostalCode': 'T2P 2T3', 'Phone': '+1 (403) 262-3443', 'Fax': '+1 (403) 262-3322', 'Email': 'nancy@chinookcorp.com'}, {'EmployeeId': 3, 'LastName': 'Peacock', 'FirstName': 'Jane', 'Title': 'Sales Support Agent', 'BirthDate': '1973-08-29 00:00:00', 'HireDate': '2002-04-01 00:00:00', 'Address': '1111 6 Ave SW', 'City': 'Calgary', 'State': 'AB', 'Country': 'Canada', 'PostalCode': 'T2P 5M5', 'Phone': '+1 (403) 262-3443', 'Fax': '+1 (403) 262-6712', 'Email': 'jane@chinookcorp.com'}, {'EmployeeId': 4, 'LastName': 'Park', 'FirstName': 'Margaret', 'Title': 'Sales Support Agent', 'BirthDate': '1947-09-19 00:00:00', 'HireDate': '2003-05-03 00:00:00', 'Address': '683 10 Street SW', 'City': 'Calgary', 'State': 'AB', 'Country': 'Canada', 'PostalCode': 'T2P 5G3', 'Phone': '+1 (403) 263-4423', 'Fax': '+1 (403) 263-4289', 'Email': 'margaret@chinookcorp.com'}, {'EmployeeId': 6, 'LastName': 'Mitchell', 'FirstName': 'Michael', 'Title': 'IT Manager', 'BirthDate': '1973-07-01 00:00:00', 'HireDate': '2003-10-17 00:00:00', 'Address': '5827 Bowness Road NW', 'City': 'Calgary', 'State': 'AB', 'Country': 'Canada', 'PostalCode': 'T3B 0C5', 'Phone': '+1 (403) 246-9887', 'Fax': '+1 (403) 246-9899', 'Email': 'michael@chinookcorp.com'}]}"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "go through sql and find employees that are born in second half of year"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "{\n    \"observation\": \"Successfully retrieved 4 employees whose BirthDate is in July-December. Fields: EmployeeId, LastName, FirstName, BirthDate are included as requested.\",\n    \"employees_found\": 4,\n    \"data\": [\n        {\n            \"EmployeeId\": 2,\n            \"LastName\": \"Edwards\",\n            \"FirstName\": \"Nancy\",\n            \"BirthDate\": \"1958-12-08 00:00:00\"\n        },\n        {\n            \"EmployeeId\": 3,\n            \"LastName\": \"Peacock\",\n            \"FirstName\": \"Jane\",\n            \"BirthDate\": \"1973-08-29 00:00:00\"\n        },\n        {\n            \"EmployeeId\": 4,\n            \"LastName\": \"Park\",\n            \"FirstName\": \"Margaret\",\n            \"BirthDate\": \"1947-09-19 00:00:00\"\n        },\n        {\n            \"EmployeeId\": 6,\n            \"LastName\": \"Mitchell\",\n            \"FirstName\": \"Michael\",\n            \"BirthDate\": \"1973-07-01 00:00:00\"\n        }\n    ]\n}"
+                                }
+                            ]
+                        }
+                    ],
+                    "07_13_2025_Sunday": [
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: __init__() missing 1 required positional argument: 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'dict' object has no attribute 'pdf_file_objects'\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'dict' object has no attribute 'pdf_file_objects'\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'dict' object has no attribute 'pdf_file_objects'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: 'dict_values' object is not subscriptable\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: 'dict_values' object is not subscriptable\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: 'dict_values' object is not subscriptable\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: 'dict_values' object is not subscriptable\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ]
+                        }
                     ]
                 }
             }

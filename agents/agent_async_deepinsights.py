@@ -1,4 +1,4 @@
-import utils
+import utils.utils as utils
 from agents.agents import AsyncAgent, Agent
 import streamlit as st
 import pandas as pd

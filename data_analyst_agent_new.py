@@ -6,7 +6,7 @@ from agents.agent_sql_react_testing import sqlAgentReAct
 from agents.agent_memory import MemoryAgent
 from agents.agent_sql import sqlAgent 
 from agents.agents import Agent
-import utils
+import utils.utils as utils
 import streamlit as st
 import time
 

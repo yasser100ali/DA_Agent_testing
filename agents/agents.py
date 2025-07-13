@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import utils
+import utils.utils as utils
 from openai import AsyncOpenAI
 import time 
 
@@ -62,8 +62,8 @@ class Agent:
         real_input = self._user_input(user_input)
         return self._generate_and_execute_code(general_system_prompt, max_tries, real_input, hide_code)
 
-    def _generate_and_execute_code(self, system_prompt, remaining_tries, model, user_input, hide_code):
-        response = utils.get_response(system_prompt, user_input, model)
+    def _generate_and_execute_code(self, system_prompt, remaining_tries, user_input, hide_code):
+        response = utils.get_response(system_prompt, user_input)
         if hide_code:
             output = utils.display_stream(response, visible=False)
         else:
@@ -128,8 +128,8 @@ class Agent:
 
         return output
         
-    def chat(self, system_prompt, model=None, display_stream=True):
-        response = utils.get_response(system_prompt, self.user_input, model)
+    def chat(self, system_prompt, display_stream=True):
+        response = utils.get_response(system_prompt, self.user_input)
         content = utils.display_stream(response, visible=display_stream)
 
         return content
@@ -309,7 +309,7 @@ class ReAct:
         if self.functions_and_tools_description is not None:
             user_input += f"Here are a list of tools and functions you have at your disposal {self.functions_and_tools_description}"
 
-        reason_output = Agent(user_input, {}).json_agent(system_prompt, "", user_input, is_visible=True)
+        reason_output = Agent(user_input, {}).json_agent(system_prompt, user_input, is_visible=True)
 
         self.conversation_thread[iteration]["reason_output"] = reason_output
 
@@ -356,7 +356,7 @@ class ReAct:
         act_input += f"\n {reason_output}"
         
         if problem_type == 'python_code':
-            result, code = Agent(act_input, self.local_var).coder(system_prompt, "", act_input)
+            result, code = Agent(act_input, self.local_var).coder(system_prompt, act_input)
 
             self.conversation_thread[iteration]["act_work"] = code
             self.conversation_thread[iteration]["act_output"] = result 
@@ -368,7 +368,7 @@ class ReAct:
         act_output = None
         act_code = None
 
-        with st.expander("IPS Algorithm"):
+        with st.expander("Solving Problem"):
             while current_iteration <= max_iterations:
                 # --- FIX FOR KeyError ---
                 # Ensure the dictionary structure for the current iteration exists

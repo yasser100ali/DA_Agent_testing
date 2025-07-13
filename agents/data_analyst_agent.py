@@ -3,13 +3,14 @@ from agents.agent_async_deepinsights import DeepInsights
 from agents.agent_chat import ChatAgent
 from agents.agent_secretary import SecretaryAI
 from agents.agent_sql_react_testing import sqlAgentReAct
+from agents.pdf_deepinsights import PDFDeepInsights
 #from agent_memory import MemoryAgent
 from agents.agent_sql import sqlAgent 
 from agents.agents import Agent
 import streamlit as st
 import asyncio
 import inspect 
-
+import time 
 
 class DataAnalystAgent:
     def __init__(self, user_input, local_var={}):
@@ -22,14 +23,13 @@ class DataAnalystAgent:
             'secretary': SecretaryAI,
             'sql': sqlAgentReAct,
             #'memory': MemoryAgent,
-            'pull_table': sqlAgent
+            'pull_table': sqlAgent, 
+            'pdfDeepInsights': PDFDeepInsights
         }
         
 
     def operator(self):
-        
         if len(st.session_state.dataframes_dict) > 0:
-
             system_prompt = """
                 Your task is to read the user prompt and assign it to the appropriate agent. 
 
@@ -64,9 +64,11 @@ class DataAnalystAgent:
                 7. "pull_table"
                     - when asked to actually "pull" the table from a database. 
                     - Here the user wants the table from the database to be imported into their files. This is similar to 5 "sql" except here the user is asking for the table to be imported or pulled. 
+                
 
                 give your answer in the following format 
                 example when "base" is the chosen agent. 
+
                 ```json
                 {
                     "agent": "base"
@@ -76,6 +78,7 @@ class DataAnalystAgent:
                 One thing to note is that if a user asks specifically for a given agent (like "use baseagent for..." or "use sqlagent for...") then make sure to use that agent!
             """
             
+
         else: 
             system_prompt = """
                 Your task is to read the user prompt and assign it to the appropriate agent. 
@@ -111,15 +114,19 @@ class DataAnalystAgent:
 
                 One thing to note is that if a user asks specifically for a given agent (like "use baseagent for..." or "use sqlagent for...") then make sure to use that agent!
             """
-        subagent = Agent(self.user_input, self.local_var).json_agent(system_prompt)['agent']
-
-        return subagent  
+        if len(st.session_state.pdf_file_objects) > 0:
+            subagent = "pdfDeepInsights"
+            return subagent 
+        
+        else:
+            subagent = Agent(self.user_input, self.local_var).json_agent(system_prompt)['agent']
+            return subagent  
     
     def main(self):
         
         subagent_name = self.operator()
         
-        if subagent_name in ["base", "deepinsights"]: 
+        if subagent_name in ["base", "deepinsights", "pdfDeepInsights"]: 
             params = {
                 "user_input": self.user_input,
                 "local_var": self.local_var

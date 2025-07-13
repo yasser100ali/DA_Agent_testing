@@ -3,7 +3,7 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 from openai import OpenAI
 import time 
-import utils 
+import utils.utils as utils 
 import streamlit as st
 
 

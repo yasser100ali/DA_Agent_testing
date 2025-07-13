@@ -1,4 +1,4 @@
-import utils
+import utils.utils as utils
 from agents.agents import Agent
 import json
 import streamlit as st

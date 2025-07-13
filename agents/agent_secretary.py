@@ -1,4 +1,4 @@
-import utils
+import utils.utils as utils
 from secretary_ai_functions import read_emails, send_email, list_upcoming_events, create_calendar_event
 from agents.agents import Agent
 import json 
