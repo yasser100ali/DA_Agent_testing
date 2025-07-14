@@ -9739,6 +9739,396 @@
                                     "content": "**Summary of Page 23:**\n\n- The page discusses inpatient volume, specifically inpatient ADC (Average Daily Census) for in-area non-trauma versus all other categories.\n- **Inpatient ADC** was **14.2% unfavorable** to budget, meaning it fell short of budget expectations by 14.2%, although it was 0.4% higher than the previous year.\n- **Inpatient Non-trauma ADC** was **17.3% unfavorable** to budget but 5.9% higher year-over-year.\n- The main factors for these results were increased in-area, cardiac, and respiratory cases.\n- The chart shows actual, forecast, and budget data for 2019, 2024, and 2025, highlighting trends in admissions.\n\n**How Inpatient ADC was according to the budget:**\n- Inpatient ADC was **14.2% below (unfavorable to) the budget**.\n\nLet me know if you need a more detailed breakdown or analysis of the graph!"
                                 }
                             ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "FTEs were unfavorable by (1,415) or (6.2%) in January, driven by (11.3%) unfavorable ADC, inefficiencies, and unfavorable Non-Productive FTEs, find what page this is located at"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "**Summary Report: Claims – Inpatient Volume (In-Area Non-Trauma vs All Other)**\n**Date: June 2024**\n\n---\n\n### Executive Summary\n\nPage 23 reviews the Inpatient Average Daily Census (ADC) for 2025, focusing on both \"In-Area Non-Trauma\" and \"All Other\" categories. The core analysis compares actual ADC to both the budget and prior year to evaluate operational performance.\n\n---\n\n### Key Findings\n\n#### Inpatient ADC Performance vs. Budget\n\n- **Inpatient ADC** was **14.2% unfavorable to budget**, indicating that the actual inpatient volume was significantly lower than planned projections for 2025.\n- However, the Inpatient ADC was **0.4% higher than the prior year**, suggesting a slight year-over-year increase, despite falling short of budgeted expectations.\n\n#### Inpatient Non-Trauma ADC\n\n- **Inpatient Non-Trauma ADC** was **17.3% unfavorable to budget**, meaning actual non-trauma inpatient volumes were even further below 2025 budget estimates.\n- This category was **5.9% higher year-over-year**, showing some growth compared to the previous year.\n\n#### Drivers\n\n- The report attributes these trends primarily to an **increase in in-area, cardiac, and respiratory cases**.\n\n---\n\n### Assumptions\n\n1. **ADC Values:** The unfavorable percentages reflect that the actual 2025 numbers are *lower* than the 2025 budget, not higher.\n2. **Budget and PY Reference:** \"Budget\" refers to targets set for the year 2025; \"PY\" (Prior Year) refers to performance in 2024.\n3. **Trend Contribution:** The main upsurge in ADC YoY is due to growth in certain medical case types, even as the total lags behind budget.\n4. **Data Completeness:** Only summary performance metrics are available; granular monthly data, specific counts, and full calculation methods are not shown on this page.\n\n---\n\n### Data Table (Transposed for Horizontal Analysis)\n\n|            | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |\n|------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n| **2019**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2019**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n\n*Note: Specific monthly counts are not provided; table format used in case further detail is available or needed for future analysis.*\n\n---\n\n### Equations and Metrics Used\n\n- **% Unfavorable to Budget** = ((Actual ADC - Budgeted ADC) / Budgeted ADC) x 100%\n- **% Change YoY** = ((Current Year ADC - Prior Year ADC) / Prior Year ADC) x 100%\n- These calculations are explicitly referenced in summary findings.\n\n---\n\n### Professional Conclusions\n\n- The organization is underperforming versus budget for inpatient ADC, with a -14.2% variance, and even further underperformance in the non-trauma segment at -17.3%. This could have operational and financial consequences if trends persist.\n- Despite missing budget, incremental year-over-year growth (+0.4% total, +5.9% non-trauma) underscores partial recovery or underlying demand increases, specifically in cardiac and respiratory admissions.\n- Strategic interventions should consider the drivers of variance for more accurate future budget planning.\n\n**Report Date:** June 2024\n\n---\n\n**If monthly, departmental, or additional detailed figures are needed, please provide more granular data or direct access to underlying charts/tables.**"
+                                }
+                            ],
+                            "4": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "**Summary of Page 23:**\n\n- The page discusses inpatient volume, specifically inpatient ADC (Average Daily Census) for in-area non-trauma versus all other categories.\n- **Inpatient ADC** was **14.2% unfavorable** to budget, meaning it fell short of budget expectations by 14.2%, although it was 0.4% higher than the previous year.\n- **Inpatient Non-trauma ADC** was **17.3% unfavorable** to budget but 5.9% higher year-over-year.\n- The main factors for these results were increased in-area, cardiac, and respiratory cases.\n- The chart shows actual, forecast, and budget data for 2019, 2024, and 2025, highlighting trends in admissions.\n\n**How Inpatient ADC was according to the budget:**\n- Inpatient ADC was **14.2% below (unfavorable to) the budget**.\n\nLet me know if you need a more detailed breakdown or analysis of the graph!"
+                                }
+                            ],
+                            "5": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: IndexError\nMessage: list index out of range\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "FTEs were unfavorable by (1,415) or (6.2%) in January, driven by (11.3%) unfavorable ADC, inefficiencies, and unfavorable Non-Productive FTEs, find what page this is located at"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "**Summary Report: Claims – Inpatient Volume (In-Area Non-Trauma vs All Other)**\n**Date: June 2024**\n\n---\n\n### Executive Summary\n\nPage 23 reviews the Inpatient Average Daily Census (ADC) for 2025, focusing on both \"In-Area Non-Trauma\" and \"All Other\" categories. The core analysis compares actual ADC to both the budget and prior year to evaluate operational performance.\n\n---\n\n### Key Findings\n\n#### Inpatient ADC Performance vs. Budget\n\n- **Inpatient ADC** was **14.2% unfavorable to budget**, indicating that the actual inpatient volume was significantly lower than planned projections for 2025.\n- However, the Inpatient ADC was **0.4% higher than the prior year**, suggesting a slight year-over-year increase, despite falling short of budgeted expectations.\n\n#### Inpatient Non-Trauma ADC\n\n- **Inpatient Non-Trauma ADC** was **17.3% unfavorable to budget**, meaning actual non-trauma inpatient volumes were even further below 2025 budget estimates.\n- This category was **5.9% higher year-over-year**, showing some growth compared to the previous year.\n\n#### Drivers\n\n- The report attributes these trends primarily to an **increase in in-area, cardiac, and respiratory cases**.\n\n---\n\n### Assumptions\n\n1. **ADC Values:** The unfavorable percentages reflect that the actual 2025 numbers are *lower* than the 2025 budget, not higher.\n2. **Budget and PY Reference:** \"Budget\" refers to targets set for the year 2025; \"PY\" (Prior Year) refers to performance in 2024.\n3. **Trend Contribution:** The main upsurge in ADC YoY is due to growth in certain medical case types, even as the total lags behind budget.\n4. **Data Completeness:** Only summary performance metrics are available; granular monthly data, specific counts, and full calculation methods are not shown on this page.\n\n---\n\n### Data Table (Transposed for Horizontal Analysis)\n\n|            | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |\n|------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n| **2019**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2019**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n\n*Note: Specific monthly counts are not provided; table format used in case further detail is available or needed for future analysis.*\n\n---\n\n### Equations and Metrics Used\n\n- **% Unfavorable to Budget** = ((Actual ADC - Budgeted ADC) / Budgeted ADC) x 100%\n- **% Change YoY** = ((Current Year ADC - Prior Year ADC) / Prior Year ADC) x 100%\n- These calculations are explicitly referenced in summary findings.\n\n---\n\n### Professional Conclusions\n\n- The organization is underperforming versus budget for inpatient ADC, with a -14.2% variance, and even further underperformance in the non-trauma segment at -17.3%. This could have operational and financial consequences if trends persist.\n- Despite missing budget, incremental year-over-year growth (+0.4% total, +5.9% non-trauma) underscores partial recovery or underlying demand increases, specifically in cardiac and respiratory admissions.\n- Strategic interventions should consider the drivers of variance for more accurate future budget planning.\n\n**Report Date:** June 2024\n\n---\n\n**If monthly, departmental, or additional detailed figures are needed, please provide more granular data or direct access to underlying charts/tables.**"
+                                }
+                            ],
+                            "4": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "**Summary of Page 23:**\n\n- The page discusses inpatient volume, specifically inpatient ADC (Average Daily Census) for in-area non-trauma versus all other categories.\n- **Inpatient ADC** was **14.2% unfavorable** to budget, meaning it fell short of budget expectations by 14.2%, although it was 0.4% higher than the previous year.\n- **Inpatient Non-trauma ADC** was **17.3% unfavorable** to budget but 5.9% higher year-over-year.\n- The main factors for these results were increased in-area, cardiac, and respiratory cases.\n- The chart shows actual, forecast, and budget data for 2019, 2024, and 2025, highlighting trends in admissions.\n\n**How Inpatient ADC was according to the budget:**\n- Inpatient ADC was **14.2% below (unfavorable to) the budget**.\n\nLet me know if you need a more detailed breakdown or analysis of the graph!"
+                                }
+                            ],
+                            "5": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: IndexError\nMessage: list index out of range\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "6": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: IndexError\nMessage: list index out of range\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "FTEs were unfavorable by (1,415) or (6.2%) in January, driven by (11.3%) unfavorable ADC, inefficiencies, and unfavorable Non-Productive FTEs, find what page this is located at"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "**Summary Report: Claims – Inpatient Volume (In-Area Non-Trauma vs All Other)**\n**Date: June 2024**\n\n---\n\n### Executive Summary\n\nPage 23 reviews the Inpatient Average Daily Census (ADC) for 2025, focusing on both \"In-Area Non-Trauma\" and \"All Other\" categories. The core analysis compares actual ADC to both the budget and prior year to evaluate operational performance.\n\n---\n\n### Key Findings\n\n#### Inpatient ADC Performance vs. Budget\n\n- **Inpatient ADC** was **14.2% unfavorable to budget**, indicating that the actual inpatient volume was significantly lower than planned projections for 2025.\n- However, the Inpatient ADC was **0.4% higher than the prior year**, suggesting a slight year-over-year increase, despite falling short of budgeted expectations.\n\n#### Inpatient Non-Trauma ADC\n\n- **Inpatient Non-Trauma ADC** was **17.3% unfavorable to budget**, meaning actual non-trauma inpatient volumes were even further below 2025 budget estimates.\n- This category was **5.9% higher year-over-year**, showing some growth compared to the previous year.\n\n#### Drivers\n\n- The report attributes these trends primarily to an **increase in in-area, cardiac, and respiratory cases**.\n\n---\n\n### Assumptions\n\n1. **ADC Values:** The unfavorable percentages reflect that the actual 2025 numbers are *lower* than the 2025 budget, not higher.\n2. **Budget and PY Reference:** \"Budget\" refers to targets set for the year 2025; \"PY\" (Prior Year) refers to performance in 2024.\n3. **Trend Contribution:** The main upsurge in ADC YoY is due to growth in certain medical case types, even as the total lags behind budget.\n4. **Data Completeness:** Only summary performance metrics are available; granular monthly data, specific counts, and full calculation methods are not shown on this page.\n\n---\n\n### Data Table (Transposed for Horizontal Analysis)\n\n|            | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |\n|------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n| **2019**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2019**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n\n*Note: Specific monthly counts are not provided; table format used in case further detail is available or needed for future analysis.*\n\n---\n\n### Equations and Metrics Used\n\n- **% Unfavorable to Budget** = ((Actual ADC - Budgeted ADC) / Budgeted ADC) x 100%\n- **% Change YoY** = ((Current Year ADC - Prior Year ADC) / Prior Year ADC) x 100%\n- These calculations are explicitly referenced in summary findings.\n\n---\n\n### Professional Conclusions\n\n- The organization is underperforming versus budget for inpatient ADC, with a -14.2% variance, and even further underperformance in the non-trauma segment at -17.3%. This could have operational and financial consequences if trends persist.\n- Despite missing budget, incremental year-over-year growth (+0.4% total, +5.9% non-trauma) underscores partial recovery or underlying demand increases, specifically in cardiac and respiratory admissions.\n- Strategic interventions should consider the drivers of variance for more accurate future budget planning.\n\n**Report Date:** June 2024\n\n---\n\n**If monthly, departmental, or additional detailed figures are needed, please provide more granular data or direct access to underlying charts/tables.**"
+                                }
+                            ],
+                            "4": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "**Summary of Page 23:**\n\n- The page discusses inpatient volume, specifically inpatient ADC (Average Daily Census) for in-area non-trauma versus all other categories.\n- **Inpatient ADC** was **14.2% unfavorable** to budget, meaning it fell short of budget expectations by 14.2%, although it was 0.4% higher than the previous year.\n- **Inpatient Non-trauma ADC** was **17.3% unfavorable** to budget but 5.9% higher year-over-year.\n- The main factors for these results were increased in-area, cardiac, and respiratory cases.\n- The chart shows actual, forecast, and budget data for 2019, 2024, and 2025, highlighting trends in admissions.\n\n**How Inpatient ADC was according to the budget:**\n- Inpatient ADC was **14.2% below (unfavorable to) the budget**.\n\nLet me know if you need a more detailed breakdown or analysis of the graph!"
+                                }
+                            ],
+                            "5": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: IndexError\nMessage: list index out of range\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "6": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: IndexError\nMessage: list index out of range\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "7": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Here is the information summarized and organized as requested:\n\n---\n\n### **Page 7: Operating Expenses Summary**\n\n| **Operating Expense Category**          | **Current Month Actual (\\$000s)** | **Current Month Budget (\\$000s)** | **Variance (\\$000s)** | **% Variance** |\n|-----------------------------------------|:--------------------------------:|:-------------------------------:|:-------------------:|:--------------:|\n| Salary                                 | \\$332,522                         | \\$346,091                        | (\\$13,569)           | (3.9%)         |\n| Benefit                                | \\$85,284                          | \\$86,851                         | (\\$1,567)            | (1.8%)         |\n| Outside Labor                          | \\$27,287                          | \\$28,132                         | (\\$845)              | (3.0%)         |\n| **KFH DOE Subtotal**                   | **\\$445,093**                     | **\\$461,074**                    | **(\\$15,981)**       | **(3.5%)**     |\n| Contractual Payments                   | \\$32,604                          | \\$34,048                         | (\\$1,444)            | (4.2%)         |\n| Outside Medical                        | \\$242,180                         | \\$249,184                        | (\\$7,004)            | (2.8%)         |\n| COGS-Drug Costs                        | \\$75,245                          | \\$79,719                         | (\\$4,474)            | (5.6%)         |\n| Supplies                               | \\$22,381                          | \\$23,735                         | (\\$1,354)            | (5.7%)         |\n| Outside Service-Consulting Fees        | \\$7,336                           | \\$8,059                          | (\\$723)              | (9.0%)         |\n| General and Administrative Allocations  | \\$4,923                           | \\$4,954                          | (\\$31)               | (0.6%)         |\n| Property Costs                         | \\$15,825                          | \\$13,354                         | \\$2,471              | 18.5%          |\n| **Non Payroll Sub Total**               | **\\$136,635**                     | **\\$145,627**                    | **(\\$8,991)**        | **(6.2%)**     |\n| **KFH DOE + SFSP Sub Total**            | **\\$581,728**                     | **\\$606,701**                    | **(\\$24,973)**       | **(4.1%)**     |\n| Other Significant Categories...         | ... (See image for detail)       | ...                             | ...                 | ...            |\n| **Total Operating Expenses**            | **\\$833,209**                     | **\\$865,349**                    | **(\\$32,140)**       | **(3.7%)**     |\n\n**Summary**:  \nOperating expenses for the current month were \\$833.2M, which is favorable to the budget by \\$32.1M (3.7%). The biggest underspends are in Salary, Outside Medical, and Drug Costs. Property Costs are higher than budgeted.\n\n---\n\n### **Page 11: January Membership Summary**\n\n- **Membership Level:** 4,618,342\n- **Monthly Growth:** 58,253\n  - Monthly growth is favorable to the budgeted growth target by 16,462 members.\n- **Year-to-Date (YTD) Growth:** 58,253  \n  - Northern California’s YTD growth rate: **1.3%**  \n  - Commercial growth rate: **1.3%**\n- **Commercial Business Lines:**\n  - YTD added: 44,705 members (favorable to budget by 9,081)\n  - Commercial Group: unfavorable by (1,757)\n  - Individual: favorable by 10,838\n\n**Line of Business Highlights:**\n- **Group Commercial:**  \n  Growth of 18.4k in January, slightly behind budget due to Small Group, but Large Group and others offset.\n- **Individual:**  \n  Growth of 26.3k, significantly above budget (+10.8k).\n- **Medicare:**  \n  Growth of 9.8k, favorable by +5.7k.\n- **Medicaid & Charitable:**  \n  Growth of 3.8k, favorable by +1.7k; Medi-Cal growth especially strong.\n\n---\n\n### **Page 30: January Financial Results Summary**\n\n**Pharmacy Cost Overview:**\n- **Total Pharmacy:** Favorable to budget by \\$35.1M; PMPM (Per Member Per Month) favorable by \\$8.32 (6.3%)\n- **Key drivers:** Decreased utilization, large one-time rebates.\n\n#### *Inpatient:*\n- Favorability of \\$3.0M due to drugs (Car-T, COVID drugs).\n- Dispensing on target; ADC (Average Daily Census) unfavorable by 11.3%.\n\n#### *Outpatient:*\n- Favorability of \\$26.7M, mainly from drug costs.\n  - Decreased utilization, rebates (+\\$12.9M from a one-time prior period accrual), and favorable drug mix.\n  - Dispensing favorable (\\$5.6M), OS Claims unfavorable (\\$1.0M).\n  - Mail order performance on target.\n\n#### *CAMS:*\n- Favorable by \\$5.5M, primarily Elevdys (\\$3.2M, no patient admin in January).\n\n**Key Stats Table (Jan 2025):**\n\n| Metric                                  | PY ACT   | MTD ACT   | MTD BUD   | MTD VAR   |\n|------------------------------------------|:--------:|:---------:|:---------:|:---------:|\n| Membership                              | 4,600,010| 4,610,191 | 4,585,832 | 24,359    |\n| ADC                                     | 3,469    | 3,551     | 3,191     | (360)     |\n| Rx Volume                               |3,355,847 |3,524,484  |3,554,295  | (29,811)  |\n| OP Drug Cost/Rx                         | \\$77      | \\$81       | \\$86       | \\$6        |\n\n| Financial (\\$ millions)                   | PY ACT   | MTD ACT   | MTD BUD   | MTD VAR   |\n|------------------------------------------|:--------:|:---------:|:---------:|:---------:|\n| Total Pharmacy (\\$)                       | \\$528.9   | \\$566.9    | \\$602.0    | \\$35.1     |\n| - PMPM                                  | 114.98   | 122.96    | 131.28    | 8.32      |\n| Inpatient                               | \\$43.5    | \\$43.9     | \\$46.9     | \\$3.0      |\n| Outpatient                              | \\$344.7   | \\$382.4    | \\$409.1    | \\$26.7     |\n| CAMS                                    | \\$140.7   | \\$140.6    | \\$146.1    | \\$5.5      |\n\n---\n\n#### **Summary Statement:**\nJanuary’s financial results are favorable to budget, largely due to reduced drug utilization, significant one-time rebates, and targeted cost controls across inpatient, outpatient, and specialty pharmacy areas. Membership and growth are also above targets, supporting a strong overall position for the month."
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "FTEs were unfavorable by (1,415) or (6.2%) in January, driven by (11.3%) unfavorable ADC, inefficiencies, and unfavorable Non-Productive FTEs, find what page this is located at"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "**Summary Report: Claims – Inpatient Volume (In-Area Non-Trauma vs All Other)**\n**Date: June 2024**\n\n---\n\n### Executive Summary\n\nPage 23 reviews the Inpatient Average Daily Census (ADC) for 2025, focusing on both \"In-Area Non-Trauma\" and \"All Other\" categories. The core analysis compares actual ADC to both the budget and prior year to evaluate operational performance.\n\n---\n\n### Key Findings\n\n#### Inpatient ADC Performance vs. Budget\n\n- **Inpatient ADC** was **14.2% unfavorable to budget**, indicating that the actual inpatient volume was significantly lower than planned projections for 2025.\n- However, the Inpatient ADC was **0.4% higher than the prior year**, suggesting a slight year-over-year increase, despite falling short of budgeted expectations.\n\n#### Inpatient Non-Trauma ADC\n\n- **Inpatient Non-Trauma ADC** was **17.3% unfavorable to budget**, meaning actual non-trauma inpatient volumes were even further below 2025 budget estimates.\n- This category was **5.9% higher year-over-year**, showing some growth compared to the previous year.\n\n#### Drivers\n\n- The report attributes these trends primarily to an **increase in in-area, cardiac, and respiratory cases**.\n\n---\n\n### Assumptions\n\n1. **ADC Values:** The unfavorable percentages reflect that the actual 2025 numbers are *lower* than the 2025 budget, not higher.\n2. **Budget and PY Reference:** \"Budget\" refers to targets set for the year 2025; \"PY\" (Prior Year) refers to performance in 2024.\n3. **Trend Contribution:** The main upsurge in ADC YoY is due to growth in certain medical case types, even as the total lags behind budget.\n4. **Data Completeness:** Only summary performance metrics are available; granular monthly data, specific counts, and full calculation methods are not shown on this page.\n\n---\n\n### Data Table (Transposed for Horizontal Analysis)\n\n|            | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |\n|------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n| **2019**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2019**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n\n*Note: Specific monthly counts are not provided; table format used in case further detail is available or needed for future analysis.*\n\n---\n\n### Equations and Metrics Used\n\n- **% Unfavorable to Budget** = ((Actual ADC - Budgeted ADC) / Budgeted ADC) x 100%\n- **% Change YoY** = ((Current Year ADC - Prior Year ADC) / Prior Year ADC) x 100%\n- These calculations are explicitly referenced in summary findings.\n\n---\n\n### Professional Conclusions\n\n- The organization is underperforming versus budget for inpatient ADC, with a -14.2% variance, and even further underperformance in the non-trauma segment at -17.3%. This could have operational and financial consequences if trends persist.\n- Despite missing budget, incremental year-over-year growth (+0.4% total, +5.9% non-trauma) underscores partial recovery or underlying demand increases, specifically in cardiac and respiratory admissions.\n- Strategic interventions should consider the drivers of variance for more accurate future budget planning.\n\n**Report Date:** June 2024\n\n---\n\n**If monthly, departmental, or additional detailed figures are needed, please provide more granular data or direct access to underlying charts/tables.**"
+                                }
+                            ],
+                            "4": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "**Summary of Page 23:**\n\n- The page discusses inpatient volume, specifically inpatient ADC (Average Daily Census) for in-area non-trauma versus all other categories.\n- **Inpatient ADC** was **14.2% unfavorable** to budget, meaning it fell short of budget expectations by 14.2%, although it was 0.4% higher than the previous year.\n- **Inpatient Non-trauma ADC** was **17.3% unfavorable** to budget but 5.9% higher year-over-year.\n- The main factors for these results were increased in-area, cardiac, and respiratory cases.\n- The chart shows actual, forecast, and budget data for 2019, 2024, and 2025, highlighting trends in admissions.\n\n**How Inpatient ADC was according to the budget:**\n- Inpatient ADC was **14.2% below (unfavorable to) the budget**.\n\nLet me know if you need a more detailed breakdown or analysis of the graph!"
+                                }
+                            ],
+                            "5": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: IndexError\nMessage: list index out of range\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "6": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: IndexError\nMessage: list index out of range\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "7": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Here is the information summarized and organized as requested:\n\n---\n\n### **Page 7: Operating Expenses Summary**\n\n| **Operating Expense Category**          | **Current Month Actual (\\$000s)** | **Current Month Budget (\\$000s)** | **Variance (\\$000s)** | **% Variance** |\n|-----------------------------------------|:--------------------------------:|:-------------------------------:|:-------------------:|:--------------:|\n| Salary                                 | \\$332,522                         | \\$346,091                        | (\\$13,569)           | (3.9%)         |\n| Benefit                                | \\$85,284                          | \\$86,851                         | (\\$1,567)            | (1.8%)         |\n| Outside Labor                          | \\$27,287                          | \\$28,132                         | (\\$845)              | (3.0%)         |\n| **KFH DOE Subtotal**                   | **\\$445,093**                     | **\\$461,074**                    | **(\\$15,981)**       | **(3.5%)**     |\n| Contractual Payments                   | \\$32,604                          | \\$34,048                         | (\\$1,444)            | (4.2%)         |\n| Outside Medical                        | \\$242,180                         | \\$249,184                        | (\\$7,004)            | (2.8%)         |\n| COGS-Drug Costs                        | \\$75,245                          | \\$79,719                         | (\\$4,474)            | (5.6%)         |\n| Supplies                               | \\$22,381                          | \\$23,735                         | (\\$1,354)            | (5.7%)         |\n| Outside Service-Consulting Fees        | \\$7,336                           | \\$8,059                          | (\\$723)              | (9.0%)         |\n| General and Administrative Allocations  | \\$4,923                           | \\$4,954                          | (\\$31)               | (0.6%)         |\n| Property Costs                         | \\$15,825                          | \\$13,354                         | \\$2,471              | 18.5%          |\n| **Non Payroll Sub Total**               | **\\$136,635**                     | **\\$145,627**                    | **(\\$8,991)**        | **(6.2%)**     |\n| **KFH DOE + SFSP Sub Total**            | **\\$581,728**                     | **\\$606,701**                    | **(\\$24,973)**       | **(4.1%)**     |\n| Other Significant Categories...         | ... (See image for detail)       | ...                             | ...                 | ...            |\n| **Total Operating Expenses**            | **\\$833,209**                     | **\\$865,349**                    | **(\\$32,140)**       | **(3.7%)**     |\n\n**Summary**:  \nOperating expenses for the current month were \\$833.2M, which is favorable to the budget by \\$32.1M (3.7%). The biggest underspends are in Salary, Outside Medical, and Drug Costs. Property Costs are higher than budgeted.\n\n---\n\n### **Page 11: January Membership Summary**\n\n- **Membership Level:** 4,618,342\n- **Monthly Growth:** 58,253\n  - Monthly growth is favorable to the budgeted growth target by 16,462 members.\n- **Year-to-Date (YTD) Growth:** 58,253  \n  - Northern California’s YTD growth rate: **1.3%**  \n  - Commercial growth rate: **1.3%**\n- **Commercial Business Lines:**\n  - YTD added: 44,705 members (favorable to budget by 9,081)\n  - Commercial Group: unfavorable by (1,757)\n  - Individual: favorable by 10,838\n\n**Line of Business Highlights:**\n- **Group Commercial:**  \n  Growth of 18.4k in January, slightly behind budget due to Small Group, but Large Group and others offset.\n- **Individual:**  \n  Growth of 26.3k, significantly above budget (+10.8k).\n- **Medicare:**  \n  Growth of 9.8k, favorable by +5.7k.\n- **Medicaid & Charitable:**  \n  Growth of 3.8k, favorable by +1.7k; Medi-Cal growth especially strong.\n\n---\n\n### **Page 30: January Financial Results Summary**\n\n**Pharmacy Cost Overview:**\n- **Total Pharmacy:** Favorable to budget by \\$35.1M; PMPM (Per Member Per Month) favorable by \\$8.32 (6.3%)\n- **Key drivers:** Decreased utilization, large one-time rebates.\n\n#### *Inpatient:*\n- Favorability of \\$3.0M due to drugs (Car-T, COVID drugs).\n- Dispensing on target; ADC (Average Daily Census) unfavorable by 11.3%.\n\n#### *Outpatient:*\n- Favorability of \\$26.7M, mainly from drug costs.\n  - Decreased utilization, rebates (+\\$12.9M from a one-time prior period accrual), and favorable drug mix.\n  - Dispensing favorable (\\$5.6M), OS Claims unfavorable (\\$1.0M).\n  - Mail order performance on target.\n\n#### *CAMS:*\n- Favorable by \\$5.5M, primarily Elevdys (\\$3.2M, no patient admin in January).\n\n**Key Stats Table (Jan 2025):**\n\n| Metric                                  | PY ACT   | MTD ACT   | MTD BUD   | MTD VAR   |\n|------------------------------------------|:--------:|:---------:|:---------:|:---------:|\n| Membership                              | 4,600,010| 4,610,191 | 4,585,832 | 24,359    |\n| ADC                                     | 3,469    | 3,551     | 3,191     | (360)     |\n| Rx Volume                               |3,355,847 |3,524,484  |3,554,295  | (29,811)  |\n| OP Drug Cost/Rx                         | \\$77      | \\$81       | \\$86       | \\$6        |\n\n| Financial (\\$ millions)                   | PY ACT   | MTD ACT   | MTD BUD   | MTD VAR   |\n|------------------------------------------|:--------:|:---------:|:---------:|:---------:|\n| Total Pharmacy (\\$)                       | \\$528.9   | \\$566.9    | \\$602.0    | \\$35.1     |\n| - PMPM                                  | 114.98   | 122.96    | 131.28    | 8.32      |\n| Inpatient                               | \\$43.5    | \\$43.9     | \\$46.9     | \\$3.0      |\n| Outpatient                              | \\$344.7   | \\$382.4    | \\$409.1    | \\$26.7     |\n| CAMS                                    | \\$140.7   | \\$140.6    | \\$146.1    | \\$5.5      |\n\n---\n\n#### **Summary Statement:**\nJanuary’s financial results are favorable to budget, largely due to reduced drug utilization, significant one-time rebates, and targeted cost controls across inpatient, outpatient, and specialty pharmacy areas. Membership and growth are also above targets, supporting a strong overall position for the month."
+                                }
+                            ],
+                            "8": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "### Page 7: Operating Expenses\n\n| Category                   | Current Month Actual | Current Month Budget | Variance | Year to Date Actual | Year to Date Budget | Variance |\n|----------------------------|----------------------|----------------------|----------|---------------------|---------------------|----------|\n| Salary                     | \\$332,522             | \\$346,096             | \\$13,574  | \\$332,522            | \\$346,096            | \\$13,574  |\n| Benefits                   | \\$125,354             | \\$131,445             | \\$6,091   | \\$125,354            | \\$131,445            | \\$6,091   |\n| Outside Labor              | \\$27,287              | \\$27,627              | \\$340     | \\$27,287             | \\$27,627             | \\$340     |\n| Total KFH DOE              | \\$485,366             | \\$512,847             | \\$27,481  | \\$485,366            | \\$512,847            | \\$27,481  |\n| Professional Fees          | \\$9,062               | \\$9,213               | \\$151     | \\$9,062              | \\$9,213              | \\$151     |\n| Supplies                   | \\$72,374              | \\$75,357              | \\$2,983   | \\$72,374             | \\$75,357             | \\$2,983   |\n| General and Administrative | \\$4,932               | \\$4,765               | (\\$167)   | \\$4,932              | \\$4,765              | (\\$167)   |\n| Allocations                | \\$7,698               | \\$8,298               | \\$600     | \\$7,698              | \\$8,298              | \\$600     |\n| Total KFH DOE + Professional Fees + Supplies + G&A + Allocations | \\$634,735 | \\$643,480             | \\$8,745   | \\$634,735            | \\$643,480            | \\$8,745   |\n\n### Page 11: Membership Update\n\n- **Membership Level**: 4,618,342\n- **Monthly Growth**: 58,253\n- **YTD Growth**: 58,253\n- Northern California and Commercial growth rates are both 1.3%.\n- **Commercial Business Lines**: YTD addition of 44,705 members, favorable by 9,081 to budget, with variations in group and individual categories.\n- **Medicare**: Growth driven by favorability in various market segments.\n- **Medicaid & Charitable Coverage**: Favorable by 2.7k due to various strategic initiatives.\n\n### Page 30: January Financial Results\n\n- **Total Pharmacy**: Favorable to budget by \\$35.1M.\n  - PMPM (Per Member Per Month) favorable by \\$8.32 or 6.3%.\n- **Inpatient**: Favorable by \\$3.0M due to reduced drug utilization.\n- **Outpatient**: Favorable by \\$26.7M, driven by decreased utilization and favorable rebates.\n- **CAMS**: Favorable by \\$5.5M primarily due to Elevidys savings.\n- Key drivers for favorability include drug costs, rebates, and efficient dispensing practices."
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "FTEs were unfavorable by (1,415) or (6.2%) in January, driven by (11.3%) unfavorable ADC, inefficiencies, and unfavorable Non-Productive FTEs, find what page this is located at"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "**Summary Report: Claims – Inpatient Volume (In-Area Non-Trauma vs All Other)**\n**Date: June 2024**\n\n---\n\n### Executive Summary\n\nPage 23 reviews the Inpatient Average Daily Census (ADC) for 2025, focusing on both \"In-Area Non-Trauma\" and \"All Other\" categories. The core analysis compares actual ADC to both the budget and prior year to evaluate operational performance.\n\n---\n\n### Key Findings\n\n#### Inpatient ADC Performance vs. Budget\n\n- **Inpatient ADC** was **14.2% unfavorable to budget**, indicating that the actual inpatient volume was significantly lower than planned projections for 2025.\n- However, the Inpatient ADC was **0.4% higher than the prior year**, suggesting a slight year-over-year increase, despite falling short of budgeted expectations.\n\n#### Inpatient Non-Trauma ADC\n\n- **Inpatient Non-Trauma ADC** was **17.3% unfavorable to budget**, meaning actual non-trauma inpatient volumes were even further below 2025 budget estimates.\n- This category was **5.9% higher year-over-year**, showing some growth compared to the previous year.\n\n#### Drivers\n\n- The report attributes these trends primarily to an **increase in in-area, cardiac, and respiratory cases**.\n\n---\n\n### Assumptions\n\n1. **ADC Values:** The unfavorable percentages reflect that the actual 2025 numbers are *lower* than the 2025 budget, not higher.\n2. **Budget and PY Reference:** \"Budget\" refers to targets set for the year 2025; \"PY\" (Prior Year) refers to performance in 2024.\n3. **Trend Contribution:** The main upsurge in ADC YoY is due to growth in certain medical case types, even as the total lags behind budget.\n4. **Data Completeness:** Only summary performance metrics are available; granular monthly data, specific counts, and full calculation methods are not shown on this page.\n\n---\n\n### Data Table (Transposed for Horizontal Analysis)\n\n|            | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |\n|------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n| **2019**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2019**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n\n*Note: Specific monthly counts are not provided; table format used in case further detail is available or needed for future analysis.*\n\n---\n\n### Equations and Metrics Used\n\n- **% Unfavorable to Budget** = ((Actual ADC - Budgeted ADC) / Budgeted ADC) x 100%\n- **% Change YoY** = ((Current Year ADC - Prior Year ADC) / Prior Year ADC) x 100%\n- These calculations are explicitly referenced in summary findings.\n\n---\n\n### Professional Conclusions\n\n- The organization is underperforming versus budget for inpatient ADC, with a -14.2% variance, and even further underperformance in the non-trauma segment at -17.3%. This could have operational and financial consequences if trends persist.\n- Despite missing budget, incremental year-over-year growth (+0.4% total, +5.9% non-trauma) underscores partial recovery or underlying demand increases, specifically in cardiac and respiratory admissions.\n- Strategic interventions should consider the drivers of variance for more accurate future budget planning.\n\n**Report Date:** June 2024\n\n---\n\n**If monthly, departmental, or additional detailed figures are needed, please provide more granular data or direct access to underlying charts/tables.**"
+                                }
+                            ],
+                            "4": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "**Summary of Page 23:**\n\n- The page discusses inpatient volume, specifically inpatient ADC (Average Daily Census) for in-area non-trauma versus all other categories.\n- **Inpatient ADC** was **14.2% unfavorable** to budget, meaning it fell short of budget expectations by 14.2%, although it was 0.4% higher than the previous year.\n- **Inpatient Non-trauma ADC** was **17.3% unfavorable** to budget but 5.9% higher year-over-year.\n- The main factors for these results were increased in-area, cardiac, and respiratory cases.\n- The chart shows actual, forecast, and budget data for 2019, 2024, and 2025, highlighting trends in admissions.\n\n**How Inpatient ADC was according to the budget:**\n- Inpatient ADC was **14.2% below (unfavorable to) the budget**.\n\nLet me know if you need a more detailed breakdown or analysis of the graph!"
+                                }
+                            ],
+                            "5": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: IndexError\nMessage: list index out of range\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "6": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: IndexError\nMessage: list index out of range\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "7": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Here is the information summarized and organized as requested:\n\n---\n\n### **Page 7: Operating Expenses Summary**\n\n| **Operating Expense Category**          | **Current Month Actual (\\$000s)** | **Current Month Budget (\\$000s)** | **Variance (\\$000s)** | **% Variance** |\n|-----------------------------------------|:--------------------------------:|:-------------------------------:|:-------------------:|:--------------:|\n| Salary                                 | \\$332,522                         | \\$346,091                        | (\\$13,569)           | (3.9%)         |\n| Benefit                                | \\$85,284                          | \\$86,851                         | (\\$1,567)            | (1.8%)         |\n| Outside Labor                          | \\$27,287                          | \\$28,132                         | (\\$845)              | (3.0%)         |\n| **KFH DOE Subtotal**                   | **\\$445,093**                     | **\\$461,074**                    | **(\\$15,981)**       | **(3.5%)**     |\n| Contractual Payments                   | \\$32,604                          | \\$34,048                         | (\\$1,444)            | (4.2%)         |\n| Outside Medical                        | \\$242,180                         | \\$249,184                        | (\\$7,004)            | (2.8%)         |\n| COGS-Drug Costs                        | \\$75,245                          | \\$79,719                         | (\\$4,474)            | (5.6%)         |\n| Supplies                               | \\$22,381                          | \\$23,735                         | (\\$1,354)            | (5.7%)         |\n| Outside Service-Consulting Fees        | \\$7,336                           | \\$8,059                          | (\\$723)              | (9.0%)         |\n| General and Administrative Allocations  | \\$4,923                           | \\$4,954                          | (\\$31)               | (0.6%)         |\n| Property Costs                         | \\$15,825                          | \\$13,354                         | \\$2,471              | 18.5%          |\n| **Non Payroll Sub Total**               | **\\$136,635**                     | **\\$145,627**                    | **(\\$8,991)**        | **(6.2%)**     |\n| **KFH DOE + SFSP Sub Total**            | **\\$581,728**                     | **\\$606,701**                    | **(\\$24,973)**       | **(4.1%)**     |\n| Other Significant Categories...         | ... (See image for detail)       | ...                             | ...                 | ...            |\n| **Total Operating Expenses**            | **\\$833,209**                     | **\\$865,349**                    | **(\\$32,140)**       | **(3.7%)**     |\n\n**Summary**:  \nOperating expenses for the current month were \\$833.2M, which is favorable to the budget by \\$32.1M (3.7%). The biggest underspends are in Salary, Outside Medical, and Drug Costs. Property Costs are higher than budgeted.\n\n---\n\n### **Page 11: January Membership Summary**\n\n- **Membership Level:** 4,618,342\n- **Monthly Growth:** 58,253\n  - Monthly growth is favorable to the budgeted growth target by 16,462 members.\n- **Year-to-Date (YTD) Growth:** 58,253  \n  - Northern California’s YTD growth rate: **1.3%**  \n  - Commercial growth rate: **1.3%**\n- **Commercial Business Lines:**\n  - YTD added: 44,705 members (favorable to budget by 9,081)\n  - Commercial Group: unfavorable by (1,757)\n  - Individual: favorable by 10,838\n\n**Line of Business Highlights:**\n- **Group Commercial:**  \n  Growth of 18.4k in January, slightly behind budget due to Small Group, but Large Group and others offset.\n- **Individual:**  \n  Growth of 26.3k, significantly above budget (+10.8k).\n- **Medicare:**  \n  Growth of 9.8k, favorable by +5.7k.\n- **Medicaid & Charitable:**  \n  Growth of 3.8k, favorable by +1.7k; Medi-Cal growth especially strong.\n\n---\n\n### **Page 30: January Financial Results Summary**\n\n**Pharmacy Cost Overview:**\n- **Total Pharmacy:** Favorable to budget by \\$35.1M; PMPM (Per Member Per Month) favorable by \\$8.32 (6.3%)\n- **Key drivers:** Decreased utilization, large one-time rebates.\n\n#### *Inpatient:*\n- Favorability of \\$3.0M due to drugs (Car-T, COVID drugs).\n- Dispensing on target; ADC (Average Daily Census) unfavorable by 11.3%.\n\n#### *Outpatient:*\n- Favorability of \\$26.7M, mainly from drug costs.\n  - Decreased utilization, rebates (+\\$12.9M from a one-time prior period accrual), and favorable drug mix.\n  - Dispensing favorable (\\$5.6M), OS Claims unfavorable (\\$1.0M).\n  - Mail order performance on target.\n\n#### *CAMS:*\n- Favorable by \\$5.5M, primarily Elevdys (\\$3.2M, no patient admin in January).\n\n**Key Stats Table (Jan 2025):**\n\n| Metric                                  | PY ACT   | MTD ACT   | MTD BUD   | MTD VAR   |\n|------------------------------------------|:--------:|:---------:|:---------:|:---------:|\n| Membership                              | 4,600,010| 4,610,191 | 4,585,832 | 24,359    |\n| ADC                                     | 3,469    | 3,551     | 3,191     | (360)     |\n| Rx Volume                               |3,355,847 |3,524,484  |3,554,295  | (29,811)  |\n| OP Drug Cost/Rx                         | \\$77      | \\$81       | \\$86       | \\$6        |\n\n| Financial (\\$ millions)                   | PY ACT   | MTD ACT   | MTD BUD   | MTD VAR   |\n|------------------------------------------|:--------:|:---------:|:---------:|:---------:|\n| Total Pharmacy (\\$)                       | \\$528.9   | \\$566.9    | \\$602.0    | \\$35.1     |\n| - PMPM                                  | 114.98   | 122.96    | 131.28    | 8.32      |\n| Inpatient                               | \\$43.5    | \\$43.9     | \\$46.9     | \\$3.0      |\n| Outpatient                              | \\$344.7   | \\$382.4    | \\$409.1    | \\$26.7     |\n| CAMS                                    | \\$140.7   | \\$140.6    | \\$146.1    | \\$5.5      |\n\n---\n\n#### **Summary Statement:**\nJanuary’s financial results are favorable to budget, largely due to reduced drug utilization, significant one-time rebates, and targeted cost controls across inpatient, outpatient, and specialty pharmacy areas. Membership and growth are also above targets, supporting a strong overall position for the month."
+                                }
+                            ],
+                            "8": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "### Page 7: Operating Expenses\n\n| Category                   | Current Month Actual | Current Month Budget | Variance | Year to Date Actual | Year to Date Budget | Variance |\n|----------------------------|----------------------|----------------------|----------|---------------------|---------------------|----------|\n| Salary                     | \\$332,522             | \\$346,096             | \\$13,574  | \\$332,522            | \\$346,096            | \\$13,574  |\n| Benefits                   | \\$125,354             | \\$131,445             | \\$6,091   | \\$125,354            | \\$131,445            | \\$6,091   |\n| Outside Labor              | \\$27,287              | \\$27,627              | \\$340     | \\$27,287             | \\$27,627             | \\$340     |\n| Total KFH DOE              | \\$485,366             | \\$512,847             | \\$27,481  | \\$485,366            | \\$512,847            | \\$27,481  |\n| Professional Fees          | \\$9,062               | \\$9,213               | \\$151     | \\$9,062              | \\$9,213              | \\$151     |\n| Supplies                   | \\$72,374              | \\$75,357              | \\$2,983   | \\$72,374             | \\$75,357             | \\$2,983   |\n| General and Administrative | \\$4,932               | \\$4,765               | (\\$167)   | \\$4,932              | \\$4,765              | (\\$167)   |\n| Allocations                | \\$7,698               | \\$8,298               | \\$600     | \\$7,698              | \\$8,298              | \\$600     |\n| Total KFH DOE + Professional Fees + Supplies + G&A + Allocations | \\$634,735 | \\$643,480             | \\$8,745   | \\$634,735            | \\$643,480            | \\$8,745   |\n\n### Page 11: Membership Update\n\n- **Membership Level**: 4,618,342\n- **Monthly Growth**: 58,253\n- **YTD Growth**: 58,253\n- Northern California and Commercial growth rates are both 1.3%.\n- **Commercial Business Lines**: YTD addition of 44,705 members, favorable by 9,081 to budget, with variations in group and individual categories.\n- **Medicare**: Growth driven by favorability in various market segments.\n- **Medicaid & Charitable Coverage**: Favorable by 2.7k due to various strategic initiatives.\n\n### Page 30: January Financial Results\n\n- **Total Pharmacy**: Favorable to budget by \\$35.1M.\n  - PMPM (Per Member Per Month) favorable by \\$8.32 or 6.3%.\n- **Inpatient**: Favorable by \\$3.0M due to reduced drug utilization.\n- **Outpatient**: Favorable by \\$26.7M, driven by decreased utilization and favorable rebates.\n- **CAMS**: Favorable by \\$5.5M primarily due to Elevidys savings.\n- Key drivers for favorability include drug costs, rebates, and efficient dispensing practices."
+                                }
+                            ],
+                            "9": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize operating expenses on page 7. Make a table of the numbers. Then summarize page 11. Finally summarize January financial results from page 30."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Here's a summary based on the provided sections:\n\n### Page 7: Operating Expenses\n\n#### Table of Operating Expenses (Numbers in \\$000s)\n| Category                  | Actual   | Budget   | Variance | % Variance | Prior Year | Inc/(Dec) % Pr Yr |\n|---------------------------|----------|----------|----------|------------|------------|-------------------|\n| KFH DOE                   | \\$332,422 | \\$346,095 | (\\$13,673)| (4.0%)     | \\$332,422   | 3.9%              |\n| Benefit                   | \\$157,586 | \\$161,510 | (\\$3,924) | (2.4%)     | \\$157,586   | 3.1%              |\n| Outside Labor             | \\$27,267  | \\$28,433  | (\\$1,166) | (4.1%)     | \\$27,267    | (1.5%)            |\n| Professional Fees         | \\$30,157  | \\$33,428  | (\\$3,271) | (9.8%)     | \\$30,157    | 15.9%             |\n| Contractual Payments      | \\$75      | \\$80      | (\\$5)     | (6.3%)     | \\$75        | 6.7%              |\n| Outside Medical           | \\$44,905  | \\$47,274  | (\\$2,369) | (5.0%)     | \\$44,905    | 5.3%              |\n| COGS-Drug Costs           | \\$12,289  | \\$13,011  | (\\$722)   | (5.5%)     | \\$12,289    | 4.8%              |\n| Supplies                  | \\$27,245  | \\$26,531  | \\$714     | 2.7%       | \\$27,245    | (5.6%)            |\n| Outside Services-Consulting Fees | \\$6,071 | \\$5,737 | \\$334   | 5.8%       | \\$6,071     | 8.6%              |\n| General and Administrative| \\$24,939  | \\$25,070  | (\\$131)   | (0.5%)     | \\$24,939    | 9.6%              |\n| Allocations               | \\$24,939  | \\$25,907  | (\\$968)   | (3.7%)     | \\$24,939    | 2.2%              | \n| Property Costs            | \\$15,625  | \\$13,654  | \\$1,971   | 14.4%      | \\$15,625    | (12.6%)           |\n\n**Non Payroll Sub Total:** \\$148,969 (Actual), \\$136,635 (Budget), \\$12,334 Variance at 9.0%.\n\n### Page 11: Membership Summary - January 2025\n\n- **Membership Level:** 4,618,342\n- **Monthly Growth:** 58,253, favorable to budget by 16,462 members.\n- **YTD Growth:** 58,253 with a growth rate of 1.3%.\n- **Commercial Business Lines:** Added 44,705 members YTD, favorable by 9,081 to budget.\n- **Commercial Group:** Unfavorable by 1,757; Individual favorable by 10,838.\n\n### Page 30: January Financial Results\n\n- **Total Pharmacy is favorable to budget by \\$35.1M.**\n- **PMPM (Per Member Per Month):** Favorable by \\$8.32 or 6.3%.\n  \n#### Key Drivers:\n- **Inpatient:** Favorable by \\$3.0M, driven by decreased costs of specific drugs.\n- **Outpatient:** Favorable by \\$26.7M, driven by reduced utilization and one-time rebates.\n- **CAMS:** Favorable by \\$5.5M partly due to favorable Elevdys usage.\n\nThese results emphasize the financial health and growth in membership during January 2025."
+                                }
+                            ]
                         }
                     ]
                 }

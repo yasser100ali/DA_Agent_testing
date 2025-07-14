@@ -138,8 +138,15 @@ class PDFDeepInsights:
         self.pdf_stream.seek(0)
 
         # converts the specified pages to images
-        images = convert_from_bytes(self.pdf_stream.getvalue(), first_page=min(page_numbers), last_page=max(page_numbers), dpi=400)
         sorted_pages = sorted(page_numbers)
+
+        images = []
+        for page_num in sorted_pages:
+            page_image = convert_from_bytes(self.pdf_stream.getvalue(), first_page=page_num, last_page=page_num, dpi=600)
+            if page_image:
+                images.append(page_image[0])
+
+        print(f"\nPage Numbers: {sorted_pages}\nLength of images: {len(images)}")
 
         for i, image in enumerate(images):
             page_num = sorted_pages[i]
@@ -161,7 +168,7 @@ class PDFDeepInsights:
                 "image_url": {"url": f"data:image/png;base64,{base64_str}"}
             })
         
-        response = utils.get_response(system_prompt=system_prompt, user_prompt=user_content, show_stream=True)
+        response = utils.get_response(system_prompt=system_prompt, user_prompt=user_content, show_stream=True, model="gpt-4o")
         llm_response = utils.display_stream(response)
 
         utils.assistant_message("chat", llm_response)

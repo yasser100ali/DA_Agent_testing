@@ -18,7 +18,7 @@ from datetime import datetime, timezone
 import base64
 import hashlib
 
-def get_response(system_prompt, user_prompt, show_stream=True):
+def get_response(system_prompt, user_prompt, show_stream=True, model="gpt-4.1"):
     # when running the models locally
 
     client = OpenAI(
@@ -26,7 +26,7 @@ def get_response(system_prompt, user_prompt, show_stream=True):
     )
 
     response = client.chat.completions.create(
-        model="gpt-4.1",
+        model=model,
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
