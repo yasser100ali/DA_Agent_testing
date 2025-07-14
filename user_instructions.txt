@@ -1,7 +1,0 @@
-Include Date in all the end findings. 
-
-Make the report extensive and professional. 
-
-When showing the tables, transpose the table so that the Date is shown horizontally along with the other features as oppose to vertically. 
-
-IN the report include your assumptions that you are basing your numbers on. 

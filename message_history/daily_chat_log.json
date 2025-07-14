@@ -9049,6 +9049,696 @@
                                     "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
                                 }
                             ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: 'dict_values' object is not subscriptable\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "4": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'dict' object has no attribute 'seek'\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: 'dict_values' object is not subscriptable\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "4": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'dict' object has no attribute 'seek'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "5": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'tuple' object has no attribute 'seek'\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: 'dict_values' object is not subscriptable\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "4": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'dict' object has no attribute 'seek'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "5": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'tuple' object has no attribute 'seek'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "6": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: ValueError\nMessage: Cannot extract PDF bytes from dict. Check keys like 'data', 'content', 'bytes', or 'file'.\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: 'dict_values' object is not subscriptable\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "4": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'dict' object has no attribute 'seek'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "5": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'tuple' object has no attribute 'seek'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "6": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: ValueError\nMessage: Cannot extract PDF bytes from dict. Check keys like 'data', 'content', 'bytes', or 'file'.\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "7": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: unhashable type: 'UploadedFile'\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: 'dict_values' object is not subscriptable\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "4": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'dict' object has no attribute 'seek'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "5": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'tuple' object has no attribute 'seek'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "6": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: ValueError\nMessage: Cannot extract PDF bytes from dict. Check keys like 'data', 'content', 'bytes', or 'file'.\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "7": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: unhashable type: 'UploadedFile'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "8": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: 'dict_values' object is not subscriptable\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "4": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'dict' object has no attribute 'seek'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "5": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'tuple' object has no attribute 'seek'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "6": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: ValueError\nMessage: Cannot extract PDF bytes from dict. Check keys like 'data', 'content', 'bytes', or 'file'.\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "7": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: unhashable type: 'UploadedFile'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "8": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                }
+                            ],
+                            "9": [
+                                {
+                                    "role": "user",
+                                    "content": "what page is this information on: Line of Business Summary:\nGroup Commercial: Group Commercial growth of 18.4k members in January was unfavorable to the\nbudget by (1.8k) members. Unfavorability was driven by Small Group, where losses of (3k) were behind\nbudget by (2k) members. Despite picking up 4 points of rate position, Small Group adds remain\ndampened, driven by market headwinds. Market preference continues to trend towards PPO plans,\ncausing KP's addressable market to contract. Small Group unfavorability was offset partially by Large\nCommercial, where growth of 21.4k was ahead of budget by +261 members. CalPERS and Labor & Trust\ndrove Large Commercial favorability. CalPERS experienced improved retention compared to last year\nand compared to budget expectations. Labor & Trust saw a ~2k membership lift due to the addition of a\nnew bargaining unit in the Unite Here Health trust fund."
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: 'dict_values' object is not subscriptable\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "hi"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'PDFDeepInsights' object has no attribute 'pdf_file'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "4": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'dict' object has no attribute 'seek'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "5": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: AttributeError\nMessage: 'tuple' object has no attribute 'seek'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "6": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: ValueError\nMessage: Cannot extract PDF bytes from dict. Check keys like 'data', 'content', 'bytes', or 'file'.\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "7": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: TypeError\nMessage: unhashable type: 'UploadedFile'\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "8": [
+                                {
+                                    "role": "user",
+                                    "content": "what page could I find a summary of the finances?>"
+                                }
+                            ],
+                            "9": [
+                                {
+                                    "role": "user",
+                                    "content": "what page is this information on: Line of Business Summary:\nGroup Commercial: Group Commercial growth of 18.4k members in January was unfavorable to the\nbudget by (1.8k) members. Unfavorability was driven by Small Group, where losses of (3k) were behind\nbudget by (2k) members. Despite picking up 4 points of rate position, Small Group adds remain\ndampened, driven by market headwinds. Market preference continues to trend towards PPO plans,\ncausing KP's addressable market to contract. Small Group unfavorability was offset partially by Large\nCommercial, where growth of 21.4k was ahead of budget by +261 members. CalPERS and Labor & Trust\ndrove Large Commercial favorability. CalPERS experienced improved retention compared to last year\nand compared to budget expectations. Labor & Trust saw a ~2k membership lift due to the addition of a\nnew bargaining unit in the Unite Here Health trust fund."
+                                }
+                            ],
+                            "10": [
+                                {
+                                    "role": "user",
+                                    "content": "where could I find this information: KFH DOE EXPENSE– JANUARY VARIANCE BY MAJOR CATEGORIES"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "FTEs were unfavorable by (1,415) or (6.2%) in January, driven by (11.3%) unfavorable ADC, inefficiencies, and unfavorable Non-Productive FTEs, find what page this is located at"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "FTEs were unfavorable by (1,415) or (6.2%) in January, driven by (11.3%) unfavorable ADC, inefficiencies, and unfavorable Non-Productive FTEs, find what page this is located at"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "FTEs were unfavorable by (1,415) or (6.2%) in January, driven by (11.3%) unfavorable ADC, inefficiencies, and unfavorable Non-Productive FTEs, find what page this is located at"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "FTEs were unfavorable by (1,415) or (6.2%) in January, driven by (11.3%) unfavorable ADC, inefficiencies, and unfavorable Non-Productive FTEs, find what page this is located at"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "**Summary Report: Claims – Inpatient Volume (In-Area Non-Trauma vs All Other)**\n**Date: June 2024**\n\n---\n\n### Executive Summary\n\nPage 23 reviews the Inpatient Average Daily Census (ADC) for 2025, focusing on both \"In-Area Non-Trauma\" and \"All Other\" categories. The core analysis compares actual ADC to both the budget and prior year to evaluate operational performance.\n\n---\n\n### Key Findings\n\n#### Inpatient ADC Performance vs. Budget\n\n- **Inpatient ADC** was **14.2% unfavorable to budget**, indicating that the actual inpatient volume was significantly lower than planned projections for 2025.\n- However, the Inpatient ADC was **0.4% higher than the prior year**, suggesting a slight year-over-year increase, despite falling short of budgeted expectations.\n\n#### Inpatient Non-Trauma ADC\n\n- **Inpatient Non-Trauma ADC** was **17.3% unfavorable to budget**, meaning actual non-trauma inpatient volumes were even further below 2025 budget estimates.\n- This category was **5.9% higher year-over-year**, showing some growth compared to the previous year.\n\n#### Drivers\n\n- The report attributes these trends primarily to an **increase in in-area, cardiac, and respiratory cases**.\n\n---\n\n### Assumptions\n\n1. **ADC Values:** The unfavorable percentages reflect that the actual 2025 numbers are *lower* than the 2025 budget, not higher.\n2. **Budget and PY Reference:** \"Budget\" refers to targets set for the year 2025; \"PY\" (Prior Year) refers to performance in 2024.\n3. **Trend Contribution:** The main upsurge in ADC YoY is due to growth in certain medical case types, even as the total lags behind budget.\n4. **Data Completeness:** Only summary performance metrics are available; granular monthly data, specific counts, and full calculation methods are not shown on this page.\n\n---\n\n### Data Table (Transposed for Horizontal Analysis)\n\n|            | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |\n|------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n| **2019**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2019**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n\n*Note: Specific monthly counts are not provided; table format used in case further detail is available or needed for future analysis.*\n\n---\n\n### Equations and Metrics Used\n\n- **% Unfavorable to Budget** = ((Actual ADC - Budgeted ADC) / Budgeted ADC) x 100%\n- **% Change YoY** = ((Current Year ADC - Prior Year ADC) / Prior Year ADC) x 100%\n- These calculations are explicitly referenced in summary findings.\n\n---\n\n### Professional Conclusions\n\n- The organization is underperforming versus budget for inpatient ADC, with a -14.2% variance, and even further underperformance in the non-trauma segment at -17.3%. This could have operational and financial consequences if trends persist.\n- Despite missing budget, incremental year-over-year growth (+0.4% total, +5.9% non-trauma) underscores partial recovery or underlying demand increases, specifically in cardiac and respiratory admissions.\n- Strategic interventions should consider the drivers of variance for more accurate future budget planning.\n\n**Report Date:** June 2024\n\n---\n\n**If monthly, departmental, or additional detailed figures are needed, please provide more granular data or direct access to underlying charts/tables.**"
+                                }
+                            ]
+                        },
+                        {
+                            "0": [
+                                {
+                                    "role": "user",
+                                    "content": "FTEs were unfavorable by (1,415) or (6.2%) in January, driven by (11.3%) unfavorable ADC, inefficiencies, and unfavorable Non-Productive FTEs, find what page this is located at"
+                                }
+                            ],
+                            "1": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "2": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "Error Type: PDFInfoNotInstalledError\nMessage: Unable to get page count. Is poppler installed and in PATH?\n(Full traceback logged to console)"
+                                }
+                            ],
+                            "3": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "**Summary Report: Claims – Inpatient Volume (In-Area Non-Trauma vs All Other)**\n**Date: June 2024**\n\n---\n\n### Executive Summary\n\nPage 23 reviews the Inpatient Average Daily Census (ADC) for 2025, focusing on both \"In-Area Non-Trauma\" and \"All Other\" categories. The core analysis compares actual ADC to both the budget and prior year to evaluate operational performance.\n\n---\n\n### Key Findings\n\n#### Inpatient ADC Performance vs. Budget\n\n- **Inpatient ADC** was **14.2% unfavorable to budget**, indicating that the actual inpatient volume was significantly lower than planned projections for 2025.\n- However, the Inpatient ADC was **0.4% higher than the prior year**, suggesting a slight year-over-year increase, despite falling short of budgeted expectations.\n\n#### Inpatient Non-Trauma ADC\n\n- **Inpatient Non-Trauma ADC** was **17.3% unfavorable to budget**, meaning actual non-trauma inpatient volumes were even further below 2025 budget estimates.\n- This category was **5.9% higher year-over-year**, showing some growth compared to the previous year.\n\n#### Drivers\n\n- The report attributes these trends primarily to an **increase in in-area, cardiac, and respiratory cases**.\n\n---\n\n### Assumptions\n\n1. **ADC Values:** The unfavorable percentages reflect that the actual 2025 numbers are *lower* than the 2025 budget, not higher.\n2. **Budget and PY Reference:** \"Budget\" refers to targets set for the year 2025; \"PY\" (Prior Year) refers to performance in 2024.\n3. **Trend Contribution:** The main upsurge in ADC YoY is due to growth in certain medical case types, even as the total lags behind budget.\n4. **Data Completeness:** Only summary performance metrics are available; granular monthly data, specific counts, and full calculation methods are not shown on this page.\n\n---\n\n### Data Table (Transposed for Horizontal Analysis)\n\n|            | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |\n|------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n| **2019**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>In-Area Non-Trauma |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2019**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2024**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025F**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n| **2025Bud**<br>All Other |  |  |  |  |  |  |  |  |  |  |  |  |\n\n*Note: Specific monthly counts are not provided; table format used in case further detail is available or needed for future analysis.*\n\n---\n\n### Equations and Metrics Used\n\n- **% Unfavorable to Budget** = ((Actual ADC - Budgeted ADC) / Budgeted ADC) x 100%\n- **% Change YoY** = ((Current Year ADC - Prior Year ADC) / Prior Year ADC) x 100%\n- These calculations are explicitly referenced in summary findings.\n\n---\n\n### Professional Conclusions\n\n- The organization is underperforming versus budget for inpatient ADC, with a -14.2% variance, and even further underperformance in the non-trauma segment at -17.3%. This could have operational and financial consequences if trends persist.\n- Despite missing budget, incremental year-over-year growth (+0.4% total, +5.9% non-trauma) underscores partial recovery or underlying demand increases, specifically in cardiac and respiratory admissions.\n- Strategic interventions should consider the drivers of variance for more accurate future budget planning.\n\n**Report Date:** June 2024\n\n---\n\n**If monthly, departmental, or additional detailed figures are needed, please provide more granular data or direct access to underlying charts/tables.**"
+                                }
+                            ],
+                            "4": [
+                                {
+                                    "role": "user",
+                                    "content": "Summarize page 23 and tell me how Inpatient ADC was according to the budget."
+                                },
+                                {
+                                    "role": "assistant",
+                                    "content": "**Summary of Page 23:**\n\n- The page discusses inpatient volume, specifically inpatient ADC (Average Daily Census) for in-area non-trauma versus all other categories.\n- **Inpatient ADC** was **14.2% unfavorable** to budget, meaning it fell short of budget expectations by 14.2%, although it was 0.4% higher than the previous year.\n- **Inpatient Non-trauma ADC** was **17.3% unfavorable** to budget but 5.9% higher year-over-year.\n- The main factors for these results were increased in-area, cardiac, and respiratory cases.\n- The chart shows actual, forecast, and budget data for 2019, 2024, and 2025, highlighting trends in admissions.\n\n**How Inpatient ADC was according to the budget:**\n- Inpatient ADC was **14.2% below (unfavorable to) the budget**.\n\nLet me know if you need a more detailed breakdown or analysis of the graph!"
+                                }
+                            ]
                         }
                     ]
                 }

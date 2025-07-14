@@ -6,6 +6,10 @@ from PyPDF2 import PdfReader  # Assuming PyPDF2 is installed; if not, pip instal
 import base64 
 import streamlit as st 
 from pdf2image import convert_from_bytes
+import io 
+from openai import OpenAI, AsyncOpenAI
+import utils.utils as utils
+from agents.agents import Agent
 
 class PDFDeepInsights:
     def __init__(self, user_input, local_var):
@@ -13,12 +17,52 @@ class PDFDeepInsights:
         self.local_var = local_var
         # Initialize RAG components once in init for efficiency
         self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2') 
+        self.documents = []
         self.index = None
+        self.pdf_stream = None
+        self._prepare_pdf_stream()
         self._build_vectorstore()
+        self.client = OpenAI(api_key="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")
+
+    def _prepare_pdf_stream(self):
+        pdf_input = self.local_var["pdf_file_objects"]
+        pdf_bytes = None
+
+        if isinstance(pdf_input, dict):
+            if pdf_bytes is None:
+                # Search values for file-like or bytes (handles {filename: UploadedFile} structure)
+                for key, value in pdf_input.items():
+                    if isinstance(value, bytes):
+                        pdf_bytes = value
+                        break
+                    elif hasattr(value, 'read') and hasattr(value, 'seek'):
+                        value.seek(0)
+                        pdf_bytes = value.read()
+                        break
+                    elif hasattr(value, 'getvalue'):
+                        pdf_bytes = value.getvalue()
+                        break
+                if pdf_bytes is None:
+                    raise ValueError(f"Cannot extract PDF bytes from dict with keys: {list(pdf_input.keys())}. No bytes or file-like found in values. Check structure.")
+        elif isinstance(pdf_input, str):  # file path
+            with open(pdf_input, 'rb') as f:
+                pdf_bytes = f.read()
+        elif hasattr(pdf_input, 'read') and hasattr(pdf_input, 'seek'):  # file-like object, e.g., UploadedFile
+            pdf_input.seek(0)
+            pdf_bytes = pdf_input.read()
+        elif isinstance(pdf_input, bytes):
+            pdf_bytes = pdf_input
+        else:
+            raise TypeError(f"Unsupported type for pdf_file_objects: {type(pdf_input)}")
+
+        self.pdf_stream = io.BytesIO(pdf_bytes)
+
 
     def _build_vectorstore(self):
-        # Extract text from PDF pages
-        reader = PdfReader(self.local_var["pdf_file_objects"])
+        if self.pdf_stream is None:
+            raise ValueError("PDF stream not prepared.")
+        self.pdf_stream.seek(0)
+        reader = PdfReader(self.pdf_stream)
         for page_num in range(len(reader.pages)):
             page = reader.pages[page_num]
             text = page.extract_text().strip() if page.extract_text() else ""
@@ -55,20 +99,74 @@ class PDFDeepInsights:
         similarities, indices = self.index.search(query_embedding, k)
         
         # Get page numbers from top matches (filtering out low similarity if needed)
-        page_numbers = sorted([self.documents[idx]['page'] for idx in indices[0] if similarities[0][indices[0].tolist().index(idx)] > 0.1])  # Threshold to avoid irrelevant pages
+        relevant_indices = [idx for i, idx in enumerate(indices[0]) if similarities[0][i] > 0.1]
+        page_numbers = sorted([self.documents[idx]['page'] for idx in relevant_indices])
         
         return page_numbers if page_numbers else None  # Return None if no relevant pages found
-    
+
+    def temp_locate_information(self) -> list:
+        # a temporary version of locate_information that simply uses a basic llm call to find the page numbers. 
+        # dependent on the user to provide where the information probably is 
+
+        agent = Agent(self.user_input)
+        system_prompt = """
+        Take a look over the user prompt, which should contain a page number of multiple page numbers.
+        Return the page numbers as a list in a json style dict. 
+
+        example: 
+        user_prompt: "Go through pages 5, 12, and 15 and get the following information... (rest is not relevant, only need the page numbers)"
+
+        output:
+        ```json
+        {
+            "page_numbers": [5, 12, 15]
+        }
+        ```
+        """
+
+        json_output = agent.json_agent(system_prompt=system_prompt, user_input=self.user_input)
+
+        # outputs as a list 
+        return json_output["page_numbers"]
+
     def _get_base64_images(self, page_numbers):
         image_b64 = {}
 
-    def analyze_page(self, page_numbers: list):
-        # takes a screen shot of the the pages given and tries to locate information that the user wants 
-        # returns generated response. 
-        
-        
+        if self.pdf_stream is None or not page_numbers:
+            return image_b64
 
-        return 
+        self.pdf_stream.seek(0)
+
+        # converts the specified pages to images
+        images = convert_from_bytes(self.pdf_stream.getvalue(), first_page=min(page_numbers), last_page=max(page_numbers), dpi=400)
+        sorted_pages = sorted(page_numbers)
+
+        for i, image in enumerate(images):
+            page_num = sorted_pages[i]
+            buffered = io.BytesIO()
+            image.save(buffered, format="PNG")
+            b64_image = base64.b64encode(buffered.getvalue()).decode()
+            image_b64[page_num] = b64_image
+        
+        return image_b64
+
+    def analyze_page(self, image_b64: dict):
+        # takes the dictionary of images and imports them into an LLM, which analyzes the image and generates a response based on the user prompt and image content
+        system_prompt = "Analyze the image given to you and answer the user's question accordingly. If the answer is not on the given page, simply say so."
+        user_content = [{"type": "text", "text": self.user_input}]
+
+        for base64_str in image_b64.values():
+            user_content.append({
+                "type": "image_url",
+                "image_url": {"url": f"data:image/png;base64,{base64_str}"}
+            })
+        
+        response = utils.get_response(system_prompt=system_prompt, user_prompt=user_content, show_stream=True)
+        llm_response = utils.display_stream(response)
+
+        utils.assistant_message("chat", llm_response)
+
+        return llm_response
     
     def analyze_dataframes_dict(self, pages):
         # works in parallel with analyze_page
@@ -79,7 +177,13 @@ class PDFDeepInsights:
         # gathers the info from both analyze_page and analyze_dataframes_dict functions and generates findings
         return 
     
-    async def main(self):
-        return 
-    
+    def main(self):
+        # version 1 is meant to be non parallel and simple
+        # the main objective is to extract the page numbers (which we'll have to better refine) and import those page images into an LLM which will then answer the user's prompt
+
+        page_numbers = self.temp_locate_information()
+        image_b64_dict = self._get_base64_images(page_numbers=page_numbers)
+        llm_response = self.analyze_page(image_b64=image_b64_dict)
+
+        return llm_response   
 
